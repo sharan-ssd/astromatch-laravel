@@ -1,0 +1,141 @@
+.mob-action-btns {
+    display: flex;
+    width: 100%;
+}
+
+li.profile-menu-list a i {
+    background: #dc416e;
+    padding: 7px;
+    border-radius: 50%;
+    color: #fff;
+}
+
+a.mobile-menus i {
+    background: #d93970;
+    padding: 10px;
+    border-radius: 50%;
+    color: #fff;
+    margin-right: 4px;
+}
+
+a.mobile-menus {
+    float: left;
+    width: 100%;
+    color: black;
+    padding: 7px 0px !important;
+    margin: 0 !important;
+    font-size: 14px !important;
+    /* border-bottom: 1px solid #ddd; */
+}
+
+li.profile-menu-list a {
+    padding: 5px 10px;
+    color: #000;
+    float: left;
+    width: 100%;
+}
+
+li.profile-menu-list a:hover {
+    background: #eeeeee;
+    transition: 0.5s;
+}
+
+img.header-profile {
+    height: 45px;
+    width: 48px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+.dropdown-profile {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content-profile {
+    display: none;
+    position: absolute;
+    right: -10%;
+    background-color: #f9f9f9;
+    min-width: 250px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 0;
+    z-index: 1;
+}
+
+li.profile-menu-list {
+    list-style-type: none;
+    font-size: 14px;
+    margin-bottom: 0px;
+    float: left;
+    width: 100%;
+}
+
+ul.profile-list-main {
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.dropdown-profile:hover .dropdown-content-profile {
+    display: block;
+}
+
+.dropbtn {
+    background: linear-gradient(341deg, #ec446db5, #23a4da96);
+    color: white;
+    /* padding: 16px; */
+    /* font-size: 16px; */
+    border: none;
+    /* padding: 10px; */
+    height: 40px;
+    width: 40px;
+    vertical-align: middle;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+.dropbtn:hover,
+.dropbtn:focus {
+    background-color: #fff;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    right: 10%;
+    top: 38px;
+    padding: 6px;
+    border-radius: 10px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 3px 10px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+}
+
+.dropdown a:hover {
+    background-color: #ddd;
+}
+
+.show {
+    display: block;
+}
+
+@media(max-width: 991px) {
+    .dropdown.menulist {
+        display: none !important;
+    }
+}
