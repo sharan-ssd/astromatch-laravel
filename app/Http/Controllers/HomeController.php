@@ -34,7 +34,7 @@ class HomeController extends Controller
         }
 
         if (session('cachedHoroscope')) {
-            return redirect('marriagereport');
+            return redirect('marriagereport-loader');
         }
 
         $request->session()->forget('cachedHoroscope');

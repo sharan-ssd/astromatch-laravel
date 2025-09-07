@@ -27,7 +27,7 @@
     <!-- endbuild -->
 
     <!--custom css start-->
-    <link rel="stylesheet" href="assets/css/customs.css"> -->
+    <link rel="stylesheet" href="assets/css/customs.css">
     <!--custom css end-->
 
 

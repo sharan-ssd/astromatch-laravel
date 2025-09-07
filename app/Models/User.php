@@ -2,47 +2,49 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var list<string>
-     */
+    protected $table = 'ab15_userInfo_table';
+    public $timestamps = false;
+
+    // Primary key column
+    protected $primaryKey = 'userID';
+
+    // Auto-increment is true for bigint(20)
+    public $incrementing = true;
+
+    // If it's bigint
+    protected $keyType = 'int';
+
     protected $fillable = [
-        'name',
+        'globalUserID',
+        'userName',
+        'userType',
+        'targetAudienceOfProducts',
         'email',
-        'password',
+        'googleID' ,
+        'profilePicture' ,
+        'isEmailVerified',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var list<string>
-     */
+    // Hide sensitive attributes (none here, but if needed add)
     protected $hidden = [
-        'password',
-        'remember_token',
+        // e.g. 'password', 'remember_token'
     ];
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
+    // Cast attributes
     protected function casts(): array
     {
         return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
+            'globalUserID' => 'integer',
+            'userID' => 'integer',
+            'targetAudienceOfProducts' => 'array', // since it's a SET type
         ];
     }
 }

@@ -23,10 +23,11 @@ class AuthController extends Controller
             $user = User::updateOrCreate(
                 ['email' => $googleUser->getEmail()],
                 [
-                    'name'     => $googleUser->getName(),
-                    'google_id'=> $googleUser->getId(),
-                    'avatar'   => $googleUser->getAvatar(),
-                    'password' => bcrypt(str()->random(16)), // random password
+                    'userName'              => $googleUser->getName(),
+                    'googleID'              => $googleUser->getId(),
+                    'profilePicture'        => $googleUser->getAvatar(),
+                    'password'              => bcrypt(str()->random(16)),
+                    'isEmailVerified'       => true,
                 ]
             );
 
@@ -41,6 +42,7 @@ class AuthController extends Controller
 
             
         } catch (\Exception $e) {
+            dd($e);
             return redirect('/')->with('error', 'Something went wrong with Google login!');
         }
     }
