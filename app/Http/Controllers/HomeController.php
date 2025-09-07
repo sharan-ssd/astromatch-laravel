@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Services\LanguageService;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AuthController;
-use App\Jobs\ProcessOrderJob;
+use App\Jobs\ReportGeneratorJob;
 use App\Http\Controllers\PaymentController;
 class HomeController extends Controller
 {
