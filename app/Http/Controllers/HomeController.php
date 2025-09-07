@@ -6,24 +6,25 @@ use Illuminate\Http\Request;
 use App\Services\LanguageService;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AuthController;
-
+use App\Jobs\ProcessOrderJob;
+use App\Http\Controllers\PaymentController;
 class HomeController extends Controller
 {
     protected $languageService;
 
     public function __construct(LanguageService $languageService){
         $this->languageService = $languageService;
+        view()->share('languages', $this->languageService->getLanguages());
+        view()->share('selectedLang', session('languageSelected', 'english'));
     }
 
     public function index(Request $request) {
         if ($request->isMethod('post') && $request->languageSelected) {
             $request->session()->put('languageSelected', $request->languageSelected);
+            return redirect('/');
         }
 
-        $languages = $this->languageService->getLanguages();
-        $selectedLang = session('languageSelected', 'english');
-
-        return view('frontend.home.home', compact('languages', 'selectedLang'));
+        return view('frontend.home.home');
     }
 
     public function submitHoroscope(Request $request) {
@@ -33,13 +34,24 @@ class HomeController extends Controller
             return redirect()->route('google.login');
         }
 
-        if (session('cachedHoroscope')) {
-            return redirect('marriagereport-loader');
+        if (!Auth::check() && !session('cachedHoroscope')) {
+            return redirect('/');
         }
 
+        // todo : process validation
+        
+        $saved_horoscope = session('cachedHoroscope');
         $request->session()->forget('cachedHoroscope');
+            
+        return $this->redirectToReportgenration($request, $saved_horoscope);
+    }
 
-        return $this->index();
+
+    public function redirectToReportgenration(Request $request, $saved_horoscope){
+        // todo: do report processing
+        // todo: should we process after payment or before?
+        ReportGeneratorJob::dispatch(auth()->user()); 
+        return view('frontend.plans.plan_listing');
     }
 
 }
