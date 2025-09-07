@@ -15,6 +15,10 @@ Route::get('/marriagereport', function () {
     return view('frontend.reports.match_maker_report');
 });
 
-Route::get('/dashboard.php', function () {
-    return redirect('/');
+Route::get('/dashboard', function () {
+    return view('/frontend.dashboard.dashboard');
+});
+
+Route::get('/faq', function () {
+    return view('/frontend.faq.faq');
 });

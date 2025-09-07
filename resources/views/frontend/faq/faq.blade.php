@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -58,7 +57,7 @@
                             <ul class="nav col-12 col-md-auto justify-content-center main-menu">
                                 <li class="nav-item -dropdown setup-process-item">
                                                                                                                                 <a class="btn btn-outline-mat btn-sm mt-2" style="font-size:15px; padding:12px" href="dashboard"><i class="fa fa-laptop px-2"></i>Go to Dashboard</a>
-                                                                                        <a class="btn btn-outline-mat btn-sm mt-2" style="font-size:15px; padding:12px" href="index.php"><i class="fa fa-home px-2"></i>Back to Home</a>
+                                                                                        <a class="btn btn-outline-mat btn-sm mt-2" style="font-size:15px; padding:12px" href="/"><i class="fa fa-home px-2"></i>Back to Home</a>
                                             <a href="https://drive.google.com/file/d/1U8j6etOcRhlkR6oL1Ekdbjg9NB2lNsv4/view?usp=sharing" target="_blank" class="btn btn-outline-mat btn-sm mt-2" style="font-size:15px; padding:12px"><img class="px-2" src="assets/img/Group.svg" class="user-guide" alt="User Guide" />User Guide</a>
                                                                         
                                 </li>
@@ -87,7 +86,7 @@
                                 <li class="profile-menu-list"><a href="editprofile.php" title=""><i class="fa fa-pencil"></i> Edit Profile</a></li>
                                 <li class="profile-menu-list"><a href="profilelist.php" title=""><i class="fa fa-list"></i> Horoscope List</a></li>
                                 <!--<li class="profile-menu-list"><a href="changepassword.php" title=""> <i class="fa fa-lock"></i> Change Password</a></li>-->
-                                <li class="profile-menu-list"><a href="{{ route('logout') }}" title=""><i class="fa fa-sign-out"></i> Logout</a></li>
+                                <li class="profile-menu-list"><a href="logout" title=""><i class="fa fa-sign-out"></i> Logout</a></li>
                             </ul>
                         </div>
                     </div>
@@ -327,259 +326,157 @@ li.profile-menu-list a i {
         $("#loginDiv").hide();
         $("#signupDiv").show();
 	}
-  </script><style>
-.rasichart-planet-names
-{
-  float:left;
-  width:100%;
-  padding: 0;
-  margin: 0;
-  line-height: 16px;
-}
-.twitter {
-  color: #000000;
-  text-decoration: none;
-  display: block;
-  padding: 14px;
-  /* -webkit-transition: all .5s ease;
-  -moz-transition: all .5s ease;
-  -ms-transition: all .5s ease;
-  -o-transition: all .5s ease;
-  transition: all .5s ease; */
-}
-
-.twitter:hover {
-  color: #FF7D6D;
-  text-decoration: none;
-}
-
-/* Floating Social Media Bar Style Starts Here */
-
-.fl-fl {
-  background: #00000030;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  padding: 0px 0px 0px 0px !important;
-  width: 190px;
-  position: fixed;
-  border-radius: 5px 0px 0px 5px;
-  right: -136px;
-  z-index: 1000;
-  font: normal normal 10px Arial;
-/*	-webkit-transition: all .5s ease;
-  -moz-transition: all .5s ease;
-  -ms-transition: all .5s ease;
-  -o-transition: all .5s ease;
-  transition: all .5s ease; */
-  
-}
-
-.fl-fl:hover {
-  right: 0;
-  cursor:pointer;
-}
-
-.fl-fl a {
-  color: #dc416e !important;
-  text-decoration: none;
-  text-align: center;
-  line-height: 43px!important;
-  vertical-align: top!important;
-}
-
-.float-fb {
-  top: 160px;
-}
-
-.float-tw {
-  top: 215px;
-}
-
-.float-gp {
-  top: 270px;
-}
-
-.float-rs {
-  top: 325px;
-}
-
-.float-ig {
-  top: 380px;
-}
-
-.float-pn {
-  top: 435px;
-}
-.fl-fl a i {
-  font-size: 24px;
-  padding-right: 20px;
-  padding-left: 14px;
-  padding-top: 14px;
-}
-</style>
-<main class="float-start w-100 body-main">
-  <section class="konow-more-zoidc d-inline-block w-100" style="background-color:white;">
-    <div class="container" style="overflow-x:hidden;">
-              <div class="row">
-          <div class="col-sm-12 col-md-6 col-lg-4">
-            <button name="btnDownload" class="btn btn-mat report-btns" onclick="downloadReport();">
-              <i class="fa fa-download"></i> Download            </button>
-          </div>          
-            <div class="col-sm-12 col-md-6 col-lg-4">
-              <button name="btnSendMail" class="btn btn-mat report-btns" onclick="sendMail();">
-                <i class="fa fa-envelope"></i> Send Mail              </button>
+  </script><main class="float-start w-100 body-main">
+    <section class="konow-more-zoidc d-inline-block w-100">
+        <div class="container mt-5">
+            <div class="col">
+                <div class="comon-heading text-center mt-5"><br>
+                    <h3 class="text-blue comon-heading mt-2 mb-3"> Frequently Asked Questions (FAQ) – astromatch.online </h3>
+                    <p class="address-details mb-5" style =" fontWeight: "bold";> World’s Most Advanced Astrological Marriage Decision-Making Platform. </p>
+                </div> 
             </div>
-            <div class="col-sm-12 col-md-6 col-lg-4">
-              <button name="btnSendWhatsApp" class="btn btn-mat report-btns" onclick="sendWhatsApp();">
-                <i class="fab fa-whatsapp"></i> Send in WhatsApp              </button>
-            </div>          
-      </div>
-            
-        <div style="color:darkblue;font-weight:bold;text-align:center;font-size:x-large;">Marriage Match Making</div><br/><div style="display:flex;justify-content:space-around;"><div style='width: 45%;float:left;margin-right:10px;border:2px solid #02a698;border-radius:15px;'><table cellpadding='5' style='vertical-align: middle;color:darkblue;border-collapse: collapse;font-weight:bold;width:100%;text-align:center;'><tr><td style='text-wrap:pretty;'>asf</td></tr><tr><td>Male</td></tr><tr><td>04/06/2021, 03:03 AM</td></tr><tr><td>Asdas<br/> Ma’rib<br/> Yemen</td></tr><tr><td>Uttara Bhādrapadā - Pisces</td></tr><tr><td>Lagna : Aries</td></tr></table></div><div style='width: 45%;float:left;margin-left:10px;border:2px solid #02a698;border-radius:15px;'><table cellpadding='5' style='vertical-align: middle;color:darkblue;border-collapse: collapse;font-weight:bold;width:100%;text-align:center;'><tr><td>asdfa</td></tr><tr><td>Female</td></tr><tr><td>03/02/2023, 01:00 AM</td></tr><tr><td>Asdas<br/> Ma’rib<br/> Yemen</td></tr><tr><td>Ardra - Gemini</td></tr><tr><td>Lagna : Scorpio</td></tr></table></div></div><div style='width:100%;margin-top:20px;border-top:2px solid #02a698;border-left:2px solid #02a698;border-right:2px solid #02a698;border-bottom:2px solid #02a698;text-align:center;font-size:22px;color:darkgreen;font-weight:bold;'>Standard Match</div><div style='text-align:center;margin-top:0px;border-left:2px solid #02a698;border-right:2px solid #02a698;width:100%;'><table style='border-collapse: collapse;color:maroon;font-weight:bold;width:99%;white-space:normal;font-size:1.5rem;text-align:center;'><tr><td style='border-bottom: 1px solid #cccccc;'>Dhina Match</td><td style='border-bottom: 1px solid #cccccc;'>0%</td><td style='border-bottom: 1px solid #cccccc;'>No Match</td></tr><tr><td style='border-bottom: 1px solid #cccccc;'>Gana Match</td><td style='border-bottom: 1px solid #cccccc;'>90%</td><td style='border-bottom: 1px solid #cccccc;'>Best Match</td></tr><tr><td style='border-bottom: 1px solid #cccccc;'>Mahendra Match</td><td style='border-bottom: 1px solid #cccccc;'>0%</td><td style='border-bottom: 1px solid #cccccc;'>No Match</td></tr><tr><td style='border-bottom: 1px solid #cccccc;'>Sthree Dheerga Match</td><td style='border-bottom: 1px solid #cccccc;'>100%</td><td style='border-bottom: 1px solid #cccccc;'>Perfect Match</td></tr><tr><td style='border-bottom: 1px solid #cccccc;'>Yoni Match</td><td style='border-bottom: 1px solid #cccccc;'>50%</td><td style='border-bottom: 1px solid #cccccc;'>Average Match</td></tr><tr><td style='border-bottom: 1px solid #cccccc;'>Rasi Match</td><td style='border-bottom: 1px solid #cccccc;'>70%</td><td style='border-bottom: 1px solid #cccccc;'>Good Match</td></tr><tr><td style='border-bottom: 1px solid #cccccc;'>Rasi Lord Match</td><td style='border-bottom: 1px solid #cccccc;'>0%</td><td style='border-bottom: 1px solid #cccccc;'>No Match</td></tr><tr><td style='border-bottom: 1px solid #cccccc;'>Vasiya Match</td><td style='border-bottom: 1px solid #cccccc;'>0%</td><td style='border-bottom: 1px solid #cccccc;'>No Match</td></tr><tr><td style='border-bottom: 1px solid #cccccc;'>Rajju Match</td><td style='border-bottom: 1px solid #cccccc;'>60%</td><td style='border-bottom: 1px solid #cccccc;'>Above Average Match</td></tr><tr><td style='border-bottom: 1px solid #cccccc;'>Vedhai Match</td><td style='border-bottom: 1px solid #cccccc;'>100%</td><td style='border-bottom: 1px solid #cccccc;'>Perfect Match</td></tr></table></div><div style='width:100%;margin-top:0px;border-top:2px solid #02a698;border-left:2px solid #02a698;border-right:2px solid #02a698;border-bottom:2px solid #02a698;text-align:center;color:deeppink;font-size:18px;font-weight:bold;padding-top:5px;'>Standard Match Percentage : <span style='color:deeppink;font-size:24px;'>47%</span><br/></div><br/><div style="float:left;width:100%;"><div style="display:flex;margin-top:20px;justify-content:space-around;flex-wrap:wrap;"><div style="margin-bottom:10px;"><table id="mainrasichart" style="border-collapse: collapse;font-weight:bold;height:450px;"><tr><td id="b12" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 100px;width: 100px;color: blue;font-size: 14px;word-wrap: break-word;overflow: hidden; background-color:#fb3535;color: white;"><span style='float:left;width:100%;padding: 0;margin: 0;line-height: 16px;'>Moon</span></td><td id="b1" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 100px;width: 100px;color: blue;font-size: 14px;word-wrap: break-word;overflow: hidden; background-color:#c0ff00;color: darkblue;"><span style='float:left;width:100%;padding: 0;margin: 0;line-height: 16px;'>Ascendant</span></td><td id="b2" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 100px;width: 100px;color: blue;font-size: 14px;word-wrap: break-word;overflow: hidden; background-color:#fd52fd;color: white;"><span style='float:left;width:100%;padding: 0;margin: 0;line-height: 16px;'>Sun</span><span style='float:left;width:100%;padding: 0;margin: 0;line-height: 16px;'>Mercury</span><span style='float:left;width:100%;padding: 0;margin: 0;line-height: 16px;'>Rahu</span></td><td id="b3" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 100px;width: 100px;color: blue;font-size: 14px;word-wrap: break-word;overflow: hidden; background-color:#fd5353;color: white;"><span style='float:left;width:100%;padding: 0;margin: 0;line-height: 16px;'>Venus</span></td></tr><tr><td id="b11" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 100px;width: 100px;color: blue;font-size: 14px;word-wrap: break-word;overflow: hidden; background-color:#ffeb3b;color: darkblue;"><span style='float:left;width:100%;padding: 0;margin: 0;line-height: 16px;'>Jupiter</span></td><td colspan="2" rowspan="2" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 100px;width: 100px;color: blue;font-size: 14px;word-wrap: break-word;overflow: hidden;">Male<br/>Rasi Chart</td><td id="b4" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 100px;width: 100px;color: blue;font-size: 14px;word-wrap: break-word;overflow: hidden; background-color:#09edbffa;color: darkblue;"><span style='float:left;width:100%;padding: 0;margin: 0;line-height: 16px;'>Mars</span></td></tr><tr><td id="b10" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 100px;width: 100px;color: blue;font-size: 14px;word-wrap: break-word;overflow: hidden; background-color:#09edbffa;color: darkblue;"><span style='float:left;width:100%;padding: 0;margin: 0;line-height: 16px;'>Saturn</span></td><td id="b5" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 100px;width: 100px;color: blue;font-size: 14px;word-wrap: break-word;overflow: hidden; background-color:#c0ff00;color: darkblue;"></td></tr><tr><td id="b9" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 100px;width: 100px;color: blue;font-size: 14px;word-wrap: break-word;overflow: hidden; background-color:#c0ff00;color: darkblue;"></td><td id="b8" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 100px;width: 100px;color: blue;font-size: 14px;word-wrap: break-word;overflow: hidden; background-color:#fb3535;color: white;"><span style='float:left;width:100%;padding: 0;margin: 0;line-height: 16px;'>Kethu</span></td><td id="b7" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 100px;width: 100px;color: blue;font-size: 14px;word-wrap: break-word;overflow: hidden; background-color:#09edbffa;color: darkblue;"></td><td id="b6" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 100px;width: 100px;color: blue;font-size: 14px;word-wrap: break-word;overflow: hidden; background-color:#fb3535;color: white;"></td></tr></table></div><div><table id="alliancerasichart" style="border-collapse: collapse;font-weight:bold;height:450px;width:100%;"><tr><td id="b12" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 100px;width: 100px;color: blue;font-size: 14px;word-wrap: break-word;overflow: hidden; background-color:#c0ff00;color: darkblue;"><span style='float:left;width:100%;padding: 0;margin: 0;line-height: 16px;'>Jupiter</span></td><td id="b1" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 100px;width: 100px;color: blue;font-size: 14px;word-wrap: break-word;overflow: hidden; background-color:#fb3535;color: white;"><span style='float:left;width:100%;padding: 0;margin: 0;line-height: 16px;'>Rahu</span></td><td id="b2" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 100px;width: 100px;color: blue;font-size: 14px;word-wrap: break-word;overflow: hidden; background-color:#09edbffa;color: darkblue;"><span style='float:left;width:100%;padding: 0;margin: 0;line-height: 16px;'>Mars</span></td><td id="b3" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 100px;width: 100px;color: blue;font-size: 14px;word-wrap: break-word;overflow: hidden; background-color:#fb3535;color: white;"><span style='float:left;width:100%;padding: 0;margin: 0;line-height: 16px;'>Moon</span></td></tr><tr><td id="b11" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 100px;width: 100px;color: blue;font-size: 14px;word-wrap: break-word;overflow: hidden; background-color:#09edbffa;color: darkblue;"><span style='float:left;width:100%;padding: 0;margin: 0;line-height: 16px;'>Venus</span><span style='float:left;width:100%;padding: 0;margin: 0;line-height: 16px;'>Saturn</span></td><td colspan="2" rowspan="2" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 100px;width: 100px;color: blue;font-size: 14px;word-wrap: break-word;overflow: hidden;">Female<br/>Rasi Chart</td><td id="b4" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 100px;width: 100px;color: blue;font-size: 14px;word-wrap: break-word;overflow: hidden; background-color:#c0ff00;color: darkblue;"></td></tr><tr><td id="b10" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 100px;width: 100px;color: blue;font-size: 14px;word-wrap: break-word;overflow: hidden; background-color:#fd5353;color: white;"><span style='float:left;width:100%;padding: 0;margin: 0;line-height: 16px;'>Sun</span></td><td id="b5" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 100px;width: 100px;color: blue;font-size: 14px;word-wrap: break-word;overflow: hidden; background-color:#09edbffa;color: darkblue;"></td></tr><tr><td id="b9" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 100px;width: 100px;color: blue;font-size: 14px;word-wrap: break-word;overflow: hidden; background-color:#fd52fd;color: white;"><span style='float:left;width:100%;padding: 0;margin: 0;line-height: 16px;'>Mercury</span></td><td id="b8" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 100px;width: 100px;color: blue;font-size: 14px;word-wrap: break-word;overflow: hidden; background-color:#c0ff00;color: darkblue;"><span style='float:left;width:100%;padding: 0;margin: 0;line-height: 16px;'>Ascendant</span></td><td id="b7" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 100px;width: 100px;color: blue;font-size: 14px;word-wrap: break-word;overflow: hidden; background-color:#fb3535;color: white;"><span style='float:left;width:100%;padding: 0;margin: 0;line-height: 16px;'>Kethu</span></td><td id="b6" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 100px;width: 100px;color: blue;font-size: 14px;word-wrap: break-word;overflow: hidden; background-color:#ffeb3b;color: darkblue;"></td></tr></table></div></div></div><div class="col-lg-12 text-center"><img src="img/houses.png" style="object-fit: cover;padding-top:50px;padding-bottom:40px;" /></div><div style="float:left;width:100%;"><div style="display:flex;margin-top:10px;justify-content:space-around;flex-wrap:wrap;"><div style="margin-bottom:10px;"><table id="mainnavamsachart" style="border-collapse: collapse;font-weight:bold;height:450px;font-size: 14px;font-family: maiandra gd;"><tr><td id="b12" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 110px;width: 110px;max-height: auto;max-width: auto;color: blue;font-weight: bold;word-wrap: break-word;overflow: hidden; background-color:#c0ff00;color: darkblue;"></td><td id="b1" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 110px;width: 110px;max-height: auto;max-width: auto;color: blue;font-weight: bold;word-wrap: break-word;overflow: hidden; background-color:#09edbffa;color: darkblue;"></td><td id="b2" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 110px;width: 110px;max-height: auto;max-width: auto;color: blue;font-weight: bold;word-wrap: break-word;overflow: hidden; background-color:#ffeb3b;color: darkblue;"><span style='float:left;width:100%;padding: 0;margin: 0;line-height: 16px;'>Rahu</span></td><td id="b3" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 110px;width: 110px;max-height: auto;max-width: auto;color: blue;font-weight: bold;word-wrap: break-word;overflow: hidden; background-color:#fb3535;color: white;"><span style='float:left;width:100%;padding: 0;margin: 0;line-height: 16px;'>Sun</span><span style='float:left;width:100%;padding: 0;margin: 0;line-height: 16px;'>Saturn</span></td></tr><tr><td id="b11" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 110px;width: 110px;max-height: auto;max-width: auto;color: blue;font-weight: bold;word-wrap: break-word;overflow: hidden; background-color:#fb3535;color: white;"></td><td colspan="2" rowspan="2" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 100px;width: 100px;color: blue;font-size: 14px;word-wrap: break-word;overflow: hidden;">Male<br/>Navamsa Chart</td><td id="b4" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 110px;width: 110px;max-height: auto;max-width: auto;color: blue;font-weight: bold;word-wrap: break-word;overflow: hidden; background-color:#c0ff00;color: darkblue;"><span style='float:left;width:100%;padding: 0;margin: 0;line-height: 16px;'>Ascendant</span><span style='float:left;width:100%;padding: 0;margin: 0;line-height: 16px;'>Mars</span></td></tr><tr><td id="b10" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 110px;width: 110px;max-height: auto;max-width: auto;color: blue;font-weight: bold;word-wrap: break-word;overflow: hidden; background-color:#09edbffa;color: darkblue;"></td><td id="b5" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 110px;width: 110px;max-height: auto;max-width: auto;color: blue;font-weight: bold;word-wrap: break-word;overflow: hidden; background-color:#fd52fd;color: white;"></td></tr><tr><td id="b9" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 110px;width: 110px;max-height: auto;max-width: auto;color: blue;font-weight: bold;word-wrap: break-word;overflow: hidden; background-color:#fb3535;color: white;"><span style='float:left;width:100%;padding: 0;margin: 0;line-height: 16px;'>Jupiter</span><span style='float:left;width:100%;padding: 0;margin: 0;line-height: 16px;'>Venus</span></td><td id="b8" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 110px;width: 110px;max-height: auto;max-width: auto;color: blue;font-weight: bold;word-wrap: break-word;overflow: hidden; background-color:#c0ff00;color: darkblue;"><span style='float:left;width:100%;padding: 0;margin: 0;line-height: 16px;'>Kethu</span></td><td id="b7" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 110px;width: 110px;max-height: auto;max-width: auto;color: blue;font-weight: bold;word-wrap: break-word;overflow: hidden; background-color:#09edbffa;color: darkblue;"></td><td id="b6" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 110px;width: 110px;max-height: auto;max-width: auto;color: bluefont-weight: bold;word-wrap: break-word;overflow: hidden; background-color:#fd5353;color: white;"><span style='float:left;width:100%;padding: 0;margin: 0;line-height: 16px;'>Moon</span><span style='float:left;width:100%;padding: 0;margin: 0;line-height: 16px;'>Mercury</span></td></tr></table></div><div><table id="alliancenavamsachart" style="border-collapse: collapse;font-weight:bold;height:450px;width:100%;"><tr><td id="b12" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 110px;width: 110px;max-height: auto;max-width: auto;color: blue;font-size: 14px;font-weight: bold;word-wrap: break-word;overflow: hidden; background-color:#c0ff00;color: darkblue;"><span style='float:left;width:100%;padding: 0;margin: 0;line-height: 16px;'>Moon</span></td><td id="b1" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 110px;width: 110px;max-height: auto;max-width: auto;color: blue;font-size: 14px;font-weight: bold;word-wrap: break-word;overflow: hidden; background-color:#09edbffa;color: darkblue;"></td><td id="b2" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 110px;width: 110px;max-height: auto;max-width: auto;color: blue;font-size: 14px;font-weight: bold;word-wrap: break-word;overflow: hidden; background-color:#ffeb3b;color: darkblue;"><span style='float:left;width:100%;padding: 0;margin: 0;line-height: 16px;'>Mars</span></td><td id="b3" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 110px;width: 110px;max-height: auto;max-width: auto;color: blue;font-size: 14px;font-weight: bold;word-wrap: break-word;overflow: hidden; background-color:#fb3535;color: white;"><span style='float:left;width:100%;padding: 0;margin: 0;line-height: 16px;'>Sun</span></td></tr><tr><td id="b11" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 110px;width: 110px;max-height: auto;max-width: auto;color: blue;font-size: 14px;font-weight: bold;word-wrap: break-word;overflow: hidden; background-color:#fb3535;color: white;"><span style='float:left;width:100%;padding: 0;margin: 0;line-height: 16px;'>Venus</span><span style='float:left;width:100%;padding: 0;margin: 0;line-height: 16px;'>Kethu</span></td><td colspan="2" rowspan="2" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 100px;width: 100px;color: blue;font-size: 14px;word-wrap: break-word;overflow: hidden;">Female<br/>Navamsa Chart</td><td id="b4" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 110px;width: 110px;max-height: auto;max-width: auto;color: blue;font-size: 14px;font-weight: bold;word-wrap: break-word;overflow: hidden; background-color:#c0ff00;color: darkblue;"><span style='float:left;width:100%;padding: 0;margin: 0;line-height: 16px;'>Ascendant</span></td></tr><tr><td id="b10" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 110px;width: 110px;max-height: auto;max-width: auto;color: blue;font-size: 14px;font-weight: bold;word-wrap: break-word;overflow: hidden; background-color:#09edbffa;color: darkblue;"></td><td id="b5" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 110px;width: 110px;max-height: auto;max-width: auto;color: blue;font-size: 14px;font-weight: bold;word-wrap: break-word;overflow: hidden; background-color:#fd52fd;color: white;"><span style='float:left;width:100%;padding: 0;margin: 0;line-height: 16px;'>Rahu</span></td></tr><tr><td id="b9" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 110px;width: 110px;max-height: auto;max-width: auto;color: blue;font-size: 14px;font-weight: bold;word-wrap: break-word;overflow: hidden; background-color:#fb3535;color: white;"></td><td id="b8" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 110px;width: 110px;max-height: auto;max-width: auto;color: blue;font-size: 14px;font-weight: bold;word-wrap: break-word;overflow: hidden; background-color:#c0ff00;color: darkblue;"><span style='float:left;width:100%;padding: 0;margin: 0;line-height: 16px;'>Mercury</span></td><td id="b7" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 110px;width: 110px;max-height: auto;max-width: auto;color: blue;font-size: 14px;font-weight: bold;word-wrap: break-word;overflow: hidden; background-color:#09edbffa;color: darkblue;"><span style='float:left;width:100%;padding: 0;margin: 0;line-height: 16px;'>Jupiter</span><span style='float:left;width:100%;padding: 0;margin: 0;line-height: 16px;'>Saturn</span></td><td id="b6" style="background-color: white;border: 1px solid black;text-align: center;padding: 10px;height: 110px;width: 110px;max-height: auto;max-width: auto;color: blue;font-size: 14px;font-weight: bold;word-wrap: break-word;overflow: hidden; background-color:#fd5353;color: white;"></td></tr></table></div></div></div>        <p class="mb-4">Dear user, do you know?  Based on birth star <span style='color:red; font-weight:bold;  font-style: italic;'>That experienced astrologers give <u>only 20% importance</u></span> to these ten matches?</p>
-        
-        <p class="mb-4"><span style='color: maroon; font-weight:bold;'>This is why even if you send your horoscope based on this ten matching method, many times it is rejected by the groom's family as not suitable.</span></p>
-        
-        <p class="mb-4">Based on our survey of over 150 marriage matching astrologers over the past 2 years,</p>
-        
-        <p class="mb-4">Beyond these ten matches, software-based the various prediction methods they use to make the final decision.</p>
-        
-        <p class="mb-4"><span style='color:#0EC4E8; font-weight:bold; font-style: italic;'><u>With over 80% accuracy</u></span>, our exclusive invention <span style='color:blue; font-weight:bold;'>Vihaga Yoga Pattathi (VYP) matching-method</span> by looking for matching,</p>
-        
-        <p class="mb-4">Find your perfect life partner fast - get our most accurate high-quality marriage match report, <span style='font-weight:bold;font-style: italic;'>now at a discounted price!</span></p>        
-                  <div class="pricing-table table-1">
-                    <div class="ptable-item featured-item">
-                        <div class="ptable-single">
-                            <div class="ptable-header">                                
-                              <a href="horoscopeConfirmation.php?mainProfileId=11115&allianceProfileId=11116&decisionID1=8653&decisionID2=8654&matchMethod=complete&matchID=1774">
-                                <div class="ptable-title">
-                                    <h2>See The Exact Match</h2>
-                                </div>
-                                <div class="ptable-price">
-                                    <h2><small>₹</small>599 <span class="strikethrough">₹1,000</span><span> <span> + GST</span></h2>
-                                    <span class="price-note"><i>per Report</i></span>
-                                </div>
-                              </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>                    
-
-                <h3>Here, It's for you:</h3>
-
-                <p class="mb-4">📝 What's included in the report?</p>
-                <div class="content-section">
-                    <span class="underline"></span>
-                    <span class="short-underline"></span>
+            <div class="row" style="font-family: Arial, sans-serif; padding: 20px; border-radius: 10px; width: fit-content; max-width: auto; text-align: left; margin-left: 5px;">
+              <div class="col">
+                  <div class="address-details mb-3 ">
+                    <h5 class="contact-title m-1 mb-2" style="padding-bottom: 20px; text-align: center; text-decoration: underline;"> 1. PRE-PURCHASE CLARIFICATIONS  </h5>
+                    <h6 class="contact-title m-1 mb-2"> Q1: What makes astromatch.online different from other matchmaking platforms? </h6>
+                    <p>Unlike traditional matchmaking services that only provide a list of profiles based on filters, <span style="font-weight: bold;">astromatch.online</span> offers a final marriage decision-making report using Parasara Maharishi’s Vedic Astrology principles. We evaluate Birth Star, 9 Planets, 12 Houses, Doshas, Dasa Sandhi, and Numerology to provide the most accurate marriage compatibility rating.</p>                        
+                  </div><br>
+                  <div class="address-details mb-3 ">
+                    <h6 class="contact-title m-1 mb-2"> Q2: How is your matchmaking report different from a free horoscope match on other sites? </h6>
+                    <p>Most free horoscope matching tools only check <strong>basic star and planetary position compatibility</strong>, whereas our report performs <strong>deep-level astrological calculations</strong>, ensuring higher accuracy and <strong>avoiding misleading matches</strong>.</p>                        
+                  </div><br>
+                  <div class="address-details mb-3 ">
+                    <h6 class="contact-title m-1 mb-2"> Q3: Is Rs. 599 worth the price for a matchmaking report? </h6>
+                      <p>Absolutely! This is not just a general compatibility check—it’s an in-depth, multi-dimensional astrological analysis.</p>
+                        <ul>
+                          <li> A detailed <strong>PDF report</strong> (available in 6 languages).</li>
+                          <li> Accurate insights based on <strong>Vedic Astrology</strong> (beyond just "Porutham" matching).</li>
+                          <li> Guidance on <strong>remedial measures</strong> in case of issues.</li>
+                          <li> Instant access via <strong>download, email, or WhatsApp</strong>.</li>
+                        </ul>
+                  </div><br>
+                  <div class="address-details mb-3 ">
+                    <h6 class="contact-title m-1 mb-2"> Q4: Do I need birth details of both bride and groom for the report? </h6>
+                    <p>Yes, for the most <strong>accurate compatibility analysis</strong>, you need:</p>
+                        <ul>
+                          <li> <strong>Bride’s</strong>Date, Time, and Place of Birth.</li>
+                          <li> <strong>Groom’s</strong> Date, Time, and Place of Birth.</li>
+                        </ul>                        
+                  </div><br>
+                  <div class="address-details mb-3 ">
+                    <h6 class="contact-title m-1 mb-2"> Q5: What if I don’t know the exact birth time? </h6>
+                    <p>If the <strong>birth time is unknown</strong>, we recommend getting a <strong>birth time rectification</strong> done by a professional astrologer before ordering the report. An inaccurate time can significantly impact predictions.</p>                        
+                  </div><br>
+                  <div class="address-details mb-3 ">
+                    <h6 class="contact-title m-1 mb-2"> Q6: How long does it take to get the report after payment? </h6>
+                    <p>You will receive your report<strong> instantly </strong>after payment via:</p> 
+                      <ul>
+                          <li> <strong>Download Link</strong></li>
+                          <li> <strong>WhatsApp</strong></li>
+                          <li> <strong>Email</strong></li>
+                        </ul>                       
+                  </div><br>
+                  <div class="address-details mb-3 ">
+                    <h6 class="contact-title m-1 mb-2"> QQ7: Do you provide personalized consultations along with the report? </h6>
+                    <p>Currently, we provide <strong>only the detailed report</strong>. If you need further guidance, you may consult a professional astrologer based on the report insights.</p>                        
+                  </div><br>
+                  <div class="address-details mb-3 ">
+                    <h5 class="contact-title m-1 mb-2" style="padding-bottom: 20px; text-align: center; text-decoration: underline;"> 2. ON-PURCHASE CLARIFICATIONS </h5>
+                    <h6 class="contact-title m-1 mb-2"> Q8: What if the report shows low compatibility? Should we cancel the marriage? </h6>
+                    <p>Not necessarily! Our report provides <strong>practical guidance</strong> based on astrology.</p>      
+                      <ul>
+                          <li> If the rating is <strong> moderate (55%-69%)</strong>, mutual understanding and remedies may help.</li>
+                          <li> If the rating is <strong>low (40%-54%)</strong> we recommend astrological <strong>remedies and expert advice</strong> before making a decision.</li>
+                          <li> If the rating is <strong>very low (<40%)</strong>, reconsideration is advised.</li>
+                        </ul>  
+                      <p>Marriage is a <strong>combination of astrological, emotional, and personal compatibility</strong>-we help in making a well-informed decision rather than an instant rejection.</p>                
+                  </div><br>
+                  <div class="address-details mb-3 ">
+                    <h6 class="contact-title m-1 mb-2"> Q9: Can we do remedies if there are Doshas in the report? </h6>
+                    <p>Yes, the report mentions suggested remedies based on traditional Vedic astrology, including.</p>    
+                      <ul>
+                          <li> Temple visits </li>
+                          <li> Mantras and prayers </li>
+                          <li> Specific fasting or rituals </li>
+                          <li> Gemstone recommendations (if applicable) </li>
+                        </ul>                    
+                  </div><br>
+                  <div class="address-details mb-3 ">
+                    <h6 class="contact-title m-1 mb-2"> Q10: What if parents or elders don’t believe in this detailed analysis? </h6>
+                    <p>If they trust basic <strong>Porutham matching</strong>, show them how this report covers <strong>ALL key astrological aspects</strong> for a more <strong>accurate decision</strong>. Our method ensures <strong>clarity and logical insights</strong>, making it a valuable tool for <strong>finalizing alliances responsibly</strong>.</p>                        
+                  </div><br>
+                  <div class="address-details mb-3 ">
+                    <h5 class="contact-title m-1 mb-2" style="padding-bottom: 20px; text-align: center; text-decoration: underline;"> 3. POST-PURCHASE USAGE CLARIFICATIONS  </h5>
+                    <h6 class="contact-title m-1 mb-2"> Q11: How can I access my report again if I lose it? </h6>
+                    <p>Your report is securely stored. You can:</p>  
+                      <ul>
+                          <li> <strong> Re-download </strong>it from the link provided.</li>
+                          <li> <strong> Request a resend </strong>via email or WhatsApp (by providing your order ID).</li>
+                        </ul>                      
+                  </div><br>
+                  <div class="address-details mb-3 ">
+                    <h6 class="contact-title m-1 mb-2"> Q12: Can I get the report in a different language after purchase? </h6>
+                    <p>Yes, you can request the same report in another available language for<strong> a small additional fee.</strong></p>                        
+                  </div><br>
+                  <div class="address-details mb-3 ">
+                    <h6 class="contact-title m-1 mb-2"> Q13: Can I generate reports for multiple alliances? </h6>
+                    <p>Yes! Many users generate reports for <strong> multiple alliances </strong> before making a final decision. You can order <strong>multiple reports</strong> and compare compatibility.</p>                        
+                  </div><br>
+                  <div class="address-details mb-3 ">
+                    <h6 class="contact-title m-1 mb-2"> Q14: Can I gift this report to a friend or relative? </h6>
+                    <p>Yes! Simply enter their birth details, and the report can be sent <strong> directly to them via email or WhatsApp </strong>.</p>                        
+                  </div><br>
+                  <div class="address-details mb-3 ">
+                    <h5 class="contact-title m-1 mb-2" style="padding-bottom: 20px; text-align: center; text-decoration: underline;"> 4. PLATFORM RELATED CLARIFICATIONS </h5>
+                    <h6 class="contact-title m-1 mb-2"> Q15: What makes you the ‘World’s Most Advanced Astrological Marriage Decision-Making Platform’? </h6>
+                    <p>Unlike profile-based matchmaking platforms, we go beyond just listing profiles. We:</p>   
+                      <ul>
+                          <li> <strong> Focus on final decision-making </strong>instead of endless profile browsing.</li>
+                          <li> Use<strong> Parasara Maharishi-based Vedic Astrology </strong>, ensuring the <strong> highest accuracy </strong>.</li>
+                          <li> Cover<strong> all astrological aspects </strong>,not just <strong> basic Porutham matching </strong>.</li>
+                          <li> Provide reports in<strong> 6 languages </strong>, making it accessible to everyone.</li>
+                          <li> Deliver<strong> instant reports </strong>via<strong> download, email, and WhatsApp </strong>for convenience.</li>
+                      </ul>                     
+                  </div><br>
+                  <div class="address-details mb-3 ">
+                    <h6 class="contact-title m-1 mb-2"> Q16: Why should I trust your matchmaking over personal astrologers? </h6>
+                    <p>Traditional astrologers may <strong> not always provide a structured, in-depth analysis </strong> like our reports do. Our system ensures:</p>   
+                      <ul>
+                          <li> <strong> Standardized, unbiased results </strong>without human errors.</li>
+                          <li> <strong> Comprehensive analysis </strong> covering <strong> 9 planets, 12 houses, doshas, numerology, and Dasa Sandhi </strong>.</li>
+                          <li> <strong> No manual interpretation bias </strong> -purely astrology-driven compatibility ratings.</li>
+                          <li> Provide reports in<strong> 6 languages </strong>, making it accessible to everyone.</li>
+                          <li> Deliver<strong> instant reports </strong>via<strong> download, email, and WhatsApp </strong>for convenience.</li>
+                      </ul>                     
+                  </div><br>
+                  <div class="address-details mb-3 ">
+                    <h6 class="contact-title m-1 mb-2"> Q17: How do I stay updated with your latest offerings? </h6>
+                    <p>Follow us on:</p>     
+                      <ul>
+                          <li> <strong> WhatsApp Updates </strong>[Your WhatsApp Number]</li>
+                          <li> <strong>Email Newsletter </strong>[Subscribe Link]</li>
+                          <li> <strong>Website </strong>[Your Website]</li>
+                          <li> Gemstone recommendations (if applicable) </li>
+                        </ul>                   
+                  </div><br>
+                  <div class="address-details mb-3 ">
+                    <h5 class="contact-title m-1 mb-2" style="padding-bottom: 20px; text-align: center; text-decoration: underline;"> CONCLUSION – WHY CHOOSE astromatch.online?  </h5>
+                      <ul>
+                          <li> <strong> Accurate & Advanced: </strong>Based on <strong> Vedic Astrology & Numerology</strong>.</li>
+                          <li> <strong> Comprehensive Decision-Making: </strong>Beyond<strong> just profile filtering.</strong>.</li>
+                          <li> <strong> Instant Access: </strong>Reports in<strong> 6 languages via download, email, and WhatsApp.</strong>.</li>
+                          <li> <strong> Practical Guidance: Remedies & personalized insights </strong>included.</li>
+                          <li> <strong> Best Value for Money: Only Rs. 599 </strong>for a <strong>lifetime clarity on marriage decisions. </li>
+                        </ul>   
+                        <p><strong> Make the Right Marriage Decision with Confidence – Order Your Report Now!</strong></p>                     
+                  </div><br>
                 </div>
-                <p class="mb-4"><ul style='list-style-type: none;'>
-<li>✅ <b>15 pages for you</b> – Simple, clear compatibility analysis (emotional, psychological, spiritual, and astrological).</li>
-<li>✅ <b>15 pages for your astrologer</b> – Advanced technical calculations using our exclusive Vivaha Yoga Pathi (VYP) system.</li>
-<li>✅ <b>Your personal relationship strengths and weaknesses</b> – So you know exactly what to expect.</li>
-<li>✅ <b>Spiritual and psychological solutions</b> – Personalized remedies to enhance your bond and overcome challenges.</li>
-<li>✅ <b>Exclusive Astro Music Therapy</b> – Special raga-based mantras to neutralize planetary imbalances.</li>
-</ul>
-<p>This is not just another basic horoscope matching.<br>
-It is a deep, scientific marriage compatibility analysis trusted by astrologers and spiritual seekers worldwide.</p></p>
-
-                <h3></h3><iframe src="New Alliance Match Making Report.pdf" width="100%" height="750px" style="border: none;"></iframe> 
-        <div class="mt-3">
-        <h3>What happens if you ignore this?</h3>
-        <p class="mb-4"><ul style='list-style-type: none;'>
-<li>⏳ <b>You may unknowingly choose an incompatible partner, leading to years of struggle.</b></li>
-<li>⏳ <b>Wrong compatibility can lead to emotional pain, stress, and separation.</b></li>
-<li>⏳ <b>Missed opportunities – Your perfect match may slip away if you don’t check deep compatibility.</b></li>
-<li>⏳ <b>Karmic mismatches can create lifelong challenges that could have been avoided.</b></li>
-</ul>
-<p>Why take a chance when you can make an informed decision?<br>
-Introducing the most advanced 30-page personalized marriage compatibility report!</p></p>
-        
-        <div class="macth-payment">
-          <a href="horoscopeConfirmation.php?mainProfileId=11115&allianceProfileId=11116&decisionID1=8653&decisionID2=8654&matchMethod=complete&matchID=1774" class="btn btn-mat mb-1 mt-3 btn-sm">Instantly, See The Exact Match!</a>
-          <span class="buynow-note"><b>Note</b>: Click this button to buy this package</span>
+              </div>
+            </div>
         </div>
-        </div>   
-        </div>   
-  </section>
-</main>
-
-<!-- Modal -->
-<div class="modal fade" id="modalCenter">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-body">
-        <i><h5 class="modal-title" id="lblAlert" style="font-weight: bold"></h5></i>
-        <div class="col-md">
-          <div class="demo-inline-spacing">
-            <div class="spinner-border spinner-border-sm text-primary" role="status"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-
-  localStorage.removeItem("submittedOnce");
-
-  function downloadReport() {
-    document.getElementById('lblAlert').innerText = "PDF is downloading";
-    window.location.href = "downloadReport.php?decisionId=8653&mainProfileId=11115&allianceProfileId=11116&matchmethod=10point&language=en";
-    setTimeout(function() {
-       hidePopup();
-      },2000);
-  }
-  function sendMail() {
-    document.getElementById('lblAlert').innerText = "Sending EMail (You will receive mail within 5mins)";
-    showPopup();
-    let mainProfileId = "11115";
-    let allianceProfileId = "11116";
-    let decisionId = "8653";
-    let matchmethod = "10point";
-    let language = "en";
-    $.ajax({
-      url: 'sendMarriageReportMail.php',
-      type: 'POST',
-      dataType: 'text',
-      data: "mainProfileId=" + mainProfileId + "&allianceProfileId=" + allianceProfileId + "&decisionId=" + decisionId + "&matchmethod=" + matchmethod + "&language=" + language,
-      success: function (data) {
-        if(data != "")
-          hidePopup();
-        else
-          document.getElementById('lblAlert').innerText = data;
-      }
-    });
-  }
-  function sendWhatsApp() {
-    document.getElementById('lblAlert').innerText = "Sending to WhatsApp";
-    showPopup();
-    let mainProfileId = "11115";
-    let allianceProfileId = "11116";
-    let decisionId = "8653";
-    let matchmethod = "10point";
-    let language = "en";
-    $.ajax({
-      url: 'sendMarriageReportWhatsApp.php',
-      type: 'POST',
-      dataType: 'text',
-      data: "mainProfileId=" + mainProfileId + "&allianceProfileId=" + allianceProfileId + "&decisionId=" + decisionId + "&matchmethod=" + matchmethod + "&language=" + language,
-      success: function (data) {
-        if(data != "")
-          hidePopup();
-        else
-          document.getElementById('lblAlert').innerText = data;
-      }
-    });
-  }
-  function showPopup()
-  {
-    $('#modalCenter').modal('show');
-  }
-  function hidePopup()
-  {
-    $('#modalCenter').modal('hide');
-  }
-</script><style>
+   </section>
+</main><style>
 ul.cms-links {
     margin: 0;
     padding-left: 10px;
@@ -656,7 +553,7 @@ ul.cms-links li a {
                                 </div>
                                 
                                 <div class="mt-3">
-                                                                    <a href="faq.php" class="btn btn-mat btn-sm mt-2"><img class="mr-1 px-2" src="assets/img/Faq.svg" alt="FAQ" /> FAQ</a>
+                                                                    <a href="faq" class="btn btn-mat btn-sm mt-2"><img class="mr-1 px-2" src="assets/img/Faq.svg" alt="FAQ" /> FAQ</a>
                                     <a href="https://drive.google.com/file/d/1U8j6etOcRhlkR6oL1Ekdbjg9NB2lNsv4/view?usp=sharing" target="_blank" class="btn btn-outline-mat btn-sm mt-2" style="font-size:15px; padding:12px"><img src="assets/img/Group.svg" class="user-guide" alt="User Guide" />User Guide</a>
                                     <a href="#feedbackModal" data-bs-toggle="modal" class="btn btn-outline-mat btn-sm mt-2"><img class="px-2" src="assets/img/Feedback.svg" alt="Feedback" />Send Feedback</a>                                    
                                     <div class="socialmedia-icons-footer mt-2 d-none">
