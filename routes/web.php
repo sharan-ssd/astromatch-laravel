@@ -15,6 +15,13 @@ Route::get('/marriagereport', function () {
     return view('frontend.reports.match_maker_report');
 });
 
+Route::get('/marriagereport-loader', function () {
+    if (!session()->has('cachedHoroscope')) {
+        return redirect('/');
+    }
+    return view('frontend.reports.report_loader');
+});
+
 Route::get('/dashboard', function () {
     return view('/frontend.dashboard.dashboard');
 });
