@@ -34,7 +34,7 @@ class AuthController extends Controller
             Auth::login($user);
             
             if(session('cachedHoroscope')){
-                return app(HomeController::class)->submitHoroscope(request());
+                return app(HomeController::class)->redirectToReportgenration(request());
             }
             else{
                 return redirect()->intended('/');
