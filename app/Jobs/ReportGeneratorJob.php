@@ -21,9 +21,46 @@ class ReportGeneratorJob implements ShouldQueue
         $this->user = $user;
     }
 
-    public function handle()
+    public function handle(Request $request, $saved_horoscope)
     {
         print_r("Deferred task fired for user: " . $this->user->id);
         \Log::info("Deferred task fired for user: " . $this->user->id);
+        try {
+            $data = $request->all();
+
+            DB::beginTransaction();
+
+            // ✅ Example Insert using Query Builder
+            $mainProfileId = DB::table('ab15b_astroProfile_table')->insertGetId([
+                'astroProfileName' => $data['fullname1'],
+                'userName' => $data['fullname1'],
+                'gender' => 'Male',
+                'dateOfBirth' => $data['male-year'] . '-' . $data['male-month'] . '-' . $data['male-date'],
+                'timeOfBirth' => $this->convertTo24Hour($data['male-hour'], $data['male-minute'], $data['ampm1']),
+                'placeOfBirthCity' => explode(",", $data['maleplace'])[0] ?? '',
+                'placeOfBirthState' => explode(",", $data['maleplace'])[1] ?? '',
+                'placeOfBirthCountry' => explode(",", $data['maleplace'])[2] ?? '',
+                'associatedUserID' => $userId,
+                'isAllianceProfile' => 'Y',
+                'isMainUserProfile' => 'Y',
+                'isdCode' => $isdCode,
+                'mobileNumber' => $mobile,
+                'email' => $email,
+            ]);
+
+            Log::info("Main horoscope created: " . $mainProfileId);
+        } catch (Exception $ex) {
+            DB::rollBack();
+            Log::error($ex->getMessage());
+            return back()->with('error', 'Something went wrong, please try later.');
+        }
     }
+
+    private function convertTo24Hour($hour, $minute, $ampm)
+    {
+        if ($ampm == "AM" && $hour == "12") $hour = 0;
+        if ($ampm == "PM" && $hour != "12") $hour += 12;
+        return sprintf("%02d:%02d", $hour, $minute);
+    }
+
 }
