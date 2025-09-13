@@ -54,4 +54,14 @@ class HomeController extends Controller
         return view('frontend.plans.plan_listing');
     }
 
+
+    public function profile(Request $request) {
+        return view('frontend.home.profile');
+    }
+
+
+    public function horoscopelist(Request $request) {
+        return view('frontend.home.horoscopelist');
+    }
+
 }

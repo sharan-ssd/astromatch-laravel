@@ -31,3 +31,7 @@ Route::get('/marriagereport-loader', function () {
 Route::get('/dashboard.php', function () {
     return redirect('/');
 });
+
+
+Route::get('/profile', [HomeController::class, 'profile']);
+Route::get('/horoscopelist', [HomeController::class, 'horoscopelist']);
