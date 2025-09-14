@@ -7,6 +7,7 @@ use App\Services\LanguageService;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AuthController;
 use App\Jobs\ReportGeneratorJob;
+use App\Jobs\ProcessSomething;
 use App\Http\Controllers\PaymentController;
 class HomeController extends Controller
 {
@@ -30,7 +31,8 @@ class HomeController extends Controller
     public function submitHoroscope(Request $request) {
 
         if (!Auth::check()) {
-            $request->session()->put('cachedHoroscope', $request->all());
+            session('cachedHoroscope', $request->all());
+            session()->save();
             return redirect()->route('google.login');
         }
 
@@ -41,7 +43,7 @@ class HomeController extends Controller
         // todo : process validation
         
         $saved_horoscope = session('cachedHoroscope');
-        $request->session()->forget('cachedHoroscope');
+        session('cachedHoroscope', null);
             
         return $this->redirectToReportgenration($request, $saved_horoscope);
     }
@@ -50,7 +52,14 @@ class HomeController extends Controller
     public function redirectToReportgenration(Request $request, $saved_horoscope){
         // todo: do report processing
         // todo: should we process after payment or before?
-        ReportGeneratorJob::dispatch(auth()->user()); 
+        if (! session()->has('report_unique_id')) {
+            session(['report_unique_id' => uniqid()]);
+            session()->save();
+        }
+        $unique_id = session('report_unique_id');
+    
+        ProcessSomething::dispatch(auth()->user()); 
+        dd($unique_id);
         return view('frontend.plans.plan_listing');
     }
 

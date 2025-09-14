@@ -10,7 +10,7 @@ Route::get('auth/google/callback', [AuthController::class, 'handleGoogleCallback
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::match(['get', 'post'], '/', [HomeController::class, 'index']);
-Route::match(['post'], '/submit-horoscope', [HomeController::class, 'submitHoroscope']);
+Route::match(['POST', 'GET'], '/submit-horoscope', [HomeController::class, 'submitHoroscope']);
 Route::post('/payment/create-order', [PaymentController::class, 'createOrder']);
 
 Route::get('/marriagereport', function () {
@@ -28,10 +28,21 @@ Route::get('/marriagereport-loader', function () {
     return view('frontend.reports.report_loader');
 });
 
-Route::get('/dashboard.php', function () {
-    return redirect('/');
+Route::get('/dashboard', function () {
+    return view('/frontend.dashboard.dashboard');
+});
+
+Route::get('/faq', function () {
+    return view('/frontend.faq.faq');
 });
 
 
 Route::get('/profile', [HomeController::class, 'profile']);
 Route::get('/horoscopelist', [HomeController::class, 'horoscopelist']);
+Route::get('/dashboard', function () {
+    return view('/frontend.dashboard.dashboard');
+});
+
+Route::get('/faq', function () {
+    return view('/frontend.faq.faq');
+});
