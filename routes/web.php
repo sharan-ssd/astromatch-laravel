@@ -5,11 +5,13 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\paymentController;
 
+Route::post('/changeLanguage', [HomeController::class, 'index']);
 Route::get('auth/google', [AuthController::class, 'redirectToGoogle'])->name('google.login');
 Route::get('auth/google/callback', [AuthController::class, 'handleGoogleCallback']);
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::match(['get', 'post'], '/', [HomeController::class, 'index']);
+
 Route::match(['POST', 'GET'], '/submit-horoscope', [HomeController::class, 'submitHoroscope']);
 Route::post('/payment/create-order', [PaymentController::class, 'createOrder']);
 
@@ -38,6 +40,7 @@ Route::get('/faq', function () {
 
 
 Route::get('/profile', [HomeController::class, 'profile']);
+Route::get('/edit-profile', [HomeController::class, 'editprofile']);
 Route::get('/horoscopelist', [HomeController::class, 'horoscopelist']);
 Route::get('/dashboard', function () {
     return view('/frontend.dashboard.dashboard');

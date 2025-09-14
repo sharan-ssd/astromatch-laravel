@@ -34,7 +34,7 @@
             @endif
 
             <div class="action-btns text-end me-5 p-1.5 me-lg-0 d-none d-md-block d-lg-block justify-content-end">
-                <form name="languageForm" method="post">
+                <form name="languageForm" method="post" action="/changeLanguage">
                     @csrf
                     <div class="form-group">
                         <select class="form-select-lg language-selection multi-language-selectlist"

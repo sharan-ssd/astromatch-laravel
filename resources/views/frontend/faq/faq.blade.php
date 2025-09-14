@@ -82,7 +82,7 @@
                         <img class="header-profile" src="assets/img/profile.png" alt="Profile">
                         <div class="dropdown-content-profile">
                             <ul class="profile-list-main">
-                                <li class="profile-menu-list"><a href="myprofile.php" title=""><i class="fa fa-user"></i> My Profile</a></li>
+                                <li class="profile-menu-list"><a href="profile" title=""><i class="fa fa-user"></i> My Profile</a></li>
                                 <li class="profile-menu-list"><a href="editprofile.php" title=""><i class="fa fa-pencil"></i> Edit Profile</a></li>
                                 <li class="profile-menu-list"><a href="profilelist.php" title=""><i class="fa fa-list"></i> Horoscope List</a></li>
                                 <!--<li class="profile-menu-list"><a href="changepassword.php" title=""> <i class="fa fa-lock"></i> Change Password</a></li>-->
@@ -122,7 +122,7 @@
                     <ul class="nav col-12 col-md-auto justify-content-center main-menu">
                         <li class="nav-item -dropdown mt-3">
                                                                     <a class="mt-2 mb-2 p-2 mobile-menus" href="dashboard.php"> <i class="fa fa-home"></i> Dashboard </a>
-                                        <a class="mt-2 mb-2 p-2 mobile-menus" href="myprofile.php"> <i class="fa fa-user"></i> My Profile </a>
+                                        <a class="mt-2 mb-2 p-2 mobile-menus" href="profile"> <i class="fa fa-user"></i> My Profile </a>
                                         <a class="mt-2 mb-2 p-2 mobile-menus" href="editprofile.php"> <i class="fa fa-pencil"></i> Edit Profile </a>
                                         <a class="mt-2 mb-2 p-2 mobile-menus" href="profilelist.php"> <i class="fa fa-list"></i> Horoscope List </a>
                                         <!--<a class="mt-2 mb-2 p-2 mobile-menus" href="changepassword.php"> <i class="fa fa-lock"></i> Change Password </a>-->

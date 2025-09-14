@@ -1,140 +1,6 @@
+@extends('frontend.template') 
 
-<!doctype html>
-<html lang="en">
-<head>
-    <!--required meta tags-->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
-    
-    <!--meta-->
-    <meta name="description" content="Astrology Website">
-    <meta name="author" content="JesperApps">
-
-    <!--favicon icon-->
-    <link rel="icon" href="assets/img/favicon.png" type="image/png" sizes="16x16">
-
-    <!--title-->
-    <title>Astro Match Online - Find Your Perfect Cosmic Connection</title>
-
-    <!--build:css-->
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link href="assets/fonts/style.css" rel="stylesheet" />	
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
-                                    
-    <!-- endbuild -->
-
-    <!--custom css start-->
-    <!-- <link rel="stylesheet" href="assets/css/customs.css"> -->
-    <!--custom css end-->
-
-</head>
-<body>
-<!--preloader start-->
-    <div id="preloader" class="bg-light-subtle">
-        <div class="preloader-wrap">
-            <img src="assets/img/favicon.png" alt="logo" class="img-fluid preloader-icon">
-            <div class="loading-bar"></div>
-        </div>
-    </div>
-    <!--preloader end-->
-
-
-<div class="main-wrapper bg-soft-blue">
-  <!--header section start-->
-          <header class="main-header w-100 z-10 bg-white">
-            <nav class="navbar navbar-expand-xl navbar-light sticky-header p-0">
-                <div class="container d-flex align-items-center justify-content-lg-between position-relative">                    
-                        <a href="index.php" class="navbar-brand d-flex align-items-center mb-md-0 text-decoration-none">                            
-                            <img src="assets/img/logo-color.png" alt="logo" class="img-fluid logo-color" />
-                        </a>
-                        <a class="navbar-toggler position-absolute right-0 border-0" href="#offcanvasWithBackdrop" role="button">
-                            <i class="flaticon-menu" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBackdrop" aria-controls="offcanvasWithBackdrop"></i>
-                        </a>
-                        <div class="clearfix"></div>                    
-                        <div class="collapse navbar-collapse justify-content-center p-3">
-                            <ul class="nav col-12 col-md-auto justify-content-center main-menu">
-                                <li class="nav-item -dropdown setup-process-item">
-                                                                                                                                <a class="btn btn-outline-mat btn-sm mt-2" style="font-size:15px; padding:12px" href="dashboard.php"><i class="fa fa-laptop px-2"></i>Go to Dashboard</a>
-                                                                                        <a class="btn btn-outline-mat btn-sm mt-2" style="font-size:15px; padding:12px" href="index.php"><i class="fa fa-home px-2"></i>Back to Home</a>
-                                            <a href="https://drive.google.com/file/d/1U8j6etOcRhlkR6oL1Ekdbjg9NB2lNsv4/view?usp=sharing" target="_blank" class="btn btn-outline-mat btn-sm mt-2" style="font-size:15px; padding:12px"><img class="px-2" src="assets/img/Group.svg" class="user-guide" alt="User Guide" />User Guide</a>
-                                                                        
-                                </li>
-                            </ul>
-                        </div>                    
-                                            <div class="action-btns text-end me-5 p-1.5 me-lg-0 d-none d-md-block d-lg-block justify-content-end">  
-                                                            <form name="languageForm" method="post">
-                                    <div class="form-group">
-                                        <select class="form-select-lg language-selection multi-language-selectlist" name="languageSelected" action="#" onchange="javascript:this.form.submit();">
-                                                                                        <option value="english" selected>English</option>
-                                                                                        <option value="tamil" >தமிழ்</option>
-                                                                                        <option value="hindi" >हिंदी</option>
-                                                                                        <option value="telugu" >తెలుగు</option>
-                                                                                        <option value="kannada" >ಕನ್ನಡ</option>
-                                                                                        <option value="malayalam" >മലയാളം</option>
-                                                            
-                                        </select>
-                                    </div>
-                                </form>
-                                                    </div>                    
-                                        <div class="dropdown-profile">
-                        <img class="header-profile" src="assets/img/profile.png" alt="Profile">
-                        <div class="dropdown-content-profile">
-                            <ul class="profile-list-main">
-                                <li class="profile-menu-list"><a href="profile" title=""><i class="fa fa-user"></i> My Profile</a></li>
-                                <li class="profile-menu-list"><a href="editprofile.php" title=""><i class="fa fa-pencil"></i> Edit Profile</a></li>
-                                <li class="profile-menu-list"><a href="profilelist.php" title=""><i class="fa fa-list"></i> Horoscope List</a></li>
-                                <!--<li class="profile-menu-list"><a href="changepassword.php" title=""> <i class="fa fa-lock"></i> Change Password</a></li>-->
-                                <li class="profile-menu-list"><a href="logout.php" title=""><i class="fa fa-sign-out"></i> Logout</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                                    </div>                
-            </nav>
-            <!--offcanvas menu start-->
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasWithBackdrop">
-                <div class="offcanvas-header d-flex align-items-center mt-4">
-                    <a href="index.php" class="d-flex align-items-center mb-md-0 text-decoration-none">
-                        <img src="assets/img/logo-color.png" alt="logo" class="img-fluid ps-2" />
-                    </a>
-                    <button type="button" class="close-btn text-danger" data-bs-dismiss="offcanvas" aria-label="Close">
-                        <i class="flaticon-cancel"></i>
-                    </button>
-                </div>
-                <div class="offcanvas-body">                    
-                    <div class="action-btns mt-2 mob-action-btns">
-                        <a href="https://drive.google.com/file/d/1U8j6etOcRhlkR6oL1Ekdbjg9NB2lNsv4/view?usp=sharing" class="btn btn-link text-decoration-none btn-outline-grey btn-sm mb-2 p-2"><img src="assets/img/Group.svg" class="user-guide" alt="User Guide" />User Guide</a>
-                                                <form name="languageForm" method="post" style="">
-                            <div class="form-group">
-                                <select class="form-select-lg language-selection multi-language-selectlist" name="languageSelected" action="#" onchange="javascript:this.form.submit();">
-                                                                        <option value="english" selected>English</option>
-                                                                        <option value="tamil" >தமிழ்</option>
-                                                                        <option value="hindi" >हिंदी</option>
-                                                                        <option value="telugu" >తెలుగు</option>
-                                                                        <option value="kannada" >ಕನ್ನಡ</option>
-                                                                        <option value="malayalam" >മലയാളം</option>
-                                                    
-                                </select>
-                            </div>
-                        </form>
-                    </div>
-                    <ul class="nav col-12 col-md-auto justify-content-center main-menu">
-                        <li class="nav-item -dropdown mt-3">
-                                                                    <a class="mt-2 mb-2 p-2 mobile-menus" href="dashboard.php"> <i class="fa fa-home"></i> Dashboard </a>
-                                        <a class="mt-2 mb-2 p-2 mobile-menus" href="profile"> <i class="fa fa-user"></i> My Profile </a>
-                                        <a class="mt-2 mb-2 p-2 mobile-menus" href="editprofile.php"> <i class="fa fa-pencil"></i> Edit Profile </a>
-                                        <a class="mt-2 mb-2 p-2 mobile-menus" href="profilelist.php"> <i class="fa fa-list"></i> Horoscope List </a>
-                                        <!--<a class="mt-2 mb-2 p-2 mobile-menus" href="changepassword.php"> <i class="fa fa-lock"></i> Change Password </a>-->
-                                        <a class="mt-0 mobile-menus" href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
-                                                            </li>
-                    </ul>
-                </div>
-            </div>
-            <!--offcanvas menu end-->
-        </header>
-                <!--header section end-->        
+@section('content')
 <style>
 
 .mob-action-btns {
@@ -334,91 +200,417 @@ li.profile-menu-list a i {
         <div class="col-lg-6">
           <span style="color:red;">  </span>
           <div class="form-zodiuc mb-5 mt-5 mt-lg-0">
-            <div class="comon-heading text-center">
-                <h2 class="common-heading mt-3 mb-3"> My Profile </h2>
+           <div class="comon-heading text-center">
+                <h2 class="common-heading mt-3 mb-3"> Edit Profile </h2>
             </div>
-            <div class="myprofile-section">
-              <div class="col-md-12">
-                <div class="row">
-                  <div class="col-md-12 text-center mb-3">
-                                               <img src="assets/img/user.png" class="my-profile-img" alt ="Profile Image">
-                          
-                                       </div>
-                  <div class="col-md-12 mb-2">
-                    <div class="row">
-                      <div class="col-md-4">
-                        <label><i class="fa fa-user"></i> Full Name</label>
-                      </div>
-                      <div class="col-md-8 profile-value">
-                        <span></span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-12 mb-2">
-                    <div class="row">
-                      <div class="col-md-4">
-                        <label><i class="fa fa-phone"></i> Mobile Number </label>
-                      </div>
-                      <div class="col-md-8 profile-value">
-                        <span> </span>
+            <form id="tarotForm" class="reg-form" name="signupForm" action="#" method="post">
+              <div class="myprofile-section edit profile-section">
+                <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-12 text-center mb-3">
+                      <img class="my-profile-img" src="assets/img/user.png" alt="profile">
+                                          </div>
+                    <div class="col-md-12 mb-2">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <label><i class="fa fa-user"></i> Full Name</label>
+                          <span id="nameError" style="color: red;font-size: 11px;"></span>
+                        </div>
+                        <div class="col-md-8 edit-profile-value">                        
+                          <input type="text" id="fullname" name="fullname" value="">
+                        </div>
                       </div>
                     </div>
-                  </div> 
-                  <div class="col-md-12 mb-2">
-                    <div class="row">
-                      <div class="col-md-4">
-                        <label><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp Number </label>
-                      </div>
-                      <div class="col-md-8 profile-value">
-                        <span> </span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-12 mb-2">
-                    <div class="row">
-                      <div class="col-md-4">
-                        <label><i class="fa fa-envelope"></i> Email </label>
-                      </div>
-                      <div class="col-md-8 profile-value">
-                        <span> </span>
+                    <div class="col-md-12 mb-2 mobile-number">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <label><i class="fa fa-phone"></i> Mobile Number </label>
+                        </div>
+                        <div class="col-md-5 edit-profile-value">
+                          <input type="tel" required id="mobile" name="mobile" value="" maxlength="15" onkeypress="isNumberCheck(event)">
+                        </div>
+                        <div class="col-md-3" style="display:flex;justify-content: right;">
+                          <button type="button" id="sendotp" class="bg-orange" onclick="checkDuplicateMobile()">
+                            Send OTP                           
+                          </button>
+                        </div>
+                        <div class="col-12" style="display:flex;justify-content: center;"><span id="mobileError" style="color: red;font-size: 11px;"></span></div>
                       </div>
                     </div>
-                  </div>                  
+                    <div class="col-md-12 mb-2">
+                      <div class="row verify-otp" style="justify-content: right;display:none;">
+                       <div class="col-md-4">
+                        <label><i class="fa fa-phone"></i> Enter OTP </label>
+                       </div>
+                        <div id="verifyotp" class="col-md-8">                              
+                          <span id="otpError" class="text-danger"></span>
+                          <input type="text" class="form-control otpctrl" id="otp" name="otp" placeholder="Enter OTP" maxlength="4"><br/>
+                          <button type="button" id="edit_number_btn" class="btn btn-sm btn-secondary" onclick="showMobile()">
+                              Edit Number                          </button>                          
+                          <button type="button" id="btnVerifyOTP" class="bg-orange" onclick="verifyMobile()">
+                              Verify OTP                          </button>   
+                        <span class="sameaswhatsapp"> <input type="checkbox"  id="same_whatsapp" name="same_whatsapp" value="1">Same WhatsApp Number </span>
+                      </div>
+                      </div>
+                    </div> 
+                    <div class="col-md-12 mb-2">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <label><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp Number </label>
+                          <span id="whatsappError" style="color: red;font-size: 11px;"></span>
+                        </div>
+                        <div class="col-md-8 edit-profile-value">
+                          <input type="text" id="whatsapp" name="whatsapp" value="" maxlength="15" onkeypress="isNumberCheck(event)">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-12 mb-2">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <label><i class="fa fa-envelope"></i> Email </label>
+                          <span id="emailError" style="color: red;font-size: 11px;"></span>
+                        </div>
+                        <div class="col-md-8 edit-profile-value">
+                          <input type="text" id="email" name="email" value="">
+                        </div>
+                      </div>
+                    </div>
 
-                  <div class="col-md-12 mb-2">
-                    <div class="row">
-                      <div class="col-md-4">
-                        <label><i class="fa fa-neuter"></i> Gender </label>
-                      </div>
-                      <div class="col-md-8 profile-value">
-                        <span> </span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-12 mb-2">
-                    <div class="row">
-                      <div class="col-md-4">
-                        <label><i class="fa fa-users"></i> User Type </label>
-                      </div>
-                      <div class="col-md-8 profile-value">
-                        <span> </span>
+                    <!--
+                    <div class="col-md-12 mb-2">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <label><i class="fa fa-calendar"></i> Date of Birth </label>
+                        </div>
+                        <div class="col-md-8 edit-profile-value">
+                          <input type="text" name="dob" value="08-04-1996">
+                        </div>
                       </div>
                     </div>
+                    -->
+
+                    <div class="col-md-12 mb-2">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <label><i class="fa fa-neuter"></i> Gender </label>
+                          <span id="genderError" style="color: red;font-size: 11px;"></span>
+                        </div>
+                        <div class="col-md-8 edit-profile-value">
+                          <div class="form-group mt-2">
+                            <span id="genderError" style="color: red;font-size: 11px;"></span>
+                            <div class="radio-group common-radio-btns">
+
+                            
+                              <div class="radio-item">
+                                <label><input type="radio" class="form-check form-check-inline" name="gender"  value="Male"/>Male</label>
+                              </div>
+                              <div class="radio-item">
+                                <label><input type="radio" class="form-check form-check-inline" name="gender"  value="Female"/>Female</label>
+                              </div>
+                              <div class="radio-item">
+                                <label><input type="radio" class="form-check form-check-inline" name="gender"  value="transgender"/>Transgender</label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div class="col-md-12 mb-2">
+
+                                          <div class="row">
+                        <div class="col-md-4">
+                          <label><i class="fa fa-users"></i> User Type </label>
+                          <span id="userlevelError" style="color: red;font-size: 11px;"></span>
+                        </div>
+                        <div class="col-md-8 edit-profile-value">
+                          <div class="form-group mt-2">
+                            <span id="genderError" style="color: red;font-size: 11px;"></span>
+                            <div class="radio-group common-radio-btns">
+                              <div class="radio-item">
+                                <label><input type="radio" class="form-check form-check-inline" id="rbUser" name="userlevel"  value="User"/>General User</label>
+                              </div>
+                              <div class="radio-item">
+                                <label><input type="radio" class="form-check form-check-inline" id="rbAstrologer" name="userlevel"  value="Astrologer"/>Astrologer</label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                                                <div class="col-md-4">
+                          <label><i class="fa fa-eye"></i> Password  </label>
+                          <span id="userlevelError" style="color: red;font-size: 11px;"></span>
+                        </div>
+                        <div class="col-md-8">
+                          <div class="form-group mt-2">
+                            <span id="passwordError" class="error-message"></span>
+                            <input type="password" class="form-control" id="password" autocomplete="off" name="password" placeholder="Password" maxlength="8"/>
+                            <a class="view-change-password login-view-pwd-icon" href="javascript:void(0);" onclick="viewPassword()">
+                              <i class="fa fa-eye open_eye_current"></i>
+                              <i class="fa fa-eye-slash close_eye_current" style="display: none"></i>
+                            </a> 
+                            <small>( <span>The password must be within 8 characters.</span> </small>
+                            <small><span>Choose a Password to share account with Family or Friends</span> )</small>
+                          </div>
+                        </div>
+                                              </div>
+                    </div>
+
+                    
                   </div>
                 </div>
               </div>
-            </div>
+              <div class="submit-edit-profile">
+                <button class="btn btn-mat btn-sm" onclick="updateProfile(event)">Update Profile</button>                
+              </div>
+            <form>
           </div>
         </div>
          <div class="col-lg-6">
-          <img src="assets/img/myprofileimg.jpg" class="login-image" alt ="Profile Image">              
+          <img src="assets/img/myprofileimg.jpg" class="login-image" alt ="Change Password">
         </div>
       </div>
     </div>
   </section>
 </main>
-<script src="js/jquery-3.5.1.js"></script>
-<style>
+<script>
+
+document.getElementById('same_whatsapp').addEventListener('change', function () {
+    const whatsppBox = document.getElementById('whatsapp');
+    const mobileBox = document.getElementById('mobile');
+    if (this.checked) {
+      whatsppBox.value = mobileBox.value;
+    } else {
+      whatsppBox.value = "";
+    }
+  });
+
+function updateProfile(e)
+{
+
+  //event.preventDefault();
+  
+  let profileUpdated = "Profile Updated Successfully..!";
+  let valid = true;
+
+  // Clear previous error messages
+  document.getElementById('nameError').innerText = '';
+  document.getElementById('emailError').innerText = '';
+  document.getElementById('mobileError').innerText = '';
+  document.getElementById('whatsappError').innerText = '';
+  document.getElementById('genderError').innerText = '';
+  document.getElementById('userlevelError').innerText = '';
+
+  // Full name validation
+  const fullName = document.querySelector("input[name='fullname']");
+  const nameError = document.getElementById('nameError');
+  if (fullName.value.trim() === "") {
+    //alert("Please enter your full name.");
+    nameError.innerText = 'Please enter full name';
+    fullName.focus();
+    valid = false;
+  }
+
+  //Mobile validation
+  const mobileInput = document.getElementById('mobile');
+  const mobileError = document.getElementById('mobileError');
+  if (mobileInput.value.trim() === "") {
+    mobileError.innerText = 'Please enter mobile number';
+    mobileInput.focus();
+    valid = false;
+  }
+
+  //WhatsApp validation
+  const whatsappInput = document.getElementById('whatsapp');
+  const whatsappError = document.getElementById('whatsappError');
+  if (whatsappInput.value.trim() === "") {
+    whatsappError.innerText = 'Please enter whatsapp number';
+    whatsappInput.focus();
+    valid = false;
+  }
+
+  // Email validation
+  const emailInput = document.getElementById('email');
+  const emailError = document.getElementById('emailError');
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+  if (emailInput.value.trim() === "") {
+    emailError.innerText = 'Please enter email address';
+    emailInput.focus();
+    valid = false;
+  } else if (!emailPattern.test(emailInput.value)) {
+    emailError.innerText = 'Please enter a valid email address';
+    emailInput.focus();
+    valid = false;
+  }
+
+  // Gender validation
+  let gender = document.querySelector('input[name="gender"]:checked');
+  const genderError = document.getElementById('genderError');
+  if (!gender) {
+    genderError.innerText = "Please select gender";
+    valid = false;
+  }
+
+  let userlevel = document.querySelector('input[name="userlevel"]:checked');
+  const userlevelError = document.getElementById('userlevelError');
+  if (!userlevel) {
+    userlevelError.innerText = "Please select user type";
+    valid = false;
+  }
+
+  const passwordInput = document.getElementById('password');
+  const passwordError = document.getElementById('passwordError');
+  if (passwordInput.value.trim() === "" || passwordInput.value.trim().length < 8) {
+      //alert("Please enter your password.");
+      passwordError.innerText = "Please enter password";
+      passwordInput.focus();
+      valid = false;
+  }
+    
+  if(valid)
+  {
+    displaySuccessToaster(profileUpdated);
+  }
+  else{
+    e.preventDefault();              
+  }
+
+  /*if(valid){
+       $.ajax({
+            url: 'loginMaster.php',
+            type: 'POST', 
+            dataType: 'text',
+            data: "validateLogin=Y&updateProfile=N&fullName=" + fullName.value + "&mobile=" + mobileInput.value + "&whatsapp=" + whatsappInput.value + "&email=" + emailInput.value + "&gender=" + gender.value + "&userlevel=" + userlevel.value,
+            success: function (data) {
+                //alert(data);
+                console.log(data)
+                if(data == "login success")
+                {
+                    displaySuccessToaster(profileUpdated);
+                    window.location.reload();
+                }
+                else
+                {
+                    displayErrorToaster(data);
+                }
+            }
+        });
+  }*/
+}
+
+function verifyMobile()
+    {
+        let otp = document.getElementById("otp").value;   
+        //let otp_verified = document.getElementById("otp_valid").value;   
+        if(otp == "")
+        {
+            document.getElementById("otpError").innerText = "Please enter OTP sent to your mobile";
+        }
+        else
+        {
+            $.ajax({
+                url: 'checkDuplicate.php',
+                type: 'POST',            
+                dataType: 'text',                        
+                data: "checkDuplicateMobile=N&checkDuplicateEmail=N&validateLogin=N&validateOTP=Y&otp=" + otp,
+                success: function (data) {      
+                    //alert(data);
+			              console.log("validate otp : " + data);
+                    if(data == "yes")
+                    {
+                        document.getElementById("otpError").innerText = "";
+			                  $("#btnVerifyOTP").hide();
+                        $("#edit_number_btn").hide();
+                        $("#btnSignup").removeClass("register-btn-new");
+                        //otp_verified.value = "ok";
+                        //window.location.reload();
+                    }
+                    else
+                    {
+                        document.getElementById("otpError").innerText = "Invalid OTP";
+                    }
+                }
+            });
+        }
+    }
+
+
+function checkDuplicateMobile()
+    {
+        const input = document.querySelector('#mobile');
+        /*const iti = intlTelInput.getInstance(input);
+        const countryData = iti.getSelectedCountryData();
+        var isdCode = countryData.dialCode;*/
+        var isdCode = "91"
+        let mobile = document.getElementById('mobile').value;
+        const mobileError = document.getElementById('mobileError');
+        let email = document.getElementById('email').value;
+        mobileError.innerText = "";
+        console.log("Check Duplicate Function Called");
+        console.log(" Mobile : " + mobile + " Email : " + email);
+        $.ajax({
+            url: 'checkDuplicate.php',
+            type: 'POST',            
+            dataType: 'text',        
+            data: "checkDuplicateMobile=Y&checkDuplicateEmail=N&validateLogin=N&validateOTP=N&mobile=" + mobile + "&isdCode=" + isdCode + "&email=" + email,
+            success: function (data) {      
+                console.log(data);
+                if(data != "")
+                {
+                    isValid = false;        
+                    mobileError.innerText = data;
+                }
+                else
+                {
+                    isValid = true;
+                    $(".verify-otp").show();
+                    $("#edit_number_btn").show();
+                    $(".mobile-number").hide();
+                    $("#mobile").attr("readonly", true);
+                }      
+            }
+        });
+    }
+    
+    function isNumberCheck(event) {
+      let charCode = event.which ? event.which : event.keyCode;
+      if (charCode < 48 || charCode > 57) {
+          event.preventDefault(); // Prevent non-numeric input
+      }
+   }
+
+  function displaySuccessToaster(successMessage) {
+        toastr.options.timeOut = 2500; // 1.5s 
+        toastr.success(successMessage);
+    }
+
+    function viewPassword() 
+    {
+      var currentPassword = document.getElementById("password");
+
+      if (currentPassword.type === "password") {
+        currentPassword.type = "text";
+        $(".open_eye_current").hide();
+        $(".close_eye_current").show();
+      } else {
+        currentPassword.type = "password";
+        $(".open_eye_current").show();
+        $(".close_eye_current").hide();
+      }
+    }
+
+    function showMobile()
+    {
+        $(".verify-otp").hide();
+        $(".mobile-number").show();
+        $("#mobile").attr("readonly", false);
+        document.getElementById('mobileError').innerText = '';
+        document.getElementById('otpError').innerText = '';
+        document.getElementById('otp').value = '';
+        document.getElementById('sendotp').style.display = "block";
+    }
+</script><style>
 ul.cms-links {
     margin: 0;
     padding-left: 10px;
@@ -844,3 +1036,4 @@ ul.cms-links li a {
 </body>
 
 </html>
+@endsection

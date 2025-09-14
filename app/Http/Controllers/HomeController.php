@@ -19,12 +19,14 @@ class HomeController extends Controller
         view()->share('selectedLang', session('languageSelected', 'english'));
     }
 
-    public function index(Request $request) {
+    public function changeLanguage(Request $request){
         if ($request->isMethod('post') && $request->languageSelected) {
             $request->session()->put('languageSelected', $request->languageSelected);
-            return redirect('/');
+            return redirect()->back();
         }
+    }
 
+    public function index(Request $request) {
         return view('frontend.home.home');
     }
 
@@ -58,14 +60,17 @@ class HomeController extends Controller
         }
         $unique_id = session('report_unique_id');
     
-        ProcessSomething::dispatch(auth()->user()); 
-        dd($unique_id);
+        ReportGeneratorJob::dispatch(auth()->user()); 
         return view('frontend.plans.plan_listing');
     }
 
 
     public function profile(Request $request) {
         return view('frontend.home.profile');
+    }
+
+    public function editprofile(Request $request) {
+        return view('frontend.profile.editprofile');
     }
 
 

@@ -18,8 +18,7 @@ class AuthController extends Controller
     public function handleGoogleCallback()
     {
         try {
-            $googleUser = Socialite::driver('google')->user();
-
+            $googleUser = Socialite::driver('google')->stateless()->user();
             $user = User::updateOrCreate(
                 ['email' => $googleUser->getEmail()],
                 [
@@ -34,7 +33,7 @@ class AuthController extends Controller
             Auth::login($user);
             
             if(session('cachedHoroscope')){
-                return redirect('submit-horoscope')->withInput();
+                return redirect('/submit-horoscope');
             }
             else{
                 return redirect()->intended('/');
