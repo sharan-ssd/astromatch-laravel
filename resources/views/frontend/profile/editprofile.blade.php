@@ -223,7 +223,7 @@ li.profile-menu-list a i {
                           <span id="nameError" style="color: red;font-size: 11px;"></span>
                         </div>
                         <div class="col-md-8 edit-profile-value">                        
-                          <input type="text" id="fullname" name="fullname" value="">
+                          <input type="text" id="fullname" name="fullname" value="{{$profile->userName}}">
                         </div>
                       </div>
                     </div>
@@ -233,7 +233,7 @@ li.profile-menu-list a i {
                           <label><i class="fa fa-phone"></i> Mobile Number </label>
                         </div>
                         <div class="col-md-5 edit-profile-value">
-                          <input type="tel" required id="mobile" name="mobile" value="" maxlength="15" onkeypress="isNumberCheck(event)">
+                          <input type="tel" required id="mobile" name="mobile" value="{{$profile->mobileNumber}}" maxlength="15" onkeypress="isNumberCheck(event)">
                         </div>
                         <div class="col-md-3" style="display:flex;justify-content: right;">
                           <button type="button" id="sendotp" class="bg-orange" onclick="checkDuplicateMobile()">
@@ -266,7 +266,7 @@ li.profile-menu-list a i {
                           <span id="whatsappError" style="color: red;font-size: 11px;"></span>
                         </div>
                         <div class="col-md-8 edit-profile-value">
-                          <input type="text" id="whatsapp" name="whatsapp" value="" maxlength="15" onkeypress="isNumberCheck(event)">
+                          <input type="text" id="whatsapp" name="whatsapp" value="{{ $profile->whatsAppNumber }}" maxlength="15" onkeypress="isNumberCheck(event)">
                         </div>
                       </div>
                     </div>
@@ -306,16 +306,33 @@ li.profile-menu-list a i {
                             <span id="genderError" style="color: red;font-size: 11px;"></span>
                             <div class="radio-group common-radio-btns">
 
+                              <div class="radio-item">
+                                <label>
+                                  <input type="radio" class="form-check form-check-inline"
+                                        name="gender" value="Male"
+                                        {{ old('gender', $profile->gender ?? '') == 'Male' ? 'checked' : '' }}>
+                                  Male
+                                </label>
+                              </div>
+
+                              <div class="radio-item">
+                                <label>
+                                  <input type="radio" class="form-check form-check-inline"
+                                        name="gender" value="Female"
+                                        {{ old('gender', $profile->gender ?? '') == 'Female' ? 'checked' : '' }}>
+                                  Female
+                                </label>
+                              </div>
+
+                              <div class="radio-item">
+                                <label>
+                                  <input type="radio" class="form-check form-check-inline"
+                                        name="gender" value="transgender"
+                                        {{ old('gender', $profile->gender ?? '') == 'transgender' ? 'checked' : '' }}>
+                                  Transgender
+                                </label>
+                              </div>
                             
-                              <div class="radio-item">
-                                <label><input type="radio" class="form-check form-check-inline" name="gender"  value="Male"/>Male</label>
-                              </div>
-                              <div class="radio-item">
-                                <label><input type="radio" class="form-check form-check-inline" name="gender"  value="Female"/>Female</label>
-                              </div>
-                              <div class="radio-item">
-                                <label><input type="radio" class="form-check form-check-inline" name="gender"  value="transgender"/>Transgender</label>
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -334,12 +351,25 @@ li.profile-menu-list a i {
                           <div class="form-group mt-2">
                             <span id="genderError" style="color: red;font-size: 11px;"></span>
                             <div class="radio-group common-radio-btns">
+                              
                               <div class="radio-item">
-                                <label><input type="radio" class="form-check form-check-inline" id="rbUser" name="userlevel"  value="User"/>General User</label>
+                                <label>
+                                  <input type="radio" class="form-check form-check-inline"
+                                        name="userlevel" value="User"
+                                        {{ old('userType', $profile->userType ?? '') == 'User' ? 'checked' : '' }}>
+                                  General User
+                                </label>
                               </div>
+
                               <div class="radio-item">
-                                <label><input type="radio" class="form-check form-check-inline" id="rbAstrologer" name="userlevel"  value="Astrologer"/>Astrologer</label>
-                              </div>
+                                <label>
+                                  <input type="radio" class="form-check form-check-inline"
+                                        name="userlevel" value="Astrologer"
+                                        {{ old('userType', $profile->userType ?? '') == 'Astrologer' ? 'checked' : '' }}>
+                                  Astrologer
+                                </label>
+                              </div>                              
+
                             </div>
                           </div>
                         </div>
