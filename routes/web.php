@@ -12,7 +12,11 @@ Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::match(['get', 'post'], '/', [HomeController::class, 'index']);
 
-Route::match(['POST', 'GET'], '/submit-horoscope', [HomeController::class, 'submitHoroscope']);
+//Route::match(['POST', 'GET'], '/submit-horoscope', [HomeController::class, 'submitHoroscope']);
+
+Route::post('/submit-horoscope', [HomeController::class, 'submitHoroscope']);
+Route::get('/process-horoscope', [HomeController::class, 'processHoroscope']);
+
 Route::post('/payment/create-order', [PaymentController::class, 'createOrder']);
 
 Route::get('/marriagereport', function () {

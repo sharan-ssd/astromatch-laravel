@@ -30,7 +30,7 @@ class HomeController extends Controller
         return view('frontend.home.home');
     }
 
-    public function submitHoroscope(Request $request) {
+    /*public function submitHoroscope(Request $request) {
 
         if (!Auth::check()) {
             session('cachedHoroscope', $request->all());
@@ -44,14 +44,59 @@ class HomeController extends Controller
 
         // todo : process validation
         
-        $saved_horoscope = session('cachedHoroscope');
-        session('cachedHoroscope', null);
-            
-        return $this->redirectToReportgenration($request, $saved_horoscope);
+        $saved_horoscope = session()->pull('cachedHoroscope');
+        \Log::info("Horoscope Data: " . json_encode($saved_horoscope));
+
+        // dispatch job with user + horoscope data
+        ReportGeneratorJob::dispatch(auth()->user(), $saved_horoscope);
+          
+        
+        //return $this->redirectToReportgenration($saved_horoscope);
+        return view('frontend.plans.plan_listing');
+    }*/
+
+    public function submitHoroscope(Request $request)
+    {
+        if (!Auth::check()) {
+            // Store form data in session until login completes
+            session(['cachedHoroscope' => $request->all()]);
+            session()->save();
+
+            return redirect()->route('google.login');
+        }
+
+        // If user is already logged in, go straight to processing
+        return redirect('/process-horoscope');
+    }
+
+    public function processHoroscope()
+    {
+        \Log::info('ProcessHoroscope method entered');
+
+        if (!Auth::check()) {
+            \Log::warning('User not authenticated in processHoroscope');
+            return redirect('/');
+        }
+
+        $sessionData = session()->all();
+        \Log::info('Full session dump:', $sessionData);
+
+        if (!session('cachedHoroscope')) {
+            \Log::warning('No cachedHoroscope found in session');
+            return redirect('/');
+        }
+
+        $saved_horoscope = session()->pull('cachedHoroscope');
+        \Log::info("Horoscope Data: " . json_encode($saved_horoscope));
+
+        ReportGeneratorJob::dispatch(auth()->user(), $saved_horoscope);
+
+        return view('frontend.plans.plan_listing');
     }
 
 
-    public function redirectToReportgenration(Request $request, $saved_horoscope){
+
+    public function redirectToReportgenration($saved_horoscope){
         // todo: do report processing
         // todo: should we process after payment or before?
         if (! session()->has('report_unique_id')) {

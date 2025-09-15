@@ -2,7 +2,6 @@
 
 @section('content')
 <style>
-
 .mob-action-btns {
     display: flex;
     width: 100%;
@@ -133,7 +132,7 @@ li.profile-menu-list a i {
         display: none !important;
     }
 }
-  </style>
+</style>
 
   <script>
    /* When the user clicks on the button, 
@@ -193,7 +192,14 @@ li.profile-menu-list a i {
         $("#loginDiv").hide();
         $("#signupDiv").show();
 	}
-  </script><main class="float-start w-100 body-main">
+  </script>
+  @php
+    $profile = DB::table('ab15_userInfo_table')
+        ->where('userID', auth()->id())
+        ->first();
+  @endphp
+
+  <main class="float-start w-100 body-main">
   <section class="konow-more-zoidc d-inline-block w-100">
     <div class="container">
       <div class="row">
@@ -271,7 +277,7 @@ li.profile-menu-list a i {
                           <span id="emailError" style="color: red;font-size: 11px;"></span>
                         </div>
                         <div class="col-md-8 edit-profile-value">
-                          <input type="text" id="email" name="email" value="">
+                          <input type="text" id="email" name="email" value="{{ $profile->email }}">
                         </div>
                       </div>
                     </div>
