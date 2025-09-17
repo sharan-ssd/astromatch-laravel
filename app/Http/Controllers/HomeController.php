@@ -44,7 +44,7 @@ class HomeController extends Controller
 
         // todo : process validation
         
-        $saved_horoscope = session('cachedHoroscope');
+        $saved_horoscope = session('cachedHoroscope') ? session('cachedHoroscope') :  $request;
         session('cachedHoroscope', null);
             
         return $this->redirectToReportgenration($request, $saved_horoscope);
@@ -52,7 +52,7 @@ class HomeController extends Controller
 
 
     public function redirectToReportgenration(Request $request, $saved_horoscope){
-        // todo: do report processing
+        dd($saved_horoscope);
         // todo: should we process after payment or before?
         if (! session()->has('report_unique_id')) {
             session(['report_unique_id' => uniqid()]);
