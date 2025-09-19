@@ -63,7 +63,7 @@
                     <div class="dropdown">
                         <div class="dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            <img class="header-profile" height="50" width="60" src="assets/img/profile.png"
+                            <img class="header-profile" height="50" width="50" style="border-radius:50%;" src="{{Auth::user()->profilePicture}}"
                                 alt="Profile">
                         </div>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">

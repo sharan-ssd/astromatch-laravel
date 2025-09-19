@@ -977,27 +977,25 @@
                 <p>Limited Time: Free Basic Report</p>
             </div>
 
-            <form method="post" action="/submit-horoscope">
+            <form method="post" onsubmit="validateHorosope(event);" action="/submit-horoscope">
                 @csrf
                 <div class="form-group">
                     <label class="form-label">Your's Fullname <span style='color:#e91e63; font-weight:bold;'>(Male
                             Horoscope)</span></label>
-                    <input type="text" id="fullname_male" class="form-control"
-                        placeholder="Full Name" required>
-                    <span class="error" id="fullname_male_error"></span>
+                    <input type="text" id="fullname_male" name="fullname_male" class="form-control"
+                        placeholder="Full Name" validations="required:true;length:5">
                 </div>
 
                 <div class="form-group">
                     <label class="form-label">Your Date of Birth</label>
-                    <!--<input type="date" onchange="date_split('male', this)" id="birth_date_male" class="form-control">-->
                     <div class="row">
                         <div class="col-sm-4 ">
                             <div class="form-control-group mb-3">
                                 <select class="form-control form-select" name="male-year" id="male-year"
-                                    onchange="updateDays('male')" required>
+                                    onchange="updateDays('male')" validations="required:true">
                                     <option value="" selected="" disabled="">-YYYY-</option>
                                     @for ($i = date('Y'); $i >= 1950; $i--)
-                                        <option value="{{$i}}">{{$i}}</option>
+                                    <option value="{{$i}}">{{$i}}</option>
                                     @endfor
                                 </select>
                             </div>
@@ -1005,7 +1003,7 @@
                         <div class="col-sm-4 ">
                             <div class="form-control-group mb-3">
                                 <select class="form-control form-select" name="male-month" id="male-month"
-                                    onchange="updateDays('male')" required>
+                                    onchange="updateDays('male')" validations="required:true">
                                     <option value="" selected="" disabled="">-MM-</option>
                                     <option value="01">January</option>
                                     <option value="02">February</option>
@@ -1025,7 +1023,7 @@
                         <div class="col-sm-4 ">
                             <div class="form-control-group mb-3">
                                 <select class="form-control form-select" name="male-date" id="male-date"
-                                    onchange="setBirthDate('male')" required>
+                                    onchange="setBirthDate('male')" validations="required:true">
                                     <option value="" selected="" disabled="">-DD-</option>
                                 </select>
                             </div>
@@ -1039,7 +1037,8 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="form-control-group mb-3">
-                                <select class="form-control form-select" name="male-hour" id="male-hour" required>
+                                <select class="form-control form-select" name="male-hour" id="male-hour"
+                                    validations="required:true">
                                     <option value="" selected="" disabled="">-HH-</option>
                                     <option value="00">00</option>
                                     <option value="01">01</option>
@@ -1059,7 +1058,8 @@
                         </div>
                         <div class="col-sm-4 ">
                             <div class="form-control-group mb-3">
-                                <select class="form-control form-select" name="male-minute" id="male-minute" required>
+                                <select class="form-control form-select" name="male-minute" id="male-minute"
+                                    validations="required:true">
                                     <option value="" selected="" disabled="">-MM-</option>
                                     <option value="00">00</option>
                                     <option value="01">01</option>
@@ -1126,8 +1126,8 @@
                         </div>
                         <div class="col-sm-4 ">
                             <div class="form-control-group mb-3">
-                                <select class="form-control form-select" name="ampm1" id="ampm1" required
-                                    onchange="setBirthTime('male')">
+                                <select class="form-control form-select" name="ampm1" id="ampm1"
+                                    validations="required:true" onchange="setBirthTime('male')">
                                     <option value="">-AM / PM-</option>
                                     <option value="AM">AM</option>
                                     <option value="PM">PM</option>
@@ -1141,16 +1141,16 @@
                 <div class="form-group">
                     <label class="form-label">Your Place of Birth</label>
                     <input type="text" data-location_input_prefix="male" class="form-control prokerala-location-input"
-                        name="location1" id="location1" placeholder="Place of Birth" autocomplete="off" required />
+                        name="location1" id="location1" placeholder="Place of Birth" autocomplete="off"
+                        validations="required:true" />
                     <span class="error" id="location1_error"></span>
                 </div>
 
                 <div class="form-group">
                     <label class="form-label">Partner's Fullname <span style='color:#e91e63; font-weight:bold;'>(Female
                             Horoscope)</span></label>
-                    <input type="text" id="fullname_female"
-                        required class="form-control"
-                        placeholder="Full Name">
+                    <input type="text" id="fullname_female" name="fullname_female" validations="required:true"
+                        class="form-control" placeholder="Full Name">
                     <span class="error" id="fullname_female_error"></span>
                 </div>
 
@@ -1164,10 +1164,10 @@
                         <div class="col-sm-4 ">
                             <div class="form-control-group mb-3">
                                 <select class="form-control form-select" name="female-year" id="female-year"
-                                    onchange="updateDays('female')" required>
+                                    onchange="updateDays('female')" validations="required:true">
                                     <option value="" selected="" disabled="">-YYYY-</option>
                                     @for ($i = date('Y'); $i >= 1950; $i--)
-                                        <option value="{{$i}}">{{$i}}</option>
+                                    <option value="{{$i}}">{{$i}}</option>
                                     @endfor
                                 </select>
                             </div>
@@ -1175,7 +1175,7 @@
                         <div class="col-sm-4 ">
                             <div class="form-control-group mb-3">
                                 <select class="form-control form-select" name="female-month" id="female-month"
-                                    onchange="updateDays('female')">
+                                    validations="required:true" onchange="updateDays('female')">
                                     <option value="" selected="" disabled="">-MM-</option>
                                     <option value="01">January</option>
                                     <option value="02">February</option>
@@ -1195,7 +1195,7 @@
                         <div class="col-sm-4 ">
                             <div class="form-control-group mb-3">
                                 <select class="form-control form-select" name="female-date" id="female-date"
-                                    onchange="setBirthDate('female')">
+                                    validations="required:true" onchange="setBirthDate('female')">
                                     <option value="" selected="" disabled="">-DD-</option>
                                 </select>
                             </div>
@@ -1205,6 +1205,7 @@
 
                     <span class="error" id="birth_date_female_error"></span>
                 </div>
+
                 <div class="form-group">
                     <label class="form-label">Partner's Time of Birth</label>
                     <!-- <input type="time" onchange="time_split('female', this)" id="birth_time_female" class="form-control"> -->
@@ -1212,7 +1213,8 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="form-control-group mb-3">
-                                <select class="form-control form-select" name="female-hour" id="female-hour">
+                                <select class="form-control form-select" name="female-hour" id="female-hour"
+                                    validations="required:true">
                                     <option value="" selected="" disabled="">-HH-</option>
                                     <option value="00">00</option>
                                     <option value="01">01</option>
@@ -1232,7 +1234,8 @@
                         </div>
                         <div class="col-sm-4 ">
                             <div class="form-control-group mb-3">
-                                <select class="form-control form-select" name="female-minute" id="female-minute">
+                                <select class="form-control form-select" name="female-minute" id="female-minute"
+                                    validations="required:true">
                                     <option value="" selected="" disabled="">-MM-</option>
                                     <option value="00">00</option>
                                     <option value="01">01</option>
@@ -1300,7 +1303,7 @@
                         <div class="col-sm-4 ">
                             <div class="form-control-group mb-3">
                                 <select class="form-control form-select" name="ampm2" id="ampm2"
-                                    onchange="setBirthTime('female')">
+                                    validations="required:true" onchange="setBirthTime('female')">
                                     <option value="">-AM / PM-</option>
                                     <option value="AM">AM</option>
                                     <option value="PM">PM</option>
@@ -1316,18 +1319,18 @@
                 <div class="form-group">
                     <label class="form-label">Partner's Place of Birth</label>
                     <input type="text" data-location_input_prefix="female" class="form-control prokerala-location-input"
-                        name="location2" id="location2" placeholder="Place of Birth" autocomplete="off" />
+                        validations="required:true" name="location2" id="location2" placeholder="Place of Birth"
+                        autocomplete="off" />
                     <span class="error" id="location2_error"></span>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label">Your Email</label>
-                    <input type="email" id="partner_email"
-                        onkeyup="((e) => localStorage.setItem('partner_email', e.target.value))(event)"
-                        class="form-control" placeholder="Email">
+                    <label class="form-label">Partner Email</label>
+                    <input type="text" id="partner_email" validations="required:true;pattern:email" class="form-control"
+                        placeholder="Email">
                     <span class="error" id="email_error"></span>
                 </div>
-                <button type="button" onclick="this.form.submit();" class="btn btn-mat  w-100">Check Your
+                <button type="submit" class="btn btn-mat  w-100">Check Your
                     Compatibility</button>
                 <p class="form-footer">
                     🔒 We respect your privacy. No spam, ever.
@@ -2719,1446 +2722,7 @@
         </div>
     </div>
 </div>
-<script>
-    const ANIMATING_CLASS = 'slider__item--animating';
 
-const Slider = {
-  init() {
-    this.sliderEl = document.querySelector('.slider');
-    this.slideInnerEl = document.querySelector('.slider__inner');
-    this.sliderItemsEl = document.querySelectorAll('.slider__item');
-    this.offset = 0;
-    this.direction = 'left';
-    this.maxOffset = (this.sliderItemsEl.length - 1) * 100;
-
-    this.slideInnerEl.addEventListener('transitionend', this.onSliderTransitionEnd.bind(this));
-    setInterval(this.slide.bind(this), 3000);
-  },
-  slide() {
-    if (this.isMaxLeft()) {
-      this.direction = 'right';
-    } else if (this.isMaxRight()) {
-      this.direction = 'left';
-    }
-
-    this.moveSlider();
-  },
-  isMaxLeft() {
-    return this.offset <= -this.maxOffset;
-  },
-  isMaxRight() {
-    return this.offset >= 0;
-  },
-  getCurrentPage() {
-    if (this.offset < 0) {
-      return (this.offset * -1) / 100;
-    }
-
-    return this.offset / 100;
-  },
-  getSignal() {
-    return this.direction === 'left' ? -1 : 1;
-  },
-  onSliderTransitionEnd() {
-    const signal = this.getSignal();
-    const currentPage = this.getCurrentPage();
-
-    this.sliderItemsEl.forEach(element => element.classList.remove(ANIMATING_CLASS));
-  },
-  moveSlider() {
-    const signal = this.getSignal();
-    const currentPage = this.getCurrentPage();
-
-    this.offset = this.offset + (signal * 100);
-    this.sliderItemsEl[currentPage].classList.add(ANIMATING_CLASS);
-    this.sliderItemsEl[currentPage + (-1 * signal)].classList.add(ANIMATING_CLASS);
-    this.slideInnerEl.style.setProperty('--slider-offset', `${this.offset}%`);
-  }
-};
-
-// const slider = Object.create(Slider);
-// slider.init();
-
-</script>
-<!--<script src="js/location-search.js"></script>-->
-<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.8.1/build/js/intlTelInput.min.js"></script>
-<script>
-    function viewPassword() 
-    {
-        var currentPassword = document.getElementById("password");
-
-        if (currentPassword.type === "password") {
-            currentPassword.type = "text";
-            $(".open_eye_current").hide();
-            $(".close_eye_current").show();
-        } else {
-            currentPassword.type = "password";
-            $(".open_eye_current").show();
-            $(".close_eye_current").hide();
-        }
-    }
-
-    function setPrimaryHoroscope(argument)
-    {
-        if(argument == "1")
-        {
-            document.getElementById("primarygender").value = "Male";
-        }
-        else
-        {
-            document.getElementById("primarygender").value = "Female";
-        }
-    }
-
-    let nameValidateError = "Please input your name only in English. Name should not contain any special characters or numbers";
-    function validateName() 
-    {
-        document.getElementById('nameError').innerHTML = "";
-        // Regular expression to match English characters (A-Z, a-z)
-        var englishRegex = /^[A-Za-z\s]+$/;
-
-        // Get the input value
-        var inputValue = document.getElementById('username').value;
-
-        // Check if the input contains non-English characters
-        if (!englishRegex.test(inputValue)) {
-            document.getElementById('nameError').innerHTML = nameValidateError;
-            $("#username").focus();
-        }
-    }
-
-    function validateMaleName() {
-        let inputField = document.getElementById("fullname1");
-        let inputValue = inputField.value.trim(); // Trim extra spaces
-
-        // Regular expression to allow only letters and spaces
-        let regex = /^[A-Za-z\s]+$/;
-
-        if (!regex.test(inputValue)) {
-            alert("Full name should not contain numbers or special characters.");
-            inputField.value = ""; // Clear the input field
-            inputField.focus(); // Refocus the input field
-        }
-    }
-
-    function validateFemaleName() {
-        let inputField = document.getElementById("fullname2");
-        let inputValue = inputField.value.trim(); // Trim spaces from the beginning and end
-
-        // Regular expression to allow only letters and spaces
-        let regex = /^[A-Za-z\s]+$/;
-
-        if (!regex.test(inputValue)) {
-            alert("Full name should only contain letters and spaces.");
-            inputField.value = inputValue.replace(/[^A-Za-z\s]/g, ''); // Remove invalid characters
-        }
-    }
-
-    const input = document.querySelector("#mobile");
-    window.intlTelInput(input, {
-        utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@23.8.1/build/js/utils.js",
-        initialCountry: "IN",
-        separateDialCode: true,
-        autoPlaceholder: "off",
-        formatOnDisplay: false // Disable format on display to prevent spaces
-    });
-
-    document.getElementById('mobile').addEventListener('input', function (e) {
-        e.target.value = e.target.value.replace(/\s+/g, '');
-    });
-
-    const input1 = document.querySelector("#mobile1");
-    window.intlTelInput(input1, {
-        utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@23.8.1/build/js/utils.js",
-        initialCountry: "IN",
-        separateDialCode: true,
-        autoPlaceholder: "off",
-        formatOnDisplay: false // Disable format on display to prevent spaces
-    });
-
-    document.getElementById('mobile1').addEventListener('input1', function (e) {
-        e.target.value = e.target.value.replace(/\s+/g, '');
-        alert("hi");
-    });
-
-    const input2 = document.querySelector("#mobile2");
-    window.intlTelInput(input2, {
-        utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@23.8.1/build/js/utils.js",
-        initialCountry: "IN",
-        separateDialCode: true,
-        autoPlaceholder: "off",
-        formatOnDisplay: false // Disable format on display to prevent spaces
-    });
-
-    document.getElementById('mobile2').addEventListener('input2', function (e) {
-        e.target.value = e.target.value.replace(/\s+/g, '');
-    });
-
-    function isNumber(evt) {
-        evt = (evt) ? evt : window.event;
-        var charCode = (evt.which) ? evt.which : evt.keyCode;
-        if (charCode > 31 && (charCode < 48 || charCode > 57) && charCode != 46) {
-            return false;
-        }
-        return true;
-    }
-
-    function isEmailValid(evt) {
-        const emailInput = document.getElementById('email');
-        const emailError = document.getElementById('emailError');
-        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
-        if (!emailPattern.test(emailInput.value)) {
-            emailError.innerText = 'Please enter a valid email address.';
-            evt.preventDefault(); // Prevent form submission
-        } else {
-            emailError.innerText = ''; // Clear any previous error messages
-        }
-    }
-
-    function checkDay(ctlindex)
-    {
-        var day = $("#date"+ctlindex).val();
-        if((parseInt(day)< 0) || (parseInt(day) > 31))
-        {
-        if(ctlindex == 1)
-            document.getElementById('maleDOB').innerHTML = "Day value should be 1 to 31";
-        else
-            document.getElementById('femaleDOB').innerHTML = "Day value should be 1 to 31";
-
-        $("#date"+ctlindex).focus();
-        }
-        else
-        {
-        if(day.length == 1)
-        {
-            day = "0" + day;
-            $("#date"+ctlindex).val(day);
-            if(ctlindex == 1)
-            document.getElementById('maleDOB').innerHTML = "";
-            else
-            document.getElementById('femaleDOB').innerHTML = "";
-        }
-        else
-        {
-            if(ctlindex == 1)
-            document.getElementById('maleDOB').innerHTML = "";
-            else
-            document.getElementById('femaleDOB').innerHTML = "";          
-        }
-        }    
-    }
-
-    function checkMonth(ctlindex)
-    {
-        var month = $("#month"+ctlindex).val();
-        if((parseInt(month)< 0) || (parseInt(month) > 12))
-        {
-        if(ctlindex == 1)
-            document.getElementById('maleDOB').innerHTML = "Month value should be 1 to 12";
-        else
-            document.getElementById('femaleDOB').innerHTML = "Month value should be 1 to 12";
-        $("#month"+ctlindex).focus();
-        }
-        else
-        {
-        if(month.length == 1)
-        {
-            month = "0" + month;
-            $("#month"+ctlindex).val(month);
-            if(ctlindex == 1)
-            document.getElementById('maleDOB').innerHTML = "";
-            else
-            document.getElementById('femaleDOB').innerHTML = "";
-        }
-        else
-        {
-            if(ctlindex == 1)
-            document.getElementById('maleDOB').innerHTML = "";
-            else
-            document.getElementById('femaleDOB').innerHTML = "";
-        }
-        }
-    }
-
-    function checkHour(ctlindex)
-    {
-        var hour = $("#hour"+ctlindex).val();
-        if((parseInt(hour) < 1) || (parseInt(hour) > 12))
-        {
-        if(ctlindex == 1)
-            document.getElementById('maleBirth').innerHTML = "Hour value should be 1 to 12";
-        else
-            document.getElementById('femaleBirth').innerHTML = "Hour value should be 1 to 12";
-        $("#hour"+ctlindex).focus();
-        }
-        else
-        {
-        if(hour.length == 1)
-        {
-            hour = "0" + hour;
-            $("#hour"+ctlindex).val(hour);
-            if(ctlindex == 1)
-            document.getElementById('maleBirth').innerHTML = "";
-            else
-            document.getElementById('femaleBirth').innerHTML = "";
-        }
-        else
-        {
-            if(ctlindex == 1)
-            document.getElementById('maleBirth').innerHTML = "";
-            else
-            document.getElementById('femaleBirth').innerHTML = "";
-        }
-        }    
-    }
-
-    function checkMinute(ctlindex)
-    {
-        var minute = $("#minute"+ctlindex).val();
-        if((parseInt(minute) < 0) || (parseInt(minute) > 59))
-        {
-        if(ctlindex == 1)
-            document.getElementById('maleBirth').innerHTML = "Minute value should be 1 to 59";
-        else
-            document.getElementById('femaleBirth').innerHTML = "Minute value should be 1 to 59";
-        $("#minute"+ctlindex).focus();
-        }
-        else
-        {
-        if(minute.length == 1)
-        {
-            minute = "0" + minute;
-            $("#minute"+ctlindex).val(minute);
-            if(ctlindex == 1)
-            document.getElementById('maleBirth').innerHTML = "";
-            else
-            document.getElementById('femaleBirth').innerHTML = "";
-        }
-        else
-        {
-            if(ctlindex == 1)
-            document.getElementById('maleBirth').innerHTML = "";
-            else
-            document.getElementById('femaleBirth').innerHTML = "";
-        }
-        }
-    }
-
-    function checkYear(ctlindex)
-    {
-        var currentyear = new Date().getFullYear();
-        var year = $("#year"+ctlindex).val();
-        if((parseInt(year)< 1900) || (parseInt(year) > currentyear))
-        {
-            if(ctlindex == 1)
-            document.getElementById('maleDOB').innerHTML = "Year value should be 1900 to " + currentyear;
-            else
-            document.getElementById('femaleDOB').innerHTML = "Year value should be 1900 to " + currentyear;
-            $("#year"+ctlindex).focus();
-        }
-        else if(year.length < 4)
-        {
-            if(ctlindex == 1)
-            document.getElementById('maleDOB').innerHTML = "Year value should be in 4 digits as like 1900";
-            else
-            document.getElementById('femaleDOB').innerHTML = "Year value should be in 4 digits as like 1900";
-            $("#year"+ctlindex).focus();
-        }
-        else
-        {
-            if(ctlindex == 1)
-            document.getElementById('maleDOB').innerHTML = "";
-            else
-            document.getElementById('femaleDOB').innerHTML = "";
-        }
-    }
-    
-    
-    function checkProfile(event) {  
-        let isValid = true;
-    
-        // Validate male full name
-        let fullname1 = document.getElementById("fullname1");
-        if (fullname1.value.trim() === "") {
-            document.getElementById('maleName').innerText = "Please enter fullname";
-            isValid = false;
-        } else {
-            document.getElementById('maleName').innerText = "";
-        }
-        validateMaleName();
-    
-        // Validate female full name
-        let fullname2 = document.getElementById("fullname2");
-        if (fullname2.value.trim() === "") {
-            document.getElementById('femaleName').innerText = "Please enter fullname";
-            isValid = false;
-        } else {
-            document.getElementById('femaleName').innerText = "";
-        }
-        validateFemaleName();
-    
-        // Male DOB
-        let maledate = document.getElementById("male-date").value;
-        let malemonth = document.getElementById("male-month").value;
-        let maleyear = document.getElementById("male-year").value;
-        if (maleyear === "") {
-            document.getElementById('maleDOB').innerText = "Please select year";
-            isValid = false;
-        } else if (malemonth === "") {
-            document.getElementById('maleDOB').innerText = "Please select month";
-            isValid = false;
-        } else if (maledate === "") {
-            document.getElementById('maleDOB').innerText = "Please select date";
-            isValid = false;
-        } else if (!isValidDate(maledate, malemonth, maleyear)) {
-            document.getElementById('maleDOB').innerText = "Please select date";
-            isValid = false;
-        } else {
-            document.getElementById('maleDOB').innerText = "";
-        }
-    
-        // Female DOB
-        let femaledate = document.getElementById("female-date").value;
-        let femalemonth = document.getElementById("female-month").value;
-        let femaleyear = document.getElementById("female-year").value;
-        if (femaleyear === "") {
-            document.getElementById('femaleDOB').innerText = "Please select year";
-            isValid = false;
-        } else if (femalemonth === "") {
-            document.getElementById('femaleDOB').innerText = "Please select month";
-            isValid = false;
-        } else if (femaledate === "") {
-            document.getElementById('femaleDOB').innerText = "Please select date";
-            isValid = false;
-        } else if (!isValidDate(femaledate, femalemonth, femaleyear)) {
-            document.getElementById('femaleDOB').innerText = "Please select date";
-            isValid = false;
-        } else {
-            document.getElementById('femaleDOB').innerText = "";
-        }
-    
-        // Male time of birth
-        let malehour = document.getElementById("male-hour").value;
-        let maleminute = document.getElementById("male-minute").value;
-        let ampm1 = document.getElementById("ampm1").value;
-        if (malehour === "") {
-            document.getElementById('maleBirth').innerText = "Please select hour";
-            isValid = false;
-        } else if (maleminute === "") {
-            document.getElementById('maleBirth').innerText = "Please select minute";
-            isValid = false;
-        } else if (ampm1 === "") {
-            document.getElementById('maleBirth').innerText = "Please select AM/PM";
-            isValid = false;
-        } else if (!isValidTime(malehour, maleminute)) {
-            document.getElementById('maleBirth').innerText = "Please enter a valid time";
-            isValid = false;
-        } else {
-            document.getElementById('maleBirth').innerText = "";
-        }
-    
-        // Female time of birth
-        let femalehour = document.getElementById("female-hour").value;
-        let femaleminute = document.getElementById("female-minute").value;
-        let ampm2 = document.getElementById("ampm2").value;
-        if (femalehour === "") {
-            document.getElementById('femaleBirth').innerText = "Please select hour";
-            isValid = false;
-        } else if (femaleminute === "") {
-            document.getElementById('femaleBirth').innerText = "Please select minute";
-            isValid = false;
-        } else if (ampm2 === "") {
-            document.getElementById('femaleBirth').innerText = "Please select AM/PM";
-            isValid = false;
-        } else if (!isValidTime(femalehour, femaleminute)) {
-            document.getElementById('femaleBirth').innerText = "Please enter a valid time";
-            isValid = false;
-        } else {
-            document.getElementById('femaleBirth').innerText = "";
-        }
-    
-        // Male location
-        let maletimezone = document.getElementsByName("maletimezone")[0].value;
-        let femaletimezone = document.getElementsByName("femaletimezone")[0].value;
-        let malecoordinates = document.getElementsByName("malecoordinates")[0].value;
-        let femalecoordinates = document.getElementsByName("femalecoordinates")[0].value;
-        let location1 = document.getElementById("location1");
-        if (location1.value.trim() === "" || malecoordinates === "" || maletimezone === "") {
-            document.getElementById('maleLoc').innerText = "Please select place of birth";
-            isValid = false;
-        } else {
-            document.getElementById('maleLoc').innerText = "";
-        }
-    
-        // Female location
-        let location2 = document.getElementById("location2");
-        if (location2.value.trim() === "" || femalecoordinates === "" || femaletimezone === "") {
-            document.getElementById('femaleLoc').innerText = "Please select place of birth";
-            isValid = false;
-        } else {
-            document.getElementById('femaleLoc').innerText = "";
-        }
-    
-        // Match method
-        let matchmethod = document.querySelector('input[name="matchmethod"]:checked');
-        if (!matchmethod) {
-            document.getElementById('matchmethod').innerText = "Please Select a Match Making Method.";
-            isValid = false;
-        } else {
-            document.getElementById('matchmethod').innerText = "";
-        }
-    
-        // Mobile validation
-        if (!validateMobileNumber("#mobile1")) { 
-            isValid = false;
-        }
-        if (!validateMobileNumber("#mobile2")) {
-            isValid = false;
-        }
-    
-        // Final submission
-        if (isValid) {
-            document.getElementById("maletimezone").value = maletimezone;
-            document.getElementById("malecoordinates").value = malecoordinates;
-            document.getElementById("maleplace").value = location1.value;
-            document.getElementById("femaletimezone").value = femaletimezone;
-            document.getElementById("femalecoordinates").value = femalecoordinates;
-            document.getElementById("femaleplace").value = location2.value;
-    
-            document.getElementById("profiles_form").value = 1;
-
-            // If user is not logged in, show login modal
-            event.preventDefault();
-            addtoStorage();
-            if(userId === ''){
-                localStorage.setItem("submit_after_login", 'true');
-                $("#loginAwareModal").modal('show');
-                $("#socialLoginDiv").show();
-                $("#horoscopeDiv").hide();
-                document.getElementById("socialLoginDiv").scrollIntoView();
-            }else{
-                $("#modalCenter").modal("show");
-                submitToPHP().then((result) => {
-                    clearPersistedInputs();
-                });
-                return true;
-            }
-            return false;
-            
-        } else {
-            event.preventDefault();
-            return false;
-        }
-    }
-    
-    $('#close_loginAwareModal').click(function() {
-        $("#loginAwareModal").modal('hide');
-        $("#socialLoginDiv").show();
-        $("#horoscopeDiv").hide();
-    });
-
-    var messages = [];
-    messages[0] = "Saving Planet Positions !";
-    messages[1] = "Verifying Horoscope Match !";
-    messages[2] = "Generates Accurate Marriage Matching Report !";
-    function showPopup() 
-    {
-        event.preventDefault();
-        //console.log("showPopup function called : " + messages[0]);
-        $('#modalCenter').modal('show');
-
-        timer = 10000;
-
-        for (let i = 0; i < messages.length; i++) {
-        setTimeout(function() {
-            document.getElementById('lblAlert').innerText = messages[i];
-        }, timer);
-            timer = timer + 6000;
-        }
-    }
-
-    // Helper function to validate date
-    function isValidDate(day, month, year) {
-        let date = new Date(year, month - 1, day);
-        return date && (date.getMonth() + 1) == month && date.getDate() == Number(day) && date.getFullYear() == Number(year);
-    }
-
-    // Helper function to validate time
-    function isValidTime(hour, minute) {
-        let h = parseInt(hour);
-        let m = parseInt(minute);
-        return h >= 1 && h <= 12 && m >= 0 && m <= 59;
-    }
-
-    function updateDays(gender) {        
-        const year = document.getElementById(gender + "-year").value;
-        const month = document.getElementById(gender + "-month").value;
-        const dayDropdown = document.getElementById(gender + "-date");
-        dayDropdown.innerHTML = ""; // Clear the current options
-
-        let daysInMonth = 31; // Default for months with 31 days
-        if (month == 4 || month == 6 || month == 9 || month == 11) {
-        daysInMonth = 30; // April, June, September, November have 30 days
-        } else if (month == 2) {
-        // Check for leap year
-        if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
-            daysInMonth = 29; // February in a leap year
-        } else {
-            daysInMonth = 28; // February in a non-leap year
-        }
-        }
-
-        let option = document.createElement("option");
-        option.value = "";
-        option.text = "-DD-";
-        dayDropdown.appendChild(option);
-
-        // Populate the day dropdown with the correct number of days
-        for (let day = 1; day <= daysInMonth; day++) {
-        let formattedDay = String(day).padStart(2, '0'); // Pad with leading zeros
-        let option = document.createElement("option");
-        option.value = formattedDay;
-        option.text = formattedDay;
-        dayDropdown.appendChild(option);
-        }
-    }
-
-    function checkDuplicateMobile()
-    {
-        const input = document.querySelector('#mobile');
-        const iti = intlTelInput.getInstance(input);
-        const countryData = iti.getSelectedCountryData();
-        var isdCode = countryData.dialCode;
-        let mobile = document.getElementById('mobile').value;
-        const mobileError = document.getElementById('mobileError');
-        let email = document.getElementById('email').value;
-        mobileError.innerText = "";
-        //console.log("Check Duplicate Function Called");
-        //console.log("ISD Code : " + isdCode + " Mobile : " + mobile + " Email : " + email);
-        if(mobile == "")
-        {
-            mobileError.innerText = "Please enter mobile number";
-            return;
-        }
-        else
-        {
-            mobileError.innerText = "";
-        }
-
-        $.ajax({
-            url: 'checkDuplicate.php',
-            type: 'POST',            
-            dataType: 'text',        
-            data: "checkDuplicateMobile=Y&checkDuplicateEmail=N&validateLogin=N&validateOTP=N&mobile=" + mobile + "&isdCode=" + isdCode + "&email=" + email,
-            success: function (data) {      
-                //console.log(data);
-                if(data != "")
-                {
-                    isValid = false;        
-                    mobileError.innerText = data;
-                }
-                else
-                {
-                    isValid = true;
-                    $("#sendotp").hide();
-                    $("#verifyotp").show();
-                    $("#mobile").attr("readonly", true);
-                }      
-            }
-        });
-    }
-
-    function checkDuplicateEmail()
-    {
-        let email = document.getElementById('email').value;
-        const emailError = document.getElementById('emailError');
-        emailError.innerText = "";
-        $.ajax({
-            url: 'checkDuplicate.php',
-            type: 'POST',            
-            dataType: 'text',        
-            data: "checkDuplicateMobile=N&checkDuplicateEmail=Y&validateLogin=N&validateOTP=N&email=" + email,
-            success: function (data) {      
-                //alert(data);
-                if(data != "")
-                {
-                    isValid = false;        
-                    emailError.innerText = data;
-                }
-                else
-                {
-                    isValid = true;
-                }
-            }
-        });
-    }
-
-    function verifyMobile()
-    {
-        let otp = document.getElementById("otp").value;   
-        let otp_verified = document.getElementById("valid_otp");   
-        if(otp.length < 4){
-            return;
-        }
-        if(otp == "")
-        {
-            document.getElementById("otpError").innerText = "Please enter OTP sent to your mobile";
-        }
-        else
-        {
-            $.ajax({
-                url: 'checkDuplicate.php',
-                type: 'POST',            
-                dataType: 'text',                        
-                data: "checkDuplicateMobile=N&checkDuplicateEmail=N&validateLogin=N&validateOTP=Y&otp=" + otp,
-                success: function (data) {      
-                    //alert(data);
-			//console.log("validate otp : " + data);
-                    if(data == "yes")
-                    {
-                        document.getElementById("otpError").innerText = "";
-			$("#btnVerifyOTP").hide();
-                        $("#btnSignup").removeClass("register-btn-new");
-                        otp_verified.value = "ok";
-                    }
-                    else
-                    {   
-                        document.getElementById("otpError").innerText = "Invalid OTP";
-                    }
-                }
-            });
-        }
-
-    }
-    
-    let userId = "";
-
-    const PK_API_CLIENT_ID = 'd5d9461b-49f7-4339-8a1b-72cf9fa7b4ee';
-    $(document).ready(function () 
-    {
-        //Location search start 
-        function loadScript(cb) {
-            var script = document.createElement('script');
-            script.src = 'js/location.min.js';
-            script.onload = cb;
-            script.async = 1;
-            document.head.appendChild(script);
-        }
-
-        function createInput(id, name, value) {
-            const input = document.createElement('input');
-            input.name = name;
-            //input.id = id;
-            input.type = 'hidden';
-
-            return input;
-        }
-        function initWidget(input) {
-            const form = input.form;
-            const inputPrefix = input.dataset.location_input_prefix ? input.dataset.location_input_prefix : '';
-            const coordinates = createInput("coordinates", inputPrefix + 'coordinates');
-            const timezone = createInput("timezone", inputPrefix + 'timezone');
-            form.appendChild(coordinates);
-            form.appendChild(timezone);
-            //alert('Hi');
-            new LocationSearch(input, function (data) {
-                coordinates.value = `${data.latitude},${data.longitude}`;
-                timezone.value = data.timezone;
-                input.setCustomValidity('');
-            }, { clientId: PK_API_CLIENT_ID, persistKey: `${inputPrefix}loc` });
-
-            input.addEventListener('change', function (e) {
-                //alert('Hi');
-                input.setCustomValidity('Please select a location from the suggestions list');
-            });
-
-            window.onload = function () {
-                localStorage.removeItem(`prokerala-location-${inputPrefix}loc`)
-            };
-            
-        }
-        loadScript(function () {
-            let location = document.querySelectorAll('.prokerala-location-input');
-            //console.log(location);
-            
-            Array.from(location).map(initWidget);
-            $('.prokerala-location-input').val('');
-        });
-
-        if(userId != "")
-        {
-            $("#socialLoginDiv").hide();
-            $("#loginDiv").hide();
-            $("#signupDiv").hide();
-            $("#horoscopeDiv").show();
-        }
-        else
-        {
-            $("#socialLoginDiv").hide();
-            $("#loginDiv").hide();
-            $("#signupDiv").hide();
-            $("#horoscopeDiv").show();
-        }
-
-        clearPersistedInputs();
-    });    
-
-    function showSingnup()
-    {
-        $("#socialLoginDiv").hide();
-        $("#loginDiv").hide();
-        $("#signupDiv").show();
-    }
-
-    function showCoupleSolution(status)
-    {
-        //console.log("showcouplesolution function called " + status);
-        if(status == 1)
-        {            
-            $("#couplesolution").show();
-            $("#newalliancematch").hide();
-        }
-        else
-        {
-            $("#couplesolution").hide();
-            $("#newalliancematch").show();
-        }
-    }
-
-    function validateEmailAndPassword()
-    {
-      document.getElementById('loginEmailError').innerText = "";
-      document.getElementById('loginPasswordError').innerText = "";     
-      
-      let loginSuccess = "You are logged in successfully !";
-      let isSingupValid = true;
-
-      // Validate email
-      let email = document.getElementById("loginemail");
-      if (email.value.trim() === "") {
-            document.getElementById('loginEmailError').innerText = "Please enter email address";
-            isSingupValid = false;
-      } else {
-            document.getElementById('loginEmailError').innerText = "";
-      }
-
-      // Validate password
-      let password = document.getElementById("loginpassword");
-      if (password.value.trim() === "") {
-            document.getElementById('loginPasswordError').innerText = "Please enter password";
-            isSingupValid = false;
-      } else {
-            document.getElementById('loginPasswordError').innerText = "";
-      }
-
-      if(isSingupValid){
-       $.ajax({
-            url: 'loginMaster.php',
-            type: 'POST', 
-            dataType: 'text',
-            data: "validateLogin=Y&validateSignup=N&email=" + email.value + "&password=" + password.value,
-            success: function (data) {
-                //alert(data);
-                //console.log(data);                
-                if(data == "login success")
-                {
-                    displaySuccessToaster(loginSuccess);
-                    window.location.hash = "compalibility-check";
-                    window.location.reload();                    
-                }
-                else
-                {
-                    displayErrorToaster(data);
-                }
-            }
-        }); 
-      }
-    }
-    
-   function validateFullName() {
-    var fullNameInput = document.getElementById("fullname");
-    var fullNameValue = fullNameInput.value;
-
-    // Regular expression to allow only letters and spaces
-    var regex = /^[A-Za-z\s]+$/;
-
-    if (!regex.test(fullNameValue)) {
-        alert("Full name should not contain numbers or special characters.");
-        fullNameInput.value = ""; // Clear the input
-    }
-}
-
-    function validateSignUp() {        
-        let valid = true;
-
-        let registerSuccess = "Registration completed successfully !";
-
-        // Clear previous error messages
-        document.getElementById('nameError').innerText = '';
-        document.getElementById('emailError').innerText = ''
-        document.getElementById('mobileError').innerText = '';
-        document.getElementById('passwordError').innerText = '';;
-        document.getElementById('genderError').innerText = '';
-        document.getElementById('userlevelError').innerText = '';
-
-        // Full name validation
-        const fullName = document.querySelector("input[name='fullname']");
-        const nameError = document.getElementById('nameError');
-        if (fullName.value.trim() === "") {
-            //alert("Please enter your full name.");
-            nameError.innerText = 'Please enter full name';
-            fullName.focus();
-            valid = false;
-        }
-
-        //Mobile validation
-        const mobileInput = document.getElementById('mobile');
-        const mobileError = document.getElementById('mobileError');
-        if (mobileInput.value.trim() === "") {
-            mobileError.innerText = 'Please enter mobile number';
-            mobileInput.focus();
-            valid = false;
-        }
-
-        // Email validation
-        const emailInput = document.getElementById('email');
-        const emailError = document.getElementById('emailError');
-        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
-        if (emailInput.value.trim() === "") {
-            emailError.innerText = 'Please enter email address';
-            emailInput.focus();
-            valid = false;
-        } else if (!emailPattern.test(emailInput.value)) {
-            emailError.innerText = 'Please enter a valid email address';
-            emailInput.focus();
-            valid = false;
-        }
-
-        // Gender validation
-        let gender = document.querySelector('input[name="usergender"]:checked');
-        const genderError = document.getElementById('genderError');
-        if (!gender) {
-            genderError.innerText = "Please select gender";
-            valid = false;
-        }
-
-        let userlevel = document.querySelector('input[name="userlevel"]:checked');
-        const userlevelError = document.getElementById('userlevelError');
-        if (!userlevel) {
-            userlevelError.innerText = "Please select user type";
-            valid = false;
-        }
-
-        // Password validation
-        const passwordInput = document.getElementById('password');
-        const passwordError = document.getElementById('passwordError');
-        if (passwordInput.value.trim() === "") {
-            //alert("Please enter your password.");
-            passwordError.innerText = "Please enter password";
-            passwordInput.focus();
-            valid = false;
-        }
-
-        const otp = document.getElementById('otp');
-        const otpValid = document.getElementById('valid_otp');
-        const otpError = document.getElementById('otpError');
-        if(otp && otpValid.value != "ok")
-        {   
-            otpError.innerText = "Please enter OTP sent to your mobile";
-            valid = false;
-        }
-
-        const input = document.querySelector('#mobile');
-        const iti = intlTelInput.getInstance(input);
-        const countryData = iti.getSelectedCountryData();
-        var isdCode = countryData.dialCode;
-
-        if(valid)
-        {
-            $.ajax({
-                url: 'loginMaster.php',
-                type: 'POST', 
-                dataType: 'text',
-                data: "validateLogin=N&validateSignup=Y&email=" + emailInput.value + "&password=" + passwordInput.value + "&fullname=" + fullName.value + "&mobile=" + mobileInput.value + "&gender=" + gender.value + "&userlevel=" + userlevel.value + "&isdCode=" + isdCode,
-                success: function (data) {                                
-                    //alert(data);
-                    //console.log(data);
-                    if(data == "registration success")
-                    {
-                        displaySuccessToaster(registersuccess);
-                        window.Location.href = "index.php#compalibility-check";
-                        window.location.reload();
-                    }
-                    else
-                    {
-                        displayErrorToaster(data);
-                    }
-                }
-            });
-        }
-        else
-        {
-            event.preventDefault(); // Prevent form submission
-        }
-   }
-
-    function viewLoginPassword() 
-    {
-        var currentPassword = document.getElementById("loginpassword");
-
-        if (currentPassword.type === "password") {
-            currentPassword.type = "text";
-            $(".open_eye_current").hide();
-            $(".close_eye_current").show();
-        } else {
-            currentPassword.type = "password";
-            $(".open_eye_current").show();
-            $(".close_eye_current").hide();
-        }
-    }
-    
-    function showTooltip(id, event) {
-        event.preventDefault();
-        event.stopPropagation();
-
-        let modal = document.getElementById("modalTooltip");
-        let lblTooltip = document.getElementById("lblTooltip");
-
-        if (!modal || !lblTooltip) {
-            console.error("Modal or Tooltip label not found!");
-            return;
-        }
-
-        let icon = event.currentTarget;
-        let iconRect = icon.getBoundingClientRect();
-
-        // Set tooltip text
-        switch (id) {
-            case 1:
-                lblTooltip.innerText = "The 10-match compatibility (Dasama Porutham) in marriage compatibility is a traditional practice in South India. It evaluates the personalities, life goals, and family unity of both individuals based on their horoscopes to predict the success of married life.";
-                document.getElementById("lnkmeaning").href="tooltip.php#1";
-                break;
-            case 2:
-                lblTooltip.innerText = "The 36-guna compatibility is an accurate method for horoscope matching in marriage. It is a part of the Ashtakoota matching system, where compatibility is evaluated based on a total of 36 points. It assesses physical, mental, emotional, and spiritual harmony and is commonly used in North India.";
-                document.getElementById("lnkmeaning").href="tooltip.php#2";
-                break;
-            case 3:
-                lblTooltip.innerText = "In Vedic astrology, the nine planets (Navagrahas) – Sun, Moon, Mars, Mercury, Jupiter, Venus, Saturn, Rahu, and Ketu – determine significant life events. In marriage compatibility, analyzing how these planets influence the relationship in both individuals' horoscopes is crucial.";
-                document.getElementById("lnkmeaning").href="tooltip.php#3";
-                break;    
-            case 4:
-                lblTooltip.innerText = "Astrological remedies are solutions based on Vedic astrology to address specific issues. Performing remedies for doshas (flaws) in the horoscope helps prevent difficulties in life.";
-                document.getElementById("lnkmeaning").href="tooltip.php#4";
-                break;
-            case 5:
-                lblTooltip.innerText = "Astro Music Healing Therapy is a unique astrological remedy that uses musical mantras to balance planetary influences and heal emotional distress. By chanting planetary mantras in specific ragas, this practice helps reduce astrological obstacles and fosters clarity and positivity in the marital journey.";
-                document.getElementById("lnkmeaning").href="tooltip.php#5";
-                break;
-            case 6:
-                lblTooltip.innerText = "Psychological guidance refers to counseling or advice based on psychological principles. It provides insights and guidance on mental states, emotions, and psychological aspects to help individuals navigate challenges effectively.";
-                document.getElementById("lnkmeaning").href="tooltip.php#6";
-                break;
-            case 7:
-                lblTooltip.innerText = "Each zodiac house represents a key aspect of a man’s life, from personality to career, marriage, and wealth. This type of marriage compatibility study assesses how these 12 life aspects match the horoscope of the prospective partner.";
-                document.getElementById("lnkmeaning").href="tooltip.php#7";
-                break;
-            case 8:
-                lblTooltip.innerText = "For women, compatibility analysis based on 12 zodiac houses reveals how different aspects of life, such as emotions, career, and relationships, align with a partner’s chart. This ensures a well-balanced and prosperous union.";
-                document.getElementById("lnkmeaning").href="tooltip.php#8";
-                break;
-            case 9:
-                lblTooltip.innerText = "The 10-match compatibility (Dasama Porutham) in marriage compatibility is a traditional practice in South India. It evaluates the personalities, life goals, and family unity of both individuals based on their horoscopes to predict the success of married life.";
-                document.getElementById("lnkmeaning").href="tooltip.php#9";
-                break;
-            case 10:
-                lblTooltip.innerText = "If Rahu and Ketu are positioned in the 1st, 2nd, 7th, or 8th houses in the horoscope, it can cause delays in marriage. This is known as Sarpa Dosha or Rahu-Ketu Dosha. This condition can affect relationships, mental peace, and family life. To balance this, marrying someone with the same dosha is recommended.";
-                document.getElementById("lnkmeaning").href="tooltip.php#10";
-                break;
-            case 11:
-                lblTooltip.innerText = "Kala Sarpa Dosha occurs when all planets, including the ascendant (Lagna), are positioned between Rahu and Ketu in the horoscope.";
-                document.getElementById("lnkmeaning").href="tooltip.php#11";
-                break;
-            case 12:
-                lblTooltip.innerText = "When Venus (Shukra) is placed in an unfavorable house, it is known as Kalathira Dosha. This can cause delays and difficulties in marriage. Marrying at a later age can reduce its effects.";
-                document.getElementById("lnkmeaning").href="tooltip.php#12";
-                break;
-            case 13:
-                lblTooltip.innerText = "Thara refers to the favorable and unfavorable effects of the 27 nakshatras (stars). Each nakshatra has nine types of Taras, including Janma Tara, Sampat Tara, and Vipat Tara. This compatibility ensures that partners do not bring negative influences to each other.";
-                document.getElementById("lnkmeaning").href="tooltip.php#13";
-                break;
-            case 14:
-                lblTooltip.innerText = "In today's fast-paced life, everyone is under stress. If left unmanaged, excessive mental strain can develop, which is indicated by planetary influences. Maintaining mental relaxation is essential. Since mental balance is important in marriage, compatibility is assessed based on Manasanchala Dosha.";
-                document.getElementById("lnkmeaning").href="tooltip.php#14";
-                break;
-            case 15:
-                lblTooltip.innerText = "Numerology is the study of numbers and their impact on human life. In marriage compatibility, numerology evaluates the birth number, destiny number, and life path number based on the date of birth to determine the couple’s compatibility.";
-                document.getElementById("lnkmeaning").href="tooltip.php#15";
-                break;
-            case 16:
-                lblTooltip.innerText = "Dasa Sandhi is the transition period between the end of one Mahadasha (major planetary period) and the beginning of another. Each Mahadasha affects different aspects of life, such as happiness, career, relationships, and spirituality. This transition phase is called Dasa Sandhi.";
-                document.getElementById("lnkmeaning").href="tooltip.php#16";
-                break;
-            case 17:
-                lblTooltip.innerText = "Dasa and Bukti (sub-periods) indicate how planetary periods shape a man’s life, influencing career, marriage, wealth, and health. These periods determine life’s highs and lows with precision.";
-                document.getElementById("lnkmeaning").href="tooltip.php#17";
-                break;
-            case 18:
-                lblTooltip.innerText = "A woman’s Dasa and Bukti periods determine significant life phases, such as marriage, childbirth, and career growth. These planetary periods reveal life’s opportunities and challenges.";
-                document.getElementById("lnkmeaning").href="tooltip.php#18";
-                break;
-            case 19:
-                lblTooltip.innerText = "This section provides detailed calculations to help astrologers analyze a male horoscope. It covers planetary strengths, special positions, and key influences that shape a person’s life.";
-                document.getElementById("lnkmeaning").href="tooltip.php#19";
-                break;
-            case 20:
-                lblTooltip.innerText = "This section provides a detailed astrological breakdown for a female horoscope. It helps astrologers understand planetary positions, strengths, and their effects on different aspects of life.";
-                document.getElementById("lnkmeaning").href="tooltip.php#20";
-                break;
-            default:
-                lblTooltip.innerText = "The 10-match compatibility (Dasama Porutham) in marriage compatibility is a traditional practice in South India. It evaluates the personalities, life goals, and family unity of both individuals based on their horoscopes to predict the success of married life.";
-                break;
-        }
-
-        // Calculate tooltip position
-        let tooltipWidth = modal.offsetWidth;
-        let tooltipHeight = modal.offsetHeight;
-        let screenWidth = window.innerWidth;
-        let screenHeight = window.innerHeight;
-
-        let leftPos = iconRect.left + window.scrollX;
-        let topPos = iconRect.bottom + window.scrollY;
-
-        // Prevent tooltip from overflowing right edge
-        /*if (leftPos + tooltipWidth > screenWidth) {
-            leftPos = screenWidth - tooltipWidth - 10; // Add some margin
-            modal.style.left = leftPos + "px";
-        }
-        else
-        {
-            modal.style.left = "20%";
-        }*/
-        if (/Mobi|Android/i.test(navigator.userAgent)) {
-            modal.style.left = "20%";
-            modal.style.top = "10%";
-            
-        }
-        else
-        {
-            // Prevent tooltip from overflowing right edge
-            if (leftPos + tooltipWidth > screenWidth) {
-                leftPos = screenWidth - tooltipWidth - 10; // Add some margin
-                modal.style.left = leftPos + "px";
-            }
-        }
-
-        // Prevent tooltip from overflowing bottom edge
-        if (topPos + tooltipHeight > screenHeight) {
-            topPos = iconRect.top - tooltipHeight - 10; // Show above the icon
-        }
-
-        modal.style.position = "fixed";
-//        modal.style.top = topPos + "px";
-        modal.style.top =  "30%";
-        modal.style.zIndex = "1000";
-        modal.style.display = "block";
-
-        //console.log(`Tooltip Position - Top: ${modal.style.top}, Left: ${modal.style.left}`);
-
-        // Hide tooltip when clicking outside
-        document.addEventListener("click", function hideModal(e) {
-            if (!modal.contains(e.target) && e.target !== icon) {
-                modal.style.display = "none";
-                document.removeEventListener("click", hideModal);
-            }
-        });
-    }
-
-    function displaySuccessToaster(successMessage) {
-        toastr.options.timeOut = 1500; // 1.5s 
-        toastr.success(successMessage);
-    }
-
-    function displayErrorToaster(errorMessage) {
-        toastr.options.timeOut = 1500; // 1.5s 
-        toastr.error(errorMessage);
-    }
-
-    function scrollToSection() {
-        document.getElementById("compatibility-check").scrollIntoView({ 
-            behavior: "smooth" 
-        });
-    }
-function isNumberCheck(event) {
-    let charCode = event.which ? event.which : event.keyCode;
-    if (charCode < 48 || charCode > 57) {
-        event.preventDefault(); // Prevent non-numeric input
-    }
-}
-
-function validateMobileNumber(inputSelector) {
-    const mobileNumber = $(inputSelector).val().trim();
-    const regex = /^(?:\+91|0)?\s*[6-9]\d{4}\s*\d{5}$/; 
-
-
-    if (!regex.test(mobileNumber)) {
-      $(inputSelector+"error").text("Please enter a valid 10-digit mobile number.");
-      return false;
-    }
-    $(inputSelector+"error").text(" ");
-    return true;
-  }
-
-function showMobile()
-{
-    $("#sendotp").show();
-    $("#verifyotp").hide();
-    $("#mobile").attr("readonly", false);
-}
-
-const fieldsToPersist = [
-    "fullname1", "fullname2", 
-    "male-date", "male-month", "male-year",
-    "female-date", "female-month", "female-year",
-    "male-hour", "male-minute", "ampm1",
-    "female-hour", "female-minute", "ampm2",
-    "location1", "location2", "partner_email"
-];
-const locationprase_names = [
-    "maleplace","femaleplace",
-    "malecoordinates", "femalecoordinates",
-    "maletimezone", "femaletimezone"
-];
-
-function setUpInputPersistence() {
-    try {
-        fieldsToPersist.forEach(id => {
-            const el = document.getElementsByName(id)[0];
-            if (el) {
-                // Load value on page load
-                const saved = localStorage.getItem(id);
-                if (saved !== null) el.value = saved;
-            }
-        });
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-function addtoStorage() {
-    fieldsToPersist.forEach(id => {
-        const el = document.getElementsByName(id)[0];
-        if (el) {
-           localStorage.setItem(id, el.value);
-        }
-    });
-}
-
-function clearPersistedInputs() {
-    fieldsToPersist.forEach(k => localStorage.removeItem(k));
-
-    localStorage.removeItem("prokerala-location-maleloc");
-    localStorage.removeItem("prokerala-location-femaleloc");
-}
-
-function submitToPHP() {
-    // Create form
-    const form = document.createElement("form");
-    form.method = "POST";
-    form.action = "matchhoroscope.php";
-
-    document.getElementById("profiles_form").value = 1;
-
-    // Append fields as hidden inputs
-    fieldsToPersist.forEach(key => {
-      const input = document.createElement("input");
-      input.type = "hidden";
-      input.name = key;
-      input.value = localStorage.getItem(key) || "--";
-      form.appendChild(input);
-    });
-
-    const locations = {
-        malelocation: JSON.parse(localStorage.getItem("prokerala-location-maleloc")),
-        femalelocation: JSON.parse(localStorage.getItem("prokerala-location-femaleloc"))
-    };
-
-    for (const [key, loc] of Object.entries(locations)) {
-        if (!loc) continue;
-        //console.log(`Processing location for ${key}:`, loc);
-        
-        const prefix = key === "malelocation" ? "male" : "female";
-
-        const coords = document.createElement("input");
-        coords.type = "hidden";
-        coords.name = `${prefix}coordinates`;
-        coords.value = loc.latitude + "," + loc.longitude;
-        form.appendChild(coords);
-
-        const place = document.createElement("input");
-        place.type = "hidden";
-        place.name = `${prefix}place`;
-        place.value = `${loc.city}, ${loc.state}, ${loc.country}`;
-        form.appendChild(place);
-
-        const timezone = document.createElement("input");
-        timezone.type = "hidden";
-        timezone.name = `${prefix}timezone`;
-        timezone.value = loc.timezone;
-        form.appendChild(timezone);
-    }
-
-    const input = document.createElement("input");
-      input.type = "hidden";
-      input.name = "logintype";
-      input.value = "sample";
-      form.appendChild(input);
-
-    document.body.appendChild(form);
-    localStorage.setItem("submittedOnce", "true");
-    clearPersistedInputs();
-    form.submit();
-}
-
-const new_feildsToPersist = [
-    "fullname_male", "fullname_female",
-    "birth_time_female", "birth_time_male",
-    "birth_date_female", "birth_date_male"
-];
-
-function submit_new_partner_details() {
-    
-
-    let isValid = true;
-
-    /*new_feildsToPersist.forEach(feild => {
-        let feildVal = $("#" + feild).val();
-        if (feildVal === "" || feildVal === "--") {
-            $("#" + feild + "_error").text("This field is required.");
-            isValid = false;
-        } else {
-            $("#" + feild + "_error").text("");
-        }
-    });*/
-
-    if(isValid){
-        /*if(userId === ''){
-            $("#new_partner_details_form").hide();
-            $("#social_login").show();
-            window.scrollTo({ top: 0, behavior: 'smooth' });       
-            localStorage.setItem("submit_after_login", 'true');
-        }else{
-            $("#modalCenter").modal("show");
-            submitToPHP().then((result) => {
-                clearPersistedInputs();
-            });
-            return true;
-        }*/
-        $("#new_partner_details_form").hide();
-        $("#social_login").show();
-        window.scrollTo({ top: 0, behavior: 'smooth' });       
-        localStorage.setItem("submit_after_login", 'true');
-        localStorage.setItem("submittedOnce", "true");
-        //console.log(localStorage);
-    }
-    else {
-        return false;
-    }    
-    
-}
-
-function date_split(gender, element) {
-    
-    let date = $("#birth_date_"+gender).val();
-    let dateParts = date.split("-");
-    //console.log("Birth date : " + date);
-   
-    if (dateParts.length == 3) {
-        let day = dateParts[2].padStart(2, '0');
-        let month = dateParts[1].padStart(2, '0');
-        let year = dateParts[0];
-
-        localStorage.setItem(`${gender}-date`, day);
-        localStorage.setItem(`${gender}-month`, month);
-        localStorage.setItem(`${gender}-year`, year);
-    }
-}
-
-function time_split(gender, element) {
-    
-    let time = $("#birth_time_"+gender).val();
-    let timeParts = time.split(":");
-    if (timeParts.length === 2) {
-        var hour = timeParts[0].padStart(2, '0');
-        var minute = timeParts[1].padStart(2, '0');
-        localStorage.setItem(`${gender}-hour`, hour);
-        localStorage.setItem(`${gender}-minute`, minute);
-    }
-    let ampm = "AM";
-    if (hour >= 12) {
-        ampm = "PM";
-        if (hour > 12) {
-            hour = hour - 12; // Convert to 12-hour format
-        }
-    } else if (hour === 0) {
-        hour = 12; // Midnight case
-    }
-
-    if (gender === "male") {
-        localStorage.setItem("ampm1", ampm);
-    } else {
-        localStorage.setItem("ampm2", ampm);
-    }
-}
-
-setUpInputPersistence();
-setTimeout(() => {
-    if (localStorage.getItem("submit_after_login") === "true" && userId != "") {
-        localStorage.removeItem("submit_after_login");
-        $("#modalCenter").modal("show");
-        submitToPHP();
-    }
-}, 1000);
-
-function setBirthDate(gender)
-{
-    let day = $("#"+gender+"-date").val();
-    let month = $("#"+gender+"-month").val();
-    let year = $("#"+gender+"-year").val();
-
-    localStorage.setItem(`${gender}-date`, day);
-    localStorage.setItem(`${gender}-month`, month);
-    localStorage.setItem(`${gender}-year`, year);
-}
-
-function setBirthTime(gender)
-{
-    let hour = $("#"+gender+"-hour").val();
-    let minute = $("#"+gender+"-minute").val();
-    
-    localStorage.setItem(`${gender}-hour`, hour);
-    localStorage.setItem(`${gender}-minute`, minute);
-
-    /*let ampm = "AM";
-    if (hour >= 12) {
-        ampm = "PM";
-        if (hour > 12) {
-            hour = hour - 12; // Convert to 12-hour format
-        }
-    } else*/ 
-    
-    if (hour === 0) {
-        hour = 12; // Midnight case
-    }
-
-    if (gender === "male") {
-        localStorage.setItem("ampm1", $("#ampm1").val());
-    } else {
-        localStorage.setItem("ampm2", $("#ampm2").val());
-    }
-}
-</script>
 <style>
     ul.cms-links {
         margin: 0;
@@ -4185,112 +2749,11 @@ function setBirthTime(gender)
         text-align: left;
     }
 </style>
-<!--footer section start-->
-<footer class="footer-section">
-    <!--footer top start-->
-    <!--for light footer add .footer-light class and for dark footer add .bg-dark .text-white class-->
-    <div class="footer-top ptb-60">
-        <div class="container">
-            <div class="row justify-content-between pt-4">
-                <div class="col-md-8 col-lg-4 mb-md-4 mb-lg-0">
-                    <div class="footer-single-col">
-                        <div class="footer-single-col mb-4">
-                            <img src="assets/img/logo-footer.png" alt="logo" class="img-fluid logo-white">
-                        </div>
 
-                    </div>
-                </div>
-                <div class="col-md-12 col-lg-8 mt-4 mt-md-0 mt-lg-0">
-                    <div class="row">
 
-                        <div class="col-md-6 col-lg-6 mt-4 mt-md-0 mt-lg-0 text-right">
-                            <div class="footer-single-col">
-                                <h3>Contact Us :</h3>
-                                <ul class="list-unstyled footer-nav-list mb-lg-0">
-                                    <li class="ft-ct-li"><img src="assets/img/whatsapp.svg" alt="Whatsapp" /> <span
-                                            class="ftr-ct">+(91) - 9962022209</span></li>
-                                    <li class="ft-ct-li"><img src="assets/img/mail.svg" alt="Mail" /> <span
-                                            class="ftr-ct">wonderful.couples@astromatch.online</span></li>
-                                    <li class="ft-ct-li"><img src="assets/img/call.svg" alt="Call" /> <span
-                                            class="ftr-ct">044 - 46972104</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!--<div class="col-md-6 col-lg-6 mt-4 mt-md-0 mt-lg-0 text-right">
-                                    <div class="footer-single-col">
-                                        <h3>Follow us on :</h3>
-                                        <div class="">
-                                            <a href="javascript:void(0)" class="text-decoration-none soc-py"><img src="assets/img/insta.svg" alt="Instagram" /> </a>
-                                            <a href="javascript:void(0)" class="text-decoration-none soc-py"><img src="assets/img/facebook.svg" alt="Facebook" /> </a>
-                                            <a href="javascript:void(0)" class="text-decoration-none soc-py"><img src="assets/img/Youtube.svg" alt="Youtube" /> </a>
-                                        </div>                                           
-                                    </div>
-                                </div>-->
-                        <div class="col-md-4 col-lg-4 mt-4 mt-md-0 mt-lg-0">
-                            <div class="footer-single-col">
-                                <div class="cms-section mt-3">
-                                    <ul class="cms-links">
-                                        <li><a href="contactus.php" title="Contact Us">Contact Us</a></li>
-                                        <li><a href="cancelpolicy.php" title="Refund Policy">Refund Policy</a></li>
-                                        <li><a href="termsofuse.php" title="Terms of Use">Terms of Use</a></li>
-                                        <li><a href="privacypolicy.php" title="Privacy Policy">Privacy Policy</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="mt-3">
-                            <a href="faq.php" class="btn btn-mat btn-sm mt-2"><img class="mr-1 px-2"
-                                    src="assets/img/Faq.svg" alt="FAQ" /> FAQ</a>
-                            <a href="https://drive.google.com/file/d/1U8j6etOcRhlkR6oL1Ekdbjg9NB2lNsv4/view?usp=sharing"
-                                target="_blank" class="btn btn-outline-mat btn-sm mt-2"
-                                style="font-size:15px; padding:12px"><img src="assets/img/Group.svg" class="user-guide"
-                                    alt="User Guide" />User Guide</a>
-                            <a href="#feedbackModal" data-bs-toggle="modal" class="btn btn-outline-mat btn-sm mt-2"><img
-                                    class="px-2" src="assets/img/Feedback.svg" alt="Feedback" />Send Feedback</a>
-                            <div class="socialmedia-icons-footer mt-2 d-none">
-                                <a href="javascript:void(0)" title="Instagram" class="text-decoration-none soc-py"><img
-                                        src="assets/img/insta.svg" alt="Instagram" /> </a>
-                                <a href="javascript:void(0)" title="Facebook" class="text-decoration-none soc-py"><img
-                                        src="assets/img/facebook.svg" alt="Facebook" /> </a>
-                                <a href="javascript:void(0)" title="Youtube" class="text-decoration-none soc-py"><img
-                                        src="assets/img/Youtube.svg" alt="Youtube" /> </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <!--footer top end-->
-
-    <!--footer bottom start-->
-    <div class="footer-bottom py-4">
-        <div class="container">
-            <div class="row justify-content-between align-items-center">
-                <div class="col-md-6 col-lg-6">
-                    <div class="copyright-text">
-                        <p>Copyright © 2025 VEALES Vedic Decisions Private Limited</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6">
-                    <div class="copyright-text">
-                        <p class="mb-lg-0 mb-md-0">Build Number: 25Q1R1.Sprint-1-QA.MAT-V1_0.250416.1</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--footer bottom end-->
-</footer>
-<!--footer section end-->
-<!--footer section end-->
-</div>
 
 <!--build:js-->
 <script src="assets/js/vendors/jquery-3.6.0.min.js"></script>
-<script src="assets/js/vendors/bootstrap.bundle.min.js"></script>
 <script src="assets/js/vendors/swiper-bundle.min.js"></script>
 <script src="assets/js/vendors/jquery.magnific-popup.min.js"></script>
 <script src="assets/js/vendors/parallax.min.js"></script>
@@ -4625,7 +3088,202 @@ function setBirthTime(gender)
     feedback = $("#feedbackdesc").val();
   }   
 </script>
-</body>
 
-</html>
+
+<script>
+    function setBirthTime(gender)
+    {
+        let hour = $("#"+gender+"-hour").val();
+        let minute = $("#"+gender+"-minute").val();
+        
+        if (hour === 0) {
+            hour = 12; // Midnight case
+        }
+
+    }
+
+    function updateDays(gender) {        
+        const year = document.getElementById(gender + "-year").value;
+        const month = document.getElementById(gender + "-month").value;
+        const dayDropdown = document.getElementById(gender + "-date");
+        dayDropdown.innerHTML = ""; // Clear the current options
+
+        let daysInMonth = 31; // Default for months with 31 days
+        if (month == 4 || month == 6 || month == 9 || month == 11) {
+        daysInMonth = 30; // April, June, September, November have 30 days
+        } else if (month == 2) {
+        // Check for leap year
+        if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+            daysInMonth = 29; // February in a leap year
+        } else {
+            daysInMonth = 28; // February in a non-leap year
+        }
+        }
+
+        let option = document.createElement("option");
+        option.value = "";
+        option.text = "-DD-";
+        dayDropdown.appendChild(option);
+
+        // Populate the day dropdown with the correct number of days
+        for (let day = 1; day <= daysInMonth; day++) {
+        let formattedDay = String(day).padStart(2, '0'); // Pad with leading zeros
+        let option = document.createElement("option");
+        option.value = formattedDay;
+        option.text = formattedDay;
+        dayDropdown.appendChild(option);
+        }
+    }
+
+    function validateHorosope(e) {
+        clearErrors();
+
+        let parent = $('#new_partner_details_form');
+        let inputs = $(parent).find('input, select, textarea');
+        let isvalid = true;
+        let focusSet = false;
+
+        inputs.each(function() {
+            let value = $(this).val();
+            let rules = $(this).attr('validations');
+            let label = $(this).attr('placeholder');
+
+            let errors = validationMatch(value, rules);
+
+            if (errors.length > 0) {
+                addError($(this), errors[0]);
+                isvalid = false;
+
+                if(!focusSet){
+                    $('html, body').animate({
+                        scrollTop: $(this).offset().top - 100,
+                    }, 1000);
+                }
+
+                focusSet = true;
+            }
+        });
+
+        if (!isvalid) {
+            e.preventDefault();
+        }
+        
+    }
+
+    function addError(currentInput, label) {
+        var errorElement = `<span class="error text-red">${label??' Invalid Input'}</span>`
+        currentInput.parent().append(errorElement);
+    }
+
+
+    function clearErrors(){
+        $('.error').remove();
+    }
+
+    const regex_patterns = {
+        email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,     
+        number: /^[0-9]+$/,                      
+        alpha: /^[A-Za-z]+$/,                   
+        alphanumeric: /^[A-Za-z0-9]+$/      
+    };
+
+    function validationMatch(value, rulesString) {
+        if(!rulesString) return [];
+
+        let rules = {};
+        
+
+        rulesString.split(";").forEach(rule => {
+            if (rule.trim() === "") return;
+            let [key, val] = rule.split(":");
+            if (key && val) {
+                rules[key.trim()] = val.trim();
+            }
+        });
+
+        let errors = [];
+
+        if (rules.required === "true" && (!value || value.trim() === "")) {
+            errors.push("This field is required.");
+        }
+
+        if (rules.length && value.length < parseInt(rules.length)) {
+            errors.push(`Length must be ${rules.length} characters.`);
+        }
+
+        if (rules.pattern && regex_patterns[rules.pattern]) {
+            if (!regex_patterns[rules.pattern].test(value)) {
+                errors.push(`Invalid ${rules.pattern} format.`);
+            }
+        }
+
+        return errors;
+    }
+
+    
+</script>
+
+<script type="module">
+    const PK_API_CLIENT_ID = 'd5d9461b-49f7-4339-8a1b-72cf9fa7b4ee';
+    
+    $(document).ready(function() {
+
+        function loadScript(cb) {
+            var script = document.createElement('script');
+            script.src = 'js/location.min.js';
+            script.onload = cb;
+            script.async = 1;
+            document.head.appendChild(script);
+        }
+
+       function createInput(id, name, value) {
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.id = id;
+            input.name = name;
+            input.value = value;
+
+            $('#new_partner_details_form').append(input);
+
+            return input;
+        }
+
+
+        function initWidget(input) {
+            const form = input.form;
+            const inputPrefix = input.dataset.location_input_prefix ? input.dataset.location_input_prefix : '';
+            const coordinates = createInput("coordinates", inputPrefix + 'coordinates');
+            const timezone = createInput("timezone", inputPrefix + 'timezone');
+            form.appendChild(coordinates);
+            form.appendChild(timezone);
+            //alert('Hi');
+            new LocationSearch(input, function(data) {
+                coordinates.value = `${data.latitude},${data.longitude}`;
+                timezone.value = data.timezone;
+                input.setCustomValidity('');
+            }, {
+                clientId: PK_API_CLIENT_ID,
+                persistKey: `${inputPrefix}loc`
+            });
+
+            input.addEventListener('change', function(e) {
+                input.setCustomValidity('Please select a location from the suggestions list');
+            });
+
+            window.onload = function() {
+                localStorage.removeItem(`prokerala-location-${inputPrefix}loc`)
+            };
+
+        }
+
+        loadScript(function() {
+            let location = document.querySelectorAll('.prokerala-location-input');
+            Array.from(location).map(initWidget);
+            $('.prokerala-location-input').val('');
+        });
+
+
+    });
+                
+</script>
 @endsection

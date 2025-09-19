@@ -86,7 +86,7 @@ class HomeController extends Controller
 
 
     public function profile(Request $request) {
-        return view('frontend.home.profile');
+        return view('frontend.profile.profile');
     }
 
     public function editprofile(Request $request) {

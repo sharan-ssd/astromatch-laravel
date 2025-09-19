@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\paymentController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ReportsController;
 
 
 Route::get('locale/{locale}', function ($lang) {
@@ -60,3 +61,6 @@ Route::get('/horoscopelist', [HomeController::class, 'horoscopelist']);
 Route::get('/faq', function () {
     return view('/frontend.faq.faq');
 });
+
+
+Route::get('/marriagereportcomplete', [ReportsController::class, 'completeReport']);

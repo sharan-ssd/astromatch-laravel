@@ -22,4 +22,10 @@ class PlanetService
             )
             ->get();
     }
+
+    function getRasiOption() {
+        $query = "SELECT rasiID,rasiName,rasiName_ta,rasiName_hi,rasiName_te,rasiName_kn,rasiName_ml FROM ab8_rasi_table";
+        return DB::select($query);
+    }
+
 }
