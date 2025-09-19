@@ -15,7 +15,7 @@ class AuthController extends Controller
         return Socialite::driver('google')->redirect();
     }
 
-    public function handleGoogleCallback()
+    /*public function handleGoogleCallback()
     {
         try {
             $googleUser = Socialite::driver('google')->stateless()->user();
@@ -44,7 +44,41 @@ class AuthController extends Controller
             dd($e);
             return redirect('/')->with('error', 'Something went wrong with Google login!');
         }
+    }*/
+
+    public function handleGoogleCallback()
+    {
+        try {
+            //$googleUser = Socialite::driver('google')->stateless()->user();
+            $googleUser = Socialite::driver('google')->user();
+
+            $user = User::updateOrCreate(
+                ['email' => $googleUser->getEmail()],
+                [
+                    'userName'        => $googleUser->getName(),
+                    'googleID'        => $googleUser->getId(),
+                    'profilePicture'  => $googleUser->getAvatar(),
+                    'password'        => bcrypt(str()->random(16)),
+                    'isEmailVerified' => true,
+                ]
+            );
+
+            Auth::login($user);
+
+            \Log::info('Session at Google callback: ', session()->all());
+
+            if (session('cachedHoroscope')) {
+                return redirect('/process-horoscope');
+            }           
+
+            return redirect()->intended('/');
+
+        } catch (\Exception $e) {
+            \Log::error($e);
+            return redirect('/')->with('error', 'Something went wrong with Google login!');
+        }
     }
+
 
     public function logout()
     {

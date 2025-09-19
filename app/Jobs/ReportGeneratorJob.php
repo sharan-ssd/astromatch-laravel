@@ -16,47 +16,55 @@ class ReportGeneratorJob implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     public $user;
+    protected $horoscope;
 
-    public function __construct($user)
+    public function __construct($user, $horoscope)
     {
         $this->user = $user;
+        $this->horoscope = $horoscope;
+
     }
 
     public function handle()
     {
-        // print_r("Deferred task fired for user: " . $this->user->id);
-        // \Log::info("Deferred task fired for user: " . $this->user->id);
-        // try {
-        //     $data = $saved_horoscope;
+        $data = $this->horoscope;
 
-        //     DB::beginTransaction();
+        \Log::info("Deferred task fired for user: {$this->user->id}");
+        \Log::info("Horoscope Data: " . json_encode($this->horoscope));
 
-        //     // ✅ Example Insert using Query Builder
-        //     $mainProfileId = DB::table('ab15b_astroProfile_table')->insertGetId([
-        //         'astroProfileName' => $data['fullname1'],
-        //         'userName' => $data['fullname1'],
-        //         'gender' => 'Male',
-        //         'dateOfBirth' => $data['male-year'] . '-' . $data['male-month'] . '-' . $data['male-date'],
-        //         'timeOfBirth' => $this->convertTo24Hour($data['male-hour'], $data['male-minute'], $data['ampm1']),
-        //         'placeOfBirthCity' => explode(",", $data['maleplace'])[0] ?? '',
-        //         'placeOfBirthState' => explode(",", $data['maleplace'])[1] ?? '',
-        //         'placeOfBirthCountry' => explode(",", $data['maleplace'])[2] ?? '',
-        //         'associatedUserID' => $userId,
-        //         'isAllianceProfile' => 'Y',
-        //         'isMainUserProfile' => 'Y',
-        //         'isdCode' => $isdCode,
-        //         'mobileNumber' => $mobile,
-        //         'email' => $email,
-        //     ]);
+        try {
+            DB::beginTransaction();
 
-        //     Log::info("Main horoscope created: " . $mainProfileId);
-        //     session('report_unique_id', null);
-        // } catch (Exception $ex) {
-        //     DB::rollBack();
-        //     Log::error($ex->getMessage());
-        //     session('report_unique_id', 123);
-        //     return back()->with('error', 'Something went wrong, please try later.');
-        // }
+            $userId  = $this->user->id;
+            $isdCode = $this->user->isdCode ?? '';
+            $mobile  = $this->user->mobile ?? '';
+            $email   = $this->user->email ?? '';
+
+            $mainProfileId = DB::table('ab15b_astroProfile_table')->insertGetId([
+                'astroProfileName'     => $data['fullname1'],
+                'userName'             => $data['fullname1'],
+                'gender'               => 'Male',
+                'dateOfBirth'          => $data['male-year'].'-'.$data['male-month'].'-'.$data['male-date'],
+                'timeOfBirth'          => $this->convertTo24Hour($data['male-hour'], $data['male-minute'], $data['ampm1']),
+                'placeOfBirthCity'     => explode(",", $data['maleplace'])[0] ?? '',
+                'placeOfBirthState'    => explode(",", $data['maleplace'])[1] ?? '',
+                'placeOfBirthCountry'  => explode(",", $data['maleplace'])[2] ?? '',
+                'associatedUserID'     => $userId,
+                'isAllianceProfile'    => 'Y',
+                'isMainUserProfile'    => 'Y',
+                'isdCode'              => $isdCode,
+                'mobileNumber'         => $mobile,
+                'email'                => $email,
+            ]);
+
+            DB::commit();
+            \Log::info("Main horoscope created: " . $mainProfileId);
+
+        } catch (\Exception $ex) {
+            DB::rollBack();
+            \Log::error("Horoscope generation failed: " . $ex->getMessage());
+            return;
+        }
 
         $this->sendReportGenerationCampaign();
         $this->sendWhatsAppDoc();
