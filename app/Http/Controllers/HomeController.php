@@ -9,6 +9,8 @@ use App\Http\Controllers\AuthController;
 use App\Jobs\ReportGeneratorJob;
 use App\Jobs\ProcessSomething;
 use App\Http\Controllers\PaymentController;
+use Illuminate\Support\Facades\DB;
+
 class HomeController extends Controller
 {
     protected $languageService;
@@ -95,7 +97,13 @@ class HomeController extends Controller
 
 
     public function horoscopelist(Request $request) {
-        return view('frontend.home.horoscopelist');
+
+        $userId = Auth::id();
+        $query = "SELECT astroProfileID,astroProfileName,gender,DATE_FORMAT(dateOfBirth,'%d/%m/%Y') AS DOB,TIME_FORMAT(timeOfBirth,'%h:%i:%s %p') AS TOB, placeOfBirthCity, placeOfBirthState, placeOfBirthCountry 
+        FROM ab15b_astroProfile_table WHERE isSoftDeleted='N' AND isAllianceProfile='Y' AND associatedUserID=" . $userId . "  ORDER BY astroProfileID DESC";
+        $profiles = DB::select($query);
+
+        return view('frontend.home.horoscopelist', compact('profiles'));
     }
 
 }

@@ -74,6 +74,9 @@
                                 <a class="dropdown-item" href="{{ url('/edit-profile') }}">Edit Profile</a>
                             </li>
                             <li>
+                                <a class="dropdown-item" href="{{ url('/horoscopelist') }}">Saved Profile</a>
+                            </li>
+                            <li>
                                 <hr class="dropdown-divider">
                             </li>
                             <li>
