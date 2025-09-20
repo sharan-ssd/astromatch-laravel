@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Services\WhatsAppService;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use App\Services\PanchangService;
+use App\Services\ProkeralaService;
 
 class ReportGeneratorJob implements ShouldQueue
 {
@@ -31,6 +31,8 @@ class ReportGeneratorJob implements ShouldQueue
 
     public function handle()
     {
+        set_time_limit(30000);
+
         $data = $this->horoscope;
 
         \Log::info("Deferred task fired for user: {$this->user->id}");
@@ -88,15 +90,59 @@ class ReportGeneratorJob implements ShouldQueue
             \Log::info("Main horoscope created: " . $mainProfileId);
             \Log::info("Alliance horoscope created: " . $allianceProfileId);
             
-            $service = new PanchangService();
+            $service = new ProkeralaService();
 
-            $message = $service->getThithiData(
+            $maleThithi = $service->getThithiData(
                 $data['malecoordinates'],  // coordinates
                 $maledob,       // birthdate
                 $maletob,            // birthtime
                 $data['maletimezone'],     // timezone
-                $mainProfileId                // profileId                
-    );
+                $mainProfileId                // profileId
+            );
+
+            $femaleThithi = $service->getThithiData(
+                $data['femalecoordinates'],  // coordinates
+                $femaledob,       // birthdate
+                $femaletob,            // birthtime
+                $data['femaletimezone'],     // timezone
+                $allianceProfileId                // profileId
+            );
+
+            $malePlanetPosition = $service->getPlanetPositions(
+                $data['malecoordinates'], 
+                $maledob, 
+                $maletob, 
+                $data['maletimezone'], 
+                $mainProfileId, 
+                $userId, 
+                'Male'
+            );
+
+            $femalePlanetPosition = $service->getPlanetPositions(
+                $data['femalecoordinates'], 
+                $femaledob, 
+                $femaletob, 
+                $data['femaletimezone'], 
+                $allianceProfileId, 
+                $userId, 
+                'Female'
+            );
+
+            /*$maleDasa = $service->getDasaDetail(
+                $data['malecoordinates'], 
+                $maledob, 
+                $maletob, 
+                $data['maletimezone'], 
+                $mainProfileId,
+            );
+
+            $femaleDasa = $service->getDasaDetail(
+                $data['femalecoordinates'], 
+                $femaledob, 
+                $femaletob, 
+                $data['femaletimezone'], 
+                $allianceProfileId,
+            );*/
 
         } catch (\Exception $ex) {
             DB::rollBack();
