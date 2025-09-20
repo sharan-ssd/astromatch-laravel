@@ -11,6 +11,10 @@ use Illuminate\Queue\SerializesModels;
 use App\Mail\CustomMail;
 use Illuminate\Support\Facades\Mail;
 use App\Services\WhatsAppService;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use App\Services\PanchangService;
+
 class ReportGeneratorJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
@@ -35,20 +39,43 @@ class ReportGeneratorJob implements ShouldQueue
         try {
             DB::beginTransaction();
 
-            $userId  = $this->user->id;
+            $userId = Auth::id();
             $isdCode = $this->user->isdCode ?? '';
             $mobile  = $this->user->mobile ?? '';
             $email   = $this->user->email ?? '';
 
+            $maledob = $data['male-year'].'-'.$data['male-month'].'-'.$data['male-date'];
+            $maletob = $this->convertTo24Hour($data['male-hour'], $data['male-minute'], $data['ampm1']);
+
             $mainProfileId = DB::table('ab15b_astroProfile_table')->insertGetId([
-                'astroProfileName'     => $data['fullname1'],
-                'userName'             => $data['fullname1'],
+                'astroProfileName'     => $data['fullname_male'],
+                'userName'             => $data['fullname_male'],
                 'gender'               => 'Male',
-                'dateOfBirth'          => $data['male-year'].'-'.$data['male-month'].'-'.$data['male-date'],
-                'timeOfBirth'          => $this->convertTo24Hour($data['male-hour'], $data['male-minute'], $data['ampm1']),
-                'placeOfBirthCity'     => explode(",", $data['maleplace'])[0] ?? '',
-                'placeOfBirthState'    => explode(",", $data['maleplace'])[1] ?? '',
-                'placeOfBirthCountry'  => explode(",", $data['maleplace'])[2] ?? '',
+                'dateOfBirth'          => $maledob,
+                'timeOfBirth'          => $maletob,
+                'placeOfBirthCity'     => explode(",", $data['location1'])[0] ?? '',
+                'placeOfBirthState'    => explode(",", $data['location1'])[1] ?? '',
+                'placeOfBirthCountry'  => explode(",", $data['location1'])[2] ?? '',
+                'associatedUserID'     => $userId,
+                'isAllianceProfile'    => 'Y',
+                'isMainUserProfile'    => 'Y',
+                'isdCode'              => $isdCode,
+                'mobileNumber'         => $mobile,
+                'email'                => $email,
+            ]);
+
+            $femaledob = $data['female-year'].'-'.$data['female-month'].'-'.$data['female-date'];
+            $femaletob = $this->convertTo24Hour($data['female-hour'], $data['female-minute'], $data['ampm2']);
+
+            $allianceProfileId = DB::table('ab15b_astroProfile_table')->insertGetId([
+                'astroProfileName'     => $data['fullname_female'],
+                'userName'             => $data['fullname_female'],
+                'gender'               => 'Female',
+                'dateOfBirth'          => $femaledob,
+                'timeOfBirth'          => $femaletob,
+                'placeOfBirthCity'     => explode(",", $data['location2'])[0] ?? '',
+                'placeOfBirthState'    => explode(",", $data['location2'])[1] ?? '',
+                'placeOfBirthCountry'  => explode(",", $data['location2'])[2] ?? '',
                 'associatedUserID'     => $userId,
                 'isAllianceProfile'    => 'Y',
                 'isMainUserProfile'    => 'Y',
@@ -59,6 +86,17 @@ class ReportGeneratorJob implements ShouldQueue
 
             DB::commit();
             \Log::info("Main horoscope created: " . $mainProfileId);
+            \Log::info("Alliance horoscope created: " . $allianceProfileId);
+            
+            $service = new PanchangService();
+
+            $message = $service->getThithiData(
+                $data['malecoordinates'],  // coordinates
+                $maledob,       // birthdate
+                $maletob,            // birthtime
+                $data['maletimezone'],     // timezone
+                $mainProfileId                // profileId                
+    );
 
         } catch (\Exception $ex) {
             DB::rollBack();
@@ -66,8 +104,8 @@ class ReportGeneratorJob implements ShouldQueue
             return;
         }
 
-        $this->sendReportGenerationCampaign();
-        $this->sendWhatsAppDoc();
+        //$this->sendReportGenerationCampaign();
+        //$this->sendWhatsAppDoc();
     }
 
     private function convertTo24Hour($hour, $minute, $ampm)
