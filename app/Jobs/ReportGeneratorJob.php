@@ -13,9 +13,9 @@ use Illuminate\Queue\SerializesModels;
 use App\Mail\CustomMail;
 use Illuminate\Support\Facades\Mail;
 use App\Services\WhatsAppService;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Services\ProkeralaService;
+use App\Services\StoredProceduresService;
 
 class ReportGeneratorJob implements ShouldQueue
 {
@@ -24,6 +24,11 @@ class ReportGeneratorJob implements ShouldQueue
     public $user;
     protected $horoscope;
     protected $report_tracker;
+    protected $chartId;
+    protected $reportLanguage;
+    protected $allianceUserGender;
+    protected $mainUserGender;
+    protected $matchWrtGender;
 
     public function __construct($user, $horoscope)
     {
@@ -33,6 +38,11 @@ class ReportGeneratorJob implements ShouldQueue
             'user_id' => $this->user->userID,
             'report_name' => 'Marriage Report Complete',
         ]);
+        $this->chartId = config('services.report.chartId');
+        $this->reportLanguage = "English";
+        $this->mainUserGender = "Male";
+        $this->allianceUserGender = "Female";
+        $this->matchWrtGender = "Male";
     }
 
     public function handle()
@@ -48,7 +58,7 @@ class ReportGeneratorJob implements ShouldQueue
             DB::beginTransaction();
             $this->report_tracker->transitionTo('processing');
 
-            $userId = Auth::id();
+            $userId = $this->user->userID;
             $isdCode = $this->user->isdCode ?? '';
             $mobile  = $this->user->mobile ?? '';
             $email   = $this->user->email ?? '';
@@ -134,7 +144,7 @@ class ReportGeneratorJob implements ShouldQueue
                 $userId, 
                 'Female'
             );
-
+            
             /*$maleDasa = $service->getDasaDetail(
                 $data['malecoordinates'], 
                 $maledob, 
@@ -150,6 +160,19 @@ class ReportGeneratorJob implements ShouldQueue
                 $data['femaletimezone'], 
                 $allianceProfileId,
             );*/
+
+
+            //Process Future SP Calls
+
+            $spService = new StoredProceduresService();
+            $maleProcessResult = $spService->processFuture($userId, $mainProfileId, $this->chartId, $this->reportLanguage);
+            $femaleProcessResult = $spService->processFuture($userId, $allianceProfileId, $this->chartId, $this->reportLanguage);
+            
+
+            //Calculate Bhavaga SP Call
+            $bhavagaMatchResult = $spService->calculateBhavagaMatch($userId, $mainProfileId, $this->mainUserGender, $allianceProfileId, $this->allianceUserGender, $this->chartId, $this->matchWrtGender);
+
+            \Log::error("Process future executed for Male Horoscope");
 
         } catch (\Exception $ex) {
             DB::rollBack();
