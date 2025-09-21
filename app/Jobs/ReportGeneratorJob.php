@@ -3,6 +3,8 @@
 namespace App\Jobs;
 
 use App\Models\User;
+use App\Models\XavierReport;
+use Illuminate\Support\Facades\DB; 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -17,12 +19,16 @@ class ReportGeneratorJob implements ShouldQueue
 
     public $user;
     protected $horoscope;
+    protected $report_tracker;
 
     public function __construct($user, $horoscope)
     {
         $this->user = $user;
         $this->horoscope = $horoscope;
-
+        $this->report_tracker = XavierReport::create([
+            'user_id' => $this->user->userID,
+            'report_name' => 'Marriage Report Complete',
+        ]);
     }
 
     public function handle()
@@ -34,6 +40,7 @@ class ReportGeneratorJob implements ShouldQueue
 
         try {
             DB::beginTransaction();
+            $this->report_tracker->transitionTo('processing');
 
             $userId  = $this->user->id;
             $isdCode = $this->user->isdCode ?? '';
@@ -63,6 +70,7 @@ class ReportGeneratorJob implements ShouldQueue
         } catch (\Exception $ex) {
             DB::rollBack();
             \Log::error("Horoscope generation failed: " . $ex->getMessage());
+            $this->report_tracker->transitionTo('failed',  $ex->getMessage());
             return;
         }
 
@@ -84,6 +92,7 @@ class ReportGeneratorJob implements ShouldQueue
                     <p>Make Your Payment immediately. to view your report</p>
                 ";
         Mail::to($toAddress)->send(new CustomMail($subject, $mailBody));
+        $this->report_tracker->increment('email_sent_count');
     }
 
 
@@ -97,6 +106,7 @@ class ReportGeneratorJob implements ShouldQueue
             'Here is your document'
         );
 
+        $this->report_tracker->increment('whatsapp_sent_count');
         return response()->json($result);
     }
 }

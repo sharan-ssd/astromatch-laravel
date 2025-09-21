@@ -67,6 +67,10 @@ class AuthController extends Controller
 
             \Log::info('Session at Google callback: ', session()->all());
 
+            if (!isset($user->mobileNumber)) {
+                return redirect('/edit-profile');
+            }
+
             if (session('cachedHoroscope')) {
                 return redirect('/process-horoscope');
             }           
@@ -74,7 +78,7 @@ class AuthController extends Controller
             return redirect()->intended('/');
 
         } catch (\Exception $e) {
-            \Log::error($e);
+            \Log::error('Exception occurred', ['exception' => $e]);
             return redirect('/')->with('error', 'Something went wrong with Google login!');
         }
     }

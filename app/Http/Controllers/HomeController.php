@@ -54,20 +54,9 @@ class HomeController extends Controller
             return redirect('/');
         }
 
-        $sessionData = session()->all();
-        \Log::info('Full session dump:', $sessionData);
-
-        if (!session('cachedHoroscope')) {
-            \Log::warning('No cachedHoroscope found in session');
-            return redirect('/');
+        if (session('cachedHoroscope')) {
+            ReportGeneratorJob::dispatch(auth()->user(), session()->pull('cachedHoroscope'));
         }
-
-        $saved_horoscope = session()->pull('cachedHoroscope');
-        \Log::info("Horoscope Data: " . json_encode($saved_horoscope));
-        session(['cachedHoroscope' => $saved_horoscope]);
-        session()->save();
-
-        ReportGeneratorJob::dispatch(auth()->user(), $saved_horoscope);
 
         return view('frontend.plans.plan_listing');
     }
