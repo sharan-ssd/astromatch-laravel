@@ -29,7 +29,9 @@ class ReportGeneratorJob implements ShouldQueue
     protected $allianceUserGender;
     protected $mainUserGender;
     protected $matchWrtGender;
-
+    protected $astroOrgSDTemplateID;
+    protected $astroOrgConfigID;
+    
     public function __construct($user, $horoscope)
     {
         $this->user = $user;
@@ -43,6 +45,8 @@ class ReportGeneratorJob implements ShouldQueue
         $this->mainUserGender = "Male";
         $this->allianceUserGender = "Female";
         $this->matchWrtGender = "Male";
+        $this->astroOrgSDTemplateID = config('services.report.astroOrgSDTemplateID');
+        $this->astroOrgConfigID = config('services.report.astroOrgConfigID');
     }
 
     public function handle()
@@ -166,13 +170,38 @@ class ReportGeneratorJob implements ShouldQueue
 
             $spService = new StoredProceduresService();
             $maleProcessResult = $spService->processFuture($userId, $mainProfileId, $this->chartId, $this->reportLanguage);
+            \Log::info("Process future executed for Male Horoscope");
             $femaleProcessResult = $spService->processFuture($userId, $allianceProfileId, $this->chartId, $this->reportLanguage);
-            
+            \Log::info("Process future executed for Female Horoscope");
 
             //Calculate Bhavaga SP Call
             $bhavagaMatchResult = $spService->calculateBhavagaMatch($userId, $mainProfileId, $this->mainUserGender, $allianceProfileId, $this->allianceUserGender, $this->chartId, $this->matchWrtGender);
+            \Log::info("Bhavaga match calculated");
 
-            \Log::error("Process future executed for Male Horoscope");
+            // 10point matching method process
+            $matchmethod = "10point";            
+            $southIndianMatchID = $spService->matchMaking($mainProfileId,$allianceProfileId,$matchmethod,$this->reportLanguage,$userId);
+            $southIndianMatchDecisionResult = $spService->quickDezider($southIndianMatchID);
+
+            // 36points matching method process
+            $matchmethod = "36points";
+            $northIndianMatchID = $spService->matchMaking($mainProfileId,$allianceProfileId,$matchmethod,$this->reportLanguage,$userId);
+            $northIndianMatchDecisionResult = $spService->quickDezider($northIndianMatchID);
+            
+            $matchId = DB::table('ab_savedMatch_table')->insertGetId([
+                'userID'              => $userId,
+                'mainProfileID'       => $mainProfileId,
+                'allianceProfileID'   => $allianceProfileId,
+                'firstDecisionID'     => $southIndianMatchID,
+                'secondDecisionID'    => $northIndianMatchID,
+                'matchMakingMethod'   => '10point',
+                'matchDate'           => now(),
+                'registrationDate'    => now(),
+                'isReportGenerated'   => 'Y',
+                'isConfirmationPageNeed' => 'N',
+            ]);
+
+            $this->additionalMatch($mainProfileId,$allianceProfileId,$userId,$matchId);
 
         } catch (\Exception $ex) {
             DB::rollBack();
@@ -216,4 +245,85 @@ class ReportGeneratorJob implements ShouldQueue
         $this->report_tracker->increment('whatsapp_sent_count');
         return response()->json($result);
     }
+
+    private function additionalMatch($mainProfileId, $allianceProfileId, $userId, $matchId)
+    {
+        try {            
+
+            // Call the stored procedure
+            DB::statement("CALL SP_MatchMaker_v4(?, ?, ?, ?, ?, @a, @b, @c, @d)", [
+                $this->astroOrgSDTemplateID,
+                $mainProfileId,
+                $allianceProfileId,
+                $this->reportLanguage,
+                $this->astroOrgConfigID
+            ]);
+
+            // Fetch the OUT parameters
+            $row = DB::selectOne("SELECT @a as a, @b as b, @c as c, @d as d");
+
+            $factor_values = explode(",", $row->c);
+            $factor_remarks = explode("##", $row->d);
+
+            $total_values = count($factor_values);
+
+            // Extract values
+            $starLordMatchPercentage   = $factor_values[0];
+            $lagnaLordMatchPercentage  = $factor_values[1];
+            $vrikshaMatchPercentage    = $factor_values[9];
+            $pakshiMatchPercentage     = $factor_values[12];
+
+            $starLordMatchRemarks   = $factor_remarks[0] ?? '';
+            $lagnaLordMatchRemarks  = $factor_remarks[1] ?? '';
+            $vrikshaMatchRemarks    = $factor_remarks[9] ?? '';
+            $pakshiMatchRemarks     = $factor_remarks[12] ?? '';
+
+            $kalaSarpaDoshaPercentage    = $factor_values[$total_values-1];
+            $dasaSanthiPercentage        = $factor_values[$total_values-2];
+            $manaSanchalaDoshaPercentage = $factor_values[$total_values-3];
+            $numerologyMatchPercentage   = $factor_values[$total_values-4];
+            $kalathiraDoshaPercentage    = $factor_values[$total_values-5];
+
+            $kalaSarpaDoshaRemarks = $factor_remarks[$total_values-1] ?? '';
+
+            // Mana Sanchala split
+            $parts = explode(">>", $factor_remarks[$total_values-3] ?? '');
+            $manaSanchalaDoshaRemarks = trim($parts[0] ?? '');
+
+            $numerologyMatchRemarks = ''; // keeping same as your original code
+            $kalathiraDoshaRemarks  = $factor_remarks[$total_values-5] ?? '';
+
+            // Update the record
+            DB::table('ab_savedMatch_table')
+                ->where('userID', $userId)
+                ->where('mainProfileID', $mainProfileId)
+                ->where('allianceProfileID', $allianceProfileId)
+                ->where('sno', $matchId)
+                ->update([
+                    'kalathiraDoshaPercentage'   => $kalathiraDoshaPercentage,
+                    'kalathiraDoshaRemarks'      => $kalathiraDoshaRemarks,
+                    'numerologyMatchPercentage'  => $numerologyMatchPercentage,
+                    'numerologyMatchRemarks'     => $numerologyMatchRemarks,
+                    'manaSanchalaDoshaPercentage'=> $manaSanchalaDoshaPercentage,
+                    'manaSanchalaDoshaRemarks'   => $manaSanchalaDoshaRemarks,
+                    'kalaSarpaDoshaPercentage'   => $kalaSarpaDoshaPercentage,
+                    'kalaSarpaDoshaRemarks'      => $kalaSarpaDoshaRemarks,
+                    'starLordMatchPercentage'    => $starLordMatchPercentage,
+                    'starLordMatchRemarks'       => $starLordMatchRemarks,
+                    'lagnaLordMatchPercentage'   => $lagnaLordMatchPercentage,
+                    'lagnaLordMatchRemarks'      => $lagnaLordMatchRemarks,
+                    'vrikshaMatchPercentage'     => $vrikshaMatchPercentage,
+                    'vrikshaMatchRemarks'        => $vrikshaMatchRemarks,
+                    'pakshiMatchPercentage'      => $pakshiMatchPercentage,
+                    'pakshiMatchRemarks'         => $pakshiMatchRemarks,
+                    'dasasanthiMatchPercentage'  => $dasaSanthiPercentage,
+                ]);
+
+        } catch (\Exception $ex) {
+            Log::error("Error in additionalMatch: " . $ex->getMessage(), [
+                'trace' => $ex->getTraceAsString()
+            ]);
+        }
+    }
+
 }
