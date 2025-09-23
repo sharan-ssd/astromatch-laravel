@@ -47,6 +47,7 @@ class ReportGeneratorJob implements ShouldQueue
         $this->matchWrtGender = "Male";
         $this->astroOrgSDTemplateID = config('services.report.astroOrgSDTemplateID');
         $this->astroOrgConfigID = config('services.report.astroOrgConfigID');
+        return  $this->report_tracker;
     }
 
     public function handle()
@@ -55,7 +56,7 @@ class ReportGeneratorJob implements ShouldQueue
 
         $data = $this->horoscope;
 
-        \Log::info("Deferred task fired for user: {$this->user->id}");
+        \Log::info("Deferred task fired for user: {$this->user->userID}");
         \Log::info("Horoscope Data: " . json_encode($this->horoscope));
 
         try {

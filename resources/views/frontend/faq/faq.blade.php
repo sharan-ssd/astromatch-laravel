@@ -1,10 +1,12 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <!--required meta tags-->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
-    
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+
     <!--meta-->
     <meta name="description" content="Astrology Website">
     <meta name="author" content="JesperApps">
@@ -18,11 +20,11 @@
     <!--build:css-->
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <link href="assets/fonts/style.css" rel="stylesheet" />	
+    <link href="assets/fonts/style.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
-                                    
+
     <!-- endbuild -->
 
     <!--custom css start-->
@@ -30,8 +32,9 @@
     <!--custom css end-->
 
 </head>
+
 <body>
-<!--preloader start-->
+    <!--preloader start-->
     <div id="preloader" class="bg-light-subtle">
         <div class="preloader-wrap">
             <img src="assets/img/favicon.png" alt="logo" class="img-fluid preloader-icon">
@@ -41,56 +44,69 @@
     <!--preloader end-->
 
 
-<div class="main-wrapper bg-soft-blue">
-  <!--header section start-->
-          <header class="main-header w-100 z-10 bg-white">
+    <div class="main-wrapper bg-soft-blue">
+        <!--header section start-->
+        <header class="main-header w-100 z-10 bg-white">
             <nav class="navbar navbar-expand-xl navbar-light sticky-header p-0">
-                <div class="container d-flex align-items-center justify-content-lg-between position-relative">                    
-                        <a href="index.php" class="navbar-brand d-flex align-items-center mb-md-0 text-decoration-none">                            
-                            <img src="assets/img/logo-color.png" alt="logo" class="img-fluid logo-color" />
-                        </a>
-                        <a class="navbar-toggler position-absolute right-0 border-0" href="#offcanvasWithBackdrop" role="button">
-                            <i class="flaticon-menu" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBackdrop" aria-controls="offcanvasWithBackdrop"></i>
-                        </a>
-                        <div class="clearfix"></div>                    
-                        <div class="collapse navbar-collapse justify-content-center p-3">
-                            <ul class="nav col-12 col-md-auto justify-content-center main-menu">
-                                <li class="nav-item -dropdown setup-process-item">
-                                                                                                                                <a class="btn btn-outline-mat btn-sm mt-2" style="font-size:15px; padding:12px" href="dashboard"><i class="fa fa-laptop px-2"></i>Go to Dashboard</a>
-                                                                                        <a class="btn btn-outline-mat btn-sm mt-2" style="font-size:15px; padding:12px" href="/"><i class="fa fa-home px-2"></i>Back to Home</a>
-                                            <a href="https://drive.google.com/file/d/1U8j6etOcRhlkR6oL1Ekdbjg9NB2lNsv4/view?usp=sharing" target="_blank" class="btn btn-outline-mat btn-sm mt-2" style="font-size:15px; padding:12px"><img class="px-2" src="assets/img/Group.svg" class="user-guide" alt="User Guide" />User Guide</a>
-                                                                        
-                                </li>
-                            </ul>
-                        </div>                    
-                                            <div class="action-btns text-end me-5 p-1.5 me-lg-0 d-none d-md-block d-lg-block justify-content-end">  
-                                                            <form name="languageForm" method="post">
-                                    <div class="form-group">
-                                        <select class="form-select-lg language-selection multi-language-selectlist" name="languageSelected" action="#" onchange="javascript:this.form.submit();">
-                                                                                        <option value="english" selected>English</option>
-                                                                                        <option value="tamil" >தமிழ்</option>
-                                                                                        <option value="hindi" >हिंदी</option>
-                                                                                        <option value="telugu" >తెలుగు</option>
-                                                                                        <option value="kannada" >ಕನ್ನಡ</option>
-                                                                                        <option value="malayalam" >മലയാളം</option>
-                                                            
-                                        </select>
-                                    </div>
-                                </form>
-                                                    </div>                    
-                                        <div class="dropdown-profile">
+                <div class="container d-flex align-items-center justify-content-lg-between position-relative">
+                    <a href="index.php" class="navbar-brand d-flex align-items-center mb-md-0 text-decoration-none">
+                        <img src="assets/img/logo-color.png" alt="logo" class="img-fluid logo-color" />
+                    </a>
+                    <a class="navbar-toggler position-absolute right-0 border-0" href="#offcanvasWithBackdrop"
+                        role="button">
+                        <i class="flaticon-menu" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBackdrop"
+                            aria-controls="offcanvasWithBackdrop"></i>
+                    </a>
+                    <div class="clearfix"></div>
+                    <div class="collapse navbar-collapse justify-content-center p-3">
+                        <ul class="nav col-12 col-md-auto justify-content-center main-menu">
+                            <li class="nav-item -dropdown setup-process-item">
+                                <a class="btn btn-outline-mat btn-sm mt-2" style="font-size:15px; padding:12px"
+                                    href="dashboard"><i class="fa fa-laptop px-2"></i>Go to Dashboard</a>
+                                <a class="btn btn-outline-mat btn-sm mt-2" style="font-size:15px; padding:12px"
+                                    href="/"><i class="fa fa-home px-2"></i>Back to Home</a>
+                                <a href="https://drive.google.com/file/d/1U8j6etOcRhlkR6oL1Ekdbjg9NB2lNsv4/view?usp=sharing"
+                                    target="_blank" class="btn btn-outline-mat btn-sm mt-2"
+                                    style="font-size:15px; padding:12px"><img class="px-2" src="assets/img/Group.svg"
+                                        class="user-guide" alt="User Guide" />User Guide</a>
+
+                            </li>
+                        </ul>
+                    </div>
+                    <div
+                        class="action-btns text-end me-5 p-1.5 me-lg-0 d-none d-md-block d-lg-block justify-content-end">
+                        <form name="languageForm" method="post">
+                            <div class="form-group">
+                                <select class="form-select-lg language-selection multi-language-selectlist"
+                                    name="languageSelected" action="#" onchange="javascript:this.form.submit();">
+                                    <option value="english" selected>English</option>
+                                    <option value="tamil">தமிழ்</option>
+                                    <option value="hindi">हिंदी</option>
+                                    <option value="telugu">తెలుగు</option>
+                                    <option value="kannada">ಕನ್ನಡ</option>
+                                    <option value="malayalam">മലയാളം</option>
+
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="dropdown-profile">
                         <img class="header-profile" src="assets/img/profile.png" alt="Profile">
                         <div class="dropdown-content-profile">
                             <ul class="profile-list-main">
-                                <li class="profile-menu-list"><a href="profile" title=""><i class="fa fa-user"></i> My Profile</a></li>
-                                <li class="profile-menu-list"><a href="editprofile.php" title=""><i class="fa fa-pencil"></i> Edit Profile</a></li>
-                                <li class="profile-menu-list"><a href="profilelist.php" title=""><i class="fa fa-list"></i> Horoscope List</a></li>
+                                <li class="profile-menu-list"><a href="profile" title=""><i class="fa fa-user"></i> My
+                                        Profile</a></li>
+                                <li class="profile-menu-list"><a href="editprofile.php" title=""><i
+                                            class="fa fa-pencil"></i> Edit Profile</a></li>
+                                <li class="profile-menu-list"><a href="profilelist.php" title=""><i
+                                            class="fa fa-list"></i> Horoscope List</a></li>
                                 <!--<li class="profile-menu-list"><a href="changepassword.php" title=""> <i class="fa fa-lock"></i> Change Password</a></li>-->
-                                <li class="profile-menu-list"><a href="logout" title=""><i class="fa fa-sign-out"></i> Logout</a></li>
+                                <li class="profile-menu-list"><a href="logout" title=""><i class="fa fa-sign-out"></i>
+                                        Logout</a></li>
                             </ul>
                         </div>
                     </div>
-                                    </div>                
+                </div>
             </nav>
             <!--offcanvas menu start-->
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasWithBackdrop">
@@ -102,174 +118,192 @@
                         <i class="flaticon-cancel"></i>
                     </button>
                 </div>
-                <div class="offcanvas-body">                    
+                <div class="offcanvas-body">
                     <div class="action-btns mt-2 mob-action-btns">
-                        <a href="https://drive.google.com/file/d/1U8j6etOcRhlkR6oL1Ekdbjg9NB2lNsv4/view?usp=sharing" class="btn btn-link text-decoration-none btn-outline-grey btn-sm mb-2 p-2"><img src="assets/img/Group.svg" class="user-guide" alt="User Guide" />User Guide</a>
-                                                <form name="languageForm" method="post" style="">
+                        <a href="https://drive.google.com/file/d/1U8j6etOcRhlkR6oL1Ekdbjg9NB2lNsv4/view?usp=sharing"
+                            class="btn btn-link text-decoration-none btn-outline-grey btn-sm mb-2 p-2"><img
+                                src="assets/img/Group.svg" class="user-guide" alt="User Guide" />User Guide</a>
+                        <form name="languageForm" method="post" style="">
                             <div class="form-group">
-                                <select class="form-select-lg language-selection multi-language-selectlist" name="languageSelected" action="#" onchange="javascript:this.form.submit();">
-                                                                        <option value="english" selected>English</option>
-                                                                        <option value="tamil" >தமிழ்</option>
-                                                                        <option value="hindi" >हिंदी</option>
-                                                                        <option value="telugu" >తెలుగు</option>
-                                                                        <option value="kannada" >ಕನ್ನಡ</option>
-                                                                        <option value="malayalam" >മലയാളം</option>
-                                                    
+                                <select class="form-select-lg language-selection multi-language-selectlist"
+                                    name="languageSelected" action="#" onchange="javascript:this.form.submit();">
+                                    <option value="english" selected>English</option>
+                                    <option value="tamil">தமிழ்</option>
+                                    <option value="hindi">हिंदी</option>
+                                    <option value="telugu">తెలుగు</option>
+                                    <option value="kannada">ಕನ್ನಡ</option>
+                                    <option value="malayalam">മലയാളം</option>
+
                                 </select>
                             </div>
                         </form>
                     </div>
                     <ul class="nav col-12 col-md-auto justify-content-center main-menu">
                         <li class="nav-item -dropdown mt-3">
-                                                                    <a class="mt-2 mb-2 p-2 mobile-menus" href="dashboard.php"> <i class="fa fa-home"></i> Dashboard </a>
-                                        <a class="mt-2 mb-2 p-2 mobile-menus" href="profile"> <i class="fa fa-user"></i> My Profile </a>
-                                        <a class="mt-2 mb-2 p-2 mobile-menus" href="editprofile.php"> <i class="fa fa-pencil"></i> Edit Profile </a>
-                                        <a class="mt-2 mb-2 p-2 mobile-menus" href="profilelist.php"> <i class="fa fa-list"></i> Horoscope List </a>
-                                        <!--<a class="mt-2 mb-2 p-2 mobile-menus" href="changepassword.php"> <i class="fa fa-lock"></i> Change Password </a>-->
-                                        <a class="mt-0 mobile-menus" href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
-                                                            </li>
+                            <a class="mt-2 mb-2 p-2 mobile-menus" href="dashboard.php"> <i class="fa fa-home"></i>
+                                Dashboard </a>
+                            <a class="mt-2 mb-2 p-2 mobile-menus" href="profile"> <i class="fa fa-user"></i> My Profile
+                            </a>
+                            <a class="mt-2 mb-2 p-2 mobile-menus" href="editprofile.php"> <i class="fa fa-pencil"></i>
+                                Edit Profile </a>
+                            <a class="mt-2 mb-2 p-2 mobile-menus" href="profilelist.php"> <i class="fa fa-list"></i>
+                                Horoscope List </a>
+                            <!--<a class="mt-2 mb-2 p-2 mobile-menus" href="changepassword.php"> <i class="fa fa-lock"></i> Change Password </a>-->
+                            <a class="mt-0 mobile-menus" href="logout.php"><i class="fa fa-sign-out"
+                                    aria-hidden="true"></i> Logout</a>
+                        </li>
                     </ul>
                 </div>
             </div>
             <!--offcanvas menu end-->
         </header>
-                <!--header section end-->        
-<style>
+        <!--header section end-->
+        <style>
+            .mob-action-btns {
+                display: flex;
+                width: 100%;
+            }
 
-.mob-action-btns {
-    display: flex;
-    width: 100%;
-}
+            li.profile-menu-list a i {
+                background: #dc416e;
+                padding: 7px;
+                border-radius: 50%;
+                color: #fff;
+            }
 
-li.profile-menu-list a i {
-    background: #dc416e;
-    padding: 7px;
-    border-radius: 50%;
-    color: #fff;
-}
+            a.mobile-menus i {
+                background: #d93970;
+                padding: 10px;
+                border-radius: 50%;
+                color: #fff;
+                margin-right: 4px;
+            }
 
-    a.mobile-menus i {
-    background: #d93970;
-    padding: 10px;
-    border-radius: 50%;
-    color: #fff;
-    margin-right: 4px;
-}
+            a.mobile-menus {
+                float: left;
+                width: 100%;
+                color: black;
+                padding: 7px 0px !important;
+                margin: 0 !important;
+                font-size: 14px !important;
+                /* border-bottom: 1px solid #ddd; */
+            }
 
-   a.mobile-menus {
-    float: left;
-    width: 100%;
-    color: black;
-    padding: 7px 0px !important;
-    margin: 0 !important;
-    font-size: 14px !important;
-    /* border-bottom: 1px solid #ddd; */
-}
-    li.profile-menu-list a {
-        padding: 5px 10px;
-        color: #000;
-        float: left;
-        width: 100%;
-    }
-    li.profile-menu-list a:hover {
-        background: #eeeeee;
-        transition: 0.5s;
-    }
-    img.header-profile 
-    {
-        height: 45px;
-        width: 48px;
-        border-radius: 50%;
-        margin-left: 10px;
-    }
-    .dropdown-profile {
-        position: relative;
-        display: inline-block;
-    }
+            li.profile-menu-list a {
+                padding: 5px 10px;
+                color: #000;
+                float: left;
+                width: 100%;
+            }
 
-    .dropdown-content-profile {
-        display: none;
-        position: absolute;
-        right: -10%;
-        background-color: #f9f9f9;
-        min-width: 250px;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        padding: 0;
-        z-index: 1;
-    }
-    li.profile-menu-list {
-        list-style-type: none;
-        font-size: 14px;
-        margin-bottom: 0px;
-        float: left;
-        width: 100%;
-    }
-    ul.profile-list-main {
-        padding-left: 0;
-        margin-bottom:0;
-    }
+            li.profile-menu-list a:hover {
+                background: #eeeeee;
+                transition: 0.5s;
+            }
 
-    .dropdown-profile:hover .dropdown-content-profile {
-        display: block;
-    }
+            img.header-profile {
+                height: 45px;
+                width: 48px;
+                border-radius: 50%;
+                margin-left: 10px;
+            }
 
-     .dropbtn {
-        background: linear-gradient(341deg, #ec446db5, #23a4da96);
-        color: white;
-        /* padding: 16px; */
-        /* font-size: 16px; */
-        border: none;
-        /* padding: 10px; */
-        height: 40px;
-        widdth: 40px;
-        vertical-align: middle;
-        border-radius: 50%;
-        margin-left: 10px;
-    }
+            .dropdown-profile {
+                position: relative;
+                display: inline-block;
+            }
 
-    .dropbtn:hover, .dropbtn:focus {
-      background-color: #fff;
-    }
+            .dropdown-content-profile {
+                display: none;
+                position: absolute;
+                right: -10%;
+                background-color: #f9f9f9;
+                min-width: 250px;
+                box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                padding: 0;
+                z-index: 1;
+            }
 
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
+            li.profile-menu-list {
+                list-style-type: none;
+                font-size: 14px;
+                margin-bottom: 0px;
+                float: left;
+                width: 100%;
+            }
 
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #fff;
-      min-width: 160px;
-      overflow: auto;
-      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-      z-index: 1;
-      right: 10%;
-      top: 38px;
-      padding: 6px;
-      border-radius: 10px;
-    }
+            ul.profile-list-main {
+                padding-left: 0;
+                margin-bottom: 0;
+            }
 
-   .dropdown-content a {
-      color: black;
-      padding: 3px 10px;
-      text-decoration: none;
-      display: block;
-      font-size: 14px;
-    }
+            .dropdown-profile:hover .dropdown-content-profile {
+                display: block;
+            }
 
-    .dropdown a:hover {background-color: #ddd;}
+            .dropbtn {
+                background: linear-gradient(341deg, #ec446db5, #23a4da96);
+                color: white;
+                /* padding: 16px; */
+                /* font-size: 16px; */
+                border: none;
+                /* padding: 10px; */
+                height: 40px;
+                widdth: 40px;
+                vertical-align: middle;
+                border-radius: 50%;
+                margin-left: 10px;
+            }
 
-    .show {display: block;}
-    @media(max-width: 991px) {
-    .dropdown.menulist {
-        display: none !important;
-    }
-}
-  </style>
+            .dropbtn:hover,
+            .dropbtn:focus {
+                background-color: #fff;
+            }
 
-  <script>
-   /* When the user clicks on the button, 
+            .dropdown {
+                position: relative;
+                display: inline-block;
+            }
+
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #fff;
+                min-width: 160px;
+                overflow: auto;
+                box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                z-index: 1;
+                right: 10%;
+                top: 38px;
+                padding: 6px;
+                border-radius: 10px;
+            }
+
+            .dropdown-content a {
+                color: black;
+                padding: 3px 10px;
+                text-decoration: none;
+                display: block;
+                font-size: 14px;
+            }
+
+            .dropdown a:hover {
+                background-color: #ddd;
+            }
+
+            .show {
+                display: block;
+            }
+
+            @media(max-width: 991px) {
+                .dropdown.menulist {
+                    display: none !important;
+                }
+            }
+        </style>
+
+        <script>
+            /* When the user clicks on the button, 
     toggle between hiding and showing the dropdown content */
     function myFunction() {
       document.getElementById("myDropdown").classList.toggle("show");
@@ -326,210 +360,291 @@ li.profile-menu-list a i {
         $("#loginDiv").hide();
         $("#signupDiv").show();
 	}
-  </script><main class="float-start w-100 body-main">
-    <section class="konow-more-zoidc d-inline-block w-100">
-        <div class="container mt-5">
-            <div class="col">
-                <div class="comon-heading text-center mt-5"><br>
-                    <h3 class="text-blue comon-heading mt-2 mb-3"> Frequently Asked Questions (FAQ) – astromatch.online </h3>
-                    <p class="address-details mb-5" style =" fontWeight: "bold";> World’s Most Advanced Astrological Marriage Decision-Making Platform. </p>
-                </div> 
-            </div>
-            <div class="row" style="font-family: Arial, sans-serif; padding: 20px; border-radius: 10px; width: fit-content; max-width: auto; text-align: left; margin-left: 5px;">
-              <div class="col">
-                  <div class="address-details mb-3 ">
-                    <h5 class="contact-title m-1 mb-2" style="padding-bottom: 20px; text-align: center; text-decoration: underline;"> 1. PRE-PURCHASE CLARIFICATIONS  </h5>
-                    <h6 class="contact-title m-1 mb-2"> Q1: What makes astromatch.online different from other matchmaking platforms? </h6>
-                    <p>Unlike traditional matchmaking services that only provide a list of profiles based on filters, <span style="font-weight: bold;">astromatch.online</span> offers a final marriage decision-making report using Parasara Maharishi’s Vedic Astrology principles. We evaluate Birth Star, 9 Planets, 12 Houses, Doshas, Dasa Sandhi, and Numerology to provide the most accurate marriage compatibility rating.</p>                        
-                  </div><br>
-                  <div class="address-details mb-3 ">
-                    <h6 class="contact-title m-1 mb-2"> Q2: How is your matchmaking report different from a free horoscope match on other sites? </h6>
-                    <p>Most free horoscope matching tools only check <strong>basic star and planetary position compatibility</strong>, whereas our report performs <strong>deep-level astrological calculations</strong>, ensuring higher accuracy and <strong>avoiding misleading matches</strong>.</p>                        
-                  </div><br>
-                  <div class="address-details mb-3 ">
-                    <h6 class="contact-title m-1 mb-2"> Q3: Is Rs. 599 worth the price for a matchmaking report? </h6>
-                      <p>Absolutely! This is not just a general compatibility check—it’s an in-depth, multi-dimensional astrological analysis.</p>
-                        <ul>
-                          <li> A detailed <strong>PDF report</strong> (available in 6 languages).</li>
-                          <li> Accurate insights based on <strong>Vedic Astrology</strong> (beyond just "Porutham" matching).</li>
-                          <li> Guidance on <strong>remedial measures</strong> in case of issues.</li>
-                          <li> Instant access via <strong>download, email, or WhatsApp</strong>.</li>
-                        </ul>
-                  </div><br>
-                  <div class="address-details mb-3 ">
-                    <h6 class="contact-title m-1 mb-2"> Q4: Do I need birth details of both bride and groom for the report? </h6>
-                    <p>Yes, for the most <strong>accurate compatibility analysis</strong>, you need:</p>
-                        <ul>
-                          <li> <strong>Bride’s</strong>Date, Time, and Place of Birth.</li>
-                          <li> <strong>Groom’s</strong> Date, Time, and Place of Birth.</li>
-                        </ul>                        
-                  </div><br>
-                  <div class="address-details mb-3 ">
-                    <h6 class="contact-title m-1 mb-2"> Q5: What if I don’t know the exact birth time? </h6>
-                    <p>If the <strong>birth time is unknown</strong>, we recommend getting a <strong>birth time rectification</strong> done by a professional astrologer before ordering the report. An inaccurate time can significantly impact predictions.</p>                        
-                  </div><br>
-                  <div class="address-details mb-3 ">
-                    <h6 class="contact-title m-1 mb-2"> Q6: How long does it take to get the report after payment? </h6>
-                    <p>You will receive your report<strong> instantly </strong>after payment via:</p> 
-                      <ul>
-                          <li> <strong>Download Link</strong></li>
-                          <li> <strong>WhatsApp</strong></li>
-                          <li> <strong>Email</strong></li>
-                        </ul>                       
-                  </div><br>
-                  <div class="address-details mb-3 ">
-                    <h6 class="contact-title m-1 mb-2"> QQ7: Do you provide personalized consultations along with the report? </h6>
-                    <p>Currently, we provide <strong>only the detailed report</strong>. If you need further guidance, you may consult a professional astrologer based on the report insights.</p>                        
-                  </div><br>
-                  <div class="address-details mb-3 ">
-                    <h5 class="contact-title m-1 mb-2" style="padding-bottom: 20px; text-align: center; text-decoration: underline;"> 2. ON-PURCHASE CLARIFICATIONS </h5>
-                    <h6 class="contact-title m-1 mb-2"> Q8: What if the report shows low compatibility? Should we cancel the marriage? </h6>
-                    <p>Not necessarily! Our report provides <strong>practical guidance</strong> based on astrology.</p>      
-                      <ul>
-                          <li> If the rating is <strong> moderate (55%-69%)</strong>, mutual understanding and remedies may help.</li>
-                          <li> If the rating is <strong>low (40%-54%)</strong> we recommend astrological <strong>remedies and expert advice</strong> before making a decision.</li>
-                          <li> If the rating is <strong>very low (<40%)</strong>, reconsideration is advised.</li>
-                        </ul>  
-                      <p>Marriage is a <strong>combination of astrological, emotional, and personal compatibility</strong>-we help in making a well-informed decision rather than an instant rejection.</p>                
-                  </div><br>
-                  <div class="address-details mb-3 ">
-                    <h6 class="contact-title m-1 mb-2"> Q9: Can we do remedies if there are Doshas in the report? </h6>
-                    <p>Yes, the report mentions suggested remedies based on traditional Vedic astrology, including.</p>    
-                      <ul>
-                          <li> Temple visits </li>
-                          <li> Mantras and prayers </li>
-                          <li> Specific fasting or rituals </li>
-                          <li> Gemstone recommendations (if applicable) </li>
-                        </ul>                    
-                  </div><br>
-                  <div class="address-details mb-3 ">
-                    <h6 class="contact-title m-1 mb-2"> Q10: What if parents or elders don’t believe in this detailed analysis? </h6>
-                    <p>If they trust basic <strong>Porutham matching</strong>, show them how this report covers <strong>ALL key astrological aspects</strong> for a more <strong>accurate decision</strong>. Our method ensures <strong>clarity and logical insights</strong>, making it a valuable tool for <strong>finalizing alliances responsibly</strong>.</p>                        
-                  </div><br>
-                  <div class="address-details mb-3 ">
-                    <h5 class="contact-title m-1 mb-2" style="padding-bottom: 20px; text-align: center; text-decoration: underline;"> 3. POST-PURCHASE USAGE CLARIFICATIONS  </h5>
-                    <h6 class="contact-title m-1 mb-2"> Q11: How can I access my report again if I lose it? </h6>
-                    <p>Your report is securely stored. You can:</p>  
-                      <ul>
-                          <li> <strong> Re-download </strong>it from the link provided.</li>
-                          <li> <strong> Request a resend </strong>via email or WhatsApp (by providing your order ID).</li>
-                        </ul>                      
-                  </div><br>
-                  <div class="address-details mb-3 ">
-                    <h6 class="contact-title m-1 mb-2"> Q12: Can I get the report in a different language after purchase? </h6>
-                    <p>Yes, you can request the same report in another available language for<strong> a small additional fee.</strong></p>                        
-                  </div><br>
-                  <div class="address-details mb-3 ">
-                    <h6 class="contact-title m-1 mb-2"> Q13: Can I generate reports for multiple alliances? </h6>
-                    <p>Yes! Many users generate reports for <strong> multiple alliances </strong> before making a final decision. You can order <strong>multiple reports</strong> and compare compatibility.</p>                        
-                  </div><br>
-                  <div class="address-details mb-3 ">
-                    <h6 class="contact-title m-1 mb-2"> Q14: Can I gift this report to a friend or relative? </h6>
-                    <p>Yes! Simply enter their birth details, and the report can be sent <strong> directly to them via email or WhatsApp </strong>.</p>                        
-                  </div><br>
-                  <div class="address-details mb-3 ">
-                    <h5 class="contact-title m-1 mb-2" style="padding-bottom: 20px; text-align: center; text-decoration: underline;"> 4. PLATFORM RELATED CLARIFICATIONS </h5>
-                    <h6 class="contact-title m-1 mb-2"> Q15: What makes you the ‘World’s Most Advanced Astrological Marriage Decision-Making Platform’? </h6>
-                    <p>Unlike profile-based matchmaking platforms, we go beyond just listing profiles. We:</p>   
-                      <ul>
-                          <li> <strong> Focus on final decision-making </strong>instead of endless profile browsing.</li>
-                          <li> Use<strong> Parasara Maharishi-based Vedic Astrology </strong>, ensuring the <strong> highest accuracy </strong>.</li>
-                          <li> Cover<strong> all astrological aspects </strong>,not just <strong> basic Porutham matching </strong>.</li>
-                          <li> Provide reports in<strong> 6 languages </strong>, making it accessible to everyone.</li>
-                          <li> Deliver<strong> instant reports </strong>via<strong> download, email, and WhatsApp </strong>for convenience.</li>
-                      </ul>                     
-                  </div><br>
-                  <div class="address-details mb-3 ">
-                    <h6 class="contact-title m-1 mb-2"> Q16: Why should I trust your matchmaking over personal astrologers? </h6>
-                    <p>Traditional astrologers may <strong> not always provide a structured, in-depth analysis </strong> like our reports do. Our system ensures:</p>   
-                      <ul>
-                          <li> <strong> Standardized, unbiased results </strong>without human errors.</li>
-                          <li> <strong> Comprehensive analysis </strong> covering <strong> 9 planets, 12 houses, doshas, numerology, and Dasa Sandhi </strong>.</li>
-                          <li> <strong> No manual interpretation bias </strong> -purely astrology-driven compatibility ratings.</li>
-                          <li> Provide reports in<strong> 6 languages </strong>, making it accessible to everyone.</li>
-                          <li> Deliver<strong> instant reports </strong>via<strong> download, email, and WhatsApp </strong>for convenience.</li>
-                      </ul>                     
-                  </div><br>
-                  <div class="address-details mb-3 ">
-                    <h6 class="contact-title m-1 mb-2"> Q17: How do I stay updated with your latest offerings? </h6>
-                    <p>Follow us on:</p>     
-                      <ul>
-                          <li> <strong> WhatsApp Updates </strong>[Your WhatsApp Number]</li>
-                          <li> <strong>Email Newsletter </strong>[Subscribe Link]</li>
-                          <li> <strong>Website </strong>[Your Website]</li>
-                          <li> Gemstone recommendations (if applicable) </li>
-                        </ul>                   
-                  </div><br>
-                  <div class="address-details mb-3 ">
-                    <h5 class="contact-title m-1 mb-2" style="padding-bottom: 20px; text-align: center; text-decoration: underline;"> CONCLUSION – WHY CHOOSE astromatch.online?  </h5>
-                      <ul>
-                          <li> <strong> Accurate & Advanced: </strong>Based on <strong> Vedic Astrology & Numerology</strong>.</li>
-                          <li> <strong> Comprehensive Decision-Making: </strong>Beyond<strong> just profile filtering.</strong>.</li>
-                          <li> <strong> Instant Access: </strong>Reports in<strong> 6 languages via download, email, and WhatsApp.</strong>.</li>
-                          <li> <strong> Practical Guidance: Remedies & personalized insights </strong>included.</li>
-                          <li> <strong> Best Value for Money: Only Rs. 599 </strong>for a <strong>lifetime clarity on marriage decisions. </li>
-                        </ul>   
-                        <p><strong> Make the Right Marriage Decision with Confidence – Order Your Report Now!</strong></p>                     
-                  </div><br>
-                </div>
-              </div>
-            </div>
-        </div>
-   </section>
-</main><style>
-ul.cms-links {
-    margin: 0;
-    padding-left: 10px;
-}
-
-ul.cms-links li {
-    font-size: 16px;
-    list-style-type: circle;
-    padding: 0;
-    margin: 0px;
-    color: #000;
-}
-ul.cms-links li a {
-    color: #000;
-}
-
-.socialmedia-icons-footer {
-        float: right;
-    position: relative;
-    top: 10px;
-    left: 0;
-    text-align: left;
-}
-</style>
-<!--footer section start-->
-        <footer class="footer-section">
-            <!--footer top start-->
-            <!--for light footer add .footer-light class and for dark footer add .bg-dark .text-white class-->
-            <div class="footer-top ptb-60">
-                <div class="container">
-                    <div class="row justify-content-between pt-4">
-                        <div class="col-md-8 col-lg-4 mb-md-4 mb-lg-0">
-                            <div class="footer-single-col">
-                                <div class="footer-single-col mb-4">
-                                    <img src="assets/img/logo-footer.png" alt="logo" class="img-fluid logo-white">
-                                </div>
-                               
-                            </div>
+        </script>
+        <main class="float-start w-100 body-main">
+            <section class="konow-more-zoidc d-inline-block w-100">
+                <div class="container mt-5">
+                    <div class="col">
+                        <div class="comon-heading text-center mt-5"><br>
+                            <h3 class="text-blue comon-heading mt-2 mb-3"> Frequently Asked Questions (FAQ) –
+                                astromatch.online </h3>
+                            <p class="address-details mb-5" style=" fontWeight: " bold";> World’s Most Advanced
+                                Astrological Marriage Decision-Making Platform. </p>
                         </div>
-                        <div class="col-md-12 col-lg-8 mt-4 mt-md-0 mt-lg-0">
-                            <div class="row">
-                                
-                                <div class="col-md-6 col-lg-6 mt-4 mt-md-0 mt-lg-0 text-right">
-                                    <div class="footer-single-col">
-                                        <h3>Contact Us :</h3>
-                                        <ul class="list-unstyled footer-nav-list mb-lg-0">
-                                            <li class="ft-ct-li"><img src="assets/img/whatsapp.svg" alt="Whatsapp" /> <span class="ftr-ct">+(91) - 9962022209</span></li>
-                                            <li class="ft-ct-li"><img src="assets/img/mail.svg" alt="Mail" /> <span class="ftr-ct">wonderful.couples@astromatch.online</span></li>
-                                            <li class="ft-ct-li"><img src="assets/img/call.svg" alt="Call" /> <span class="ftr-ct">044 - 46972104</span></li>
-                                        </ul>
-                                    </div>
+                    </div>
+                    <div class="row"
+                        style="font-family: Arial, sans-serif; padding: 20px; border-radius: 10px; width: fit-content; max-width: auto; text-align: left; margin-left: 5px;">
+                        <div class="col">
+                            <div class="address-details mb-3 ">
+                                <h5 class="contact-title m-1 mb-2"
+                                    style="padding-bottom: 20px; text-align: center; text-decoration: underline;"> 1.
+                                    PRE-PURCHASE CLARIFICATIONS </h5>
+                                <h6 class="contact-title m-1 mb-2"> Q1: What makes astromatch.online different from
+                                    other matchmaking platforms? </h6>
+                                <p>Unlike traditional matchmaking services that only provide a list of profiles based on
+                                    filters, <span style="font-weight: bold;">astromatch.online</span> offers a final
+                                    marriage decision-making report using Parasara Maharishi’s Vedic Astrology
+                                    principles. We evaluate Birth Star, 9 Planets, 12 Houses, Doshas, Dasa Sandhi, and
+                                    Numerology to provide the most accurate marriage compatibility rating.</p>
+                            </div><br>
+                            <div class="address-details mb-3 ">
+                                <h6 class="contact-title m-1 mb-2"> Q2: How is your matchmaking report different from a
+                                    free horoscope match on other sites? </h6>
+                                <p>Most free horoscope matching tools only check <strong>basic star and planetary
+                                        position compatibility</strong>, whereas our report performs <strong>deep-level
+                                        astrological calculations</strong>, ensuring higher accuracy and
+                                    <strong>avoiding misleading matches</strong>.</p>
+                            </div><br>
+                            <div class="address-details mb-3 ">
+                                <h6 class="contact-title m-1 mb-2"> Q3: Is Rs. 599 worth the price for a matchmaking
+                                    report? </h6>
+                                <p>Absolutely! This is not just a general compatibility check—it’s an in-depth,
+                                    multi-dimensional astrological analysis.</p>
+                                <ul>
+                                    <li> A detailed <strong>PDF report</strong> (available in 6 languages).</li>
+                                    <li> Accurate insights based on <strong>Vedic Astrology</strong> (beyond just
+                                        "Porutham" matching).</li>
+                                    <li> Guidance on <strong>remedial measures</strong> in case of issues.</li>
+                                    <li> Instant access via <strong>download, email, or WhatsApp</strong>.</li>
+                                </ul>
+                            </div><br>
+                            <div class="address-details mb-3 ">
+                                <h6 class="contact-title m-1 mb-2"> Q4: Do I need birth details of both bride and groom
+                                    for the report? </h6>
+                                <p>Yes, for the most <strong>accurate compatibility analysis</strong>, you need:</p>
+                                <ul>
+                                    <li> <strong>Bride’s</strong>Date, Time, and Place of Birth.</li>
+                                    <li> <strong>Groom’s</strong> Date, Time, and Place of Birth.</li>
+                                </ul>
+                            </div><br>
+                            <div class="address-details mb-3 ">
+                                <h6 class="contact-title m-1 mb-2"> Q5: What if I don’t know the exact birth time? </h6>
+                                <p>If the <strong>birth time is unknown</strong>, we recommend getting a <strong>birth
+                                        time rectification</strong> done by a professional astrologer before ordering
+                                    the report. An inaccurate time can significantly impact predictions.</p>
+                            </div><br>
+                            <div class="address-details mb-3 ">
+                                <h6 class="contact-title m-1 mb-2"> Q6: How long does it take to get the report after
+                                    payment? </h6>
+                                <p>You will receive your report<strong> instantly </strong>after payment via:</p>
+                                <ul>
+                                    <li> <strong>Download Link</strong></li>
+                                    <li> <strong>WhatsApp</strong></li>
+                                    <li> <strong>Email</strong></li>
+                                </ul>
+                            </div><br>
+                            <div class="address-details mb-3 ">
+                                <h6 class="contact-title m-1 mb-2"> QQ7: Do you provide personalized consultations along
+                                    with the report? </h6>
+                                <p>Currently, we provide <strong>only the detailed report</strong>. If you need further
+                                    guidance, you may consult a professional astrologer based on the report insights.
+                                </p>
+                            </div><br>
+                            <div class="address-details mb-3 ">
+                                <h5 class="contact-title m-1 mb-2"
+                                    style="padding-bottom: 20px; text-align: center; text-decoration: underline;"> 2.
+                                    ON-PURCHASE CLARIFICATIONS </h5>
+                                <h6 class="contact-title m-1 mb-2"> Q8: What if the report shows low compatibility?
+                                    Should we cancel the marriage? </h6>
+                                <p>Not necessarily! Our report provides <strong>practical guidance</strong> based on
+                                    astrology.</p>
+                                <ul>
+                                    <li> If the rating is <strong> moderate (55%-69%)</strong>, mutual understanding and
+                                        remedies may help.</li>
+                                    <li> If the rating is <strong>low (40%-54%)</strong> we recommend astrological
+                                        <strong>remedies and expert advice</strong> before making a decision.</li>
+                                    <li> If the rating is <strong>very low (<40%)< /strong>, reconsideration is advised.
+                                    </li>
+                                </ul>
+                                <p>Marriage is a <strong>combination of astrological, emotional, and personal
+                                        compatibility</strong>-we help in making a well-informed decision rather than an
+                                    instant rejection.</p>
+                            </div><br>
+                            <div class="address-details mb-3 ">
+                                <h6 class="contact-title m-1 mb-2"> Q9: Can we do remedies if there are Doshas in the
+                                    report? </h6>
+                                <p>Yes, the report mentions suggested remedies based on traditional Vedic astrology,
+                                    including.</p>
+                                <ul>
+                                    <li> Temple visits </li>
+                                    <li> Mantras and prayers </li>
+                                    <li> Specific fasting or rituals </li>
+                                    <li> Gemstone recommendations (if applicable) </li>
+                                </ul>
+                            </div><br>
+                            <div class="address-details mb-3 ">
+                                <h6 class="contact-title m-1 mb-2"> Q10: What if parents or elders don’t believe in this
+                                    detailed analysis? </h6>
+                                <p>If they trust basic <strong>Porutham matching</strong>, show them how this report
+                                    covers <strong>ALL key astrological aspects</strong> for a more <strong>accurate
+                                        decision</strong>. Our method ensures <strong>clarity and logical
+                                        insights</strong>, making it a valuable tool for <strong>finalizing alliances
+                                        responsibly</strong>.</p>
+                            </div><br>
+                            <div class="address-details mb-3 ">
+                                <h5 class="contact-title m-1 mb-2"
+                                    style="padding-bottom: 20px; text-align: center; text-decoration: underline;"> 3.
+                                    POST-PURCHASE USAGE CLARIFICATIONS </h5>
+                                <h6 class="contact-title m-1 mb-2"> Q11: How can I access my report again if I lose it?
+                                </h6>
+                                <p>Your report is securely stored. You can:</p>
+                                <ul>
+                                    <li> <strong> Re-download </strong>it from the link provided.</li>
+                                    <li> <strong> Request a resend </strong>via email or WhatsApp (by providing your
+                                        order ID).</li>
+                                </ul>
+                            </div><br>
+                            <div class="address-details mb-3 ">
+                                <h6 class="contact-title m-1 mb-2"> Q12: Can I get the report in a different language
+                                    after purchase? </h6>
+                                <p>Yes, you can request the same report in another available language for<strong> a
+                                        small additional fee.</strong></p>
+                            </div><br>
+                            <div class="address-details mb-3 ">
+                                <h6 class="contact-title m-1 mb-2"> Q13: Can I generate reports for multiple alliances?
+                                </h6>
+                                <p>Yes! Many users generate reports for <strong> multiple alliances </strong> before
+                                    making a final decision. You can order <strong>multiple reports</strong> and compare
+                                    compatibility.</p>
+                            </div><br>
+                            <div class="address-details mb-3 ">
+                                <h6 class="contact-title m-1 mb-2"> Q14: Can I gift this report to a friend or relative?
+                                </h6>
+                                <p>Yes! Simply enter their birth details, and the report can be sent <strong> directly
+                                        to them via email or WhatsApp </strong>.</p>
+                            </div><br>
+                            <div class="address-details mb-3 ">
+                                <h5 class="contact-title m-1 mb-2"
+                                    style="padding-bottom: 20px; text-align: center; text-decoration: underline;"> 4.
+                                    PLATFORM RELATED CLARIFICATIONS </h5>
+                                <h6 class="contact-title m-1 mb-2"> Q15: What makes you the ‘World’s Most Advanced
+                                    Astrological Marriage Decision-Making Platform’? </h6>
+                                <p>Unlike profile-based matchmaking platforms, we go beyond just listing profiles. We:
+                                </p>
+                                <ul>
+                                    <li> <strong> Focus on final decision-making </strong>instead of endless profile
+                                        browsing.</li>
+                                    <li> Use<strong> Parasara Maharishi-based Vedic Astrology </strong>, ensuring the
+                                        <strong> highest accuracy </strong>.</li>
+                                    <li> Cover<strong> all astrological aspects </strong>,not just <strong> basic
+                                            Porutham matching </strong>.</li>
+                                    <li> Provide reports in<strong> 6 languages </strong>, making it accessible to
+                                        everyone.</li>
+                                    <li> Deliver<strong> instant reports </strong>via<strong> download, email, and
+                                            WhatsApp </strong>for convenience.</li>
+                                </ul>
+                            </div><br>
+                            <div class="address-details mb-3 ">
+                                <h6 class="contact-title m-1 mb-2"> Q16: Why should I trust your matchmaking over
+                                    personal astrologers? </h6>
+                                <p>Traditional astrologers may <strong> not always provide a structured, in-depth
+                                        analysis </strong> like our reports do. Our system ensures:</p>
+                                <ul>
+                                    <li> <strong> Standardized, unbiased results </strong>without human errors.</li>
+                                    <li> <strong> Comprehensive analysis </strong> covering <strong> 9 planets, 12
+                                            houses, doshas, numerology, and Dasa Sandhi </strong>.</li>
+                                    <li> <strong> No manual interpretation bias </strong> -purely astrology-driven
+                                        compatibility ratings.</li>
+                                    <li> Provide reports in<strong> 6 languages </strong>, making it accessible to
+                                        everyone.</li>
+                                    <li> Deliver<strong> instant reports </strong>via<strong> download, email, and
+                                            WhatsApp </strong>for convenience.</li>
+                                </ul>
+                            </div><br>
+                            <div class="address-details mb-3 ">
+                                <h6 class="contact-title m-1 mb-2"> Q17: How do I stay updated with your latest
+                                    offerings? </h6>
+                                <p>Follow us on:</p>
+                                <ul>
+                                    <li> <strong> WhatsApp Updates </strong>[Your WhatsApp Number]</li>
+                                    <li> <strong>Email Newsletter </strong>[Subscribe Link]</li>
+                                    <li> <strong>Website </strong>[Your Website]</li>
+                                    <li> Gemstone recommendations (if applicable) </li>
+                                </ul>
+                            </div><br>
+                            <div class="address-details mb-3 ">
+                                <h5 class="contact-title m-1 mb-2"
+                                    style="padding-bottom: 20px; text-align: center; text-decoration: underline;">
+                                    CONCLUSION – WHY CHOOSE astromatch.online? </h5>
+                                <ul>
+                                    <li> <strong> Accurate & Advanced: </strong>Based on <strong> Vedic Astrology &
+                                            Numerology</strong>.</li>
+                                    <li> <strong> Comprehensive Decision-Making: </strong>Beyond<strong> just profile
+                                            filtering.</strong>.</li>
+                                    <li> <strong> Instant Access: </strong>Reports in<strong> 6 languages via download,
+                                            email, and WhatsApp.</strong>.</li>
+                                    <li> <strong> Practical Guidance: Remedies & personalized insights
+                                        </strong>included.</li>
+                                    <li> <strong> Best Value for Money: Only Rs. 599 </strong>for a <strong>lifetime
+                                            clarity on marriage decisions. </li>
+                                </ul>
+                                <p><strong> Make the Right Marriage Decision with Confidence – Order Your Report
+                                        Now!</strong></p>
+                            </div><br>
+                        </div>
+                    </div>
+                </div>
+    </div>
+    </section>
+    </main>
+    <style>
+        ul.cms-links {
+            margin: 0;
+            padding-left: 10px;
+        }
+
+        ul.cms-links li {
+            font-size: 16px;
+            list-style-type: circle;
+            padding: 0;
+            margin: 0px;
+            color: #000;
+        }
+
+        ul.cms-links li a {
+            color: #000;
+        }
+
+        .socialmedia-icons-footer {
+            float: right;
+            position: relative;
+            top: 10px;
+            left: 0;
+            text-align: left;
+        }
+    </style>
+    <!--footer section start-->
+    <footer class="footer-section">
+        <!--footer top start-->
+        <!--for light footer add .footer-light class and for dark footer add .bg-dark .text-white class-->
+        <div class="footer-top ptb-60">
+            <div class="container">
+                <div class="row justify-content-between pt-4">
+                    <div class="col-md-8 col-lg-4 mb-md-4 mb-lg-0">
+                        <div class="footer-single-col">
+                            <div class="footer-single-col mb-4">
+                                <img src="assets/img/logo-footer.png" alt="logo" class="img-fluid logo-white">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-8 mt-4 mt-md-0 mt-lg-0">
+                        <div class="row">
+
+                            <div class="col-md-6 col-lg-6 mt-4 mt-md-0 mt-lg-0 text-right">
+                                <div class="footer-single-col">
+                                    <h3>Contact Us :</h3>
+                                    <ul class="list-unstyled footer-nav-list mb-lg-0">
+                                        <li class="ft-ct-li"><img src="assets/img/whatsapp.svg" alt="Whatsapp" /> <span
+                                                class="ftr-ct">+(91) - 9962022209</span></li>
+                                        <li class="ft-ct-li"><img src="assets/img/mail.svg" alt="Mail" /> <span
+                                                class="ftr-ct">wonderful.couples@astromatch.online</span></li>
+                                        <li class="ft-ct-li"><img src="assets/img/call.svg" alt="Call" /> <span
+                                                class="ftr-ct">044 - 46972104</span></li>
+                                    </ul>
                                 </div>
-                                <!--<div class="col-md-6 col-lg-6 mt-4 mt-md-0 mt-lg-0 text-right">
+                            </div>
+                            <!--<div class="col-md-6 col-lg-6 mt-4 mt-md-0 mt-lg-0 text-right">
                                     <div class="footer-single-col">
                                         <h3>Follow us on :</h3>
                                         <div class="">
@@ -539,59 +654,74 @@ ul.cms-links li a {
                                         </div>                                           
                                     </div>
                                 </div>-->
-                                <div class="col-md-4 col-lg-4 mt-4 mt-md-0 mt-lg-0">
-                                    <div class="footer-single-col">                                        
-                                        <div class="cms-section mt-3">                                    
-                                            <ul class="cms-links">
-                                            <li><a href="contactus.php" title="Contact Us">Contact Us</a></li>                                            
+                            <div class="col-md-4 col-lg-4 mt-4 mt-md-0 mt-lg-0">
+                                <div class="footer-single-col">
+                                    <div class="cms-section mt-3">
+                                        <ul class="cms-links">
+                                            <li><a href="contactus.php" title="Contact Us">Contact Us</a></li>
                                             <li><a href="cancelpolicy.php" title="Refund Policy">Refund Policy</a></li>
                                             <li><a href="termsofuse.php" title="Terms of Use">Terms of Use</a></li>
-                                            <li><a href="privacypolicy.php" title="Privacy Policy">Privacy Policy</a></li>
-                                            </ul>
-                                        </div>
+                                            <li><a href="privacypolicy.php" title="Privacy Policy">Privacy Policy</a>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
-                                
-                                <div class="mt-3">
-                                                                    <a href="faq" class="btn btn-mat btn-sm mt-2"><img class="mr-1 px-2" src="assets/img/Faq.svg" alt="FAQ" /> FAQ</a>
-                                    <a href="https://drive.google.com/file/d/1U8j6etOcRhlkR6oL1Ekdbjg9NB2lNsv4/view?usp=sharing" target="_blank" class="btn btn-outline-mat btn-sm mt-2" style="font-size:15px; padding:12px"><img src="assets/img/Group.svg" class="user-guide" alt="User Guide" />User Guide</a>
-                                    <a href="#feedbackModal" data-bs-toggle="modal" class="btn btn-outline-mat btn-sm mt-2"><img class="px-2" src="assets/img/Feedback.svg" alt="Feedback" />Send Feedback</a>                                    
-                                    <div class="socialmedia-icons-footer mt-2 d-none">
-                                        <a href="javascript:void(0)" title="Instagram" class="text-decoration-none soc-py"><img src="assets/img/insta.svg" alt="Instagram" /> </a>
-                                        <a href="javascript:void(0)" title="Facebook" class="text-decoration-none soc-py"><img src="assets/img/facebook.svg" alt="Facebook" /> </a>
-                                        <a href="javascript:void(0)" title="Youtube" class="text-decoration-none soc-py"><img src="assets/img/Youtube.svg" alt="Youtube" /> </a>
-                                    </div> 
-                                </div>                                
+                            </div>
+
+                            <div class="mt-3">
+                                <a href="faq" class="btn btn-mat btn-sm mt-2"><img class="mr-1 px-2"
+                                        src="assets/img/Faq.svg" alt="FAQ" /> FAQ</a>
+                                <a href="https://drive.google.com/file/d/1U8j6etOcRhlkR6oL1Ekdbjg9NB2lNsv4/view?usp=sharing"
+                                    target="_blank" class="btn btn-outline-mat btn-sm mt-2"
+                                    style="font-size:15px; padding:12px"><img src="assets/img/Group.svg"
+                                        class="user-guide" alt="User Guide" />User Guide</a>
+                                <a href="#feedbackModal" data-bs-toggle="modal"
+                                    class="btn btn-outline-mat btn-sm mt-2"><img class="px-2"
+                                        src="assets/img/Feedback.svg" alt="Feedback" />Send Feedback</a>
+                                <div class="socialmedia-icons-footer mt-2 d-none">
+                                    <a href="javascript:void(0)" title="Instagram"
+                                        class="text-decoration-none soc-py"><img src="assets/img/insta.svg"
+                                            alt="Instagram" /> </a>
+                                    <a href="javascript:void(0)" title="Facebook"
+                                        class="text-decoration-none soc-py"><img src="assets/img/facebook.svg"
+                                            alt="Facebook" /> </a>
+                                    <a href="javascript:void(0)" title="Youtube"
+                                        class="text-decoration-none soc-py"><img src="assets/img/Youtube.svg"
+                                            alt="Youtube" /> </a>
+                                </div>
                             </div>
                         </div>
-
                     </div>
+
                 </div>
             </div>
-            <!--footer top end-->
-
-            <!--footer bottom start-->
-            <div class="footer-bottom py-4">
-                <div class="container">
-                    <div class="row justify-content-between align-items-center">
-                        <div class="col-md-6 col-lg-6">
-                            <div class="copyright-text">
-                            <p>Copyright © 2025 VEALES Vedic Decisions Private Limited</p>                            </div>                            
-                        </div>
-                        <div class="col-md-6 col-lg-6">
-                            <div class="copyright-text">
-                                <p class="mb-lg-0 mb-md-0">Build Number: 25Q1R1.Sprint-1-QA.MAT-V1_0.250416.1</p>
-                            </div> 
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--footer bottom end-->
-        </footer>
-        <!--footer section end--> <!--footer section end-->
         </div>
-        
-<!--build:js-->
+        <!--footer top end-->
+
+        <!--footer bottom start-->
+        <div class="footer-bottom py-4">
+            <div class="container">
+                <div class="row justify-content-between align-items-center">
+                    <div class="col-md-6 col-lg-6">
+                        <div class="copyright-text">
+                            <p>Copyright © 2025 VEALES Vedic Decisions Private Limited</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+                        <div class="copyright-text">
+                            <p class="mb-lg-0 mb-md-0">Build Number: 25Q1R1.Sprint-1-QA.MAT-V1_0.250416.1</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--footer bottom end-->
+    </footer>
+    <!--footer section end-->
+    <!--footer section end-->
+    </div>
+
+    <!--build:js-->
     <script src="assets/js/vendors/jquery-3.6.0.min.js"></script>
     <script src="assets/js/vendors/bootstrap.bundle.min.js"></script>
     <script src="assets/js/vendors/swiper-bundle.min.js"></script>
@@ -606,157 +736,188 @@ ul.cms-links li a {
         <div class="modal-dialog modal-width">
             <div class="modal-content">
                 <div class="modal-header border-bottom-0">
-                 <h2> Feedback </h2>
+                    <h2> Feedback </h2>
                     <button type="button" class="btn-close colis-btn" data-bs-dismiss="modal">
-                                            </button>
+                    </button>
                 </div>
 
                 <div class="modal-body">
                     <div class="modla-contact">
                         <div class="form-div-sections d-inline-block w-100">
-                            <form name="feedback" action="feedback.php" method="post" enctype="multipart/form-data" onsubmit="javascript:if(validateForm())showPopup();">
-                                <div class="row">                                                        
+                            <form name="feedback" action="feedback.php" method="post" enctype="multipart/form-data"
+                                onsubmit="javascript:if(validateForm())showPopup();">
+                                <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group mt-2">
                                             <label> Feedback For </label>
                                             <div class="radio-group">
-                                                <div class="radio-item"><label> <input type="radio" class="form-check form-check-inline" name="feedbackfor" value="Product" checked id="product" onchange="showProduct()"/>Product </label></div>
-                                                <div class="radio-item"><label> <input type="radio" class="form-check form-check-inline" name="feedbackfor" value="Service" id="service" onchange="showProduct()"/> Service </label></div>
+                                                <div class="radio-item"><label> <input type="radio"
+                                                            class="form-check form-check-inline" name="feedbackfor"
+                                                            value="Product" checked id="product"
+                                                            onchange="showProduct()" />Product </label></div>
+                                                <div class="radio-item"><label> <input type="radio"
+                                                            class="form-check form-check-inline" name="feedbackfor"
+                                                            value="Service" id="service" onchange="showProduct()" />
+                                                        Service </label></div>
                                             </div>
                                         </div>
                                     </div>
                                     <div id="productoption" class="col-md-6">
                                         <div class="form-group mt-2">
                                             <label> Select Product </label>
-                                            <select class="form-control form-select product-List" id="productlist" name="productlist">
-                                                                                        <option value="MyGenie" >MyGenie</option>
-                                                                                        <option value="xSpaz" >xSpaz</option>
-                                                                                        <option value="JenuineAstro" >JenuineAstro</option>
-                                                                                        <option value="TarotTalk" >TarotTalk</option>
-                                                                                        <option value="QuickDezider" >QuickDezider</option>
-                                                                                        <option value="Premium Reports" >Premium Reports</option>
-                                                                                        <option value="General Products" >General Products</option>
-                                                                                        <option value="Integrated Matchmaking" selected>Integrated Matchmaking</option>
-                                                                                        <option value="Daily Automated Panchang" >Daily Automated Panchang</option>
-                                                                                        <option value="Astrologer Public Page" >Astrologer Public Page</option>
-                                                                                        <option value="Color Tool" >Color Tool</option>
-                                                                                        <option value="Business Potential Tool" >Business Potential Tool</option>
-                                                                                        <option value="Govt Job Tool" >Govt Job Tool</option>
-                                                                                        <option value="Foreign Life Tool" >Foreign Life Tool</option>
-                                                                                        </select>
+                                            <select class="form-control form-select product-List" id="productlist"
+                                                name="productlist">
+                                                <option value="MyGenie">MyGenie</option>
+                                                <option value="xSpaz">xSpaz</option>
+                                                <option value="JenuineAstro">JenuineAstro</option>
+                                                <option value="TarotTalk">TarotTalk</option>
+                                                <option value="QuickDezider">QuickDezider</option>
+                                                <option value="Premium Reports">Premium Reports</option>
+                                                <option value="General Products">General Products</option>
+                                                <option value="Integrated Matchmaking" selected>Integrated Matchmaking
+                                                </option>
+                                                <option value="Daily Automated Panchang">Daily Automated Panchang
+                                                </option>
+                                                <option value="Astrologer Public Page">Astrologer Public Page</option>
+                                                <option value="Color Tool">Color Tool</option>
+                                                <option value="Business Potential Tool">Business Potential Tool</option>
+                                                <option value="Govt Job Tool">Govt Job Tool</option>
+                                                <option value="Foreign Life Tool">Foreign Life Tool</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div id="serviceoption" class="col-md-6">
                                         <div class="form-group mt-2">
-                                        <label> Select Service </label>
-                                        <select class="form-control form-select product-List" id="servicelist" name="servicelist">
-                                                                                <option value="DoDiES">DoDiES</option>
-                                                                                <option value="DoD">DoD</option>
-                                                                                <option value="VB">VB</option>
-                                                                                <option value="VBOT">VBOT</option>
-                                                                                <option value="CSM">CSM</option>
-                                                                                <option value="General Service">General Service</option>
-                                                                                </select>                          
+                                            <label> Select Service </label>
+                                            <select class="form-control form-select product-List" id="servicelist"
+                                                name="servicelist">
+                                                <option value="DoDiES">DoDiES</option>
+                                                <option value="DoD">DoD</option>
+                                                <option value="VB">VB</option>
+                                                <option value="VBOT">VBOT</option>
+                                                <option value="CSM">CSM</option>
+                                                <option value="General Service">General Service</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <div class="form-group mt-2">                                                                    
-                                            <label> Feedback Category </label><br/>
+                                        <div class="form-group mt-2">
+                                            <label> Feedback Category </label><br />
                                             <div class="radio-group gender-radio-btns">
-                                                <div class="radio-item"><label><input type="radio" class="form-check form-check-inline" name="feedbackcategory" id="Positive" value="Positive" onchange="showFeedbackOptions()"/> Positive </label></div>
-                                                <div class="radio-item"><label><input type="radio" class="form-check form-check-inline" name="feedbackcategory" id="Negative" value="Negative" onchange="showFeedbackOptions()"/> Negative </label></div>
-                                                <div class="radio-item"><label><input type="radio" class="form-check form-check-inline" name="feedbackcategory" id="General" value="General" checked onchange="showFeedbackOptions()"/>General </label></div>
+                                                <div class="radio-item"><label><input type="radio"
+                                                            class="form-check form-check-inline" name="feedbackcategory"
+                                                            id="Positive" value="Positive"
+                                                            onchange="showFeedbackOptions()" /> Positive </label></div>
+                                                <div class="radio-item"><label><input type="radio"
+                                                            class="form-check form-check-inline" name="feedbackcategory"
+                                                            id="Negative" value="Negative"
+                                                            onchange="showFeedbackOptions()" /> Negative </label></div>
+                                                <div class="radio-item"><label><input type="radio"
+                                                            class="form-check form-check-inline" name="feedbackcategory"
+                                                            id="General" value="General" checked
+                                                            onchange="showFeedbackOptions()" />General </label></div>
                                             </div>
                                         </div>
                                     </div>
-                                    </div>
-                                    <div id="positiveproduct" class="col-md-6">
+                                </div>
+                                <div id="positiveproduct" class="col-md-6">
                                     <div class="form-group mt-2">
                                         <label> Positive </label>
-                                        <select class="form-control form-select product-List" id="positiveproductlist" name="positiveproductlist">
-                                                                                <option value="Useful Feature">Useful Feature</option>
-                                                                                <option value="Easy Navigation">Easy Navigation</option>
-                                                                                <option value="Good Look & Feel">Good Look & Feel</option>
-                                                                                <option value="Good Performance of Fast PageLoading">Good Performance of Fast PageLoading</option>
-                                                                                <option value="Others">Others</option>
-                                                                                </select>
-                                    </div>
-                                    </div>
-                                    <div id="positiveservice" class="col-md-6">
-                                        <div class="form-group mt-2">
-                                        <label> Positive </label>
-                                        <select class="form-control form-select product-List" id="positiveservicelist" name="positiveservicelist">
-                                                                                <option value="Useful Service">Useful Service</option>
-                                                                                <option value="Easy to Reach">Easy to Reach</option>
-                                                                                <option value="Good Experience">Good Experience</option>
-                                                                                <option value="Fast Responses">Fast Responses</option>
-                                                                                <option value="Others">Others</option>
-                                                                                </select>                          
-                                        </div>
-                                    </div>
-                                    <div id="negativeproduct" class="col-md-6">
-                                    <div class="form-group mt-2">
-                                        <label> Negative </label>
-                                        <select class="form-control form-select product-List" id="negativeproductlist" name="negativeproductlist">
-                                                                                <option value="Feature is not working">Feature is not working</option>
-                                                                                <option value="Difficult to Navigate">Difficult to Navigate</option>
-                                                                                <option value="Bad Look & Feel">Bad Look & Feel</option>
-                                                                                <option value="Poor Performance of Slow PageLoading">Poor Performance of Slow PageLoading</option>
-                                                                                <option value="Others">Others</option>
-                                                                                </select>
-                                    </div>
-                                    </div>
-                                    <div id="negativeservice" class="col-md-6">
-                                        <div class="form-group mt-2">
-                                        <label> Negative </label>
-                                        <select class="form-control form-select product-List" id="negativeservicelist" name="negativeservicelist">
-                                                                                <option value="Service is unavailable">Service is unavailable</option>
-                                                                                <option value="Difficult to Reach">Difficult to Reach</option>
-                                                                                <option value="Bad Experience">Bad Experience</option>
-                                                                                <option value="Slow Responses">Slow Responses</option>
-                                                                                <option value="Others">Others</option>
-                                                                                </select>                          
-                                        </div>
-                                    </div>
-                                    <div id="generaltype" class="col-md-6">
-                                    <div class="form-group mt-2">
-                                        <label> General </label>
-                                        <select class="form-control form-select product-List" id="generallist" name="generallist">
-                                                                                <option value="Sales">Sales</option>
-                                                                                <option value="Service">Service</option>
-                                                                                <option value="Partnership">Partnership</option>
-                                                                                <option value="Others">Others</option>
-                                                                                </select>
-                                    </div>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="form-group mt-2">
-                                        <label> Feedback Description </label><br/>
-                                        <textarea class="form-control" id="feedbackdesc" placeholder="Feedback Description" name="feedbackdesc" rows="4" style="height:80px; !important"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="mb-4">
-                                        <label> Attachment (s) </label><br/>
-                                        <input type="file" name="files[]" id="files[]" multiple />                          
-                                        </div>
-                                        <span class="text-red mt-2">Note : Your maximum upload size upto 2MB. Press CTRL button and select multiple files to upload.</span>
-                                    </div>
-                                    <div class="col-md-12 mt-3" style="text-align:center">
-                                        <input name="submitFeedback" type="submit" class="btn btn-submit btn-mat" value="Submit" onclick='submitFeedback()'/>
-                                        <input type="hidden" id="action" value="submitFeedback" />
+                                        <select class="form-control form-select product-List" id="positiveproductlist"
+                                            name="positiveproductlist">
+                                            <option value="Useful Feature">Useful Feature</option>
+                                            <option value="Easy Navigation">Easy Navigation</option>
+                                            <option value="Good Look & Feel">Good Look & Feel</option>
+                                            <option value="Good Performance of Fast PageLoading">Good Performance of
+                                                Fast PageLoading</option>
+                                            <option value="Others">Others</option>
+                                        </select>
                                     </div>
                                 </div>
-                            </form>
-                        </div>             
+                                <div id="positiveservice" class="col-md-6">
+                                    <div class="form-group mt-2">
+                                        <label> Positive </label>
+                                        <select class="form-control form-select product-List" id="positiveservicelist"
+                                            name="positiveservicelist">
+                                            <option value="Useful Service">Useful Service</option>
+                                            <option value="Easy to Reach">Easy to Reach</option>
+                                            <option value="Good Experience">Good Experience</option>
+                                            <option value="Fast Responses">Fast Responses</option>
+                                            <option value="Others">Others</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div id="negativeproduct" class="col-md-6">
+                                    <div class="form-group mt-2">
+                                        <label> Negative </label>
+                                        <select class="form-control form-select product-List" id="negativeproductlist"
+                                            name="negativeproductlist">
+                                            <option value="Feature is not working">Feature is not working</option>
+                                            <option value="Difficult to Navigate">Difficult to Navigate</option>
+                                            <option value="Bad Look & Feel">Bad Look & Feel</option>
+                                            <option value="Poor Performance of Slow PageLoading">Poor Performance of
+                                                Slow PageLoading</option>
+                                            <option value="Others">Others</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div id="negativeservice" class="col-md-6">
+                                    <div class="form-group mt-2">
+                                        <label> Negative </label>
+                                        <select class="form-control form-select product-List" id="negativeservicelist"
+                                            name="negativeservicelist">
+                                            <option value="Service is unavailable">Service is unavailable</option>
+                                            <option value="Difficult to Reach">Difficult to Reach</option>
+                                            <option value="Bad Experience">Bad Experience</option>
+                                            <option value="Slow Responses">Slow Responses</option>
+                                            <option value="Others">Others</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div id="generaltype" class="col-md-6">
+                                    <div class="form-group mt-2">
+                                        <label> General </label>
+                                        <select class="form-control form-select product-List" id="generallist"
+                                            name="generallist">
+                                            <option value="Sales">Sales</option>
+                                            <option value="Service">Service</option>
+                                            <option value="Partnership">Partnership</option>
+                                            <option value="Others">Others</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form-group mt-2">
+                                        <label> Feedback Description </label><br />
+                                        <textarea class="form-control" id="feedbackdesc"
+                                            placeholder="Feedback Description" name="feedbackdesc" rows="4"
+                                            style="height:80px; !important"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="mb-4">
+                                        <label> Attachment (s) </label><br />
+                                        <input type="file" name="files[]" id="files[]" multiple />
+                                    </div>
+                                    <span class="text-red mt-2">Note : Your maximum upload size upto 2MB. Press CTRL
+                                        button and select multiple files to upload.</span>
+                                </div>
+                                <div class="col-md-12 mt-3" style="text-align:center">
+                                    <input name="submitFeedback" type="submit" class="btn btn-submit btn-mat"
+                                        value="Submit" onclick='submitFeedback()' />
+                                    <input type="hidden" id="action" value="submitFeedback" />
+                                </div>
+                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    
-<script>         
-    $("#serviceoption").hide();
+    </div>
+
+    <script>
+        $("#serviceoption").hide();
     $("#positiveproduct").hide();
     $("#negativeproduct").hide();
     $("#positiveservice").hide();
@@ -898,7 +1059,7 @@ ul.cms-links li a {
 
     feedback = $("#feedbackdesc").val();
   }   
-</script>
+    </script>
 </body>
 
 </html>

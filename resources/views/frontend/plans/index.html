@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Auto Suggest Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+</head>
+
+<body>
+    <div class="container py-4">
+
+        <!-- Toggle -->
+        <div class="form-check form-switch mb-4">
+            <input class="form-check-input" type="checkbox" id="extraInfoToggle" checked>
+            <label class="form-check-label fw-bold" for="extraInfoToggle">
+      Provide Additional Info & Get <span class="text-success">10% Discount</span>
+    </label>
+        </div>
+
+        <!-- Male -->
+        <h5>Male</h5>
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <input type="text" id="maleReligion" class="form-control" placeholder="Religion">
+            </div>
+            <div class="col-md-4">
+                <input type="text" id="maleCaste" class="form-control" placeholder="Caste">
+            </div>
+            <div class="col-md-4">
+                <input type="text" id="maleOccupation" class="form-control" placeholder="Occupation">
+            </div>
+        </div>
+
+        <!-- Female -->
+        <h5>Female</h5>
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <input type="text" id="femaleReligion" class="form-control" placeholder="Religion">
+            </div>
+            <div class="col-md-4">
+                <input type="text" id="femaleCaste" class="form-control" placeholder="Caste">
+            </div>
+            <div class="col-md-4">
+                <input type="text" id="femaleOccupation" class="form-control" placeholder="Occupation">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function attachAutoSuggest(selector) {
+            $(selector).autocomplete({
+                source: function(request, response) {
+                    $.ajax({
+                        url: "https://api.datamuse.com/sug",
+                        data: {
+                            s: request.term
+                        },
+                        success: function(data) {
+                            response(data.map(item => item.word));
+                        }
+                    });
+                },
+                minLength: 2
+            });
+        }
+
+
+        attachAutoSuggest("#maleReligion");
+        attachAutoSuggest("#maleCaste");
+        attachAutoSuggest("#maleOccupation");
+        attachAutoSuggest("#femaleReligion");
+        attachAutoSuggest("#femaleCaste");
+        attachAutoSuggest("#femaleOccupation");
+    </script>
+
+</body>
+
+</html>

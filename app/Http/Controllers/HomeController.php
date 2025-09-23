@@ -58,7 +58,9 @@ class HomeController extends Controller
             ReportGeneratorJob::dispatch(auth()->user(), session()->pull('cachedHoroscope'));
         }
 
-        return view('frontend.plans.plan_listing');
+        $plans = DB::select('select * from ab_report_plans');
+
+        return view('frontend.plans.plan_listing',compact('plans'));
     }
 
 
