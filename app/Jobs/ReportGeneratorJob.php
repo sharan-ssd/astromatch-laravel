@@ -199,6 +199,7 @@ class ReportGeneratorJob implements ShouldQueue
                 'registrationDate'    => now(),
                 'isReportGenerated'   => 'Y',
                 'isConfirmationPageNeed' => 'N',
+                'toolsReportGenerated' => '',
             ]);
 
             $this->additionalMatch($mainProfileId,$allianceProfileId,$userId,$matchId);
