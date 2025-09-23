@@ -11,12 +11,12 @@
       </div>
       <div class="row mt-4">
         <div class="col-md-6">
-          <a href="newhoroscope.php" class="btn btn-mat profilelist-btns mb-1">
+          <a href="newhoroscope" class="btn btn-mat profilelist-btns mb-1">
             {{ __('messages.creatematchprofile') }}
           </a>
         </div>
         <div class="col-md-6">
-          <a href="matchmaker.php" class="btn btn-mat save-astro profilelist-btns">
+          <a href="matchmaker" class="btn btn-mat save-astro profilelist-btns">
             {{ __('messages.savedprofile') }}
           </a>
         </div>

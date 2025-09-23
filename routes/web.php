@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\paymentController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ReportsController;
+use App\Http\Controllers\SuggestController;
 
 
 Route::get('locale/{locale}', function ($lang) {
@@ -48,6 +49,7 @@ Route::get('/marriagereport-loader', function () {
 });
 
 Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::get('/newhoroscope', [DashboardController::class, 'newhoroscope']);
 
 Route::get('/faq', function () {
     return view('/frontend.faq.faq');
@@ -64,3 +66,6 @@ Route::get('/faq', function () {
 
 
 Route::get('/marriagereportcomplete', [ReportsController::class, 'completeReport']);
+
+// apis
+Route::get('/api/suggest', [SuggestController::class, 'suggest']);

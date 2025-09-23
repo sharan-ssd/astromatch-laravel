@@ -17,26 +17,43 @@
 
             <!-- Navbar Links -->
             <div class="collapse navbar-collapse" id="mainNavbar">
+
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                     <li class="nav-item">
+                        @auth
+                        <a class="btn btn-outline-mat btn-sm mt-2" style="font-size:15px; padding:12px"
+                            href="dashboard"><i class="fa fa-laptop px-2"></i>Go to Dashboard</a>
+                        @else
                         <a class="nav-link btn btn-mat btn-sm mt-2 text-white" href="{{ url('faq') }}" target="_blank">
                             <img src="{{ asset('assets/img/Faq.svg') }}" class="me-2" alt="FAQ"> FAQ
                         </a>
+                        @endauth
                     </li>
                     <li class="nav-item ms-2">
-                        <a class="nav-link btn btn-outline-mat btn-sm mt-2"
-                            href="https://drive.google.com/file/d/1U8j6etOcRhlkR6oL1Ekdbjg9NB2lNsv4/view?usp=sharing"
-                            target="_blank">
-                            <img src="{{ asset('assets/img/Group.svg') }}" class="me-2" alt="User Guide"> User Guide
-                        </a>
+                        <a class="btn btn-outline-mat btn-sm mt-2" style="font-size:15px; padding:12px" href="/"><i
+                                class="fa fa-home px-2"></i>Back to Home</a>
                     </li>
                     <li class="nav-item ms-2">
-                        <a class="nav-link btn btn-outline-mat btn-sm mt-2" href="#feedbackModal"
-                            data-bs-toggle="modal">
-                            <img src="{{ asset('assets/img/Feedback.svg') }}" class="me-2" alt="Feedback"> Send Feedback
-                        </a>
+                        <a href="https://drive.google.com/file/d/1U8j6etOcRhlkR6oL1Ekdbjg9NB2lNsv4/view?usp=sharing"
+                            target="_blank" class="btn btn-outline-mat btn-sm mt-2"
+                            style="font-size:15px; padding:12px"><img class="px-2" src="assets/img/Group.svg"
+                                class="user-guide" alt="User Guide" />User Guide</a>
                     </li>
                 </ul>
+
+                {{-- <ul class="nav col-12 col-md-auto justify-content-center main-menu">
+                    <li class="nav-item -dropdown setup-process-item">
+                        <a class="btn btn-outline-mat btn-sm mt-2" style="font-size:15px; padding:12px"
+                            href="dashboard"><i class="fa fa-laptop px-2"></i>Go to Dashboard</a>
+                        <a class="btn btn-outline-mat btn-sm mt-2" style="font-size:15px; padding:12px" href="/"><i
+                                class="fa fa-home px-2"></i>Back to Home</a>
+                        <a href="https://drive.google.com/file/d/1U8j6etOcRhlkR6oL1Ekdbjg9NB2lNsv4/view?usp=sharing"
+                            target="_blank" class="btn btn-outline-mat btn-sm mt-2"
+                            style="font-size:15px; padding:12px"><img class="px-2" src="assets/img/Group.svg"
+                                class="user-guide" alt="User Guide" />User Guide</a>
+
+                    </li>
+                </ul> --}}
 
                 <!-- Right Side -->
                 <div class="d-flex align-items-center">
@@ -63,8 +80,8 @@
                     <div class="dropdown">
                         <div class="dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            <img class="header-profile" height="50" width="50" style="border-radius:50%;" src="{{Auth::user()->profilePicture}}"
-                                alt="Profile">
+                            <img class="header-profile" height="50" width="50" style="border-radius:50%;"
+                                src="{{Auth::user()->profilePicture}}" alt="Profile">
                         </div>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                             <li>

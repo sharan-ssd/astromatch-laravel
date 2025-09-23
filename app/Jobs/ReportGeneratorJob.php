@@ -13,7 +13,6 @@ use Illuminate\Queue\SerializesModels;
 use App\Mail\CustomMail;
 use Illuminate\Support\Facades\Mail;
 use App\Services\WhatsAppService;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Services\ProkeralaService;
 
@@ -33,6 +32,8 @@ class ReportGeneratorJob implements ShouldQueue
             'user_id' => $this->user->userID,
             'report_name' => 'Marriage Report Complete',
         ]);
+
+        return  $this->report_tracker;
     }
 
     public function handle()
@@ -41,14 +42,14 @@ class ReportGeneratorJob implements ShouldQueue
 
         $data = $this->horoscope;
 
-        \Log::info("Deferred task fired for user: {$this->user->id}");
+        \Log::info("Deferred task fired for user: {$this->user->userID}");
         \Log::info("Horoscope Data: " . json_encode($this->horoscope));
 
         try {
             DB::beginTransaction();
             $this->report_tracker->transitionTo('processing');
 
-            $userId = Auth::id();
+            $userId = $this->user->userID;
             $isdCode = $this->user->isdCode ?? '';
             $mobile  = $this->user->mobile ?? '';
             $email   = $this->user->email ?? '';
