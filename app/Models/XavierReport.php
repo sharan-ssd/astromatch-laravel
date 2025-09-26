@@ -31,15 +31,19 @@ class XavierReport extends Model
         return in_array($next, $this->transitions[$this->status] ?? []);
     }
 
-    public function transitionTo(string $next, string $remarks = null): bool
+    public function transitionTo(string $next, string $remarks = null, int $matchId = null): bool
     {
         if ($this->canTransitionTo($next)) {
             $this->status = $next;
             if ($remarks) {
                 $this->remarks = $remarks;
             }
-            $this->save();
 
+            if ($matchId) {
+                $this->match_id = $matchId;
+            }
+            $this->save();
+            
             Log::info("Report {$this->xavier_id} transitioned to {$next}");
             return true;
         }
