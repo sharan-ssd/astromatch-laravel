@@ -32,7 +32,7 @@ class PaymentController extends Controller
     public function capturePayment(Request $request)
     {
         $api = new Api(env('RAZORPAY_KEY'), env('RAZORPAY_SECRET'));
-        $paymentId = $request->input('razorpay_payment_id');
+        $paymentId = $request->input('razorpay_payment_id') ?? 'free_payment';
         $orderId = $request->input('razorpay_order_id');
         $signature = $request->input('razorpay_signature');
 
@@ -42,8 +42,8 @@ class PaymentController extends Controller
             return response()->json(['status' => 'error', 'message' => 'Xavier Report not found'], 404);
         }
 
-        $XavierReport->update(['payment_status' => 'paid']);
-        $XavierReport->update(['payment_id' => $paymentId]);
+        $XavierReport->payment_status = 'paid';
+        $XavierReport->payment_id = $paymentId;
         
         $astro_match = DB::select('SELECT * FROM ab_savedMatch_table WHERE sno = ?', [$XavierReport->match_id]);
         if (!$astro_match) {
@@ -51,9 +51,10 @@ class PaymentController extends Controller
         }
 
         DB::table('ab_savedMatch_table')->where('sno', $XavierReport->match_id)->update(['isPaymentDone' => 'Y']);
-        
+        $XavierReport->save();
+
         if ($request->input('amount') < 2 ) {
-             return response()->json(['status' => 'success', 'data' => array(), 'astro_match' => $astro_match]);
+            return response()->json(['status' => 'success', 'data' => array(), 'astro_match' => $astro_match]);
         }
         
         if (!$this->verifyPaymentSignature($paymentId, $orderId, $signature)) {
