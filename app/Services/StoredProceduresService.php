@@ -465,8 +465,9 @@ class StoredProceduresService
         return $output;
     }
 
-    function integratedNumeroMatching($astroOrgSDTemplateID, $mainProfileID, $allianceProfileID, $gender, $lang, $languageValues)
+    function integratedNumeroMatching($mainProfileID, $allianceProfileID, $gender, $lang, $languageValues)
     {
+        $astroOrgSDTemplateID = config('services.report.astroOrgSDTemplateID');
         $result = "";
 
         try {
@@ -531,10 +532,11 @@ class StoredProceduresService
         return $result;
     }
     
-    function matchMakingDecision($mainProfileId, $allianceProfileId, $decisionTemplateId, $factor_values, $userId, $case2Flag)
+    function matchMakingDecision($mainProfileId, $allianceProfileId, $factor_values, $userId)
     {
         $overAllPercentage = 0;
         $decisionName = "Match Making Decision for Astro Profile ID: {$mainProfileId} with the Alliance ID(s): {$allianceProfileId}";
+        $decisionTemplateId = config('services.report.overallMatchingDecisionTemplateID');        
 
         try {
             DB::beginTransaction();
@@ -603,7 +605,7 @@ class StoredProceduresService
             }
 
             // Call the quickDezider function (if still needed)
-            quickDezider($decisionId, $case2Flag);
+            quickDezider($decisionId);
 
             // Fetch the final choosenOptionPercentage
             $overAllPercentage = DB::table('qd7_decisions_table')
@@ -645,9 +647,10 @@ class StoredProceduresService
         return $doshaResult;
     }
 
-    function checkSevvaaiDosha($astroProfileID, $astroOrgSDTemplateID, $languageValues, $convertLang = 'English')
+    function checkSevvaaiDosha($astroProfileID, $languageValues, $convertLang = 'English')
     {
         $doshaResult = "";
+        $astroOrgSDTemplateID = config('services.report.astroOrgSDTemplateID');
 
         try {
             // Call stored procedure
@@ -711,8 +714,9 @@ class StoredProceduresService
         return $doshaResult;
     }
 
-    function matchSevvaaiDosha($astroOrgSDTemplateID,$maleAstroProfileID,$femaleAstroProfileID,$weightageMode,$numberOfMaleDoshaTypesIdentified,$numberOfFemaleDoshaTypesIdentified,$applicableMaleDoshaTypes,$applicableFemaleDoshaTypes,$overallMaleSevvaaiDoshaLevel,$overallFemaleSevvaaiDoshaLevel,$convertLang = 'English') {
+    function matchSevvaaiDosha($maleAstroProfileID,$femaleAstroProfileID,$weightageMode,$numberOfMaleDoshaTypesIdentified,$numberOfFemaleDoshaTypesIdentified,$applicableMaleDoshaTypes,$applicableFemaleDoshaTypes,$overallMaleSevvaaiDoshaLevel,$overallFemaleSevvaaiDoshaLevel,$convertLang = 'English') {
         $doshaResult = "";
+        $astroOrgSDTemplateID = config('services.report.astroOrgSDTemplateID');
 
         try {
             // Call stored procedure
