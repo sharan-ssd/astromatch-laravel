@@ -32,6 +32,7 @@ Route::post('/submit-horoscope', [HomeController::class, 'submitHoroscope']);
 Route::get('/process-horoscope', [HomeController::class, 'processHoroscope']);
 
 Route::post('/payment/create-order', [PaymentController::class, 'createOrder']);
+Route::post('/payment/capture-payment', [PaymentController::class, 'capturePayment']);
 
 Route::get('/marriagereport', function () {
     return view('frontend.reports.match_maker_report');

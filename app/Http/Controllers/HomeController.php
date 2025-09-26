@@ -54,17 +54,13 @@ class HomeController extends Controller
             return redirect('/');
         }
 
+        
+        $xavier_report_id = null;
         if (session('cachedHoroscope')) {
-            $xavier_report = ReportGeneratorJob::dispatch(auth()->user(), session()->pull('cachedHoroscope'));
-            $xavier_report_id = $xavier_report->xavier_id ?? null;
-            
-            session(['xavier_report_id' => $xavier_report_id]);
-            session()->save();
+            $xavier_report_id = ReportGeneratorJob::dispatch(auth()->user(), session()->pull('cachedHoroscope'));
         }
-        else{
-            \Log::warning('No cachedHoroscope found in session');
-            $xavier_report_id = session('xavier_report_id');
-        }
+        
+        $xavier_report_id = session('xavier_report_id');
 
         if (!$xavier_report_id) {
             \Log::error('No xavier_report_id found after dispatching ReportGeneratorJob');

@@ -47,7 +47,9 @@ class ReportGeneratorJob implements ShouldQueue
         $this->matchWrtGender = "Male";
         $this->astroOrgSDTemplateID = config('services.report.astroOrgSDTemplateID');
         $this->astroOrgConfigID = config('services.report.astroOrgConfigID');
-        return  $this->report_tracker;
+        
+        session(['xavier_report_id' => $this->report_tracker->xavier_id]);
+        session()->save();
     }
 
     public function handle()

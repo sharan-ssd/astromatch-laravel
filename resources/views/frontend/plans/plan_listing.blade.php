@@ -446,11 +446,12 @@
         validateInput();
 
         var totalamount = document.getElementById('totalPrice').innerHTML;
+        var xavier_report_id = "{{ $xavier_report_id }}";
 
         let response = await fetch("/payment/create-order", {
             method: "POST",
             headers: { "Content-Type": "application/json" , "X-CSRF-TOKEN": "{{ csrf_token() }}"},
-            body: JSON.stringify({ amount: totalamount  })
+            body: JSON.stringify({ amount: totalamount })
         });
         let data = await response.json();
 
@@ -459,20 +460,35 @@
             "amount": data.amount,
             "currency": data.currency,
             "order_id": data.orderId,
-            "handler": function (response){
+            "handler": function (response) {
                 console.log("Payment ID: " + response.razorpay_payment_id);
                 console.log("Order ID: " + response.razorpay_order_id);
                 console.log("Signature: " + response.razorpay_signature);
-                window.location.href = '/marriagereport'
-            }
+                capturePayment(response, xavier_report_id).then(() => {
+                    window.location.href = '/marriagereport?xavier_report_id=' + xavier_report_id + '&payment_id=' + response.razorpay_payment_id + '&order_id=' + response.razorpay_order_id + '&signature=' + response.razorpay_signature;
+                }).catch((err) => {
+                    console.error("Error capturing payment:", err);
+                });
+            },
         };
         var rzp1 = new Razorpay(options);
         rzp1.on('payment.failed', function (response){
             alert(response.error.reason);
         });
         rzp1.open();
+    }
 
-        
+    async function capturePayment(paymentData, xavier_report_id) {
+        let response = await fetch("/payment/capture-payment", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" , "X-CSRF-TOKEN": "{{ csrf_token() }}"},
+            body: JSON.stringify({ ...paymentData, xavier_report_id })
+        });
+        let data = await response.json();
+        if (data.status !== 'success') {
+            throw new Error('Payment capture failed');
+        }
+        return data;
     }
 
     function validateInput() {
