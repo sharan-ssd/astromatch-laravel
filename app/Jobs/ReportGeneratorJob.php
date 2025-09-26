@@ -205,6 +205,9 @@ class ReportGeneratorJob implements ShouldQueue
 
             $this->additionalMatch($mainProfileId,$allianceProfileId,$userId,$matchId);
 
+            $this->report_tracker->transitionTo('completed', 'Report generation completed successfully.', $matchId);
+            \Log::info("Report generation completed successfully for user: {$this->user->userID}");
+
         } catch (\Exception $ex) {
             DB::rollBack();
             \Log::error("Horoscope generation failed: " . $ex->getMessage());

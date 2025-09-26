@@ -59,3 +59,24 @@
 
 </body>
 @include('frontend.layouts.footer')
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastr@2.1.4/build/toastr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/build/toastr.min.js"></script>
+
+@if(Session::has('success'))
+    <script>
+        $(document).ready(function() {
+            toastr.success("{{ Session::get('success') }}");
+        });
+    </script>
+@endif
+
+@if(Session::has('error'))
+    <script>
+        $(document).ready(function() {
+            toastr.error("{{ Session::get('error') }}");
+        });
+    </script>
+    
+@endif
