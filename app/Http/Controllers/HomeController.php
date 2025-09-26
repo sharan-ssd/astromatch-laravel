@@ -57,10 +57,11 @@ class HomeController extends Controller
         
         $xavier_report_id = null;
         if (session('cachedHoroscope')) {
-            $xavier_report_id = ReportGeneratorJob::dispatch(auth()->user(), session()->pull('cachedHoroscope'));
+            ReportGeneratorJob::dispatch(auth()->user(), session()->pull('cachedHoroscope'));
         }
+
+        $xavier_report_id = DB::selectOne("SELECT xavier_id FROM xavier_reports WHERE status != 'failed' and payment_status is Null AND user_id = ? ORDER BY xavier_id DESC LIMIT 1", [Auth::id()])->xavier_id ?? null;
         
-        $xavier_report_id = session('xavier_report_id');
 
         if (!$xavier_report_id) {
             \Log::error('No xavier_report_id found after dispatching ReportGeneratorJob');

@@ -63,6 +63,8 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastr@2.1.4/build/toastr.min.css">
 <script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/build/toastr.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 @if(Session::has('success'))
     <script>
