@@ -35,9 +35,7 @@ Route::post('/payment/create-order', [PaymentController::class, 'createOrder']);
 Route::post('/payment/capture-payment', [PaymentController::class, 'capturePayment']);
 Route::post('/api/validate-coupon', [PaymentController::class, 'validateCoupon']);
 
-Route::get('/marriagereport', function () {
-    return view('frontend.reports.match_maker_report');
-});
+Route::get('/marriagereport', [ReportsController::class, 'completeReport']);
 
 Route::get('/plan_details', function () {
     return view('frontend.plans.plan_listing');

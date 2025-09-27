@@ -504,9 +504,7 @@
             body: JSON.stringify({ ...paymentData, xavier_report_id, amount: totalamount })
         });
         
-        let data = await response.json();
-        console.log(data);
-        
+        console.log(response);
         if (response.status == 204) {
             setTimeout(() => {
                 capturePayment(paymentData, xavier_report_id);
@@ -514,6 +512,8 @@
             return;
         }
 
+        let data = await response.json();
+        
         if (response.status != 200) {
             Swal.fire({
                 icon: 'error',
@@ -526,7 +526,7 @@
         var astro_match = data.astro_match[0];
         console.log(astro_match);
         
-        // window.location.href = '/marriagereport?decisionID1=' + astro_match.firstDecisionID + '&decisionID2=' + astro_match.secondDecisionID + '&matchID=' + astro_match.matchID;
+        window.location.href = '/marriagereport?decisionID1=' + astro_match.firstDecisionID + '&decisionID2=' + astro_match.secondDecisionID + '&matchID=' + astro_match.matchID;
     }
 
 </script>

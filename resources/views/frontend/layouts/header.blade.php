@@ -22,7 +22,7 @@
                     <li class="nav-item">
                         @auth
                         <a class="btn btn-outline-mat btn-sm mt-2" style="font-size:15px; padding:12px"
-                            href="dashboard"><i class="fa fa-laptop px-2"></i>Go to Dashboard</a>
+                            href="dashboard"><i class="fa fa-laptop px-2"></i>{{__('messages.godashboard')}}</a>
                         @else
                         <a class="nav-link btn btn-mat btn-sm mt-2 text-white" href="{{ url('faq') }}" target="_blank">
                             <img src="{{ asset('assets/img/Faq.svg') }}" class="me-2" alt="FAQ"> FAQ
@@ -37,7 +37,7 @@
                         <a href="https://drive.google.com/file/d/1U8j6etOcRhlkR6oL1Ekdbjg9NB2lNsv4/view?usp=sharing"
                             target="_blank" class="btn btn-outline-mat btn-sm mt-2"
                             style="font-size:15px; padding:12px"><img class="px-2" src="assets/img/Group.svg"
-                                class="user-guide" alt="User Guide" />User Guide</a>
+                                class="user-guide" alt="User Guide" />{{__('messages.userguide')}}</a>
                     </li>
                 </ul>
 
@@ -62,7 +62,7 @@
                     <div class="dropdown">
                         <button class="btn btn-light dropdown-toggle" type="button" id="langDropdown"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            {{ strtoupper(app()->getLocale()) }}
+                            {{ strtoupper(config('app.locale_mapper_reverse')[app()->getLocale()]) }}
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
                             @foreach(config('app.available_locales') as $locale)

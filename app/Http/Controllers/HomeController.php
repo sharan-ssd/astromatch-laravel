@@ -70,7 +70,7 @@ class HomeController extends Controller
 
         $plans = DB::select('select * from ab_report_plans');
 
-        return view('frontend.plans.plan_listing',compact('plans', 'xavier_report_id'));
+        return view('frontend.plans.plan_listing', compact('plans', 'xavier_report_id'));
     }
 
 
