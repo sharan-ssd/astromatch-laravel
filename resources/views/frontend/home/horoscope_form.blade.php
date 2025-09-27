@@ -497,7 +497,7 @@
 
         function loadScript(cb) {
             var script = document.createElement('script');
-            script.src = 'js/location.min.js';
+            script.src = "{{asset('js/location.min.js')}}";
             script.onload = cb;
             script.async = 1;
             document.head.appendChild(script);
