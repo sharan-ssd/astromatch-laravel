@@ -6,7 +6,7 @@ const PK_API_CLIENT_ID = 'd5d9461b-49f7-4339-8a1b-72cf9fa7b4ee';
     function loadScript(cb) {
         var script = document.createElement('script');
         //script.src = 'https://client-api.prokerala.com/static/js/location.min.js';
-        script.src = 'js/location.min.js';
+        script.src = "{{asset('js/location.min.js')}}";
         script.onload = cb;
         script.async = 1;
         document.head.appendChild(script);

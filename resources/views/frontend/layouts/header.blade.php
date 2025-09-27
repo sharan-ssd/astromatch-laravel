@@ -36,7 +36,7 @@
                     <li class="nav-item ms-2">
                         <a href="https://drive.google.com/file/d/1U8j6etOcRhlkR6oL1Ekdbjg9NB2lNsv4/view?usp=sharing"
                             target="_blank" class="btn btn-outline-mat btn-sm mt-2"
-                            style="font-size:15px; padding:12px"><img class="px-2" src="assets/img/Group.svg"
+                            style="font-size:15px; padding:12px"><img class="px-2" src="{{asset('assets/img/Group.svg')}}"
                                 class="user-guide" alt="User Guide" />{{__('messages.userguide')}}</a>
                     </li>
                 </ul>

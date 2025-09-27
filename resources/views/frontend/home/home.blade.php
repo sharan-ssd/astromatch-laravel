@@ -4,7 +4,7 @@
 <!--preloader start-->
 <div id="preloader" class="bg-light-subtle">
     <div class="preloader-wrap">
-        <img src="assets/img/favicon.png" alt="logo" class="img-fluid preloader-icon">
+        <img src="{{asset('assets/img/favicon.png')}}" alt="logo" class="img-fluid preloader-icon">
         <div class="loading-bar"></div>
     </div>
 </div>
@@ -424,7 +424,7 @@
                         <div class="access_social">
                             <a href="https://accounts.google.com/o/oauth2/v2/auth?response_type=code&access_type=online&client_id=433035171636-mjs1qgep3i5mgf94u6tnrbvj0m9f36dp.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fastromatch.online%2Fgoogle-login.php&state&scope=email%20profile&prompt=select_account"
                                 title="Continue with Google" class="social_bt google mb-3"><img
-                                    src="assets/img/google.png" title="Google Login" class="google-img">Register with
+                                    src="{{asset('assets/img/google.png')}}" title="Google Login" class="google-img">Register with
                                 Google</a>
                             <a href="javascript:void(0);" title="Continue with Facebook"
                                 class="social_bt facebook mb-3 d-none">Continue with Facebook</a>
@@ -578,7 +578,7 @@
                         <div class="access_social">
                             <a href="https://accounts.google.com/o/oauth2/v2/auth?response_type=code&access_type=online&client_id=433035171636-mjs1qgep3i5mgf94u6tnrbvj0m9f36dp.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fastromatch.online%2Fgoogle-login.php&state&scope=email%20profile&prompt=select_account"
                                 title="Continue with Google" class="social_bt google mb-3"><img
-                                    src="assets/img/google.png" title="Google Login" class="google-img">Login with
+                                    src="{{asset('assets/img/google.png')}}" title="Google Login" class="google-img">Login with
                                 Google</a>
                             <a href="javascript:void(0);" title="Continue with Facebook"
                                 class="social_bt facebook mb-3 d-none">Continue with Facebook</a>
@@ -630,7 +630,7 @@
                 <div class="signup-form-two">
                     <div class="access_social">
                         <a href="https://accounts.google.com/o/oauth2/v2/auth?response_type=code&access_type=online&client_id=433035171636-mjs1qgep3i5mgf94u6tnrbvj0m9f36dp.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fastromatch.online%2Fgoogle-login.php&state&scope=email%20profile&prompt=select_account"
-                            title="Continue with Google" class="social_bt google mb-3"><img src="assets/img/google.png"
+                            title="Continue with Google" class="social_bt google mb-3"><img src="{{asset('assets/img/google.png')}}"
                                 title="Google Login" class="google-img">Login with Google</a>
                     </div>
                 </div>
@@ -649,7 +649,7 @@
 
                                     <div class="col-md-6" id="male-card">
                                         <div class="male-border-color">
-                                            <img src="assets/img/Male.svg" alt="Male" /> Male Horoscope
+                                            <img src="{{asset('assets/img/Male.svg')}}" alt="Male" /> Male Horoscope
                                         </div>
                                         <div
                                             class="package-card male-card rounded-41 padding-4 padding-xsm-6 padding-xl-8 d-flex flex-column flex-xl-row align-items-start gap-6">
@@ -981,7 +981,7 @@
                                     </div>
                                     <div class="col-md-6 " id="female-card">
                                         <div class="female-border-color">
-                                            <img src="assets/img/Female.svg" alt="Female" /> Female Horoscope
+                                            <img src="{{asset('assets/img/Female.svg')}}" alt="Female" /> Female Horoscope
                                         </div>
                                         <div
                                             class="package-card female-card rounded-41 padding-4 padding-xsm-6 padding-xl-8 d-flex flex-column flex-xl-row align-items-start gap-6">
@@ -1389,7 +1389,7 @@
                     <h5 class="modal-title" id="lblAlert" style="font-weight: bold">Generates Accurate Marriage Matching
                         Report !</h5>
                 </i>
-                <img src='assets/img/loader.gif' class="loader-image" width='150px' height='150px'>
+                <img src='{{asset('assets/img/loader.gif')}}' class="loader-image" width='150px' height='150px'>
             </div>
         </div>
     </div>
@@ -1438,15 +1438,6 @@
 
 
 
-<!--build:js-->
-<script src="assets/js/vendors/jquery-3.6.0.min.js"></script>
-<script src="assets/js/vendors/swiper-bundle.min.js"></script>
-<script src="assets/js/vendors/jquery.magnific-popup.min.js"></script>
-<script src="assets/js/vendors/parallax.min.js"></script>
-<script src="assets/js/vendors/aos.js"></script>
-<script src="assets/js/vendors/massonry.min.js"></script>
-<script src="assets/js/app.js"></script>
-<!--endbuild-->
 
 <div class="modal fade login-div-modal contact-form01" id="feedbackModal">
     <div class="modal-dialog modal-width">
