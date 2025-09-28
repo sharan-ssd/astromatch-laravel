@@ -123,6 +123,22 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
-    'available_locales' => ['en', 'fr', 'es', 'de', 'ta'],
+    'available_locales' => ['English', 'தமிழ்', 'हिंदी', 'తెలుగు', 'ಕನ್ನಡ', 'മലയാളം'],
 
+    'locale_mapper' => [
+        'English' => 'en',
+        'தமிழ்'   => 'ta',
+        'हिंदी'    => 'hi',
+        'తెలుగు'  => 'te',
+        'ಕನ್ನಡ'   => 'kn',
+        'മലയാളം'  => 'ml'
+    ],
+    'locale_mapper_reverse' => [
+        'en' => 'English',
+        'ta' => 'தமிழ்',
+        'hi' => 'हिंदी',
+        'te' => 'తెలుగు',
+        'kn' => 'ಕನ್ನಡ',
+        'ml' => 'മലയാളം'
+    ],
 ];

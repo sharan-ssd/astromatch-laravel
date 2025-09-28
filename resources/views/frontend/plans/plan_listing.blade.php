@@ -130,7 +130,7 @@
                             <h5 class="mt-2">Total: ₹<span id="totalPrice">100</span></h5>
                         </div>
 
-                        <button type="submit" class="btn btn-mat w-100 py-2 fw-bold rounded-pill">
+                        <button type="submit" class="btn btn-mat w-100 py-2 fw-bold rounded-pill" id="payButton">
                             Proceed to Pay
                         </button>
                     </form>
@@ -443,10 +443,22 @@
     async function startPayment(e) {
         e.preventDefault();
 
-        validateInput();
-
         var totalamount = document.getElementById('totalPrice').innerHTML;
         var xavier_report_id = "{{ $xavier_report_id }}";
+
+        if (totalamount < 2) {
+            Swal.fire({
+                title: 'Redirecting you to report...',
+                html: 'Verifying your payment.',
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                showConfirmButton: false,
+                didOpen: () => {
+                    Swal.showLoading(); // built-in SweetAlert2 loader
+                }
+            });
+            return await capturePayment({}, xavier_report_id);
+        }
 
         let response = await fetch("/payment/create-order", {
             method: "POST",
@@ -464,11 +476,17 @@
                 console.log("Payment ID: " + response.razorpay_payment_id);
                 console.log("Order ID: " + response.razorpay_order_id);
                 console.log("Signature: " + response.razorpay_signature);
-                capturePayment(response, xavier_report_id).then(() => {
-                    window.location.href = '/marriagereport?xavier_report_id=' + xavier_report_id + '&payment_id=' + response.razorpay_payment_id + '&order_id=' + response.razorpay_order_id + '&signature=' + response.razorpay_signature;
-                }).catch((err) => {
-                    console.error("Error capturing payment:", err);
+                Swal.fire({
+                    title: 'Redirecting you to report...',
+                    html: 'Verifying your payment.',
+                    allowOutsideClick: false,
+                    allowEscapeKey: false,
+                    showConfirmButton: false,
+                    didOpen: () => {
+                        Swal.showLoading(); // built-in SweetAlert2 loader
+                    }
                 });
+                capturePayment(response, xavier_report_id);
             },
         };
         var rzp1 = new Razorpay(options);
@@ -479,21 +497,38 @@
     }
 
     async function capturePayment(paymentData, xavier_report_id) {
+        var totalamount = document.getElementById('totalPrice').innerHTML;
         let response = await fetch("/payment/capture-payment", {
             method: "POST",
             headers: { "Content-Type": "application/json" , "X-CSRF-TOKEN": "{{ csrf_token() }}"},
-            body: JSON.stringify({ ...paymentData, xavier_report_id })
+            body: JSON.stringify({ ...paymentData, xavier_report_id, amount: totalamount })
         });
-        let data = await response.json();
-        if (data.status !== 'success') {
-            throw new Error('Payment capture failed');
+        
+        console.log(response);
+        if (response.status == 204) {
+            setTimeout(() => {
+                capturePayment(paymentData, xavier_report_id);
+            }, 5000);
+            return;
         }
-        return data;
+
+        let data = await response.json();
+        
+        if (response.status != 200) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Payment Failed',
+                text: data.message || 'There was an issue capturing your payment. Please contact support.',
+            });
+            return;
+        }
+
+        var astro_match = data.astro_match[0];
+        console.log(astro_match);
+        
+        window.location.href = '/marriagereport?decisionID1=' + astro_match.firstDecisionID + '&decisionID2=' + astro_match.secondDecisionID + '&matchID=' + astro_match.matchID;
     }
 
-    function validateInput() {
-        // $('#')
-    }
 </script>
 
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
@@ -514,10 +549,16 @@
   function updateSummary() {
     let price = parseInt(document.querySelector('input[name="plan"]:checked').value);
     let discount = extraInfoToggle.checked ? price * 0.1 : 0;
-    planPriceEl.textContent = price;
-    discountEl.textContent = discount;
-    couponDiscountEl.textContent = couponDiscount;
-    totalPriceEl.textContent = price - discount - couponDiscount;
+    planPriceEl.textContent = price.toFixed(2);
+    discountEl.textContent = discount.toFixed(2);
+    couponDiscountEl.textContent = couponDiscount.toFixed(2);
+    totalPriceEl.textContent = Math.max((price - discount - couponDiscount), 0).toFixed(2);
+
+    if(totalPriceEl.textContent < 2) {
+        document.getElementById('payButton').textContent = 'Get Report for Free';
+    } else {
+        document.getElementById('payButton').textContent = 'Proceed to Pay';
+    }
   }
 
   planRadios.forEach(r => r.addEventListener('change', updateSummary));
@@ -529,14 +570,34 @@
   applyCouponBtn.addEventListener('click', () => {
     const code = couponCodeInput.value.trim().toUpperCase();
     const price = parseInt(document.querySelector('input[name="plan"]:checked').value);
-    if (code === "SAVE20") {
-      couponDiscount = Math.min(price * 0.2, 50);
-      alert("Coupon applied: 20% OFF (max $50)");
-    } else {
-      couponDiscount = 0;
-      alert("Invalid coupon code!");
-    }
-    updateSummary();
+
+        const cupon_response = fetch('/api/validate-coupon', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': '{{ csrf_token() }}' },
+            body: JSON.stringify({ coupon_code:code , lang: "{{app()->getLocale()}}" , price })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.status === 'success') {
+                couponDiscount = Math.min(data.discount_amount, price);
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Coupon Applied',
+                    text: `You got ${data.discount_amount} ${data.discount_type == 'percentage' ? '%' : '₹ off'}!`,
+                });
+            } else {
+                couponDiscount = 0;
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Invalid Coupon',
+                    text: 'The coupon code you entered is invalid.',
+                });
+            }
+
+            updateSummary();
+        });
+
+    
   });
 
 

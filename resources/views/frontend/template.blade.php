@@ -12,16 +12,16 @@
     <meta name="author" content="JesperApps">
 
     <!--favicon icon-->
-    <link rel="icon" href="assets/img/favicon.png" type="image/png" sizes="16x16">
+    <link rel="icon" href="{{asset('assets/img/favicon.png')}}" type="image/png" sizes="16x16">
 
     <!--title-->
     <title>Astro Match Online - Find Your Perfect Cosmic Connection</title>
 
     <!--build:css-->
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/index.css')}}">
-    <link href="assets/fonts/style.css" rel="stylesheet" />
+    <link href="{{asset('assets/fonts/style.css')}}" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
@@ -30,7 +30,7 @@
     <!-- endbuild -->
 
     <!--custom css start-->
-    <link rel="stylesheet" href="assets/css/customs.css">
+    <link rel="stylesheet" href="{{asset('assets/css/customs.css')}}">
     <!--custom css end-->
 
 
@@ -63,6 +63,8 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastr@2.1.4/build/toastr.min.css">
 <script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/build/toastr.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 @if(Session::has('success'))
     <script>
