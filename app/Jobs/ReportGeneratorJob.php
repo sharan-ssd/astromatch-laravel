@@ -152,7 +152,7 @@ class ReportGeneratorJob implements ShouldQueue
                 'Female'
             );
             
-            /*$maleDasa = $service->getDasaDetail(
+            $maleDasa = $service->getDasaDetail(
                 $data['malecoordinates'], 
                 $maledob, 
                 $maletob, 
@@ -166,8 +166,7 @@ class ReportGeneratorJob implements ShouldQueue
                 $femaletob, 
                 $data['femaletimezone'], 
                 $allianceProfileId,
-            );*/
-
+            );
 
             //Process Future SP Calls
 
@@ -285,20 +284,20 @@ class ReportGeneratorJob implements ShouldQueue
             $vrikshaMatchRemarks    = $factor_remarks[9] ?? '';
             $pakshiMatchRemarks     = $factor_remarks[12] ?? '';
 
-            $kalaSarpaDoshaPercentage    = $factor_values[$total_values-1];
-            $dasaSanthiPercentage        = $factor_values[$total_values-2];
-            $manaSanchalaDoshaPercentage = $factor_values[$total_values-3];
-            $numerologyMatchPercentage   = $factor_values[$total_values-4];
-            $kalathiraDoshaPercentage    = $factor_values[$total_values-5];
+            $kalaSarpaDoshaPercentage    = $factor_values[$total_values-2];
+            $dasaSanthiPercentage        = $factor_values[$total_values-3];
+            $manaSanchalaDoshaPercentage = $factor_values[$total_values-4];
+            $numerologyMatchPercentage   = $factor_values[$total_values-5];
+            $kalathiraDoshaPercentage    = $factor_values[$total_values-6];
 
-            $kalaSarpaDoshaRemarks = $factor_remarks[$total_values-1] ?? '';
+            $kalaSarpaDoshaRemarks = $factor_remarks[$total_values-2] ?? '';
 
             // Mana Sanchala split
-            $parts = explode(">>", $factor_remarks[$total_values-3] ?? '');
+            $parts = explode(">>", $factor_remarks[$total_values-4] ?? '');
             $manaSanchalaDoshaRemarks = trim($parts[0] ?? '');
 
             $numerologyMatchRemarks = ''; // keeping same as your original code
-            $kalathiraDoshaRemarks  = $factor_remarks[$total_values-5] ?? '';
+            $kalathiraDoshaRemarks  = $factor_remarks[$total_values-6] ?? '';
 
             // Update the record
             DB::table('ab_savedMatch_table')
@@ -332,5 +331,4 @@ class ReportGeneratorJob implements ShouldQueue
             ]);
         }
     }
-
 }
