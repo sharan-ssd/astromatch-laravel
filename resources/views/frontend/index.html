@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Swal Payment & Matchmaking</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        .dot-anim {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            margin: 0 2px;
+            border-radius: 50%;
+            background: #6c757d;
+            opacity: .4;
+            animation: blink 1s infinite;
+        }
+        
+        .dot-anim:nth-child(2) {
+            animation-delay: .2s
+        }
+        
+        .dot-anim:nth-child(3) {
+            animation-delay: .4s
+        }
+        
+        @keyframes blink {
+            0% {
+                opacity: .2
+            }
+            50% {
+                opacity: 1
+            }
+            100% {
+                opacity: .2
+            }
+        }
+        
+        .progress {
+            width: 100%;
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 4px;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: #0d6efd;
+            transition: width .4s;
+        }
+        
+        .small-muted {
+            font-size: .85rem;
+            color: #6c757d;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button onclick="openSwal()">Show Modal</button>
+
+    <script>
+        function openSwal() {
+            Swal.fire({
+                title: 'Processing Your Order',
+                html: `
+                <div id="paymentSection" style="text-align:left; margin-bottom:1rem;">
+                    <b>Payment</b>
+                    <div class="small-muted">Payment is being captured<span class="dot-anim"></span><span class="dot-anim"></span><span class="dot-anim"></span></div>
+                    <div class="progress"><div id="payBar" class="progress-bar" style="width:30%"></div></div>
+                </div>
+                <div id="matchmakingSection" style="text-align:left;">
+                    <b>Matchmaking</b>
+                    <div class="small-muted">Searching for best match…</div>
+                    <div class="progress"><div id="matchBar" class="progress-bar bg-success" style="width:10%"></div></div>
+                </div>
+                `,
+                allowOutsideClick: false,
+                showConfirmButton: false,
+                showCancelButton: true,
+                cancelButtonText: 'Cancel',
+                didOpen: () => {
+                    simulateProgress();
+                }
+            });
+        }
+
+        // Demo simulation
+        let payProgress = 30,
+            matchProgress = 10;
+
+        function simulateProgress() {
+            const interval = setInterval(() => {
+                if (payProgress < 100) {
+                    payProgress += 10;
+                    document.getElementById('payBar').style.width = payProgress + '%';
+                }
+                if (matchProgress < 100 && payProgress > 50) {
+                    matchProgress += 15;
+                    document.getElementById('matchBar').style.width = matchProgress + '%';
+                }
+                if (payProgress >= 100 && matchProgress >= 100) {
+                    clearInterval(interval);
+                    Swal.update({
+                        icon: 'success',
+                        title: 'Complete',
+                        html: `<b>Payment Captured ✅</b><br><b>Matchmaking Done 🎉</b>`
+                    });
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+
+</html>

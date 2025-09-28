@@ -54,22 +54,23 @@ class HomeController extends Controller
             return redirect('/');
         }
 
-        $sessionData = session()->all();
-        \Log::info('Full session dump:', $sessionData);
-
-        if (!session('cachedHoroscope')) {
-            \Log::warning('No cachedHoroscope found in session');
-            return redirect('/');
+        
+        $xavier_report_id = null;
+        if (session('cachedHoroscope')) {
+            ReportGeneratorJob::dispatch(auth()->user(), session()->pull('cachedHoroscope'));
         }
 
-        $saved_horoscope = session()->pull('cachedHoroscope');
-        \Log::info("Horoscope Data: " . json_encode($saved_horoscope));
-        session(['cachedHoroscope' => $saved_horoscope]);
-        session()->save();
+        $xavier_report_id = DB::selectOne("SELECT xavier_id FROM xavier_reports WHERE status != 'failed' and payment_status is Null AND user_id = ? ORDER BY xavier_id DESC LIMIT 1", [Auth::id()])->xavier_id ?? null;
+        
 
-        ReportGeneratorJob::dispatch(auth()->user(), $saved_horoscope);
+        if (!$xavier_report_id) {
+            \Log::error('No xavier_report_id found after dispatching ReportGeneratorJob');
+            return redirect('/')->with('error', 'Unable to process your horoscope at this time. Please try again later.');
+        }
 
-        return view('frontend.plans.plan_listing');
+        $plans = DB::select('select * from ab_report_plans');
+
+        return view('frontend.plans.plan_listing', compact('plans', 'xavier_report_id'));
     }
 
 

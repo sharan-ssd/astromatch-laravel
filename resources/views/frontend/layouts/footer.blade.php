@@ -7,7 +7,7 @@
                 <div class="col-md-8 col-lg-4 mb-md-4 mb-lg-0">
                     <div class="footer-single-col">
                         <div class="footer-single-col mb-4">
-                            <img src="assets/img/logo-footer.png" alt="logo" class="img-fluid logo-white">
+                            <img src="{{asset('assets/img/logo-footer.png')}}" alt="logo" class="img-fluid logo-white">
                         </div>
 
                     </div>
@@ -19,11 +19,11 @@
                             <div class="footer-single-col">
                                 <h3>Contact Us :</h3>
                                 <ul class="list-unstyled footer-nav-list mb-lg-0">
-                                    <li class="ft-ct-li"><img src="assets/img/whatsapp.svg" alt="Whatsapp"> <span
+                                    <li class="ft-ct-li"><img src="{{asset('assets/img/whatsapp.svg')}}" alt="Whatsapp"> <span
                                             class="ftr-ct">+(91) - 9962022209</span></li>
-                                    <li class="ft-ct-li"><img src="assets/img/mail.svg" alt="Mail"> <span
+                                    <li class="ft-ct-li"><img src="{{asset('assets/img/mail.svg')}}" alt="Mail"> <span
                                             class="ftr-ct">wonderful.couples@astromatch.online</span></li>
-                                    <li class="ft-ct-li"><img src="assets/img/call.svg" alt="Call"> <span
+                                    <li class="ft-ct-li"><img src="{{asset('assets/img/call.svg')}}" alt="Call"> <span
                                             class="ftr-ct">044 - 46972104</span></li>
                                 </ul>
                             </div>
@@ -32,10 +32,10 @@
                                     <div class="footer-single-col">
                                         <h3>Follow us on :</h3>
                                         <div class="">
-                                            <a href="javascript:void(0)" class="text-decoration-none soc-py"><img src="assets/img/insta.svg" alt="Instagram" /> </a>
-                                            <a href="javascript:void(0)" class="text-decoration-none soc-py"><img src="assets/img/facebook.svg" alt="Facebook" /> </a>
-                                            <a href="javascript:void(0)" class="text-decoration-none soc-py"><img src="assets/img/Youtube.svg" alt="Youtube" /> </a>
-                                        </div>                                           
+                                            <a href="javascript:void(0)" class="text-decoration-none soc-py"><img src="{{asset('assets/img/insta.svg')}}" alt="Instagram" /> </a>
+                                            <a href="javascript:void(0)" class="text-decoration-none soc-py"><img src="{{asset('assets/img/facebook.svg')}}" alt="Facebook" /> </a>
+                                            <a href="javascript:void(0)" class="text-decoration-none soc-py"><img src="{{asset('assets/img/Youtube.svg')}}" alt="Youtube" /> </a>
+                                        </div>
                                     </div>
                                 </div>-->
                         <div class="col-md-4 col-lg-4 mt-4 mt-md-0 mt-lg-0">
@@ -96,3 +96,13 @@
     </div>
     <!--footer bottom end-->
 </footer>
+
+<!--build:js-->
+<script src="{{asset('assets/js/vendors/jquery-3.6.0.min.js')}}"></script>
+<script src="{{asset('assets/js/vendors/swiper-bundle.min.js')}}"></script>
+<script src="{{asset('assets/js/vendors/jquery.magnific-popup.min.js')}}"></script>
+<script src="{{asset('assets/js/vendors/parallax.min.js')}}"></script>
+<script src="{{asset('assets/js/vendors/aos.js')}}"></script>
+<script src="{{asset('assets/js/vendors/massonry.min.js')}}"></script>
+<script src="{{asset('assets/js/app.js')}}"></script>
+<!--endbuild-->

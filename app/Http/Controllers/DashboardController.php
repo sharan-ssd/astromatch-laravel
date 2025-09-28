@@ -70,4 +70,9 @@ class DashboardController extends Controller
             'recentMatches'
         ));
     }
+
+
+    function newhoroscope() {
+        return view('frontend.home.newhoroscope');
+    }
 }

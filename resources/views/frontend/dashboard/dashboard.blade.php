@@ -11,12 +11,12 @@
       </div>
       <div class="row mt-4">
         <div class="col-md-6">
-          <a href="newhoroscope.php" class="btn btn-mat profilelist-btns mb-1">
+          <a href="newhoroscope" class="btn btn-mat profilelist-btns mb-1">
             {{ __('messages.creatematchprofile') }}
           </a>
         </div>
         <div class="col-md-6">
-          <a href="matchmaker.php" class="btn btn-mat save-astro profilelist-btns">
+          <a href="matchmaker" class="btn btn-mat save-astro profilelist-btns">
             {{ __('messages.savedprofile') }}
           </a>
         </div>
@@ -58,7 +58,7 @@
               <h5 class="card-title">{{ __('messages.currentpackage') }}</h5>
               <p class="card-text">
                 @if(isset($recentMatches) && count($recentMatches) > 0)
-                  @php $currentPackage = $recentMatches[0]['matchMakingMethod']; @endphp
+                  @php $currentPackage = $recentMatches[0]->matchMakingMethod; @endphp
                   @if($currentPackage === "complete")
                     <span class="method-name complete-report">
                       {{ __('messages.alliancematch') }}
@@ -97,10 +97,10 @@
             <div class="recent-matches">
               <div class="card1">
                 <div class="card-body1">
-                  <span>{{ $match['mainProfile'] }}</span> -
-                  <span>{{ $match['allianceProfile'] }}</span>
-                  <span class="match-date">{{ $match['matchDate'] }}</span>
-                  @if($match['matchMakingMethod'] == "complete")
+                  <span>{{ $match->mainProfile }}</span> -
+                  <span>{{ $match->allianceProfile }}</span>
+                  <span class="match-date">{{ $match->matchDate }}</span>
+                  @if($match->matchMakingMethod == "complete")
                     <span class="method-name complete-report">
                       {{ __('messages.alliancematch') }}
                     </span>

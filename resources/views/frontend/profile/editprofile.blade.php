@@ -1,28 +1,28 @@
-@extends('frontend.template') 
+@extends('frontend.template')
 
 @section('content')
 <style>
-.mob-action-btns {
+  .mob-action-btns {
     display: flex;
     width: 100%;
-}
+  }
 
-li.profile-menu-list a i {
+  li.profile-menu-list a i {
     background: #dc416e;
     padding: 7px;
     border-radius: 50%;
     color: #fff;
-}
+  }
 
-    a.mobile-menus i {
+  a.mobile-menus i {
     background: #d93970;
     padding: 10px;
     border-radius: 50%;
     color: #fff;
     margin-right: 4px;
-}
+  }
 
-   a.mobile-menus {
+  a.mobile-menus {
     float: left;
     width: 100%;
     color: black;
@@ -30,112 +30,123 @@ li.profile-menu-list a i {
     margin: 0 !important;
     font-size: 14px !important;
     /* border-bottom: 1px solid #ddd; */
-}
-    li.profile-menu-list a {
-        padding: 5px 10px;
-        color: #000;
-        float: left;
-        width: 100%;
-    }
-    li.profile-menu-list a:hover {
-        background: #eeeeee;
-        transition: 0.5s;
-    }
-    img.header-profile 
-    {
-        height: 45px;
-        width: 48px;
-        border-radius: 50%;
-        margin-left: 10px;
-    }
-    .dropdown-profile {
-        position: relative;
-        display: inline-block;
-    }
+  }
 
-    .dropdown-content-profile {
-        display: none;
-        position: absolute;
-        right: -10%;
-        background-color: #f9f9f9;
-        min-width: 250px;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        padding: 0;
-        z-index: 1;
-    }
-    li.profile-menu-list {
-        list-style-type: none;
-        font-size: 14px;
-        margin-bottom: 0px;
-        float: left;
-        width: 100%;
-    }
-    ul.profile-list-main {
-        padding-left: 0;
-        margin-bottom:0;
-    }
+  li.profile-menu-list a {
+    padding: 5px 10px;
+    color: #000;
+    float: left;
+    width: 100%;
+  }
 
-    .dropdown-profile:hover .dropdown-content-profile {
-        display: block;
-    }
+  li.profile-menu-list a:hover {
+    background: #eeeeee;
+    transition: 0.5s;
+  }
 
-     .dropbtn {
-        background: linear-gradient(341deg, #ec446db5, #23a4da96);
-        color: white;
-        /* padding: 16px; */
-        /* font-size: 16px; */
-        border: none;
-        /* padding: 10px; */
-        height: 40px;
-        widdth: 40px;
-        vertical-align: middle;
-        border-radius: 50%;
-        margin-left: 10px;
-    }
+  img.header-profile {
+    height: 45px;
+    width: 48px;
+    border-radius: 50%;
+    margin-left: 10px;
+  }
 
-    .dropbtn:hover, .dropbtn:focus {
-      background-color: #fff;
-    }
+  .dropdown-profile {
+    position: relative;
+    display: inline-block;
+  }
 
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
+  .dropdown-content-profile {
+    display: none;
+    position: absolute;
+    right: -10%;
+    background-color: #f9f9f9;
+    min-width: 250px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 0;
+    z-index: 1;
+  }
 
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #fff;
-      min-width: 160px;
-      overflow: auto;
-      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-      z-index: 1;
-      right: 10%;
-      top: 38px;
-      padding: 6px;
-      border-radius: 10px;
-    }
+  li.profile-menu-list {
+    list-style-type: none;
+    font-size: 14px;
+    margin-bottom: 0px;
+    float: left;
+    width: 100%;
+  }
 
-   .dropdown-content a {
-      color: black;
-      padding: 3px 10px;
-      text-decoration: none;
-      display: block;
-      font-size: 14px;
-    }
+  ul.profile-list-main {
+    padding-left: 0;
+    margin-bottom: 0;
+  }
 
-    .dropdown a:hover {background-color: #ddd;}
+  .dropdown-profile:hover .dropdown-content-profile {
+    display: block;
+  }
 
-    .show {display: block;}
-    @media(max-width: 991px) {
+  .dropbtn {
+    background: linear-gradient(341deg, #ec446db5, #23a4da96);
+    color: white;
+    /* padding: 16px; */
+    /* font-size: 16px; */
+    border: none;
+    /* padding: 10px; */
+    height: 40px;
+    widdth: 40px;
+    vertical-align: middle;
+    border-radius: 50%;
+    margin-left: 10px;
+  }
+
+  .dropbtn:hover,
+  .dropbtn:focus {
+    background-color: #fff;
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    right: 10%;
+    top: 38px;
+    padding: 6px;
+    border-radius: 10px;
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 3px 10px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+  }
+
+  .dropdown a:hover {
+    background-color: #ddd;
+  }
+
+  .show {
+    display: block;
+  }
+
+  @media(max-width: 991px) {
     .dropdown.menulist {
-        display: none !important;
+      display: none !important;
     }
-}
+  }
 </style>
 
-  <script>
-   /* When the user clicks on the button, 
+<script>
+  /* When the user clicks on the button, 
     toggle between hiding and showing the dropdown content */
     function myFunction() {
       document.getElementById("myDropdown").classList.toggle("show");
@@ -192,22 +203,22 @@ li.profile-menu-list a i {
         $("#loginDiv").hide();
         $("#signupDiv").show();
 	}
-  </script>
-  @php
-    $profile = DB::table('ab15_userInfo_table')
-        ->where('userID', auth()->id())
-        ->first();
-  @endphp
+</script>
+@php
+$profile = DB::table('ab15_userInfo_table')
+->where('userID', auth()->id())
+->first();
+@endphp
 
-  <main class="float-start w-100 body-main">
+<main class="float-start w-100 body-main">
   <section class="konow-more-zoidc d-inline-block w-100">
     <div class="container">
       <div class="row">
         <div class="col-lg-6">
-          <span style="color:red;">  </span>
+          <span style="color:red;"> </span>
           <div class="form-zodiuc mb-5 mt-5 mt-lg-0">
-           <div class="comon-heading text-center">
-                <h2 class="common-heading mt-3 mb-3"> Edit Profile </h2>
+            <div class="comon-heading text-center">
+              <h2 class="common-heading mt-3 mb-3"> Edit Profile </h2>
             </div>
             <form id="tarotForm" class="reg-form" name="signupForm" action="#" method="post">
               <div class="myprofile-section edit profile-section">
@@ -215,14 +226,14 @@ li.profile-menu-list a i {
                   <div class="row">
                     <div class="col-md-12 text-center mb-3">
                       <img class="my-profile-img" src="assets/img/user.png" alt="profile">
-                                          </div>
+                    </div>
                     <div class="col-md-12 mb-2">
                       <div class="row">
                         <div class="col-md-4">
                           <label><i class="fa fa-user"></i> Full Name</label>
                           <span id="nameError" style="color: red;font-size: 11px;"></span>
                         </div>
-                        <div class="col-md-8 edit-profile-value">                        
+                        <div class="col-md-8 edit-profile-value">
                           <input type="text" id="fullname" name="fullname" value="{{$profile->userName}}">
                         </div>
                       </div>
@@ -233,32 +244,37 @@ li.profile-menu-list a i {
                           <label><i class="fa fa-phone"></i> Mobile Number </label>
                         </div>
                         <div class="col-md-5 edit-profile-value">
-                          <input type="tel" required id="mobile" name="mobile" value="{{$profile->mobileNumber}}" maxlength="15" onkeypress="isNumberCheck(event)">
+                          <input type="tel" required id="mobile" name="mobile" value="{{$profile->mobileNumber}}"
+                            maxlength="15" onkeypress="isNumberCheck(event)">
                         </div>
                         <div class="col-md-3" style="display:flex;justify-content: right;">
                           <button type="button" id="sendotp" class="bg-orange" onclick="checkDuplicateMobile()">
-                            Send OTP                           
+                            Send OTP
                           </button>
                         </div>
-                        <div class="col-12" style="display:flex;justify-content: center;"><span id="mobileError" style="color: red;font-size: 11px;"></span></div>
+                        <div class="col-12" style="display:flex;justify-content: center;"><span id="mobileError"
+                            style="color: red;font-size: 11px;"></span></div>
                       </div>
                     </div>
                     <div class="col-md-12 mb-2">
                       <div class="row verify-otp" style="justify-content: right;display:none;">
-                       <div class="col-md-4">
-                        <label><i class="fa fa-phone"></i> Enter OTP </label>
-                       </div>
-                        <div id="verifyotp" class="col-md-8">                              
+                        <div class="col-md-4">
+                          <label><i class="fa fa-phone"></i> Enter OTP </label>
+                        </div>
+                        <div id="verifyotp" class="col-md-8">
                           <span id="otpError" class="text-danger"></span>
-                          <input type="text" class="form-control otpctrl" id="otp" name="otp" placeholder="Enter OTP" maxlength="4"><br/>
-                          <button type="button" id="edit_number_btn" class="btn btn-sm btn-secondary" onclick="showMobile()">
-                              Edit Number                          </button>                          
+                          <input type="text" class="form-control otpctrl" id="otp" name="otp" placeholder="Enter OTP"
+                            maxlength="4"><br />
+                          <button type="button" id="edit_number_btn" class="btn btn-sm btn-secondary"
+                            onclick="showMobile()">
+                            Edit Number </button>
                           <button type="button" id="btnVerifyOTP" class="bg-orange" onclick="verifyMobile()">
-                              Verify OTP                          </button>   
-                        <span class="sameaswhatsapp"> <input type="checkbox"  id="same_whatsapp" name="same_whatsapp" value="1">Same WhatsApp Number </span>
+                            Verify OTP </button>
+                          <span class="sameaswhatsapp"> <input type="checkbox" id="same_whatsapp" name="same_whatsapp"
+                              value="1">Same WhatsApp Number </span>
+                        </div>
                       </div>
-                      </div>
-                    </div> 
+                    </div>
                     <div class="col-md-12 mb-2">
                       <div class="row">
                         <div class="col-md-4">
@@ -266,7 +282,8 @@ li.profile-menu-list a i {
                           <span id="whatsappError" style="color: red;font-size: 11px;"></span>
                         </div>
                         <div class="col-md-8 edit-profile-value">
-                          <input type="text" id="whatsapp" name="whatsapp" value="{{ $profile->whatsAppNumber }}" maxlength="15" onkeypress="isNumberCheck(event)">
+                          <input type="text" id="whatsapp" name="whatsapp" value="{{ $profile->whatsAppNumber }}"
+                            maxlength="15" onkeypress="isNumberCheck(event)">
                         </div>
                       </div>
                     </div>
@@ -308,31 +325,29 @@ li.profile-menu-list a i {
 
                               <div class="radio-item">
                                 <label>
-                                  <input type="radio" class="form-check form-check-inline"
-                                        name="gender" value="Male"
-                                        {{ old('gender', $profile->gender ?? '') == 'Male' ? 'checked' : '' }}>
+                                  <input type="radio" class="form-check form-check-inline" name="gender" value="Male" {{
+                                    old('gender', $profile->gender ?? '') == 'Male' ? 'checked' : '' }}>
                                   Male
                                 </label>
                               </div>
 
                               <div class="radio-item">
                                 <label>
-                                  <input type="radio" class="form-check form-check-inline"
-                                        name="gender" value="Female"
-                                        {{ old('gender', $profile->gender ?? '') == 'Female' ? 'checked' : '' }}>
+                                  <input type="radio" class="form-check form-check-inline" name="gender" value="Female"
+                                    {{ old('gender', $profile->gender ?? '') == 'Female' ? 'checked' : '' }}>
                                   Female
                                 </label>
                               </div>
 
                               <div class="radio-item">
                                 <label>
-                                  <input type="radio" class="form-check form-check-inline"
-                                        name="gender" value="transgender"
-                                        {{ old('gender', $profile->gender ?? '') == 'transgender' ? 'checked' : '' }}>
+                                  <input type="radio" class="form-check form-check-inline" name="gender"
+                                    value="transgender" {{ old('gender', $profile->gender ?? '') == 'transgender' ?
+                                  'checked' : '' }}>
                                   Transgender
                                 </label>
                               </div>
-                            
+
                             </div>
                           </div>
                         </div>
@@ -342,7 +357,7 @@ li.profile-menu-list a i {
 
                     <div class="col-md-12 mb-2">
 
-                                          <div class="row">
+                      <div class="row">
                         <div class="col-md-4">
                           <label><i class="fa fa-users"></i> User Type </label>
                           <span id="userlevelError" style="color: red;font-size: 11px;"></span>
@@ -351,67 +366,67 @@ li.profile-menu-list a i {
                           <div class="form-group mt-2">
                             <span id="genderError" style="color: red;font-size: 11px;"></span>
                             <div class="radio-group common-radio-btns">
-                              
+
                               <div class="radio-item">
                                 <label>
-                                  <input type="radio" class="form-check form-check-inline"
-                                        name="userlevel" value="User"
-                                        {{ old('userType', $profile->userType ?? '') == 'User' ? 'checked' : '' }}>
+                                  <input type="radio" class="form-check form-check-inline" name="userlevel" value="User"
+                                    {{ old('userType', $profile->userType ?? '') == 'User' ? 'checked' : '' }}>
                                   General User
                                 </label>
                               </div>
 
                               <div class="radio-item">
                                 <label>
-                                  <input type="radio" class="form-check form-check-inline"
-                                        name="userlevel" value="Astrologer"
-                                        {{ old('userType', $profile->userType ?? '') == 'Astrologer' ? 'checked' : '' }}>
+                                  <input type="radio" class="form-check form-check-inline" name="userlevel"
+                                    value="Astrologer" {{ old('userType', $profile->userType ?? '') == 'Astrologer' ?
+                                  'checked' : '' }}>
                                   Astrologer
                                 </label>
-                              </div>                              
+                              </div>
 
                             </div>
                           </div>
                         </div>
-                                                <div class="col-md-4">
-                          <label><i class="fa fa-eye"></i> Password  </label>
+                        <div class="col-md-4">
+                          <label><i class="fa fa-eye"></i> Password </label>
                           <span id="userlevelError" style="color: red;font-size: 11px;"></span>
                         </div>
                         <div class="col-md-8">
                           <div class="form-group mt-2">
                             <span id="passwordError" class="error-message"></span>
-                            <input type="password" class="form-control" id="password" autocomplete="off" name="password" placeholder="Password" maxlength="8"/>
-                            <a class="view-change-password login-view-pwd-icon" href="javascript:void(0);" onclick="viewPassword()">
+                            <input type="password" class="form-control" id="password" autocomplete="off" name="password"
+                              placeholder="Password" maxlength="8" />
+                            <a class="view-change-password login-view-pwd-icon" href="javascript:void(0);"
+                              onclick="viewPassword()">
                               <i class="fa fa-eye open_eye_current"></i>
                               <i class="fa fa-eye-slash close_eye_current" style="display: none"></i>
-                            </a> 
+                            </a>
                             <small>( <span>The password must be within 8 characters.</span> </small>
                             <small><span>Choose a Password to share account with Family or Friends</span> )</small>
                           </div>
                         </div>
-                                              </div>
+                      </div>
                     </div>
 
-                    
+
                   </div>
                 </div>
               </div>
               <div class="submit-edit-profile">
-                <button class="btn btn-mat btn-sm" onclick="updateProfile(event)">Update Profile</button>                
+                <button class="btn btn-mat btn-sm" onclick="updateProfile(event)">Update Profile</button>
               </div>
-            <form>
+              <form>
           </div>
         </div>
-         <div class="col-lg-6">
-          <img src="assets/img/myprofileimg.jpg" class="login-image" alt ="Change Password">
+        <div class="col-lg-6">
+          <img src="assets/img/myprofileimg.jpg" class="login-image" alt="Change Password">
         </div>
       </div>
     </div>
   </section>
 </main>
 <script>
-
-document.getElementById('same_whatsapp').addEventListener('change', function () {
+  document.getElementById('same_whatsapp').addEventListener('change', function () {
     const whatsppBox = document.getElementById('whatsapp');
     const mobileBox = document.getElementById('mobile');
     if (this.checked) {
@@ -646,60 +661,65 @@ function checkDuplicateMobile()
         document.getElementById('otp').value = '';
         document.getElementById('sendotp').style.display = "block";
     }
-</script><style>
-ul.cms-links {
+</script>
+<style>
+  ul.cms-links {
     margin: 0;
     padding-left: 10px;
-}
+  }
 
-ul.cms-links li {
+  ul.cms-links li {
     font-size: 16px;
     list-style-type: circle;
     padding: 0;
     margin: 0px;
     color: #000;
-}
-ul.cms-links li a {
-    color: #000;
-}
+  }
 
-.socialmedia-icons-footer {
-        float: right;
+  ul.cms-links li a {
+    color: #000;
+  }
+
+  .socialmedia-icons-footer {
+    float: right;
     position: relative;
     top: 10px;
     left: 0;
     text-align: left;
-}
+  }
 </style>
 <!--footer section start-->
-        <footer class="footer-section">
-            <!--footer top start-->
-            <!--for light footer add .footer-light class and for dark footer add .bg-dark .text-white class-->
-            <div class="footer-top ptb-60">
-                <div class="container">
-                    <div class="row justify-content-between pt-4">
-                        <div class="col-md-8 col-lg-4 mb-md-4 mb-lg-0">
-                            <div class="footer-single-col">
-                                <div class="footer-single-col mb-4">
-                                    <img src="assets/img/logo-footer.png" alt="logo" class="img-fluid logo-white">
-                                </div>
-                               
-                            </div>
-                        </div>
-                        <div class="col-md-12 col-lg-8 mt-4 mt-md-0 mt-lg-0">
-                            <div class="row">
-                                
-                                <div class="col-md-6 col-lg-6 mt-4 mt-md-0 mt-lg-0 text-right">
-                                    <div class="footer-single-col">
-                                        <h3>Contact Us :</h3>
-                                        <ul class="list-unstyled footer-nav-list mb-lg-0">
-                                            <li class="ft-ct-li"><img src="assets/img/whatsapp.svg" alt="Whatsapp" /> <span class="ftr-ct">+(91) - 9962022209</span></li>
-                                            <li class="ft-ct-li"><img src="assets/img/mail.svg" alt="Mail" /> <span class="ftr-ct">wonderful.couples@astromatch.online</span></li>
-                                            <li class="ft-ct-li"><img src="assets/img/call.svg" alt="Call" /> <span class="ftr-ct">044 - 46972104</span></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!--<div class="col-md-6 col-lg-6 mt-4 mt-md-0 mt-lg-0 text-right">
+<footer class="footer-section">
+  <!--footer top start-->
+  <!--for light footer add .footer-light class and for dark footer add .bg-dark .text-white class-->
+  <div class="footer-top ptb-60">
+    <div class="container">
+      <div class="row justify-content-between pt-4">
+        <div class="col-md-8 col-lg-4 mb-md-4 mb-lg-0">
+          <div class="footer-single-col">
+            <div class="footer-single-col mb-4">
+              <img src="assets/img/logo-footer.png" alt="logo" class="img-fluid logo-white">
+            </div>
+
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-8 mt-4 mt-md-0 mt-lg-0">
+          <div class="row">
+
+            <div class="col-md-6 col-lg-6 mt-4 mt-md-0 mt-lg-0 text-right">
+              <div class="footer-single-col">
+                <h3>Contact Us :</h3>
+                <ul class="list-unstyled footer-nav-list mb-lg-0">
+                  <li class="ft-ct-li"><img src="assets/img/whatsapp.svg" alt="Whatsapp" /> <span class="ftr-ct">+(91) -
+                      9962022209</span></li>
+                  <li class="ft-ct-li"><img src="assets/img/mail.svg" alt="Mail" /> <span
+                      class="ftr-ct">wonderful.couples@astromatch.online</span></li>
+                  <li class="ft-ct-li"><img src="assets/img/call.svg" alt="Call" /> <span class="ftr-ct">044 -
+                      46972104</span></li>
+                </ul>
+              </div>
+            </div>
+            <!--<div class="col-md-6 col-lg-6 mt-4 mt-md-0 mt-lg-0 text-right">
                                     <div class="footer-single-col">
                                         <h3>Follow us on :</h3>
                                         <div class="">
@@ -709,367 +729,66 @@ ul.cms-links li a {
                                         </div>                                           
                                     </div>
                                 </div>-->
-                                <div class="col-md-4 col-lg-4 mt-4 mt-md-0 mt-lg-0">
-                                    <div class="footer-single-col">                                        
-                                        <div class="cms-section mt-3">                                    
-                                            <ul class="cms-links">
-                                            <li><a href="contactus.php" title="Contact Us">Contact Us</a></li>                                            
-                                            <li><a href="cancelpolicy.php" title="Refund Policy">Refund Policy</a></li>
-                                            <li><a href="termsofuse.php" title="Terms of Use">Terms of Use</a></li>
-                                            <li><a href="privacypolicy.php" title="Privacy Policy">Privacy Policy</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="mt-3">
-                                                                    <a href="faq.php" class="btn btn-mat btn-sm mt-2"><img class="mr-1 px-2" src="assets/img/Faq.svg" alt="FAQ" /> FAQ</a>
-                                    <a href="https://drive.google.com/file/d/1U8j6etOcRhlkR6oL1Ekdbjg9NB2lNsv4/view?usp=sharing" target="_blank" class="btn btn-outline-mat btn-sm mt-2" style="font-size:15px; padding:12px"><img src="assets/img/Group.svg" class="user-guide" alt="User Guide" />User Guide</a>
-                                    <a href="#feedbackModal" data-bs-toggle="modal" class="btn btn-outline-mat btn-sm mt-2"><img class="px-2" src="assets/img/Feedback.svg" alt="Feedback" />Send Feedback</a>                                    
-                                    <div class="socialmedia-icons-footer mt-2 d-none">
-                                        <a href="javascript:void(0)" title="Instagram" class="text-decoration-none soc-py"><img src="assets/img/insta.svg" alt="Instagram" /> </a>
-                                        <a href="javascript:void(0)" title="Facebook" class="text-decoration-none soc-py"><img src="assets/img/facebook.svg" alt="Facebook" /> </a>
-                                        <a href="javascript:void(0)" title="Youtube" class="text-decoration-none soc-py"><img src="assets/img/Youtube.svg" alt="Youtube" /> </a>
-                                    </div> 
-                                </div>                                
-                            </div>
-                        </div>
-
-                    </div>
+            <div class="col-md-4 col-lg-4 mt-4 mt-md-0 mt-lg-0">
+              <div class="footer-single-col">
+                <div class="cms-section mt-3">
+                  <ul class="cms-links">
+                    <li><a href="contactus.php" title="Contact Us">Contact Us</a></li>
+                    <li><a href="cancelpolicy.php" title="Refund Policy">Refund Policy</a></li>
+                    <li><a href="termsofuse.php" title="Terms of Use">Terms of Use</a></li>
+                    <li><a href="privacypolicy.php" title="Privacy Policy">Privacy Policy</a></li>
+                  </ul>
                 </div>
+              </div>
             </div>
-            <!--footer top end-->
 
-            <!--footer bottom start-->
-            <div class="footer-bottom py-4">
-                <div class="container">
-                    <div class="row justify-content-between align-items-center">
-                        <div class="col-md-6 col-lg-6">
-                            <div class="copyright-text">
-                            <p>Copyright © 2025 VEALES Vedic Decisions Private Limited</p>                            </div>                            
-                        </div>
-                        <div class="col-md-6 col-lg-6">
-                            <div class="copyright-text">
-                                <p class="mb-lg-0 mb-md-0">Build Number: 25Q1R1.Sprint-1-QA.MAT-V1_0.250416.1</p>
-                            </div> 
-                        </div>
-                    </div>
-                </div>
+            <div class="mt-3">
+              <a href="faq.php" class="btn btn-mat btn-sm mt-2"><img class="mr-1 px-2" src="assets/img/Faq.svg"
+                  alt="FAQ" /> FAQ</a>
+              <a href="https://drive.google.com/file/d/1U8j6etOcRhlkR6oL1Ekdbjg9NB2lNsv4/view?usp=sharing"
+                target="_blank" class="btn btn-outline-mat btn-sm mt-2" style="font-size:15px; padding:12px"><img
+                  src="assets/img/Group.svg" class="user-guide" alt="User Guide" />User Guide</a>
+              <a href="#feedbackModal" data-bs-toggle="modal" class="btn btn-outline-mat btn-sm mt-2"><img class="px-2"
+                  src="assets/img/Feedback.svg" alt="Feedback" />Send Feedback</a>
+              <div class="socialmedia-icons-footer mt-2 d-none">
+                <a href="javascript:void(0)" title="Instagram" class="text-decoration-none soc-py"><img
+                    src="assets/img/insta.svg" alt="Instagram" /> </a>
+                <a href="javascript:void(0)" title="Facebook" class="text-decoration-none soc-py"><img
+                    src="assets/img/facebook.svg" alt="Facebook" /> </a>
+                <a href="javascript:void(0)" title="Youtube" class="text-decoration-none soc-py"><img
+                    src="assets/img/Youtube.svg" alt="Youtube" /> </a>
+              </div>
             </div>
-            <!--footer bottom end-->
-        </footer>
-        <!--footer section end--> <!--footer section end-->
+          </div>
         </div>
-        
-<!--build:js-->
-    <script src="assets/js/vendors/jquery-3.6.0.min.js"></script>
-    <script src="assets/js/vendors/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/vendors/swiper-bundle.min.js"></script>
-    <script src="assets/js/vendors/jquery.magnific-popup.min.js"></script>
-    <script src="assets/js/vendors/parallax.min.js"></script>
-    <script src="assets/js/vendors/aos.js"></script>
-    <script src="assets/js/vendors/massonry.min.js"></script>
-    <script src="assets/js/app.js"></script>
-    <!--endbuild-->
 
-    <div class="modal fade login-div-modal contact-form01" id="feedbackModal">
-        <div class="modal-dialog modal-width">
-            <div class="modal-content">
-                <div class="modal-header border-bottom-0">
-                 <h2> Feedback </h2>
-                    <button type="button" class="btn-close colis-btn" data-bs-dismiss="modal">
-                                            </button>
-                </div>
-
-                <div class="modal-body">
-                    <div class="modla-contact">
-                        <div class="form-div-sections d-inline-block w-100">
-                            <form name="feedback" action="feedback.php" method="post" enctype="multipart/form-data" onsubmit="javascript:if(validateForm())showPopup();">
-                                <div class="row">                                                        
-                                    <div class="col-md-6">
-                                        <div class="form-group mt-2">
-                                            <label> Feedback For </label>
-                                            <div class="radio-group">
-                                                <div class="radio-item"><label> <input type="radio" class="form-check form-check-inline" name="feedbackfor" value="Product" checked id="product" onchange="showProduct()"/>Product </label></div>
-                                                <div class="radio-item"><label> <input type="radio" class="form-check form-check-inline" name="feedbackfor" value="Service" id="service" onchange="showProduct()"/> Service </label></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div id="productoption" class="col-md-6">
-                                        <div class="form-group mt-2">
-                                            <label> Select Product </label>
-                                            <select class="form-control form-select product-List" id="productlist" name="productlist">
-                                                                                        <option value="MyGenie" >MyGenie</option>
-                                                                                        <option value="xSpaz" >xSpaz</option>
-                                                                                        <option value="JenuineAstro" >JenuineAstro</option>
-                                                                                        <option value="TarotTalk" >TarotTalk</option>
-                                                                                        <option value="QuickDezider" >QuickDezider</option>
-                                                                                        <option value="Premium Reports" >Premium Reports</option>
-                                                                                        <option value="General Products" >General Products</option>
-                                                                                        <option value="Integrated Matchmaking" selected>Integrated Matchmaking</option>
-                                                                                        <option value="Daily Automated Panchang" >Daily Automated Panchang</option>
-                                                                                        <option value="Astrologer Public Page" >Astrologer Public Page</option>
-                                                                                        <option value="Color Tool" >Color Tool</option>
-                                                                                        <option value="Business Potential Tool" >Business Potential Tool</option>
-                                                                                        <option value="Govt Job Tool" >Govt Job Tool</option>
-                                                                                        <option value="Foreign Life Tool" >Foreign Life Tool</option>
-                                                                                        </select>
-                                        </div>
-                                    </div>
-                                    <div id="serviceoption" class="col-md-6">
-                                        <div class="form-group mt-2">
-                                        <label> Select Service </label>
-                                        <select class="form-control form-select product-List" id="servicelist" name="servicelist">
-                                                                                <option value="DoDiES">DoDiES</option>
-                                                                                <option value="DoD">DoD</option>
-                                                                                <option value="VB">VB</option>
-                                                                                <option value="VBOT">VBOT</option>
-                                                                                <option value="CSM">CSM</option>
-                                                                                <option value="General Service">General Service</option>
-                                                                                </select>                          
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="form-group mt-2">                                                                    
-                                            <label> Feedback Category </label><br/>
-                                            <div class="radio-group gender-radio-btns">
-                                                <div class="radio-item"><label><input type="radio" class="form-check form-check-inline" name="feedbackcategory" id="Positive" value="Positive" onchange="showFeedbackOptions()"/> Positive </label></div>
-                                                <div class="radio-item"><label><input type="radio" class="form-check form-check-inline" name="feedbackcategory" id="Negative" value="Negative" onchange="showFeedbackOptions()"/> Negative </label></div>
-                                                <div class="radio-item"><label><input type="radio" class="form-check form-check-inline" name="feedbackcategory" id="General" value="General" checked onchange="showFeedbackOptions()"/>General </label></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    </div>
-                                    <div id="positiveproduct" class="col-md-6">
-                                    <div class="form-group mt-2">
-                                        <label> Positive </label>
-                                        <select class="form-control form-select product-List" id="positiveproductlist" name="positiveproductlist">
-                                                                                <option value="Useful Feature">Useful Feature</option>
-                                                                                <option value="Easy Navigation">Easy Navigation</option>
-                                                                                <option value="Good Look & Feel">Good Look & Feel</option>
-                                                                                <option value="Good Performance of Fast PageLoading">Good Performance of Fast PageLoading</option>
-                                                                                <option value="Others">Others</option>
-                                                                                </select>
-                                    </div>
-                                    </div>
-                                    <div id="positiveservice" class="col-md-6">
-                                        <div class="form-group mt-2">
-                                        <label> Positive </label>
-                                        <select class="form-control form-select product-List" id="positiveservicelist" name="positiveservicelist">
-                                                                                <option value="Useful Service">Useful Service</option>
-                                                                                <option value="Easy to Reach">Easy to Reach</option>
-                                                                                <option value="Good Experience">Good Experience</option>
-                                                                                <option value="Fast Responses">Fast Responses</option>
-                                                                                <option value="Others">Others</option>
-                                                                                </select>                          
-                                        </div>
-                                    </div>
-                                    <div id="negativeproduct" class="col-md-6">
-                                    <div class="form-group mt-2">
-                                        <label> Negative </label>
-                                        <select class="form-control form-select product-List" id="negativeproductlist" name="negativeproductlist">
-                                                                                <option value="Feature is not working">Feature is not working</option>
-                                                                                <option value="Difficult to Navigate">Difficult to Navigate</option>
-                                                                                <option value="Bad Look & Feel">Bad Look & Feel</option>
-                                                                                <option value="Poor Performance of Slow PageLoading">Poor Performance of Slow PageLoading</option>
-                                                                                <option value="Others">Others</option>
-                                                                                </select>
-                                    </div>
-                                    </div>
-                                    <div id="negativeservice" class="col-md-6">
-                                        <div class="form-group mt-2">
-                                        <label> Negative </label>
-                                        <select class="form-control form-select product-List" id="negativeservicelist" name="negativeservicelist">
-                                                                                <option value="Service is unavailable">Service is unavailable</option>
-                                                                                <option value="Difficult to Reach">Difficult to Reach</option>
-                                                                                <option value="Bad Experience">Bad Experience</option>
-                                                                                <option value="Slow Responses">Slow Responses</option>
-                                                                                <option value="Others">Others</option>
-                                                                                </select>                          
-                                        </div>
-                                    </div>
-                                    <div id="generaltype" class="col-md-6">
-                                    <div class="form-group mt-2">
-                                        <label> General </label>
-                                        <select class="form-control form-select product-List" id="generallist" name="generallist">
-                                                                                <option value="Sales">Sales</option>
-                                                                                <option value="Service">Service</option>
-                                                                                <option value="Partnership">Partnership</option>
-                                                                                <option value="Others">Others</option>
-                                                                                </select>
-                                    </div>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="form-group mt-2">
-                                        <label> Feedback Description </label><br/>
-                                        <textarea class="form-control" id="feedbackdesc" placeholder="Feedback Description" name="feedbackdesc" rows="4" style="height:80px; !important"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="mb-4">
-                                        <label> Attachment (s) </label><br/>
-                                        <input type="file" name="files[]" id="files[]" multiple />                          
-                                        </div>
-                                        <span class="text-red mt-2">Note : Your maximum upload size upto 2MB. Press CTRL button and select multiple files to upload.</span>
-                                    </div>
-                                    <div class="col-md-12 mt-3" style="text-align:center">
-                                        <input name="submitFeedback" type="submit" class="btn btn-submit btn-mat" value="Submit" onclick='submitFeedback()'/>
-                                        <input type="hidden" id="action" value="submitFeedback" />
-                                    </div>
-                                </div>
-                            </form>
-                        </div>             
-                    </div>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
-    
-<script>         
-    $("#serviceoption").hide();
-    $("#positiveproduct").hide();
-    $("#negativeproduct").hide();
-    $("#positiveservice").hide();
-    $("#negativeservice").hide();
+  </div>
+  <!--footer top end-->
 
-    function showProduct()
-    {
-        if(document.getElementById("product").checked)
-        {
-        $("#productoption").show();
-        $("#serviceoption").hide();
-        }
-        if(document.getElementById("service").checked)
-        {
-        $("#productoption").hide();
-        $("#serviceoption").show();
-        }
-        showFeedbackOptions();
-    }
+  <!--footer bottom start-->
+  <div class="footer-bottom py-4">
+    <div class="container">
+      <div class="row justify-content-between align-items-center">
+        <div class="col-md-6 col-lg-6">
+          <div class="copyright-text">
+            <p>Copyright © 2025 VEALES Vedic Decisions Private Limited</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-6">
+          <div class="copyright-text">
+            <p class="mb-lg-0 mb-md-0">Build Number: 25Q1R1.Sprint-1-QA.MAT-V1_0.250416.1</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--footer bottom end-->
+</footer>
+<!--footer section end-->
+<!--footer section end-->
+</div>
 
-    function showFeedbackOptions()
-    {    
-        if((document.getElementById("product").checked) && (document.getElementById("Positive").checked))
-        {
-        $("#positiveproduct").show();
-        $("#negativeproduct").hide();
-        $("#positiveservice").hide();
-        $("#negativeservice").hide();
-        $("#generaltype").hide();
-        }
-        if((document.getElementById("product").checked) && (document.getElementById("Negative").checked))
-        {
-        $("#positiveproduct").hide();
-        $("#negativeproduct").show();
-        $("#positiveservice").hide();
-        $("#negativeservice").hide();
-        $("#generaltype").hide();
-        }
-        if((document.getElementById("product").checked) && (document.getElementById("General").checked))
-        {
-        $("#positiveproduct").hide();
-        $("#negativeproduct").hide();
-        $("#positiveservice").hide();
-        $("#negativeservice").hide();
-        $("#generaltype").show();      
-        }
-        if((document.getElementById("service").checked) && (document.getElementById("Positive").checked))
-        {
-        $("#positiveproduct").hide();
-        $("#negativeproduct").hide();
-        $("#positiveservice").show();      
-        $("#negativeservice").hide();
-        $("#generaltype").hide();
-        }
-        if((document.getElementById("service").checked) && (document.getElementById("Negative").checked))
-        {
-        $("#positiveproduct").hide();
-        $("#negativeproduct").hide();
-        $("#positiveservice").hide();
-        $("#negativeservice").show();
-        $("#generaltype").hide();
-        }
-        if((document.getElementById("service").checked) && (document.getElementById("General").checked))
-        {
-        $("#positiveproduct").hide();
-        $("#negativeproduct").hide();
-        $("#positiveservice").hide();
-        $("#negativeservice").hide();
-        $("#generaltype").show();
-        }
-    }
 
-    function showPopup()
-    {
-        $('#modalCenter').modal('show');    
-        setTimeout(function(){
-        $('#modalCenter').modal('hide');
-        }, 3000);
-    }
-
-    var fd = new FormData();
-
-    $('input[type="file"]').on('change', function (e) {
-        [].forEach.call(this.files, function (file) {
-            fd.append('files[]', file);
-        });
-    });
-
-  function validateForm()
-  {
-    var feedback = "";
-    feedback = $("#feedbackdesc").val();
-    if(feedback == "")
-    {
-      document.getElementById('alertMessage').innerHTML = "Feedback description should not be empty";
-      return false;
-    }
-    else
-      return true;
-  }
-
-  function submitFeedback()
-  {
-    var selectedPlatform = "";
-    var productname = "";
-    var servicename = "";
-    var feedbackCategory = "";
-    var feedbackType = "";
-    var feedback = "";
-        
-    selectedPlatform = $("input[name='feedbackfor']:checked").val();
-    if(selectedPlatform == "Product")
-      productname = $("#productlist").val();
-    else if(selectedPlatform == "Service")
-      servicename = $("#servicelist").val();
-
-    feedbackCategory = $("input[name='feedbackcategory']:checked").val();
-
-    if((feedbackCategory == "Positive") && (selectedPlatform == "Product"))
-    {
-      feedbacktype = $("#positiveproductlist").val();
-    }
-    if((feedbackCategory == "Negative") && (selectedPlatform == "Product"))
-    {
-      feedbacktype = $("#negativeproductlist").val();
-    }
-    if((feedbackCategory == "Positive") && (selectedPlatform == "Service"))
-    {
-      feedbacktype = $("#positiveservicelist").val();
-    }
-    if((feedbackCategory == "Negative") && (selectedPlatform == "Service"))
-    {
-      feedbacktype = $("#negativeservicelist").val();
-    }
-    if(feedbackCategory == "General")
-    {
-      feedbacktype = $("#generallist").val();
-    }
-
-    feedback = $("#feedbackdesc").val();
-  }   
-</script>
-</body>
-
-</html>
 @endsection

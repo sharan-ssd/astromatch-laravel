@@ -12,7 +12,10 @@ class SetLocale
     {   
         // dd(Session::get('locale'));
         $locale = Session::get('locale', config('app.locale'));
-        App::setLocale($locale);
+        $availableLocales = config('app.available_locales');
+        $locale_mapper = config('app.locale_mapper');
+
+        App::setLocale($locale_mapper[$locale] ?? $locale);
 
         return $next($request);
     }
