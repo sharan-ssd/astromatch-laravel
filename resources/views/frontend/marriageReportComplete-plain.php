@@ -325,7 +325,12 @@ $language["bhavaganumber"] = "Bhavaga Number";
     $premiumReportSolution = "JAI Premium Matchmaking Report";
     $completeReportSolution = "JAI Complete Matchmaking Report";
     $coupleReportSolution = "JAI Couple Matchmaking Report";
-        
+    
+    $whatsappToken = "2emn6ntrcuh6gnnf";
+    $whatsappAPI = "https://api.ultramsg.com/instance82054/messages/image";
+    $whatsappChatAPI = "https://api.ultramsg.com/instance82054/messages/chat";
+    $whatsappDocumentAPI = "https://api.ultramsg.com/instance82054/messages/document";    
+
     $live_Host = "193.203.184.29";
     $live_User = "u109433895_devUser";
     $live_Pwd = "1bNQn2vjsVkK9dtw92erq3A6";
@@ -344,7 +349,17 @@ $language["bhavaganumber"] = "Bhavaga Number";
 
     mysqli_select_db($con, $live_DBName) or die(mysqli_error($con));
     mysqli_set_charset( $con, 'utf8mb4');
+
+    // Razorpay API credentials
+    $keyId = 'rzp_live_iL8ItgiXVGJie4';
+    $keySecret = 'eOzQv81TKbeYAO4jb2nMmhHn';
+
+    $callbackUrl = $siteURL . "paymentCallBack.php";
     
+    $socialLoginAPI = "https://xspaz.com/xlive/mobile/socialLogin";
+    $sendOtpAPI = "https://xspaz.com/xlive/mobile/sendOtp2";
+    $verifyMobileAPI = "https://xspaz.com/xlive/v3/verifyMobile";
+    $locationCode = "IN1010010000";
     $domainName = "matrimonytoday";
 
     $astroGuide = $siteURL . "daily-astro-guide";
@@ -1377,8 +1392,7 @@ $language["bhavaganumber"] = "Bhavaga Number";
 try {
     
     $lang = "en";
-    $domain = $_SERVER['SERVER_NAME'];
-    $siteURL = "http://" . $domain . "/";
+
     if ($lang == "en") {
         $logoImage = $configOptions[0]["bannerLogoPath"];
         $goldenRulesLink = $configOptions[0]["goldenRulesLink"];
@@ -1387,7 +1401,7 @@ try {
         $dayname = "dayname";
         $planetfield = "planetName";
         $rasiField = "rasiName";
-        $housetable = $siteURL . "img/houses.png";
+        $housetable = "img/houses.png";
         $remarkField = "matchingRemarks";
         $remedyField = "remedies";
         $guidanceField = "marriagePsychologicalGuidance";
@@ -1402,7 +1416,7 @@ try {
         $dayname = "dayname_" . $lang;
         $planetfield = "planetName_" . $lang;
         $rasiField = "rasiName_" . $lang;
-        $housetable = $siteURL . "img/houses_" . $lang . ".png";
+        $housetable = "img/houses_" . $lang . ".png";
         $remarkField = "matchingRemarks_" . $lang;
         $remedyField = "remedies_" . $lang;
         $guidanceField = "marriagePsychologicalGuidance_" . $lang;
@@ -1422,7 +1436,7 @@ try {
     $goldenRules = "<div style='width:50%;border: 2px solid #02a698;border-radius: 15px;margin:10px auto;text-align:center;font-size:16px;color:darkgreen;font-weight:bold;'>" . $language['goldenrulesheading'] . "</div>" . $language['goldenrules1'] . "<a href='$goldenRulesLink' target='_blank'>" . $goldenRulesPage . "</a>" . $language['goldenrules2'] . "<a href='$ccsCommunityJoiningLink' target='_blank'>" . $ccsCommunityJoiningPage . "</a>";
     $chantTable = "<div style='margin:0px auto;text-align:center;color:darkblue;'>" . $goldenRules . "<div style='width:50%;border: 2px solid #02a698;border-radius: 15px;margin:15px auto;text-align:center;font-size:16px;color:darkgreen;font-weight:bold;'>" . $language['chantstherapy'] . "</div>";
     $chantExplanation = "<div style='margin-top:20px;border: 1px solid darkblue;border-radius: 15px;padding: 5px;'><span style='color:darkblue;margin-top:25px;text-align:center;'>" . $language['chantexplanation'] . "</span></div>";
-    $chantTable .= $chantExplanation;
+    $chantTable .= $chantExplanation;   
 
     $letters = array("A", "B", "C", "D", "E", "F", "G", "H", "I", "J");
 
@@ -1463,7 +1477,7 @@ try {
 
     $chantTherapyLink = $siteURL . "astroMusicHealingTherapy.php?userID=" . $userId . "&matchID=" . $savedMatchID . "&chant=";
 
-    $sql = "SELECT id,mainUserAstroProfileID FROM ab_astroMatch_table WHERE mainUserAstroProfileID= '" . 0 . "' ORDER BY id DESC LIMIT 0,1";
+    $sql = "SELECT id,mainUserAstroProfileID FROM ab_astroMatch_table WHERE mainUserAstroProfileID= '" . $astroProfileID . "' ORDER BY id DESC LIMIT 0,1";
     $result = mysqli_query($con, $sql);
     $row = mysqli_fetch_array($result);
     $matchID = $row['id'];
@@ -1560,8 +1574,7 @@ try {
             $astroMusicAuthEnabled = "&auth=N";
     }
 
-    $query = "SELECT planetID,rasiID,hposDegree,hposMinute,hposSecond,starID,starPadam,relWithRasiLord FROM ab12_positions_table WHERE astroProfileID=" . $astroProfileID . " ORDER BY planetID";
-    //echo $query; exit;
+    $query = "SELECT planetID,rasiID,hposDegree,hposMinute,hposSecond,starID,starPadam,relWithRasiLord FROM ab12_positions_table WHERE astroProfileID=" . $astroProfileID;    
     $result = mysqli_query($con, $query);
     if (mysqli_num_rows($result) > 0) {
         $records = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -1911,7 +1924,6 @@ try {
             $tquery = "SELECT $factorField,assessmentPercentage FROM qd6_optionFactorMap_table AS `a`,qd3a_factors_table AS `b` WHERE b.factorID = a.factorID AND a.factorID = " . $row[0] . " AND a.associatedDecisionID=" . $decisionId1;
             $tresult = mysqli_query($con, $tquery);
             $trows = mysqli_num_rows($tresult);
-            dd($trows);
             if ($trows > 0) {
                 while ($trow = mysqli_fetch_array($tresult)) {
                     if ($trow[1] >= 0 && $trow[1] <= 20) {
@@ -2427,12 +2439,6 @@ try {
 
     $thirdTable .= $resultTable;
 
-    // ob_start();
-    // include 'northindianchart.php';
-    // $northIndianchart = ob_get_clean();
-
-    // $thirdTable .= $northIndianchart;
-
     $query = "SELECT bhavaga1AllianceUserPlanets,bhavaga2AllianceUserPlanets,bhavaga3AllianceUserPlanets,bhavaga4AllianceUserPlanets,bhavaga5AllianceUserPlanets,bhavaga6AllianceUserPlanets,bhavaga7AllianceUserPlanets,bhavaga8AllianceUserPlanets,bhavaga9AllianceUserPlanets,bhavaga10AllianceUserPlanets,bhavaga11AllianceUserPlanets,bhavaga12AllianceUserPlanets FROM ab_astroMatch_table where id=" . $matchID;
     $result = mysqli_query($con, $query);
     if (mysqli_num_rows($result) > 0) {
@@ -2614,14 +2620,14 @@ try {
         $tickresult1 .= "<tr><td colspan='5' style='text-align:center;color:deeppink;border:1px solid darkblue;'>" . $language['femalebased'] . ", " . $language['bhavagaresult'] . " : " . round($total_score) . "%</td></tr></table>";
         $summary .= "<tr><td>&nbsp;</td><td style='border-bottom: 1px solid #02a698;'>4.A)</td><td style='border-bottom: 1px solid #02a698;'>" . $language['malebased'] . "</td><td style='border-bottom: 1px solid #02a698;text-align:right;white-space:nowrap;'>" . $mainBhavagaPercentage . "%</td><td>&nbsp;</td></tr>";
         $summary .= "<tr><td>&nbsp;</td><td style='border-bottom: 1px solid #02a698;'>4.B)</td><td style='border-bottom: 1px solid #02a698;'>" . $language['femalebased'] . "</td><td style='border-bottom: 1px solid #02a698;text-align:right;white-space:nowrap;'>" . round($total_score) . "%</td><td>&nbsp;</td></tr>";
-    }
+    }    
 
     $sql = "SELECT kalathiraDoshaPercentage,kalathiraDoshaRemarks,numerologyMatchPercentage,numerologyMatchRemarks,manaSanchalaDoshaPercentage,manaSanchalaDoshaRemarks,kalaSarpaDoshaPercentage,kalaSarpaDoshaRemarks,starLordMatchPercentage,starLordMatchRemarks,lagnaLordMatchPercentage,lagnaLordMatchRemarks,vrikshaMatchPercentage,vrikshaMatchRemarks,pakshiMatchPercentage,pakshiMatchRemarks,dasasanthiMatchPercentage FROM ab_savedMatch_table WHERE sno=" . $savedMatchID;
     $result = mysqli_query($con, $sql);
     if (mysqli_num_rows($result) > 0) {
         $additionalPorutham = mysqli_fetch_array($result);
     }
-
+    
     $lagnaLordMatchPercentage = $additionalPorutham['lagnaLordMatchPercentage'];
     $pakshiMatchPercentage = $additionalPorutham['pakshiMatchPercentage'];
     $kalathiDoshaPercentage = $additionalPorutham['kalathiraDoshaPercentage'];
@@ -2729,7 +2735,7 @@ try {
     else
         $dasaSandhiResult = "<span style='color:darkgreen;font-size:18px;'>" . $language['dasasanthimatch'] . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;</span><span style='color:#b90075;font-size:18px;white-space:nowrap;'>" . $dasaSandhiMatchPercentage . "  %</span></span><br/><br/>" . $language['dasanote'] . " - $todayDate <br/>Male Dasa Sandhi: From $maleDasaStart To $maleDasaEnd $maleDasaDuration years<br/>Female Dasa Sandhi : From $femaleDasaStart To $femaleDasaEnd $femaleDasaDuration years";
 
-    $tsql = "SELECT fn_translateList('SP_MatchMaker_v3','o_factorsMatchingResponseList','" . $additionalPorutham['kalathiraDoshaRemarks'] . "','English','" . $convertLang . "',1)";
+    $tsql = "SELECT fn_translateList('SP_MatchMaker_v3','o_factorsMatchingResponseList','" . $additionalPorutham['kalathiraDoshaRemarks'] . "','English','" . $convertLang . "',1)";    
     $tResult = mysqli_query($con, $tsql);
     $tRow = mysqli_fetch_array($tResult);
     $kalathiraDoshaRemarks = $tRow[0];
@@ -2766,7 +2772,7 @@ try {
     $starLordMatchRemarks = $tRow[0];
 
     $lagnaLordMatchPercentage = $additionalPorutham['lagnaLordMatchPercentage'];
-    $tsql = "SELECT fn_translateList('SP_MatchMaker_v3','o_factorsMatchingResponseList','" . $additionalPorutham['lagnaLordMatchRemarks'] . "','English','" . $convertLang . "',1)";
+    $tsql = "SELECT fn_translateList('SP_MatchMaker_v3','o_factorsMatchingResponseList','" . $additionalPorutham['lagnaLordMatchRemarks'] . "','English','" . $convertLang . "',1)";    
     $tResult = mysqli_query($con, $tsql);
     $tRow = mysqli_fetch_array($tResult);
     $lagnaLordMatchRemarks = $tRow[0];
@@ -2787,17 +2793,7 @@ try {
     $temp = explode("##", $output);
     $numeroNamologyMatchPercentage = $temp[1];
     $numeroNamologyResult = "<span style='color:darkgreen;font-size:18px;'>" . $language['numeronamologymatch'] . "</span><br/>" . $temp[0];
-
-    $specialMatches = "<div style='margin-top:10px;text-align:center;color:darkblue;padding-top:5px;padding-bottom:5px;border:double darkblue;border-radius:15px;width:100%;'><h3 style='color:blue;font-size:20px;font-weight:bold;text-decoration: underline;'>" . $language['additionalmatches'] . "</h3><span style='color:darkgreen;font-size:18px;'>" . $language['lagnalordmatch'] . "</span><br/><span style='color:maroon;'>" . $lagnaLordMatchRemarks . "</span><br/><br/>" . $lagnalordmatchexplanation . "<br/><hr style='color:deeppink;width:50%;margin:5px auto 5px auto;'><br/><span style='color:darkgreen;font-size:18px;'>" . $language['starlordmatch'] . "</span><br/><span style='color:maroon;'>" . $starLordMatchRemarks . "</span><br/><br/>" . $starlordmatchexplanation . "<br/><hr style='color:deeppink;width:50%;margin:5px auto 5px auto;'><br/><span style='color:darkgreen;font-size:18px;'>" . $language['pakshimatch'] . "</span><br/><span style='color:maroon;'>" . $pakshiMatchRemarks . "</span><br/><br/>" . $pakshimatchexplanation . "<br/><hr style='color:deeppink;width:50%;margin:5px auto 5px auto;'><br/><span style='color:darkgreen;font-size:18px;'>" . $language['vrikshamatch'] . "</span><br/><span style='color:maroon;'>" . $vrikshaMatchRemarks . "</span><br/><br/>" . $vrikshamatchexplanation . "<br/></div>";
-
-    $planetaryMatchExplanation = "<div style='margin-top:10px;'><div style='color:darkgreen;font-size:18px;margin-bottom:20px;text-align:center;width:100%;'>" . $language['9planetheading'] . "</div><span style='color:darkblue;'>" . $language['9planetmeaning'] . "</span><br/><br/><span style='color:darkblue;text-align:center;'>" . $language['9planetbenefit'] . "</span></div>";
-
-    $bhavagaMatchExplanation = "<div style='text-align:center;margin-top:20px;'><div style='color:darkgreen;font-size:18px;margin-bottom:5px;'>" . $language['bhavagamatchheading'] . "</div><div style='color:darkblue;text-align:center;'>" . $language['bhavagamatchmeaning1'] . "</div><div style='color:darkblue;text-align:center;margin-top:5px;'>" . $language['bhavagamatchmeaning2'] . "</div></div>";
-
-    $houses = '<div class="col-lg-12 text-center"><img class="img-fluid" src="' . $housetable . '" style="object-fit: cover;padding-top:50px;padding-bottom:40px;" /></div>';
-
-    //echo $matchDecisionTemplate; exit;
-
+    
     $additionalfactor_values[0] = $lagnaLordMatchPercentage;
     $additionalfactor_values[1] = $pakshiMatchPercentage;
     $additionalfactor_values[2] = $tharaiPercentage;
@@ -2960,11 +2956,18 @@ try {
     $tRow = mysqli_fetch_array($tResult);
     $overAllRemarks = $tRow[0];
 
+    $specialMatches = "<div style='margin-top:10px;text-align:center;color:darkblue;padding-top:5px;padding-bottom:5px;border:double darkblue;border-radius:15px;width:100%;'><h3 style='color:blue;font-size:20px;font-weight:bold;text-decoration: underline;'>" . $language['additionalmatches'] . "</h3><span style='color:darkgreen;font-size:18px;'>" . $language['lagnalordmatch'] . "</span><br/><span style='color:maroon;'>" . $lagnaLordMatchRemarks . "</span><br/><br/>" . $lagnalordmatchexplanation . "<br/><hr style='color:deeppink;width:50%;margin:5px auto 5px auto;'><br/><span style='color:darkgreen;font-size:18px;'>" . $language['starlordmatch'] . "</span><br/><span style='color:maroon;'>" . $starLordMatchRemarks . "</span><br/><br/>" . $starlordmatchexplanation . "<br/><hr style='color:deeppink;width:50%;margin:5px auto 5px auto;'><br/><span style='color:darkgreen;font-size:18px;'>" . $language['pakshimatch'] . "</span><br/><span style='color:maroon;'>" . $pakshiMatchRemarks . "</span><br/><br/>" . $pakshimatchexplanation . "<br/><hr style='color:deeppink;width:50%;margin:5px auto 5px auto;'><br/><span style='color:darkgreen;font-size:18px;'>" . $language['vrikshamatch'] . "</span><br/><span style='color:maroon;'>" . $vrikshaMatchRemarks . "</span><br/><br/>" . $vrikshamatchexplanation . "<br/></div>";
+
+    $planetaryMatchExplanation = "<div style='margin-top:10px;'><div style='color:darkgreen;font-size:18px;margin-bottom:20px;text-align:center;width:100%;'>" . $language['9planetheading'] . "</div><span style='color:darkblue;'>" . $language['9planetmeaning'] . "</span><br/><br/><span style='color:darkblue;text-align:center;'>" . $language['9planetbenefit'] . "</span></div>";
+
+    $bhavagaMatchExplanation = "<div style='text-align:center;margin-top:20px;'><div style='color:darkgreen;font-size:18px;margin-bottom:5px;'>" . $language['bhavagamatchheading'] . "</div><div style='color:darkblue;text-align:center;'>" . $language['bhavagamatchmeaning1'] . "</div><div style='color:darkblue;text-align:center;margin-top:5px;'>" . $language['bhavagamatchmeaning2'] . "</div></div>";
+
+    $houses = '<div class="col-lg-12 text-center"><img class="img-fluid" src="' . $housetable . '" style="object-fit: cover;padding-top:50px;padding-bottom:40px;" /></div>';
+
     $overAllResult = "<div style='font-size:24px;margin-top:20px;padding-left:10px;padding-right:10px;padding-top:20px;padding-bottom:20px;border:double darkblue;border-radius:15px;text-align:center;'><span style='color:red;font-size:14px;'>* </span><span style='color:darkgreen;'>" . $language["overallPercentage"] . " :</span><span style='color:deeppink;white-space:nowrap;'> " . $overAllPercentage . " %</span><br/><br/><span style='color:darkblue;font-size:18px;'>" . $overAllRemarks . "</span></div>";
 
     $disclaimer = "<div style='margin-top:80px;font-size:12px;color:#646363;text-align:center;'>" . $language['disclaimer'] . "</div>";
-
-    //$resultContent = $resultstart . $mainProfileTable . $allianceProfileTable . $secondTable . $planetaryMatchExplanation . $thirdTable . $rasichart . $houses . $navamsachart . "<div style='color:darkblue;'>" . $remarksTable . "<br/><span style='color:deeppink;font-size:12px;'>" . $language['remedynote'] . "</span>";
+    
     $resultContent = $overAllResult . $disclaimer . $summary . $resultstart . $mainProfileTable . $allianceProfileTable . $secondTable . $planetaryMatchExplanation . $thirdTable . $rasichart . $houses . $navamsachart . "<div style='color:darkblue;'>" . $remarksTable . "<br/><span style='color:deeppink;font-size:12px;'>" . $language['remedynote'] . "</span>";
 
     if ($isAdditionalNote != "") {
@@ -2996,6 +2999,6 @@ try {
 
     mysqli_close($con);
 } catch (Exception $ex) {
-    dd($ex);
-    $resultContent = "Try after sometime...";
+    dd($ex->getMessage());
+    $resultContent = "Try again later";
 }
