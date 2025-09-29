@@ -1385,7 +1385,8 @@ if(isset($_GET['userId']))
     $savedMatchID = $_GET['matchID'];
           
     $lang = "en";
-
+    $domain = $_SERVER['SERVER_NAME'];
+    $siteURL = "https://" . "astromatch.online" . "/";
     if($lang == "en")
     {
         $logoImage = $configOptions[0]["bannerLogoPath"];
@@ -1394,7 +1395,7 @@ if(isset($_GET['userId']))
         $dayname = "dayname";
         $planetfield = "planetName";
         $rasiField = "rasiName";
-        $housetable = "img/houses.png";
+        $housetable = $siteURL . "img/houses.png";
         $factorField = "factorName";
     }
     else
@@ -1405,7 +1406,7 @@ if(isset($_GET['userId']))
         $dayname = "dayname_" . $lang;
         $planetfield = "planetName_". $lang;
         $rasiField = "rasiName_" . $lang;
-        $housetable = "img/houses_".$lang.".png";
+        $housetable = $siteURL . "img/houses_".$lang.".png";
         $remedyField = "remedies_" . $lang;
         $factorField = "factorName_" . $lang;
     }

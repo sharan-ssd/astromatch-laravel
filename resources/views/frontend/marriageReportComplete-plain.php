@@ -1377,7 +1377,8 @@ $language["bhavaganumber"] = "Bhavaga Number";
 try {
     
     $lang = "en";
-
+    $domain = $_SERVER['SERVER_NAME'];
+    $siteURL = "http://" . $domain . "/";
     if ($lang == "en") {
         $logoImage = $configOptions[0]["bannerLogoPath"];
         $goldenRulesLink = $configOptions[0]["goldenRulesLink"];
@@ -1386,7 +1387,7 @@ try {
         $dayname = "dayname";
         $planetfield = "planetName";
         $rasiField = "rasiName";
-        $housetable = "img/houses.png";
+        $housetable = $siteURL . "img/houses.png";
         $remarkField = "matchingRemarks";
         $remedyField = "remedies";
         $guidanceField = "marriagePsychologicalGuidance";
@@ -1401,7 +1402,7 @@ try {
         $dayname = "dayname_" . $lang;
         $planetfield = "planetName_" . $lang;
         $rasiField = "rasiName_" . $lang;
-        $housetable = "img/houses_" . $lang . ".png";
+        $housetable = $siteURL . "img/houses_" . $lang . ".png";
         $remarkField = "matchingRemarks_" . $lang;
         $remedyField = "remedies_" . $lang;
         $guidanceField = "marriagePsychologicalGuidance_" . $lang;

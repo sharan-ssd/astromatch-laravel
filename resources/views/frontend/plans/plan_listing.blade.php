@@ -525,8 +525,9 @@
 
         var astro_match = data.astro_match[0];
         console.log(astro_match);
-        
-        window.location.href = '/marriagereport?decisionID1=' + astro_match.firstDecisionID + '&decisionID2=' + astro_match.secondDecisionID + '&matchID=' + astro_match.matchID;
+        var redirectUrl = `/marriagereport?mainProfileId=${astro_match.mainProfileID}&allianceProfileId=${astro_match.allianceProfileID}&decisionID1=${astro_match.firstDecisionID}&decisionID2=${astro_match.secondDecisionID}&matchMethod=${astro_match.matchMakingMethod}&matchID=${astro_match.matchID}&userId=${astro_match.userID}`;
+        console.log(redirectUrl);
+        window.location.href = redirectUrl
     }
 
 </script>
