@@ -64,6 +64,7 @@ Route::get('/faq', function () {
     return view('/frontend.faq.faq');
 });
 
+Route::get('/marriagereport', [ReportsController::class, 'basicReport']);
 
 Route::get('/marriagereportcomplete', [ReportsController::class, 'completeReport']);
 
