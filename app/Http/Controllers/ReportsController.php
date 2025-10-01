@@ -8,8 +8,12 @@ use App\Services\PlanetService;
 
 class ReportsController extends Controller
 {
+    function basicReport() {
+        return $this->render_raw_php(resource_path('views/frontend/marriagereport-plain.php'), ['message' => 'This is raw PHP.']);        
+    }
+
     function completeReport() {
-        return $this->render_raw_php(resource_path('views/frontend/marriagereport-plain.php'), ['message' => 'This is raw PHP.']);
+        return $this->render_raw_php(resource_path('views/frontend/marriageReportComplete-plain.php'), ['message' => 'This is raw PHP.']);
         $commanService = new CommanService();
         $planetService = new PlanetService();
 
