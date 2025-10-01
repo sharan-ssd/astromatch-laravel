@@ -1659,7 +1659,7 @@ if(isset($_GET['userId']))
         $starID = $row[0] - 1;
     }
     
-    $query = "SELECT factorID from qd3b_factorPriorities_table WHERE associatedDecisionID=" . $decisionId1 . " ORDER BY level1Priority";
+    $query = "SELECT factorID from qd3b_factorPriorities_table WHERE associatedDecisionID=" . $decisionId1 . " ORDER BY level1Priority";    
     $result = mysqli_query($con, $query);
     $rows = mysqli_num_rows($result);
     if ($rows > 0) {
