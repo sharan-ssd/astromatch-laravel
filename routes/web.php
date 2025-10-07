@@ -70,3 +70,81 @@ Route::get('/marriagereportcomplete', [ReportsController::class, 'completeReport
 
 // apis
 Route::get('/api/suggest', [SuggestController::class, 'suggest']);
+
+Route::get('/new-tamil', function () {
+    $filePath = public_path('sample-reports/Tamil-New Alliance Match Making Report.pdf');
+
+    if (!file_exists($filePath)) {
+        abort(404, 'Report not found.');
+    }
+
+    return response()->file($filePath, [
+        'Content-Type' => 'application/pdf',
+        'Content-Disposition' => 'inline; filename="Tamil-New Alliance Match Making Report.pdf"',
+    ]);
+});
+
+Route::get('/new-english', function () {
+    $filePath = public_path('sample-reports/New Alliance Match Making Report.pdf');
+
+    if (!file_exists($filePath)) {
+        abort(404, 'Report not found.');
+    }
+
+    return response()->file($filePath, [
+        'Content-Type' => 'application/pdf',
+        'Content-Disposition' => 'inline; filename="New Alliance Match Making Report.pdf"',
+    ]);
+});
+
+Route::get('/new-hindi', function () {
+    $filePath = public_path('sample-reports/Hindi-New Alliance Match Making Report.pdf');
+
+    if (!file_exists($filePath)) {
+        abort(404, 'Report not found.');
+    }
+
+    return response()->file($filePath, [
+        'Content-Type' => 'application/pdf',
+        'Content-Disposition' => 'inline; filename="Hindi-New Alliance Match Making Report.pdf"',
+    ]);
+});
+
+Route::get('/new-telugu', function () {
+    $filePath = public_path('sample-reports/Telugu-New Alliance Match Making Report.pdf');
+
+    if (!file_exists($filePath)) {
+        abort(404, 'Report not found.');
+    }
+
+    return response()->file($filePath, [
+        'Content-Type' => 'application/pdf',
+        'Content-Disposition' => 'inline; filename="Telugu-New Alliance Match Making Report.pdf"',
+    ]);
+});
+
+Route::get('/new-kannada', function () {
+    $filePath = public_path('sample-reports/Kannada-New Alliance Match Making Report.pdf');
+
+    if (!file_exists($filePath)) {
+        abort(404, 'Report not found.');
+    }
+
+    return response()->file($filePath, [
+        'Content-Type' => 'application/pdf',
+        'Content-Disposition' => 'inline; filename="Kannada-New Alliance Match Making Report.pdf"',
+    ]);
+});
+
+Route::get('/new-malayalam', function () {
+    $filePath = public_path('sample-reports/Malayalam-New Alliance Match Making Report.pdf');
+
+    if (!file_exists($filePath)) {
+        abort(404, 'Report not found.');
+    }
+
+    return response()->file($filePath, [
+        'Content-Type' => 'application/pdf',
+        'Content-Disposition' => 'inline; filename="Malayalam-New Alliance Match Making Report.pdf"',
+    ]);
+});

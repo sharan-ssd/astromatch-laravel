@@ -818,7 +818,7 @@ $language["bhavaganumber"] = "Bhavaga Number";
         {
             $pdo = new PDO("mysql:host=" . $live_Host . ";dbname=" . $live_DBName, $live_User, $live_Pwd);
             // calling stored procedure command
-            $sql = 'CALL SP_CheckSevvaaiDosha(:astroProfileID,:astroOrgSDTemplateID,@a,@b,@c,@d,@e,@f,@g,@h,@i,@j,@k,@l,@m,@n,@o,@p,@q)';
+            $sql = 'CALL SP_CheckSevvaaiDosha(:astroProfileID,:astroOrgSDTemplateID,@a,@b,@c,@d,@e,@f,@g,@h,@i,@j,@k,@l,@m,@n,@o,@p,@q)';            
 
             // prepare for execution of the stored procedure
             $stmt = $pdo->prepare($sql);
@@ -844,7 +844,7 @@ $language["bhavaganumber"] = "Bhavaga Number";
                                 
                 $fromLagnaLevel = $row['@g'];
                 $fromRasiLevel = $row['@h'];
-                $fromSukranLevel = $row['@i'];
+                $fromSukranLevel = $row['@i'];                
 
                 if($row['@m'] == 2)
                 {
@@ -985,7 +985,7 @@ $language["bhavaganumber"] = "Bhavaga Number";
                             $doshaResult =  round($fromSukranLevel) . "% - " . $output;
                     }                    
                 }
-                $doshaResult .= "<br>" . $language['sevvaaipercentage'] . " : " . round($overallSevvaaiDoshaLevel) . "%" . "##" . $numberOfDoshaTypesIdentified ."^". $applicableDoshaTypes . "^" . $overallSevvaaiDoshaLevel;
+                $doshaResult .= "<br>" . $language['sevvaaipercentage'] . " : " . round($overallSevvaaiDoshaLevel) . "%" . "##" . $row['@m'] ."^". $row['@n'] . "^" . $row['@q'];
             }            
         }
         catch(Exception $ex)
@@ -993,7 +993,7 @@ $language["bhavaganumber"] = "Bhavaga Number";
             //echo $ex->getMessage();
             writeLog($ex->getTraceAsString());
         }
-        return $doshaResult;
+        echo $doshaResult . "<br>";
     }
 
     function MatchSevvaaiDosha($astroOrgSDTemplateID,$maleAstroProfileID,$femaleAstroProfileID,$weightageMode,$numberOfMaleDoshaTypesIdentified,$numberOfFemaleDoshaTypesIdentified,$applicableMaleDoshaTypes,$applicableFemaleDoshaTypes,$overallMaleSevvaaiDoshaLevel,$overallFemaleSevvaaiDoshaLevel,$con,$live_Host,$live_DBName,$live_User,$live_Pwd,$convertLang)
@@ -2651,7 +2651,8 @@ try {
     $tsql = "SELECT $starField FROM ab_translations_table WHERE tableName='SP_MatchMaker_v3' AND columnName='o_factorsMatchingResponseList' AND possibleValue_en='" . substr($temp[1], 0, -2) . "'";
     $tResult = mysqli_query($con, $tsql);
     $tRow = mysqli_fetch_array($tResult);
-    $mudakkuDoshaRemarks = $tRow[0];
+    //$mudakkuDoshaRemarks = $tRow[0];
+    $mudakkuDoshaRemarks = "";
     $mudakkuPercentage = round($temp[0], 0);
     $mudakkuDoshaResult = "<span style='color:darkgreen;font-size:18px;'>" . $language['mudakkudoshamatch'] . "&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;</span><span style='color:#b90075;font-size:18px;white-space:nowrap;'>" . $mudakkuPercentage . "  %</span></span><br/><span style='color:maroon;'>" . $mudakkuDoshaRemarks . "</span>";
 
@@ -2740,7 +2741,7 @@ try {
     $tRow = mysqli_fetch_array($tResult);
     $kalathiraDoshaRemarks = $tRow[0];
 
-    $temp = $additionalPorutham['numerologyMatchRemarks'];
+    /*$temp = $additionalPorutham['numerologyMatchRemarks'];
 
     // Use explode to split the string by >>
     $parts = explode(' >> ', $temp);
@@ -2752,7 +2753,8 @@ try {
     // Use preg_match_all to find all numbers in the string
     preg_match_all('/\d+/', $temp, $matches);
 
-    $numerologyMatchRemarks = $language['malebirthnumber'] . $matches[0][0] . " | " . $language['totalnumber'] . $matches[0][1] . " | " . $language['destinynumber'] . $matches[0][2] . " <br/> " . $language['femalebirthnumber'] . $matches[0][3] . " | " . $language['totalnumber'] . $matches[0][4] . " | " . $language['destinynumber'] . $matches[0][5] . " <br/> " . $tRow[0] . " !";
+    $numerologyMatchRemarks = $language['malebirthnumber'] . $matches[0][0] . " | " . $language['totalnumber'] . $matches[0][1] . " | " . $language['destinynumber'] . $matches[0][2] . " <br/> " . $language['femalebirthnumber'] . $matches[0][3] . " | " . $language['totalnumber'] . $matches[0][4] . " | " . $language['destinynumber'] . $matches[0][5] . " <br/> " . $tRow[0] . " !";*/
+    $numerologyMatchRemarks = "";
 
     $tsql = "SELECT fn_translateList('SP_MatchMaker_v3','o_factorsMatchingResponseList','" . str_replace("'", "''", $additionalPorutham['manaSanchalaDoshaRemarks']) . "','English','" . $convertLang . "',1)";
 
@@ -2884,6 +2886,7 @@ try {
 
         $maleSevvaaiDosha = checkSevvaaiDosha($astroProfileID, $astroOrgSDTemplateID, $numberOfMaleDoshaTypesIdentified, $applicableMaleDoshaTypes, $overallMaleSevvaaiDoshaLevel, $con, $live_Host, $live_DBName, $live_User, $live_Pwd, $language, $convertLang);
         $femaleSevvaaiDosha = checkSevvaaiDosha($allianceID, $astroOrgSDTemplateID, $numberOfFemaleDoshaTypesIdentified, $applicableFemaleDoshaTypes, $overallFemaleSevvaaiDoshaLevel, $con, $live_Host, $live_DBName, $live_User, $live_Pwd, $language, $convertLang);
+        echo $maleSevvaaiDosha; exit;
         $sevvaaiDoshaResult = "";
         if ($maleSevvaaiDosha != "") {
             $temp = explode("##", $maleSevvaaiDosha);
@@ -2998,7 +3001,9 @@ try {
     $resultContent .= '<div style="color: darkblue;">' . $femalePlanetPosition . '<div style="border: solid darkblue;color: darkblue;background-color: white;padding-left:10px;font-weight:bold;font-size:16px;text-align:center;"><span style="color:deeppink;font-size:24px">' . $language["femalehoroscope"] . " - " . $language["summary"] . '</span></div><span>' . $femaleSummary . '</span></div>';
 
     mysqli_close($con);
+
+    echo $resultContent;    
 } catch (Exception $ex) {
-    dd($ex->getMessage());
+    writeLog($ex->getTraceAsString());
     $resultContent = "Try again later";
 }
