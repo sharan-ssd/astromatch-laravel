@@ -141,299 +141,290 @@
     </div>
 
 
-    <section id="pricingDetail" class="m-5">
-        <div class="pricing-table-title">
-            <h2>Pricing Details</h2>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="ptable-single">
-                    <div class="ptable-header bg-primary p-3 rounded">
-                        <div class="ptable-title">
-                            <h2>Existing Couple</h2>
-                        </div>
-                        <div class="ptable-price">
-                            <h2><small>₹</small>100 <span class="strikethrough">₹200</span><span> + GST</span></h2>
-                            <span class="price-note"><i>per Report</i></span>
-                        </div>
+<section id="pricingDetail" class="pricing-table-1">
+    <div class="pricing-table-title">
+        <h2>Pricing Details</h2>
+    </div>
+    <div class="pricing-table table-1">
+        <div class="ptable-item">
+            <div class="ptable-single">
+                <div class="ptable-header">
+                    <div class="ptable-title">
+                        <h2>Existing Couple Solution</h2>
                     </div>
-                    <div class="ptable-body">
-                        <div class="ptable-description">
-                            <ul class="feature-list">
-                                <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>10 Points Match
-                                </li>
-                                <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>36 Points Match
-                                </li>
-                                <li><i class="fa fa-check feature-point"></i>9 Planets based Most Accurate Match<a
-                                        href="#" onclick="showTooltip(3, event); return false;"><i
-                                            class="fa-solid fa-circle-info" style="padding-left : 8px"></i></a></li>
-                                <li><i class="fa fa-check feature-point"></i>Astrological Remedies<a href="#"
-                                        onclick="showTooltip(4, event); return false;"><i
-                                            class="fa-solid fa-circle-info" style="padding-left : 8px"></i></a></li>
-                                <li><i class="fa fa-check feature-point"></i>Astro-Music Healing Therapy<a href="#"
-                                        onclick="showTooltip(5, event); return false;"><i
-                                            class="fa-solid fa-circle-info" style="padding-left : 8px"></i></a></li>
-                                <li><i class="fa fa-check feature-point"></i>Psychological Remedies<a href="#"
-                                        onclick="showTooltip(6, event); return false;"><i
-                                            class="fa-solid fa-circle-info" style="padding-left : 8px"></i></a></li>
-                                <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>12 Houses based
-                                    Matching for Male</li>
-                                <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>12 Houses based
-                                    Matching for Female</li>
-                                <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Sevvaai Dosha
-                                    Match
-                                </li>
-                                <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Rahu-Kethu
-                                    Dosha
-                                    Match</li>
-                                <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Kala Sarpa
-                                    Dosha
-                                    Match</li>
-                                <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Kalathira Dosha
-                                    Match</li>
-                                <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Star Thara
-                                    Palan
-                                </li>
-                                <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Mana Sanchala
-                                    Dosha
-                                    Match</li>
-                                <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Numerology
-                                    Match
-                                </li>
-                                <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Dasa Sandhi
-                                    Period
-                                    Check</li>
-                                <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Dasa Bhukti
-                                    details
-                                    of Male Horoscope</li>
-                                <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Dasa Bhukti
-                                    details
-                                    of Female Horoscope</li>
-                                <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Detailed
-                                    Astrological Analysis of Male Horoscope</li>
-                                <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Detailed
-                                    Astrological Analysis of Female Horoscope</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="ptable-footer">
-                        <div class="">
-                            <a class="mt-2 mx-2" id="samplePremium" href="Existing Couple Match Making Report.pdf"
-                                target="_blank"><i class="fa fa-download"></i> Click here to view/download the sample
-                                report
-                                of Existing Couple</a>
-                        </div>
+                    <div class="ptable-price">
+                        <h2><small>₹</small>100 <span class="strikethrough">₹200</span><span> + GST</span></h2>
+                        <span class="price-note"><i>per Report</i></span>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="ptable-single">
-                    <div class="ptable-header btn-mat p-3 rounded">
-                        <div class="ptable-title">
-                            <h2>Premium Report</h2>
-                        </div>
-                        <div class="ptable-price">
-                            <h2><small>₹</small>99 <span class="strikethrough">₹199</span><span> <span> +
-                                        GST</span></span>
-                            </h2>
-                            <span class="price-note"><i>per Report</i></span>
-                        </div>
-                    </div>
-                    <div class="ptable-body">
-                        <div class="ptable-description">
-                            <ul class="feature-list">
-                                <!--<li><i class="fa fa-check feature-point"></i>10 Points Match<a href="#" onclick="showTooltip(1);">
-                                            <i class="fa-solid fa-circle-info"></i></a>                                        
-                                            <div class="modal fade" id="modalTooltip" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                <div class="modal-content">
-                                                <div class="modal-body">
-                                                    <i><h5 class="modal-title" id="lblTooltip" style="font-weight: bold">The 10 Point Match in marriage matching (dasama compatibility) is a horoscope analysis of the characteristics, life goals, and family harmony of the two bride and grooms, and helps predict the successful married life of the couple through <br/>10 compatibility calculations based on the birth star.<br/>This is mostly practiced in South India.</h5></i>
-                                                </div>
-                                                </div>
-                                            </div>
-                                            </div>
-                                            </li>-->
-
-                                <li>
-                                    <i class="fa fa-check feature-point"></i>
-                                    10 Points Match <a href="#" onclick="showTooltip(1, event);">
-                                        <i class="fa-solid fa-circle-info"></i>
-                                    </a>
-                                </li>
-
-                                <li><i class="fa fa-check feature-point"></i>36 Points Match<a href="#"
-                                        onclick="showTooltip(2, event); return false;"><i
-                                            class="fa-solid fa-circle-info" style="padding-left : 8px"></i></a></li>
-                                <li><i class="fa fa-check feature-point"></i>9 Planets based Most Accurate Match<a
-                                        href="#" onclick="showTooltip(3, event); return false;"><i
-                                            class="fa-solid fa-circle-info" style="padding-left : 8px"></i></a></li>
-                                <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Astrological
-                                    Remedies</li>
-                                <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Astro-Music
-                                    Healing
-                                    Therapy</li>
-                                <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Psychological
-                                    Remedies</li>
-                                <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>12 Houses based
-                                    Matching for Male</li>
-                                <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>12 Houses based
-                                    Matching for Female</li>
-                                <li><i class="fa fa-check feature-point"></i>Sevvaai Dosha Match<a href="#"
-                                        onclick="showTooltip(9, event); return false;"><i
-                                            class="fa-solid fa-circle-info" style="padding-left : 8px"></i></a></li>
-                                <li><i class="fa fa-check feature-point"></i>Rahu-Kethu Dosha Match<a href="#"
-                                        onclick="showTooltip(10, event); return false;"><i
-                                            class="fa-solid fa-circle-info" style="padding-left : 8px"></i></a></li>
-                                <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Kala Sarpa
-                                    Dosha
-                                    Match</li>
-                                <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Kalathira Dosha
-                                    Match</li>
-                                <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Star Thara
-                                    Palan
-                                </li>
-                                <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Mana Sanchala
-                                    Dosha
-                                    Match</li>
-                                <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Numerology
-                                    Match
-                                </li>
-                                <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Dasa Sandhi
-                                    Period
-                                    Check</li>
-                                <li><i class="fa fa-check feature-point"></i>Dasa Bhukti details of Male Horoscope<a
-                                        href="#" onclick="showTooltip(17, event); return false;"><i
-                                            class="fa-solid fa-circle-info" style="padding-left : 8px"></i></a></li>
-                                <li><i class="fa fa-check feature-point"></i>Dasa Bhukti details of Female Horoscope<a
-                                        href="#" onclick="showTooltip(18, event); return false;"><i
-                                            class="fa-solid fa-circle-info" style="padding-left : 8px"></i></a></li>
-                                <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Detailed
-                                    Astrological Analysis of Male Horoscope</li>
-                                <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Detailed
-                                    Astrological Analysis of Female Horoscope</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="ptable-footer">
-                        <div class="">
-                            <a class="mt-2 mx-2" id="sampleComplete" href="New Alliance Match Making Report.pdf"
-                                target="_blank"><i class="fa fa-download"></i> Click here to view / download the primium
-                                sample report</a>
-                        </div>
+                <div class="ptable-body">
+                    <div class="ptable-description">
+                        <ul class="feature-list">
+                            <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>10 Points Match
+                            </li>
+                            <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>36 Points Match
+                            </li>
+                            <li><i class="fa fa-check feature-point"></i>9 Planets based Most Accurate Match<a href="#"
+                                    onclick="showTooltip(3, event); return false;"><i class="fa-solid fa-circle-info"
+                                        style="padding-left : 8px"></i></a></li>
+                            <li><i class="fa fa-check feature-point"></i>Astrological Remedies<a href="#"
+                                    onclick="showTooltip(4, event); return false;"><i class="fa-solid fa-circle-info"
+                                        style="padding-left : 8px"></i></a></li>
+                            <li><i class="fa fa-check feature-point"></i>Astro-Music Healing Therapy<a href="#"
+                                    onclick="showTooltip(5, event); return false;"><i class="fa-solid fa-circle-info"
+                                        style="padding-left : 8px"></i></a></li>
+                            <li><i class="fa fa-check feature-point"></i>Psychological Remedies<a href="#"
+                                    onclick="showTooltip(6, event); return false;"><i class="fa-solid fa-circle-info"
+                                        style="padding-left : 8px"></i></a></li>
+                            <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>12 Houses based
+                                Matching for Male</li>
+                            <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>12 Houses based
+                                Matching for Female</li>
+                            <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Sevvaai Dosha Match
+                            </li>
+                            <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Rahu-Kethu Dosha
+                                Match</li>
+                            <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Kala Sarpa Dosha
+                                Match</li>
+                            <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Kalathira Dosha
+                                Match</li>
+                            <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Star Thara Palan
+                            </li>
+                            <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Mana Sanchala Dosha
+                                Match</li>
+                            <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Numerology Match
+                            </li>
+                            <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Dasa Sandhi Period
+                                Check</li>
+                            <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Dasa Bhukti details
+                                of Male Horoscope</li>
+                            <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Dasa Bhukti details
+                                of Female Horoscope</li>
+                            <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Detailed
+                                Astrological Analysis of Male Horoscope</li>
+                            <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Detailed
+                                Astrological Analysis of Female Horoscope</li>
+                        </ul>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="ptable-single">
-                    <div class="ptable-header bg-primary p-3 rounded">
-                        <div class="ptable-title">
-                            <h2>New Alliance Match</h2>
-                        </div>
-                        <div class="ptable-price">
-                            <h2><small>₹</small>199 <span class="strikethrough">₹399</span><span> <span> +
-                                        GST</span></span>
-                            </h2>
-                            <span class="price-note"><i>per Report</i></span>
-                        </div>
-                    </div>
-                    <div class="ptable-body">
-                        <div class="ptable-description">
-                            <ul class="feature-list">
-                                <!--<li><i class="fa fa-check feature-point"></i>10 Points Match<a href="#" onclick="showTooltip(1);">
-                                            <i class="fa-solid fa-circle-info"></i></a>                                        
-                                            <div class="modal fade" id="modalTooltip" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                <div class="modal-content">
-                                                <div class="modal-body">
-                                                    <i><h5 class="modal-title" id="lblTooltip" style="font-weight: bold">The 10 Point Match in marriage matching (dasama compatibility) is a horoscope analysis of the characteristics, life goals, and family harmony of the two bride and grooms, and helps predict the successful married life of the couple through <br/>10 compatibility calculations based on the birth star.<br/>This is mostly practiced in South India.</h5></i>
-                                                </div>
-                                                </div>
-                                            </div>
-                                            </div>
-                                            </li>-->
-
-                                <li>
-                                    <i class="fa fa-check feature-point"></i>
-                                    10 Points Match <a href="#" onclick="showTooltip(1, event);">
-                                        <i class="fa-solid fa-circle-info"></i>
-                                    </a>
-                                </li>
-
-                                <li><i class="fa fa-check feature-point"></i>36 Points Match<a href="#"
-                                        onclick="showTooltip(2, event); return false;"><i
-                                            class="fa-solid fa-circle-info" style="padding-left : 8px"></i></a></li>
-                                <li><i class="fa fa-check feature-point"></i>9 Planets based Most Accurate Match<a
-                                        href="#" onclick="showTooltip(3, event); return false;"><i
-                                            class="fa-solid fa-circle-info" style="padding-left : 8px"></i></a></li>
-                                <li><i class="fa fa-check feature-point"></i>Astrological Remedies<a href="#"
-                                        onclick="showTooltip(4, event); return false;"><i
-                                            class="fa-solid fa-circle-info" style="padding-left : 8px"></i></a></li>
-                                <li><i class="fa fa-check feature-point"></i>Astro-Music Healing Therapy<a href="#"
-                                        onclick="showTooltip(5, event); return false;"><i
-                                            class="fa-solid fa-circle-info" style="padding-left : 8px"></i></a></li>
-                                <li><i class="fa fa-check feature-point"></i>Psychological Remedies<a href="#"
-                                        onclick="showTooltip(6, event); return false;"><i
-                                            class="fa-solid fa-circle-info" style="padding-left : 8px"></i></a></li>
-                                <li><i class="fa fa-check feature-point"></i>12 Houses based Matching for Male<a
-                                        href="#" onclick="showTooltip(7, event); return false;"><i
-                                            class="fa-solid fa-circle-info" style="padding-left : 8px"></i></a></li>
-                                <li><i class="fa fa-check feature-point"></i>12 Houses based Matching for Female<a
-                                        href="#" onclick="showTooltip(8, event); return false;"><i
-                                            class="fa-solid fa-circle-info" style="padding-left : 8px"></i></a></li>
-                                <li><i class="fa fa-check feature-point"></i>Sevvaai Dosha Match<a href="#"
-                                        onclick="showTooltip(9, event); return false;"><i
-                                            class="fa-solid fa-circle-info" style="padding-left : 8px"></i></a></li>
-                                <li><i class="fa fa-check feature-point"></i>Rahu-Kethu Dosha Match<a href="#"
-                                        onclick="showTooltip(10, event); return false;"><i
-                                            class="fa-solid fa-circle-info" style="padding-left : 8px"></i></a></li>
-                                <li><i class="fa fa-check feature-point"></i>Kala Sarpa Dosha Match<a href="#"
-                                        onclick="showTooltip(11, event); return false;"><i
-                                            class="fa-solid fa-circle-info" style="padding-left : 8px"></i></a></li>
-                                <li><i class="fa fa-check feature-point"></i>Kalathira Dosha Match<a href="#"
-                                        onclick="showTooltip(12, event); return false;"><i
-                                            class="fa-solid fa-circle-info" style="padding-left : 8px"></i></a></li>
-                                <li><i class="fa fa-check feature-point"></i>Star Thara Palan<a href="#"
-                                        onclick="showTooltip(13, event); return false;"><i
-                                            class="fa-solid fa-circle-info" style="padding-left : 8px"></i></a></li>
-                                <li><i class="fa fa-check feature-point"></i>Mana Sanchala Dosha Match<a href="#"
-                                        onclick="showTooltip(14, event); return false;"><i
-                                            class="fa-solid fa-circle-info" style="padding-left : 8px"></i></a></li>
-                                <li><i class="fa fa-check feature-point"></i>Numerology Match<a href="#"
-                                        onclick="showTooltip(15, event); return false;"><i
-                                            class="fa-solid fa-circle-info" style="padding-left : 8px"></i></a></li>
-                                <li><i class="fa fa-check feature-point"></i>Dasa Sandhi Period Check<a href="#"
-                                        onclick="showTooltip(16, event); return false;"><i
-                                            class="fa-solid fa-circle-info" style="padding-left : 8px"></i></a></li>
-                                <li><i class="fa fa-check feature-point"></i>Dasa Bhukti details of Male Horoscope<a
-                                        href="#" onclick="showTooltip(17, event); return false;"><i
-                                            class="fa-solid fa-circle-info" style="padding-left : 8px"></i></a></li>
-                                <li><i class="fa fa-check feature-point"></i>Dasa Bhukti details of Female Horoscope<a
-                                        href="#" onclick="showTooltip(18, event); return false;"><i
-                                            class="fa-solid fa-circle-info" style="padding-left : 8px"></i></a></li>
-                                <li><i class="fa fa-check feature-point"></i>Detailed Astrological Analysis of Male
-                                    Horoscope<a href="#" onclick="showTooltip(19, event); return false;"><i
-                                            class="fa-solid fa-circle-info" style="padding-left : 8px"></i></a></li>
-                                <li><i class="fa fa-check feature-point"></i>Detailed Astrological Analysis of Female
-                                    Horoscope<a href="#" onclick="showTooltip(20, event); return false;"><i
-                                            class="fa-solid fa-circle-info" style="padding-left : 8px"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="ptable-footer">
-                        <div class="">
-                            <a class="mt-2 mx-2" id="sampleComplete" href="New Alliance Match Making Report.pdf"
-                                target="_blank"><i class="fa fa-download"></i> Click here to view/download the sample
-                                report
-                                of New Alliance Match</a>
-                        </div>
+                <div class="ptable-footer">
+                    <div class="">
+                        <a class="mt-2 mx-2" id="samplePremium" href="Existing Couple Match Making Report.pdf"
+                            target="_blank"><i class="fa fa-download"></i> Click here to view/download the sample report
+                            of Existing Couple</a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+
+        <div class="ptable-item featured-item">
+            <div class="ptable-single">
+                <div class="ptable-header">
+                    <div class="ptable-title">
+                        <h2>Premium Report</h2>
+                    </div>
+                    <div class="ptable-price">
+                        <h2><small>₹</small>99 <span class="strikethrough">₹199</span><span> <span> + GST</span></h2>
+                        <span class="price-note"><i>per Report</i></span>
+                    </div>
+                </div>
+                <div class="ptable-body">
+                    <div class="ptable-description">
+                        <ul class="feature-list">
+                            <!--<li><i class="fa fa-check feature-point"></i>10 Points Match<a href="#" onclick="showTooltip(1);">
+                                        <i class="fa-solid fa-circle-info"></i></a>                                        
+                                        <div class="modal fade" id="modalTooltip" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                            <div class="modal-body">
+                                                <i><h5 class="modal-title" id="lblTooltip" style="font-weight: bold">The 10 Point Match in marriage matching (dasama compatibility) is a horoscope analysis of the characteristics, life goals, and family harmony of the two bride and grooms, and helps predict the successful married life of the couple through <br/>10 compatibility calculations based on the birth star.<br/>This is mostly practiced in South India.</h5></i>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        </li>-->
+
+                            <li>
+                                <i class="fa fa-check feature-point"></i>
+                                10 Points Match <a href="#" onclick="showTooltip(1, event);">
+                                    <i class="fa-solid fa-circle-info"></i>
+                                </a>
+
+                                <!-- Custom Tooltip (not Bootstrap modal) -->
+                                <div id="modalTooltip" class="tooltip-box">
+                                    <span id="lblTooltip"></span>
+                                    <a href="" id="lnkmeaning" target="_blank">read more</a>
+                                </div>
+                            </li>
+
+                            <li><i class="fa fa-check feature-point"></i>36 Points Match<a href="#"
+                                    onclick="showTooltip(2, event); return false;"><i class="fa-solid fa-circle-info"
+                                        style="padding-left : 8px"></i></a></li>
+                            <li><i class="fa fa-check feature-point"></i>9 Planets based Most Accurate Match<a href="#"
+                                    onclick="showTooltip(3, event); return false;"><i class="fa-solid fa-circle-info"
+                                        style="padding-left : 8px"></i></a></li>
+                            <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Astrological
+                                Remedies</li>
+                            <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Astro-Music Healing
+                                Therapy</li>
+                            <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Psychological
+                                Remedies</li>
+                            <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>12 Houses based
+                                Matching for Male</li>
+                            <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>12 Houses based
+                                Matching for Female</li>
+                            <li><i class="fa fa-check feature-point"></i>Sevvaai Dosha Match<a href="#"
+                                    onclick="showTooltip(9, event); return false;"><i class="fa-solid fa-circle-info"
+                                        style="padding-left : 8px"></i></a></li>
+                            <li><i class="fa fa-check feature-point"></i>Rahu-Kethu Dosha Match<a href="#"
+                                    onclick="showTooltip(10, event); return false;"><i class="fa-solid fa-circle-info"
+                                        style="padding-left : 8px"></i></a></li>
+                            <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Kala Sarpa Dosha
+                                Match</li>
+                            <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Kalathira Dosha
+                                Match</li>
+                            <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Star Thara Palan
+                            </li>
+                            <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Mana Sanchala Dosha
+                                Match</li>
+                            <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Numerology Match
+                            </li>
+                            <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Dasa Sandhi Period
+                                Check</li>
+                            <li><i class="fa fa-check feature-point"></i>Dasa Bhukti details of Male Horoscope<a
+                                    href="#" onclick="showTooltip(17, event); return false;"><i
+                                        class="fa-solid fa-circle-info" style="padding-left : 8px"></i></a></li>
+                            <li><i class="fa fa-check feature-point"></i>Dasa Bhukti details of Female Horoscope<a
+                                    href="#" onclick="showTooltip(18, event); return false;"><i
+                                        class="fa-solid fa-circle-info" style="padding-left : 8px"></i></a></li>
+                            <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Detailed
+                                Astrological Analysis of Male Horoscope</li>
+                            <li class="disabled-feature"><i class="fa fa-times feature-point-no"></i>Detailed
+                                Astrological Analysis of Female Horoscope</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="ptable-footer">
+                    <div class="">
+                        <a class="mt-2 mx-2" id="sampleComplete" href="New Alliance Match Making Report.pdf"
+                            target="_blank"><i class="fa fa-download"></i> Click here to view / download the primium
+                            sample report</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ptable-item featured-item">
+            <div class="ptable-single">
+                <div class="ptable-header">
+                    <div class="ptable-title">
+                        <h2>New Alliance Match</h2>
+                    </div>
+                    <div class="ptable-price">
+                        <h2><small>₹</small>199 <span class="strikethrough">₹399</span><span> <span> + GST</span></h2>
+                        <span class="price-note"><i>per Report</i></span>
+                    </div>
+                </div>
+                <div class="ptable-body">
+                    <div class="ptable-description">
+                        <ul class="feature-list">
+                            <!--<li><i class="fa fa-check feature-point"></i>10 Points Match<a href="#" onclick="showTooltip(1);">
+                                        <i class="fa-solid fa-circle-info"></i></a>                                        
+                                        <div class="modal fade" id="modalTooltip" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                            <div class="modal-body">
+                                                <i><h5 class="modal-title" id="lblTooltip" style="font-weight: bold">The 10 Point Match in marriage matching (dasama compatibility) is a horoscope analysis of the characteristics, life goals, and family harmony of the two bride and grooms, and helps predict the successful married life of the couple through <br/>10 compatibility calculations based on the birth star.<br/>This is mostly practiced in South India.</h5></i>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        </li>-->
+
+                            <li>
+                                <i class="fa fa-check feature-point"></i>
+                                10 Points Match <a href="#" onclick="showTooltip(1, event);">
+                                    <i class="fa-solid fa-circle-info"></i>
+                                </a>
+
+                                <!-- Custom Tooltip (not Bootstrap modal) -->
+                                <div id="modalTooltip" class="tooltip-box">
+                                    <span id="lblTooltip"></span>
+                                    <a href="" id="lnkmeaning" target="_blank">read more</a>
+                                </div>
+                            </li>
+
+                            <li><i class="fa fa-check feature-point"></i>36 Points Match<a href="#"
+                                    onclick="showTooltip(2, event); return false;"><i class="fa-solid fa-circle-info"
+                                        style="padding-left : 8px"></i></a></li>
+                            <li><i class="fa fa-check feature-point"></i>9 Planets based Most Accurate Match<a href="#"
+                                    onclick="showTooltip(3, event); return false;"><i class="fa-solid fa-circle-info"
+                                        style="padding-left : 8px"></i></a></li>
+                            <li><i class="fa fa-check feature-point"></i>Astrological Remedies<a href="#"
+                                    onclick="showTooltip(4, event); return false;"><i class="fa-solid fa-circle-info"
+                                        style="padding-left : 8px"></i></a></li>
+                            <li><i class="fa fa-check feature-point"></i>Astro-Music Healing Therapy<a href="#"
+                                    onclick="showTooltip(5, event); return false;"><i class="fa-solid fa-circle-info"
+                                        style="padding-left : 8px"></i></a></li>
+                            <li><i class="fa fa-check feature-point"></i>Psychological Remedies<a href="#"
+                                    onclick="showTooltip(6, event); return false;"><i class="fa-solid fa-circle-info"
+                                        style="padding-left : 8px"></i></a></li>
+                            <li><i class="fa fa-check feature-point"></i>12 Houses based Matching for Male<a href="#"
+                                    onclick="showTooltip(7, event); return false;"><i class="fa-solid fa-circle-info"
+                                        style="padding-left : 8px"></i></a></li>
+                            <li><i class="fa fa-check feature-point"></i>12 Houses based Matching for Female<a href="#"
+                                    onclick="showTooltip(8, event); return false;"><i class="fa-solid fa-circle-info"
+                                        style="padding-left : 8px"></i></a></li>
+                            <li><i class="fa fa-check feature-point"></i>Sevvaai Dosha Match<a href="#"
+                                    onclick="showTooltip(9, event); return false;"><i class="fa-solid fa-circle-info"
+                                        style="padding-left : 8px"></i></a></li>
+                            <li><i class="fa fa-check feature-point"></i>Rahu-Kethu Dosha Match<a href="#"
+                                    onclick="showTooltip(10, event); return false;"><i class="fa-solid fa-circle-info"
+                                        style="padding-left : 8px"></i></a></li>
+                            <li><i class="fa fa-check feature-point"></i>Kala Sarpa Dosha Match<a href="#"
+                                    onclick="showTooltip(11, event); return false;"><i class="fa-solid fa-circle-info"
+                                        style="padding-left : 8px"></i></a></li>
+                            <li><i class="fa fa-check feature-point"></i>Kalathira Dosha Match<a href="#"
+                                    onclick="showTooltip(12, event); return false;"><i class="fa-solid fa-circle-info"
+                                        style="padding-left : 8px"></i></a></li>
+                            <li><i class="fa fa-check feature-point"></i>Star Thara Palan<a href="#"
+                                    onclick="showTooltip(13, event); return false;"><i class="fa-solid fa-circle-info"
+                                        style="padding-left : 8px"></i></a></li>
+                            <li><i class="fa fa-check feature-point"></i>Mana Sanchala Dosha Match<a href="#"
+                                    onclick="showTooltip(14, event); return false;"><i class="fa-solid fa-circle-info"
+                                        style="padding-left : 8px"></i></a></li>
+                            <li><i class="fa fa-check feature-point"></i>Numerology Match<a href="#"
+                                    onclick="showTooltip(15, event); return false;"><i class="fa-solid fa-circle-info"
+                                        style="padding-left : 8px"></i></a></li>
+                            <li><i class="fa fa-check feature-point"></i>Dasa Sandhi Period Check<a href="#"
+                                    onclick="showTooltip(16, event); return false;"><i class="fa-solid fa-circle-info"
+                                        style="padding-left : 8px"></i></a></li>
+                            <li><i class="fa fa-check feature-point"></i>Dasa Bhukti details of Male Horoscope<a
+                                    href="#" onclick="showTooltip(17, event); return false;"><i
+                                        class="fa-solid fa-circle-info" style="padding-left : 8px"></i></a></li>
+                            <li><i class="fa fa-check feature-point"></i>Dasa Bhukti details of Female Horoscope<a
+                                    href="#" onclick="showTooltip(18, event); return false;"><i
+                                        class="fa-solid fa-circle-info" style="padding-left : 8px"></i></a></li>
+                            <li><i class="fa fa-check feature-point"></i>Detailed Astrological Analysis of Male
+                                Horoscope<a href="#" onclick="showTooltip(19, event); return false;"><i
+                                        class="fa-solid fa-circle-info" style="padding-left : 8px"></i></a></li>
+                            <li><i class="fa fa-check feature-point"></i>Detailed Astrological Analysis of Female
+                                Horoscope<a href="#" onclick="showTooltip(20, event); return false;"><i
+                                        class="fa-solid fa-circle-info" style="padding-left : 8px"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="ptable-footer">
+                    <div class="">
+                        <a class="mt-2 mx-2" id="sampleComplete" href="New Alliance Match Making Report.pdf"
+                            target="_blank"><i class="fa fa-download"></i> Click here to view/download the sample report
+                            of New Alliance Match</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 </div>
 
 
@@ -444,21 +435,8 @@
         e.preventDefault();
 
         var totalamount = document.getElementById('totalPrice').innerHTML;
+        totalamount = Math.max(totalamount, 2);
         var xavier_report_id = "{{ $xavier_report_id }}";
-
-        if (totalamount < 2) {
-            Swal.fire({
-                title: 'Redirecting you to report...',
-                html: 'Verifying your payment.',
-                allowOutsideClick: false,
-                allowEscapeKey: false,
-                showConfirmButton: false,
-                didOpen: () => {
-                    Swal.showLoading(); // built-in SweetAlert2 loader
-                }
-            });
-            return await capturePayment({}, xavier_report_id);
-        }
 
         let response = await fetch("/payment/create-order", {
             method: "POST",
@@ -524,10 +502,19 @@
         }
 
         var astro_match = data.astro_match[0];
-        console.log(astro_match);
-        var redirectUrl = `/marriagereport?mainProfileId=${astro_match.sno}&allianceProfileId=${astro_match.allianceProfileID}&decisionID1=${astro_match.firstDecisionID}&decisionID2=${astro_match.secondDecisionID}&matchMethod=${astro_match.matchMakingMethod}&matchID=${astro_match.matchID}&userId=${astro_match.userID}`;
-        console.log(redirectUrl);
-        window.location.href = redirectUrl
+        var report_type = $('input[name="plan"]:checked').val();
+
+        if(report_type == 'Premimum'){
+            report_type = 'marriagereportcomplete';
+        }
+        else{
+            report_type = 'marriagereport';
+        }
+
+        var redirectUrl = `/${report_type}?mainProfileId=${astro_match.sno}&allianceProfileId=${astro_match.allianceProfileID}&decisionID1=${astro_match.firstDecisionID}&decisionID2=${astro_match.secondDecisionID}&matchMethod=${astro_match.matchMakingMethod}&matchID=${astro_match.matchID}&userId=${astro_match.userID}`;
+        var redirectUrl = `/${report_type}?mainProfileId=${astro_match.mainProfileID}&allianceProfileId=${astro_match.allianceProfileID}&decisionID1=${astro_match.firstDecisionID}&decisionID2=${astro_match.secondDecisionID}&matchMethod=${astro_match.matchMakingMethod}&matchID=${astro_match.sno}&userId=${astro_match.userID}`;
+        redirectUrl = `/marriagereportcomplete?mainProfileId=${astro_match.mainProfileID}&allianceProfileId=${astro_match.allianceProfileID}&decisionID1=${astro_match.firstDecisionID}&decisionID2=${astro_match.secondDecisionID}&matchMethod=${astro_match.matchMakingMethod}&matchID=1181&userId=${astro_match.userID}`;
+        window.location.href = redirectUrl;
     }
 
 </script>
@@ -555,7 +542,7 @@
     couponDiscountEl.textContent = couponDiscount.toFixed(2);
     totalPriceEl.textContent = Math.max((price - discount - couponDiscount), 0).toFixed(2);
 
-    if(totalPriceEl.textContent < 2) {
+    if(totalPriceEl.textContent < 1) {
         document.getElementById('payButton').textContent = 'Get Report for Free';
     } else {
         document.getElementById('payButton').textContent = 'Proceed to Pay';

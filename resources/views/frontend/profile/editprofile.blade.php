@@ -601,7 +601,7 @@ function checkDuplicateMobile()
         console.log("Check Duplicate Function Called");
         console.log(" Mobile : " + mobile + " Email : " + email);
         $.ajax({
-            url: 'checkDuplicate.php',
+            url: '/user/action',
             type: 'POST',            
             dataType: 'text',        
             data: "checkDuplicateMobile=Y&checkDuplicateEmail=N&validateLogin=N&validateOTP=N&mobile=" + mobile + "&isdCode=" + isdCode + "&email=" + email,
