@@ -68,11 +68,17 @@ class HomeController extends Controller
             return redirect('/')->with('error', 'Unable to process your horoscope at this time. Please try again later.');
         }
 
+        $plans = DB::select('select * from ab_report_plans where id = 1');
+
+        return view('frontend.reports.report_loader', compact('plans', 'xavier_report_id'));
+    }
+
+    public function planlisting() {
+        $xavier_report_id = DB::selectOne("SELECT xavier_id FROM xavier_reports WHERE status != 'failed' and payment_status is Null AND user_id = ? ORDER BY xavier_id DESC LIMIT 1", [Auth::id()])->xavier_id ?? null;
         $plans = DB::select('select * from ab_report_plans');
 
         return view('frontend.plans.plan_listing', compact('plans', 'xavier_report_id'));
     }
-
 
     public function redirectToReportgenration(Request $request, $saved_horoscope){
         dd($saved_horoscope);

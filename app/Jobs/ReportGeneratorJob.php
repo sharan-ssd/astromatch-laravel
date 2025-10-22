@@ -16,6 +16,7 @@ use App\Services\WhatsAppService;
 use Illuminate\Support\Facades\Auth;
 use App\Services\ProkeralaService;
 use App\Services\StoredProceduresService;
+use Illuminate\Support\Facades\Log;
 
 class ReportGeneratorJob implements ShouldQueue
 {
@@ -293,10 +294,10 @@ class ReportGeneratorJob implements ShouldQueue
             $kalaSarpaDoshaRemarks = $factor_remarks[$total_values-2] ?? '';
 
             // Mana Sanchala split
-            $parts = explode(">>", $factor_remarks[$total_values-4] ?? '');
+            $parts = explode(">>", $factor_remarks[$total_values-3] ?? '');
             $manaSanchalaDoshaRemarks = trim($parts[0] ?? '');
 
-            $numerologyMatchRemarks = ''; // keeping same as your original code
+            $numerologyMatchRemarks =  $factor_remarks[$total_values-4] ?? ''; // keeping same as your original code
             $kalathiraDoshaRemarks  = $factor_remarks[$total_values-6] ?? '';
 
             // Update the record

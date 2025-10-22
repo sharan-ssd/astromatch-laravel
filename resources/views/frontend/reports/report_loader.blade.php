@@ -14,7 +14,32 @@
 </style>
 
 <script>
-    setInterval(() => {
-        console.log('checking report status');
+    
+    var statusPoll = setInterval(() => {
+        checkReportStatus();
     }, 5000);
+
+    async function checkReportStatus(params) {
+        var xavier_report_id = {{$xavier_report_id}};
+        let response = await fetch(`/report/basic_report?xavier_id=${xavier_report_id}`, {
+            method: "GET",
+            headers: { "Content-Type": "application/json" , "X-CSRF-TOKEN": "{{ csrf_token() }}"},
+        });
+
+        const data = await response.json();
+
+        if(data.error) {
+            console.log(data);
+            return
+        }
+        
+        clearInterval(statusPoll);
+
+        var astro_match = data.xavier_report;
+
+        console.log(astro_match);
+        var redirectUrl = `/marriagereport?mainProfileId=${astro_match.mainProfileID}&allianceProfileId=${astro_match.allianceProfileID}&decisionID1=${astro_match.firstDecisionID}&decisionID2=${astro_match.secondDecisionID}&matchMethod=${astro_match.matchMakingMethod}&matchID=${astro_match.sno}&userId=${astro_match.userID}`;
+        window.location.href = redirectUrl;
+        
+    }
 </script>
