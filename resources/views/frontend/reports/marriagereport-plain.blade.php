@@ -409,6 +409,13 @@ $language["bhavaganumber"] = "Bhavaga Number";
     $promoPartnerLogoImage = "";
     $promoPartnerBannerImage = "";
 
+    $completeReport = "New Alliance Match Making Report.pdf";
+    $completeReport_ta = "Tamil-New Alliance Match Making Report.pdf";
+    $completeReport_hi = "Hindi-New Alliance Match Making Report.pdf";
+    $completeReport_te = "Telugu-New Alliance Match Making Report.pdf";
+    $completeReport_kn = "Kannada-New Alliance Match Making Report.pdf";
+    $completeReport_ml = "Malayalam-New Alliance Match Making Report.pdf";
+
     $suffix_col = "_en";
 
     $sql = "select ID,apiAcName,clientID,clientSecret,totalCreditLimit from ab_proKeralaAPIAccount_table where isCreditExceeded='N' and isActive='Y' and ID=1";
@@ -1921,12 +1928,55 @@ if(isset($_GET['userId']))
 @endphp
 </div>
 </div>
-
 <div class="row m-5">
+<p class="mb-4">{!! __('messages.salespara1') !!}</p>
+<p class="mb-4">{!! __('messages.salespara2') !!}</p>
+<p class="mb-4">{!! __('messages.salespara3') !!}</p>
+<p class="mb-4">{!! __('messages.salespara4') !!}</p>
+<p class="mb-4">{!! __('messages.salespara5') !!}</p>
+<p class="mb-4">{!! __('messages.salespara6') !!}</p>
+</div>
+<div class="row m-5">
+                <div class="pricing-table table-1">
+                    <div class="ptable-item featured-item">
+                        <div class="ptable-single">
+                            <div class="ptable-header">                                
+                              <a href="#" onclick="showPaymentwidget()">
+                                <div class="ptable-title">
+                                    <h2>{!! __('messages.matchbutton') !!}</h2>
+                                </div>
+                                <div class="ptable-price">
+                                    <h2><small>₹</small>599 <span class="strikethrough">₹1,000</span><span> <span> + GST</span></h2>
+                                    <span class="price-note"><i>{!! __('messages.reportprice') !!}</i></span>
+                                </div>
+                              </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>{!! __('messages.foryou') !!}</h3>
+                <p class="mb-4">{!! __('messages.nchomehead2') !!}</p>
+                <div class="content-section">
+                    <span class="underline"></span>
+                    <span class="short-underline"></span>
+                </div>
+                <p class="mb-4">{!! __('messages.nchomepara2') !!}</p>
+                <iframe src="sample-reports/New Alliance Match Making Report.pdf" width="100%" height="750px" style="border: none;"></iframe>
+                <div class="mt-3">
+                    <h3>{!! __('messages.nchomehead1') !!}</h3>
+                    <p class="mb-4">{!! __('messages.nchomepara1') !!}</p>
+        
+                    <div class="macth-payment">
+                        <a href="#" class="btn btn-mat mb-1 mt-3 btn-sm" onclick="showPaymentwidget()">{!! __('messages.buybutton') !!}</a>
+                        <span class="buynow-note">{!! __('messages.buynote') !!}</span>
+                    </div>
+                </div>   
+</div>
+<!-- <div class="row m-5">
     <div class="col-md-4"></div>
     <div class="col-md-4 my-2 text-center"><button onclick="showPaymentwidget()" class="btn btn-mat">Get a preminum report now!</button></div>
     <div class="col-md-4"></div>      
-</div>
+</div> -->
 <div class="row mx-5">
     <div class="col-sm-12 col-md-6 col-lg-4">
     <button name="btnDownload" class="btn btn-mat report-btns" onclick="downloadReport();">
@@ -1953,16 +2003,16 @@ if(isset($_GET['userId']))
     async function downloadReport() {
         Swal.fire({
             title: "Downloading your Report",
-            text: "Premium Match Making report",
+            text: "Standard Match Making Report",
             icon: "success"
         });
         var element = document.getElementById('pdf-print');
         var opt = {
             margin:       0.5,
-            filename:     'Premium Match Making report.pdf',
+            filename:     'Standard Match Making Report.pdf',
             image:        { type: 'jpeg', quality: 0.98 },
             html2canvas:  { dpi: 192, letterRendering: true },
-            jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+            jsPDF:        { unit: 'in', format: [11, 16], orientation: 'portrait' }
         };
 
         html2pdf().set(opt).from(element).save();
@@ -1971,7 +2021,7 @@ if(isset($_GET['userId']))
     async function sendMail() {
         Swal.fire({
             title: "Mail sent to your inbox",
-            text: "Premium Match Making report!",
+            text: "Standard Match Making Report!",
             icon: "success"
         });
     }
@@ -1982,7 +2032,7 @@ if(isset($_GET['userId']))
 
     function showPaymentwidget(){
         Swal.fire({
-            title: 'Redirecting you to Premimum report',
+            title: 'Redirecting you to Complete Report',
             text: 'Please wait',
             allowOutsideClick: false,
             didOpen: () => {
