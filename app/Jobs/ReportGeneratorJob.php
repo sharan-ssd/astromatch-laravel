@@ -228,31 +228,6 @@ class ReportGeneratorJob implements ShouldQueue
         return sprintf("%02d:%02d", $hour, $minute);
     }
 
-    private function sendReportGenerationCampaign(){
-        $toAddress = $this->user->email;
-        $subject = 'Your Marriage Report has been generated';
-        $mailBody = "<h1>Hello ".$this->user->userName."</h1>
-                    <p>Make Your Payment immediately. to view your report</p>
-                ";
-        Mail::to($toAddress)->send(new CustomMail($subject, $mailBody));
-        $this->report_tracker->increment('email_sent_count');
-    }
-
-
-    private function sendWhatsAppDoc()
-    {
-        $whatsapp = new WhatsAppService();
-
-        $result = $whatsapp->sendDocument(
-            '918610711834', 
-            'https://pdfobject.com/pdf/sample.pdf', 
-            'Here is your document'
-        );
-
-        $this->report_tracker->increment('whatsapp_sent_count');
-        return response()->json($result);
-    }
-
     private function additionalMatch($mainProfileId, $allianceProfileId, $userId, $matchId)
     {
         try {            
