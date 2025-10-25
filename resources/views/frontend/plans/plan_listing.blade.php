@@ -209,7 +209,7 @@
                 </div>
                 <div class="ptable-footer">
                     <div class="">
-                        <a class="mt-2 mx-2" id="samplePremium" href="Existing Couple Match Making Report.pdf"
+                        <a class="mt-2 mx-2" id="samplePremium" href="sample-reports/Existing Couple Match Making Report.pdf"
                             target="_blank"><i class="fa fa-download"></i> Click here to view/download the sample report
                             of Existing Couple</a>
                     </div>
@@ -306,7 +306,7 @@
                 </div>
                 <div class="ptable-footer">
                     <div class="">
-                        <a class="mt-2 mx-2" id="sampleComplete" href="New Alliance Match Making Report.pdf"
+                        <a class="mt-2 mx-2" id="sampleComplete" href="sample-reports/Premium Match Making Report.pdf"
                             target="_blank"><i class="fa fa-download"></i> Click here to view / download the primium
                             sample report</a>
                     </div>
@@ -416,7 +416,7 @@
                 </div>
                 <div class="ptable-footer">
                     <div class="">
-                        <a class="mt-2 mx-2" id="sampleComplete" href="New Alliance Match Making Report.pdf"
+                        <a class="mt-2 mx-2" id="sampleComplete" href="sample-reports/New Alliance Match Making Report.pdf"
                             target="_blank"><i class="fa fa-download"></i> Click here to view/download the sample report
                             of New Alliance Match</a>
                     </div>
