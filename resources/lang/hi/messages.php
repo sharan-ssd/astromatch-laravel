@@ -1,3 +1,4 @@
+
 <?php
 //Login page
 $language["mobile"] = "मोबाइल नंबर";
@@ -923,5 +924,56 @@ $language['divorced'] = "तलाकशुदा";
 $language['separated'] = "अलग रह रहे हैं";
 $language['widowed'] = "विधवा / विधुर";
 $language["close"] = "बंद करें";
+$language["invalidmobilenumber"] = "अमान्य मोबाइल नंबर";
+$language["astromusicloginhint"] = "कृपया पुरुष कुंडली जन्म तिथि दर्ज करें";
+$language['edit_number'] = "संख्या संपादित करें";
+
+$language["yourname"] = "आपका पूरा नाम";
+$language["your_dateofbirth"] = "आपकी जन्म की तारीख";
+$language["your_timeofbirth"] = "आपका जन्म समय";
+$language["your_birthplace"] = "आपका जन्म स्थान";
+$language["your_email"] = "आपका ईमेल";
+$language["partnername"] = "पार्टनर का पूरा नाम";
+$language["partner_dateofbirth"] = "पार्टनर की जन्म तिथि";
+$language["partner_timeofbirth"] = "साथी का जन्म समय";
+$language["partner_birthplace"] = "पार्टनर का जन्म स्थान";
+$language["freecompatibility"] = "अपना निःशुल्क संगतता स्कोर प्राप्त करें";
+$language["limitedtime"] = "सीमित समय: निःशुल्क मूल रिपोर्ट";
+$language["discover"] = "प्राचीन ज्योतिष के माध्यम से अपना आदर्श ब्रह्मांडीय मिलान खोजें";
+$language["vedicastroreport"] = "समय-परीक्षणित वैदिक ज्योतिष का उपयोग करके एक विस्तृत संगतता विश्लेषण प्राप्त करें जो आपके और आपके साथी के बीच गहरे संबंधों को प्रकट करता है।";
+$language["realstories"] = "खुश दम्पतियों की सच्ची प्रेम कहानियाँ";
+$language["compatibilityanalysis"] = "हमारा संगतता विश्लेषण क्या खास बनाता है?";
+$language["36cp"] = "36 संगतता अंक";
+$language["36cpdesc"] = "हमारा उन्नत एल्गोरिदम भावनात्मक, शारीरिक, मानसिक और आध्यात्मिक आयामों सहित 36 विभिन्न संगतता कारकों का विश्लेषण करता है।";
+$language["vedicwisdom"] = "प्राचीन वैदिक ज्ञान";
+$language["vedicwisdomdesc"] = "5000 वर्ष पुराने वैदिक ज्योतिष सिद्धांतों पर आधारित, आधुनिक संबंध मनोविज्ञान के साथ संयुक्त, अद्वितीय सटीकता के लिए।";
+$language["scorebreakdown"] = "विस्तृत स्कोर विवरण";
+$language["scorebreakdowndesc"] = "संचार, रोमांस, विश्वास, मूल्यों और दीर्घकालिक क्षमता के लिए कार्यान्वयन योग्य अंतर्दृष्टि के साथ व्यक्तिगत स्कोर प्राप्त करें।";
+$language["personalremedies"] = "व्यक्तिगत उपचार";
+$language["personalremediesdesc"] = "कमजोर क्षेत्रों को मजबूत करने और अपने रिश्ते की क्षमता को बढ़ाने के लिए कस्टम सिफारिशें और उपाय प्राप्त करें।";
+$language["futureprediction"] = "भावी भविष्यवाणियां";
+$language["futurepredictiondesc"] = "ग्रहों की स्थिति के आधार पर सगाई, विवाह या परिवार शुरू करने जैसे महत्वपूर्ण निर्णयों के लिए सर्वोत्तम समय जानें।";
+$language["confidential"] = "100% गोपनीय";
+$language["confidentialdesc"] = "आपकी व्यक्तिगत जानकारी एन्क्रिप्ट की जाती है और कभी साझा नहीं की जाती। हम आपकी गोपनीयता का सम्मान करते हैं और पूरी गोपनीयता बनाए रखते हैं।";
+$language["astromatchwork"] = "एस्ट्रो मैच कैसे काम करता है";
+$language["birthdetail"] = "जन्म विवरण दर्ज करें";
+$language["birthdetaildesc"] = "दोनों भागीदारों की जन्म तिथि, समय और स्थान सहित सटीक जन्म जानकारी प्रदान करें।";
+$language["analysis"] = "एआई विश्लेषण";
+$language["analysisdesc"] = "हमारा उन्नत एल्गोरिदम ग्रहों की स्थिति का विश्लेषण करता है और अनुकूलता स्कोर की गणना करता है।";
+$language["getreport"] = "अपनी रिपोर्ट प्राप्त करें";
+$language["getreportdesc"] = "स्कोर, अंतर्दृष्टि और व्यक्तिगत अनुशंसाओं के साथ एक व्यापक रिपोर्ट प्राप्त करें।";
+$language["insights"] = "अंतर्दृष्टि लागू करें";
+$language["insightsdesc"] = "अपने रिश्ते को मजबूत बनाने और चुनौतियों का मिलकर सामना करने के लिए मार्गदर्शन का उपयोग करें।";
+$language["salespara1"] = "प्रिय उपयोगकर्ता, क्या आप जानते हैं? जन्म नक्षत्र के आधार पर <span style='color:red; font-weight:bold; font-style: italic;'>अनुभवी ज्योतिषी इन दस मिलानों को <u>केवल 20% महत्व</u></span> देते हैं?";
+$language["salespara2"] = "<span style='color: maroon; font-weight:bold;'>यही कारण है कि यदि आप इस दस मिलान विधि के आधार पर अपनी कुंडली भेजते भी हैं, तो कई बार दूल्हे के परिवार द्वारा इसे अनुपयुक्त मानकर अस्वीकार कर दिया जाता है।</span>";
+$language["salespara3"] = "पिछले 2 वर्षों में 150 से अधिक विवाह मिलान ज्योतिषियों के हमारे सर्वेक्षण के आधार पर,";
+$language["salespara4"] = "इन दस मिलानों के अलावा, सॉफ्टवेयर विभिन्न पूर्वानुमान विधियों का उपयोग करके अंतिम निर्णय लेता है।";
+$language["salespara5"] = "<span style='color:#0EC4E8; font-weight:bold; font-style: italic;'><u>80% से अधिक सटीकता के साथ</u></span>, हमारा विशेष आविष्कार <span style='color:blue; font-weight:bold;'>विहाग योग पट्टाथि (VYP) मिलान-विधि</span> मिलान की तलाश करके,";
+$language["salespara6"] = "अपना आदर्श जीवन साथी शीघ्रता से खोजें - हमारी सबसे सटीक उच्च-गुणवत्ता वाली विवाह मिलान रिपोर्ट प्राप्त करें, <span style='font-weight:bold;font-style: italic;'>अभी रियायती मूल्य पर!</span>";
+$language["matchbutton"] = "सटीक मिलान देखें";
+$language["buybutton"] = "तुरन्त, सटीक मिलान देखें!";
+$language["foryou"] = "यह आपके लिए है:";
+$language["samplereport"] = "एक उदाहरण उच्च परिशुद्धता विवाह मिलान रिपोर्ट:";
+$language["income"] = "मासिक आय";
 
 return $language;
