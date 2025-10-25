@@ -1010,7 +1010,7 @@ $language["bhavaganumber"] = "Bhavaga Number";
                             $doshaResult =  round($fromSukranLevel) . "% - " . $output;
                     }                    
                 }
-                $doshaResult .= "<br>" . $language['sevvaaipercentage'] . " : " . round($overallSevvaaiDoshaLevel) . "%" . "##" . $numberOfDoshaTypesIdentified ."^". $applicableDoshaTypes . "^" . $overallSevvaaiDoshaLevel;
+                $doshaResult .= "<br>" . $language['sevvaaipercentage'] . " : " . round($overallSevvaaiDoshaLevel) . "%" . "##" . $numberOfDoshaTypesIdentified ."^". $applicableDoshaTypes . "^" . $overallSevvaaiDoshaLevel;                
             }            
         }
         catch(Exception $ex)
@@ -2774,28 +2774,14 @@ try {
     $tResult = mysqli_query($con, $tsql);
     $tRow = mysqli_fetch_array($tResult);
     $kalathiraDoshaRemarks = $tRow[0];
-
-    $temp = $additionalPorutham['numerologyMatchRemarks'];
-
-    $parts = explode(' >> ', $temp);
-
-    $tsql = "SELECT fn_translateList('SP_MatchMaker_v3','o_factorsMatchingResponseList','" . str_replace(" !", "", $parts[1],) . "','English','" . $convertLang . "',1)";
-    $tResult = mysqli_query($con, $tsql);
-    $tRow = mysqli_fetch_array($tResult);
-
-    // Use preg_match_all to find all numbers in the string
-    preg_match_all('/\d+/', $temp, $matches);
-
-    // $numerologyMatchRemarks = $language['malebirthnumber'] . $matches[0][0] . " | " . $language['totalnumber'] . $matches[0][1] . " | " . $language['destinynumber'] . $matches[0][2] . " <br/> " . $language['femalebirthnumber'] . $matches[0][3] . " | " . $language['totalnumber'] . $matches[0][4] . " | " . $language['destinynumber'] . $matches[0][5] . " <br/> " . $tRow[0] . " !";
-    $numerologyMatchRemarks = $additionalPorutham['numerologyMatchRemarks']; 
+    
     $tsql = "SELECT fn_translateList('SP_MatchMaker_v3','o_factorsMatchingResponseList','" . str_replace("'", "''", $additionalPorutham['manaSanchalaDoshaRemarks']) . "','English','" . $convertLang . "',1)";
 
     $tResult = mysqli_query($con, $tsql);
     $tRow = mysqli_fetch_array($tResult);
     $manaSanchalaDoshaRemarks = $tRow[0];
 
-    $kalathiraDoshaResult = "<span style='color:darkgreen;font-size:18px;'>" . $language['kalathiradoshamatch'] . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;</span><span style='color:#b90075;font-size:18px;white-space:nowrap;'>" . $kalathiDoshaPercentage . "  %</span></span><br/>" . $kalathiraDoshaRemarks;
-    $numerologyResult = "<span style='color:darkgreen;font-size:18px;'>" . $language['numerologymatch'] . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;</span><span style='color:#b90075;font-size:18px;white-space:nowrap;'>" . $numerologymatchPercentage . "  %</span></span><br/><br/>" . $numerologyMatchRemarks;
+    $kalathiraDoshaResult = "<span style='color:darkgreen;font-size:18px;'>" . $language['kalathiradoshamatch'] . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;</span><span style='color:#b90075;font-size:18px;white-space:nowrap;'>" . $kalathiDoshaPercentage . "  %</span></span><br/>" . $kalathiraDoshaRemarks;    
     $manaSanchalaDoshaResult = "<span style='color:darkgreen;font-size:18px;'>" . $language['manasanchaladoshamatch'] . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;</span><span style='color:#b90075;font-size:18px;white-space:nowrap;'>" . $manaSanchalaDoshaPercentage . "  %</span></span><br/>" . $manaSanchalaDoshaRemarks;
 
     /*Sirappu Porutham*/
@@ -2872,7 +2858,7 @@ try {
         }
 
         $maleSevvaaiDosha = checkSevvaaiDosha($allianceID, $astroOrgSDTemplateID, $numberOfMaleDoshaTypesIdentified, $applicableMaleDoshaTypes, $overallMaleSevvaaiDoshaLevel, $con, $live_Host, $live_DBName, $live_User, $live_Pwd, $language, $convertLang);
-        $femaleSevvaaiDosha = checkSevvaaiDosha($astroProfileID, $astroOrgSDTemplateID, $numberOfFemaleDoshaTypesIdentified, $applicableFemaleDoshaTypes, $overallFemaleSevvaaiDoshaLevel, $con, $live_Host, $live_DBName, $live_User, $live_Pwd, $language, $convertLang);
+        $femaleSevvaaiDosha = checkSevvaaiDosha($astroProfileID, $astroOrgSDTemplateID, $numberOfFemaleDoshaTypesIdentified, $applicableFemaleDoshaTypes, $overallFemaleSevvaaiDoshaLevel, $con, $live_Host, $live_DBName, $live_User, $live_Pwd, $language, $convertLang);        
         $sevvaaiDoshaResult = "";
         if ($maleSevvaaiDosha != "") {
             $temp = explode("##", $maleSevvaaiDosha);
@@ -2931,13 +2917,17 @@ try {
         } else {
             $sevvaaiDoshaResult .= "<b>" . $language["maletharapalan"] . "</b>" . $language["sevvaaidosha"] . " : " . $language["doshano"] . "<br/><hr style='width:50%;margin:5px auto 5px auto;'>";
         }
+        //echo $femaleSevvaaiDosha; exit;
         if ($femaleSevvaaiDosha != "") {
             $temp = explode("##", $femaleSevvaaiDosha);
             $femaleSevvaaiDosha = $temp[0];
-            $parameters = explode("^", $temp[1]);
-            $numberOfFemaleDoshaTypesIdentified = $parameters[0];
-            $applicableFemaleDoshaTypes = $parameters[1];
-            $overallFemaleSevvaaiDoshaLevel = $parameters[2];
+            if(isset($temp[1]))
+            {
+                $parameters = explode("^", $temp[1]);
+                $numberOfFemaleDoshaTypesIdentified = $parameters[0];
+                $applicableFemaleDoshaTypes = $parameters[1];
+                $overallFemaleSevvaaiDoshaLevel = $parameters[2];
+            }
 
             $sevvaaiDoshaResult .= "<b>" . $language["femaletharapalan"] . "</b>" . $language["sevvaaidosha"] . " : " . $femaleSevvaaiDosha;
         } else {
@@ -3065,16 +3055,16 @@ try {
 async function downloadReport() {
     Swal.fire({
         title: "Downloading your Report",
-        text: "Premium Match Making report",
+        text: "New Alliance Match Making report",
         icon: "success"
     });
     var element = document.getElementById('pdf-print');
     var opt = {
         margin:       0.5,
-        filename:     'Premium Match Making report.pdf',
+        filename:     'New Alliance Match Making report.pdf',
         image:        { type: 'jpeg', quality: 0.98 },
         html2canvas:  { dpi: 192, letterRendering: true },
-        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+        jsPDF:        { unit: 'in', format: [11, 16], orientation: 'portrait' }
     };
 
     html2pdf().set(opt).from(element).save();
@@ -3082,7 +3072,7 @@ async function downloadReport() {
 async function sendMail() {
     Swal.fire({
         title: "Mail sent to your inbox",
-        text: "Premium Match Making report!",
+        text: "New Alliance Match Making report!",
         icon: "success"
     });
 }
