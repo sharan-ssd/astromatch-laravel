@@ -1601,7 +1601,7 @@ try {
     }
 
     
-    $query = "SELECT planetID,rasiID,hposDegree,hposMinute,hposSecond,starID,starPadam,relWithRasiLord FROM ab12_positions_table WHERE astroProfileID=" . $astroProfileID;    
+    $query = "SELECT planetID,rasiID,hposDegree,hposMinute,hposSecond,starID,starPadam,relWithRasiLord FROM ab12_positions_table WHERE astroProfileID=" . $astroProfileID . "  ORDER BY planetID";    
     $result = mysqli_query($con, $query);
     if (mysqli_num_rows($result) > 0) {
         $records = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -1692,7 +1692,7 @@ try {
     $rasi = array();
     $colorNos = array();
 
-    $query = "SELECT rasiID FROM ab12_positions_table WHERE astroProfileID=$astroProfileID";
+    $query = "SELECT rasiID FROM ab12_positions_table WHERE astroProfileID=$astroProfileID ORDER BY planetID";
     $result = mysqli_query($con, $query);
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_array($result)) {
@@ -1703,7 +1703,7 @@ try {
     $rasiID = $rasi[2] - 1;
     $birthrasi1 = $rasiOptions[$rasiID][$rasiField];
 
-    $query = "SELECT revisedRasiIDsForRasiChart FROM ab12_positions_table WHERE revisedRasiIDsForRasiChart IS NOT NULL AND astroProfileID=$astroProfileID";
+    $query = "SELECT revisedRasiIDsForRasiChart FROM ab12_positions_table WHERE revisedRasiIDsForRasiChart IS NOT NULL AND astroProfileID=$astroProfileID ORDER BY planetID";
     $result = mysqli_query($con, $query);
     $rows = mysqli_num_rows($result);
     if ($rows > 0) {
@@ -1750,7 +1750,7 @@ try {
     $rasichart .= '</table></div>';
 
     $navamsaRasi = array();
-    $query = "SELECT navamsaRasiID FROM ab12_positions_table WHERE astroProfileID=$astroProfileID";
+    $query = "SELECT navamsaRasiID FROM ab12_positions_table WHERE astroProfileID=$astroProfileID ORDER BY planetID";
     $result = mysqli_query($con, $query);
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_array($result)) {
@@ -2062,7 +2062,7 @@ try {
     $rasi = array();
     $colorNos = array();
 
-    $query = "SELECT rasiID FROM ab12_positions_table WHERE astroProfileID=$allianceID";
+    $query = "SELECT rasiID FROM ab12_positions_table WHERE astroProfileID=$allianceID ORDER BY planetID";
     $result = mysqli_query($con, $query);
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_array($result)) {
@@ -2076,7 +2076,7 @@ try {
     $rasiID = $rasi[0] - 1;
     $rasiName = $rasiOptions[$rasiID][$rasiField];
 
-    $query = "SELECT revisedRasiIDsForRasiChart FROM ab12_positions_table WHERE revisedRasiIDsForRasiChart IS NOT NULL AND astroProfileID=$allianceID";
+    $query = "SELECT revisedRasiIDsForRasiChart FROM ab12_positions_table WHERE revisedRasiIDsForRasiChart IS NOT NULL AND astroProfileID=$allianceID ORDER BY planetID";
     $result = mysqli_query($con, $query);
     $rows = mysqli_num_rows($result);
     if ($rows > 0) {
@@ -2123,7 +2123,7 @@ try {
     $rasichart .= '</table></div></div></div>';
 
     $navamsaRasi = array();
-    $query = "SELECT navamsaRasiID FROM ab12_positions_table where astroProfileID=$allianceID";
+    $query = "SELECT navamsaRasiID FROM ab12_positions_table where astroProfileID=$allianceID ORDER BY planetID";
     $result = mysqli_query($con, $query);
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_array($result)) {
@@ -2185,7 +2185,7 @@ try {
 
     $navamsachart .= '</table></div></div>';
 
-    $query = "SELECT planetID,rasiID,hposDegree,hposMinute,hposSecond,starID,starPadam,relWithRasiLord FROM ab12_positions_table WHERE astroProfileID=" . $allianceID;
+    $query = "SELECT planetID,rasiID,hposDegree,hposMinute,hposSecond,starID,starPadam,relWithRasiLord FROM ab12_positions_table WHERE astroProfileID=" . $allianceID . "  ORDER BY planetID";
     $result = mysqli_query($con, $query);
     if (mysqli_num_rows($result) > 0) {
         $records = mysqli_fetch_all($result, MYSQLI_ASSOC);
