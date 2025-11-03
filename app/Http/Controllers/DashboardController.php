@@ -71,7 +71,6 @@ class DashboardController extends Controller
         ));
     }
 
-
     function newhoroscope() {
         return view('frontend.home.newhoroscope');
     }

@@ -16,7 +16,7 @@
           </a>
         </div>
         <div class="col-md-6">
-          <a href="matchmaker" class="btn btn-mat save-astro profilelist-btns">
+          <a href="savedhoroscope" class="btn btn-mat save-astro profilelist-btns">
             {{ __('messages.savedprofile') }}
           </a>
         </div>
