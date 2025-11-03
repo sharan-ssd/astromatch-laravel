@@ -53,23 +53,39 @@ class PaymentController extends Controller
         DB::table('ab_savedMatch_table')->where('sno', $XavierReport->match_id)->update(['isPaymentDone' => 'Y']);
         $XavierReport->save();
 
-        if ($request->input('amount') < 2 ) {
-            return response()->json(['status' => 'success', 'data' => array(), 'astro_match' => $astro_match]);
+        if ($request->input('amount') < 2) {
+            return view('/frontend.plans.payment_confrimation', [
+                'status' => 'success',
+                'data' => [],
+                'astro_match' => $astro_match
+            ]);
         }
-        
+
         if (!$this->verifyPaymentSignature($paymentId, $orderId, $signature)) {
-            return response()->json(['status' => 'error', 'message' => 'Invalid payment signature'], 400);
-        } 
-        
-        try {
-            $response = $api->payment->fetch($paymentId)->capture(['amount' => $request->input('amount') * 100]);
-        } catch (\Exception $e) {
-            return response()->json(['status' => 'error', 'message' => $e->getMessage(), 'astro_match' => $astro_match]);
+            return view('/frontend.plans.payment_confrimation', [
+                'status' => 'error',
+                'message' => 'Invalid payment signature',
+                'astro_match' => $astro_match
+            ]);
         }
-        
 
-        return response()->json(['status' => 'success', 'data' => $response, 'astro_match' => $astro_match]);
+        try {
+            $response = $api->payment->fetch($paymentId)->capture([
+                'amount' => $request->input('amount') * 100
+            ]);
+        } catch (\Exception $e) {
+            return view('/frontend.plans.payment_confrimation', [
+                'status' => 'error',
+                'message' => $e->getMessage(),
+                'astro_match' => $astro_match
+            ]);
+        }
 
+        return view('frontend.plans.payment_confrimation', [
+            'status' => 'success',
+            'data' => $response,
+            'astro_match' => $astro_match
+        ]);
     }
 
     private function verifyPaymentSignature($paymentId, $orderId, $signature)

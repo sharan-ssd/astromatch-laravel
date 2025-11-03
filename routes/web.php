@@ -8,6 +8,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ReportsController;
 use App\Http\Controllers\SuggestController; 
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Http\Request;
 
 Route::get('/run-queue', function () {
     Artisan::call('queue:work', [
@@ -78,9 +79,17 @@ Route::get('/faq', function () {
     return view('/frontend.faq.faq');
 });
 
+Route::post('/payment-confirmation', function (Request $request){
+    $response = $request->input('response');
+    $xavier_report_id = $request->input('xavier_report_id');
+
+    return view('frontend.plans.payment-confirmation', compact('response', 'xavier_report_id'));
+});
+
 Route::get('/marriagereport', [ReportsController::class, 'basicReport']);
 Route::get('/report/basic_report', [ReportsController::class, 'basicReport_poll']);
 Route::get('/premimum/intent', [ReportsController::class, 'premimum_report_intent']);
+
 
 Route::get('/marriagereportcomplete', [ReportsController::class, 'completeReport']);
 Route::get('/view/basicReportPDF', [ReportsController::class, 'basicReportPDF']);
@@ -89,6 +98,8 @@ Route::get('/view/premimumReportPDF', [ReportsController::class, 'premimumReport
 // apis
 Route::get('/api/suggest', [SuggestController::class, 'suggest']);
 
+
+// static short urls
 
 Route::get('/new-tamil', function () {
     $filePath = public_path('sample-reports/Tamil-New Alliance Match Making Report.pdf');
