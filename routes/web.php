@@ -7,6 +7,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ReportsController;
 use App\Http\Controllers\SuggestController; 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Http\Request;
 
@@ -178,3 +179,5 @@ Route::get('/new-malayalam', function () {
         'Content-Disposition' => 'inline; filename="Malayalam-New Alliance Match Making Report.pdf"',
     ]);
 });
+
+Route::get('/savedhoroscope', [ProfileController::class, 'savedhoroscope']);
